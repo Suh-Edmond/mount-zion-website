@@ -67,6 +67,9 @@ class FacultyController extends Controller
     {
         $this->facultyService->deleteFaculty($request);
 
-        return redirect()->back()->with(['status' => 'Faculty deleted successfully']);
+        $data = [
+            'faculties' => $this->facultyService->index($request)
+        ];
+        return redirect()->route('manage.academics')->with(['status' => 'Faculty deleted successfully', 'data' => $data]);
     }
 }

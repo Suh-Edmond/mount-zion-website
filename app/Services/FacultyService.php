@@ -42,6 +42,8 @@ class FacultyService implements FacultyInterface
 
     public function deleteFaculty($request)
     {
-        return Faculty::where('slug',$request['slug'])->findOrFail()->delete();
+        $deleted = Faculty::where('slug',$request['slug'])->firstOrFail();
+
+        $deleted->delete();
     }
 }
