@@ -10,7 +10,7 @@ interface FacultyInterface
 
     public function storeFaculty($facultyRequest);
 
-    public function updateFaculty($request, $id);
+    public function updateFaculty($request);
 
     public function getFaculty($request);
 

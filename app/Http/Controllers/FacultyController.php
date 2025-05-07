@@ -30,29 +30,34 @@ class FacultyController extends Controller
         $data = [
             'title' => 'Create Faculty',
         ];
-
         return view('pages.management.faculty.create')->with($data);
     }
 
 
     public function storeFaculty(CreateFacultyRequest $facultyRequest)
     {
-        $created = $this->facultyService->storeFaculty($facultyRequest);
-
-        return view('pages.management.faculty.index')->with(['status' => 'Faculty created successfully']);
+        $this->facultyService->storeFaculty($facultyRequest);
+        $data = [
+            'faculties' => $this->facultyService->index($facultyRequest)
+        ];
+        return view('pages.management.faculty.index')->with($data);
     }
 
-    public function updateFaculty(CreateFacultyRequest $request, $id)
+    public function updateFaculty(CreateFacultyRequest $request)
     {
-        $updated = $this->facultyService->updateFaculty($request, $id);
+        $updated = $this->facultyService->updateFaculty($request);
 
-        return view('pages.management.faculty.index')->with(['status' => 'Faculty updated successfully']);
+        return redirect()->back()->with(['status' => 'Faculty updated successfully']);
     }
 
 
     public function showFaculty(Request $request)
     {
-        $data = $this->facultyService->getFaculty($request);
+        $faculty = $this->facultyService->getFaculty($request);
+        $data = [
+            'faculty' => $faculty,
+            'departments' => $faculty->departments()->orderBy('name', 'desc')->paginate(5)
+        ];
 
         return view('pages.management.faculty.show')->with($data);
     }
@@ -62,6 +67,6 @@ class FacultyController extends Controller
     {
         $this->facultyService->deleteFaculty($request);
 
-        return view('pages.management.faculty.index')->with(['status' => 'Faculty deleted successfully']);
+        return redirect()->back()->with(['status' => 'Faculty deleted successfully']);
     }
 }

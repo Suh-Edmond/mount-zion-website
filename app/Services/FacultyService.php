@@ -24,13 +24,14 @@ class FacultyService implements FacultyInterface
             'name'        => $facultyRequest['name'],
             'about'       => $facultyRequest['about'],
             'email'       => $facultyRequest['email'],
-            'telephone'   => $facultyRequest['telephone']
+            'telephone'   => $facultyRequest['telephone'],
+            'image_path'   => ''
         ]);
     }
 
-    public function updateFaculty($request, $id)
+    public function updateFaculty($request)
     {
-        $faculty = Faculty::findOrFail($id);
+        $faculty = Faculty::where('slug', $request['slug'])->firstOrFail();
         return $faculty->update($request->all());
     }
 
