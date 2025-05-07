@@ -24,4 +24,9 @@ class Faculty extends Model
     {
         return $this->hasMany(Department::class);
     }
+
+    public function stripDescriptionTags($desc)
+    {
+        return strip_tags($desc);
+    }
 }
