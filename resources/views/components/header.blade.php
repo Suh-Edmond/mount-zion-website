@@ -5,7 +5,7 @@
                 <div class="header__wrapper">
                     <div class="header__logo">
                         <a href="{{route('main.home')}}" class="header__logo--link">
-                            <img src="assets/images/logo/logo__white.svg" alt="unipix">
+                            <img style="width: 300px" src="assets/images/logo/logo.png" alt="unipix">
                         </a>
                     </div>
                     <div class="header__menu">
@@ -69,7 +69,7 @@
                     </div>
                     <div class="header__right">
                         <div class="header__right--item">
-                            <div id="langSwitcher" class="lang__trigger">
+                            <!-- <div id="langSwitcher" class="lang__trigger">
                                 <span class="selected__lang">English</span>
                                 <i class="fa-light fa-globe"></i>
                                 <div class="translate__lang">
@@ -80,7 +80,7 @@
                                         <li><a href="#">Romanian</a></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> -->
                             <div id="search-btn" class="search__trigger">
                                 <i class="fa-sharp fa-light fa-magnifying-glass"></i>
                             </div>

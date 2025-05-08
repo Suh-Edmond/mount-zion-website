@@ -25,6 +25,7 @@ Route::get('/events', [EventController::class, 'index'])->name('main.event');
 Route::get('/event-detail', [EventController::class, 'detail'])->name('main.event.detail');
 Route::get('/academics', [AcademicController::class, 'index'])->name('main.academics');
 Route::get('/academic-area', [AcademicController::class, 'academicArea'])->name('main.academic-area');
+Route::get('/programs', [AcademicController::class, 'academicArea'])->name('main.programs');
 Route::get('/about', [AboutController::class, 'index'])->name('main.about');
 Route::get('/admissions', [AdmissionController::class, 'index'])->name('main.admission');
 Route::get('/campus-life', [CampusController::class, 'index'])->name('main.campus-life');
