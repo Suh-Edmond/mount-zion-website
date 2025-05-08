@@ -4,11 +4,33 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Website\AboutController;
+use App\Http\Controllers\Website\AcademicController;
+use App\Http\Controllers\Website\AdmissionController;
+use App\Http\Controllers\Website\AlumniController;
+use App\Http\Controllers\Website\BlogController;
+use App\Http\Controllers\Website\CampusController;
+use App\Http\Controllers\Website\ContactController;
+use App\Http\Controllers\Website\EventController;
+use App\Http\Controllers\Website\HomeController;
+use App\Http\Controllers\Website\ScholarshipController;
+use App\Http\Controllers\Website\TuitionController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('main.home');
+Route::get('/contact', [ContactController::class, 'index'])->name('main.contact');
+Route::get('/blogs', [BlogController::class, 'index'])->name('main.blog');
+Route::get('/blogs-detail', [BlogController::class, 'detail'])->name('main.blog.detail');
+Route::get('/events', [EventController::class, 'index'])->name('main.event');
+Route::get('/event-detail', [EventController::class, 'detail'])->name('main.event.detail');
+Route::get('/academics', [AcademicController::class, 'index'])->name('main.academics');
+Route::get('/academic-area', [AcademicController::class, 'academicArea'])->name('main.academic-area');
+Route::get('/about', [AboutController::class, 'index'])->name('main.about');
+Route::get('/admissions', [AdmissionController::class, 'index'])->name('main.admission');
+Route::get('/campus-life', [CampusController::class, 'index'])->name('main.campus-life');
+Route::get('/scholarships', [ScholarshipController::class, 'index'])->name('main.scholarship');
+Route::get('tuition-fee', [TuitionController::class, 'index'])->name('main.tuition-fee');
+Route::get('alumni', [AlumniController::class, 'index'])->name('main.alumni');
 
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
