@@ -27,14 +27,14 @@
                                         <div class="rts-slider-content">
                                             <h6 class="rts-subtitle"><img src="assets/images/icon/e-cap.svg" alt="education hat"> excellence in healthcare education</h6>
                                             <h1 class="rts-slider-title">
-                                                Inspiring Minds
+                                                Mount Zion Clinic
                                                 Advancing Healthcare
                                             </h1>
                                             <p class="rts-slider-desc">
-                                                Be at the forefront of healthcare advancements through rigorous academic programs and opportunities for research and discovery.
+                                                Benefit from our commitment to the latest medical knowledge and innovative treatment approaches for your optimal well-being
                                             </p>
                                             <div class="rts-slider-btn">
-                                                <a href="{{route('main.programs')}}" class="rts-theme-btn btn-arrow">View Our Programs <span><i class="fa-thin fa-arrow-right"></i></span></a>
+                                                <a href="{{route('main.programs')}}" class="rts-theme-btn btn-arrow">View Our Services <span><i class="fa-thin fa-arrow-right"></i></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +54,7 @@
                                         <div class="rts-slider-content">
                                             <h6 class="rts-subtitle"><img src="assets/images/icon/e-cap.svg" alt="education hat"> knowledge meets innovation</h6>
                                             <h1 class="rts-slider-title">
-                                                Inspiring Minds
+                                                Mount Zion Institutes
                                                 Advancing Healthcare
                                             </h1>
                                             <p class="rts-slider-desc">
@@ -72,14 +72,14 @@
                 </div>
             </div>
             <!-- slider arrow -->
-            <div class="rts-slider-arrow">
+            <!-- <div class="rts-slider-arrow">
                 <div class="rt-slider-btn rt-next">
                     <i class="fa-regular fa-arrow-left"></i>
                 </div>
                 <div class="rt-slider-btn rt-prev">
                     <i class="fa-regular fa-arrow-right"></i>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- hero slider  end -->
