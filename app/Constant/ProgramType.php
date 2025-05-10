@@ -4,10 +4,11 @@ namespace App\Constant;
 
 enum ProgramType
 {
-    public const UNDERGRADUATE = "UNDERGRADUATE";
+    public const BACHELOR = "BACHELOR";
 
-    public const POSTGRADUATE = "POSTGRADUATE";
+    public const SPECIAL_CARE = "SPECIAL_CARE";
 
-    public const MBA = "MBA";
+    public const HND = "HND";
+
 
 }

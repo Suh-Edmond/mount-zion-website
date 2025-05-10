@@ -1,5 +1,6 @@
 <?php
 
+use App\Constant\DocumentCategory;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,15 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('departments', function (Blueprint $table) {
+        Schema::create('admission_documents', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->longText('about');
-            $table->string('image_path');
-            $table->string('email')->nullable();
-            $table->string('telephone')->nullable();
-            $table->foreignId('faculty_id')->constrained();
+            $table->foreignId('admission_id')->constrained();
+            $table->enum('category', [DocumentCategory::PASSPORT, DocumentCategory::DEGREE_CERT, DocumentCategory::GCE_CERT, DocumentCategory::HND_CERT, DocumentCategory::ID_CARD]);
             $table->string('slug')->unique();
+            $table->string('file_path')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('admission_documents');
     }
 };
