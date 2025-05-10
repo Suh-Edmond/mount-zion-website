@@ -4,11 +4,11 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="rts-footer-widget w-320">
                     <a href="{{route('main.home')}}" class="d-block rts-footer-logo mb--40">
-                        <img src="assets/images/logo/logo__white.svg" alt="Unipix">
+                        <img style="width: 200px" src="{{asset('assets/images/logo/logo.png')}}" alt="Unipix">
                     </a>
                     <p>
-                        We are passionate education dedicated to providing high-quality
-                        resources learners all backgrounds.
+                        We are a passionate institution dedicated to providing high-quality
+                        resources for learners of all backgrounds.
                     </p>
                     <div class="rts-contact-link">
                         <a href="mailto:contact@reacthemes.com"><i class="fa-sharp fa-light fa-location-dot"></i> Park, Melbourne, Australia </a>
@@ -21,37 +21,36 @@
                     <h6 class="rt-semi">Our Campus</h6>
                     <div class="rts-footer-menu">
                         <ul>
-                            <li><a href="academic.html">Academic</a></li>
-                            <li><a href="athletics.html">Athletics</a></li>
-                            <li><a href="campus-life.html">Campus life</a></li>
-                            <li><a href="reasearch.html">Research</a></li>
-                            <li><a href="academic-area.html">Academic Area</a></li>
+                            <li><a href="{{route('main.academic-area')}}">Academic</a></li>
+                            <!-- <li><a href="athletics.html">Athletics</a></li> -->
+                            <li><a href="{{route('main.campus-life')}}">Campus life</a></li>
+                            <li><a href="{{route('main.programs')}}">Research</a></li>
+                            <!-- <li><a href="academic-area.html">Academic Area</a></li> -->
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-4">
                 <div class="rts-footer-widget ml--30">
-                    <h6 class="rt-semi">Our Campus</h6>
+                    <h6 class="rt-semi">Our Clinic</h6>
                     <div class="rts-footer-menu">
                         <ul>
                             <li><a href="{{route('main.about')}}">About </a></li>
-                            <li><a href="tution-fee.html">Tution Fee</a></li>
-                            <li><a href="alumni.html">Alumni</a></li>
-                            <li><a href="faculty.html">Faculty Staff</a></li>
-                            <li><a href="event.html">Event</a></li>
+                            <li><a href="{{route('main.tuition-fee')}}">Tuition Fee</a></li>
+                            <li><a href="{{route('main.alumni')}}">Alumni</a></li>
+                            <li><a href="{{route('main.event')}}">Events</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-8">
+            <!-- <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="rts-footer-widget ml--30">
                     <h6 class="rt-semi">Recent Post</h6>
                     <div class="rts-post-widget">
                         <ul class="list-unstyled">
                             <li class="single-post">
                                 <a href="blog-details.html" class="blog-thumb">
-                                    <img src="assets/images/blog/w-1.jpg" alt="latest post">
+                                    <img src="{{asset('assets/images/blog/w-1.jpg')}}" alt="latest post">
                                 </a>
                                 <div class="post-content">
                                     <span class="rt-date">October 29, 2023</span>
@@ -62,7 +61,7 @@
                             </li>
                             <li class="single-post">
                                 <a href="blog-details.html" class="blog-thumb">
-                                    <img src="assets/images/blog/small-thumb-1.jpg" alt="latest post">
+                                    <img src="{{asset('assets/images/blog/small-thumb-1.jpg')}}" alt="latest post">
                                 </a>
                                 <div class="post-content">
                                     <span class="rt-date">October 29, 2023</span>
@@ -74,7 +73,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </footer>
@@ -82,7 +81,7 @@
     <div class="container">
         <div class="row">
             <div class="rt-center">
-                <p class="--p-xs">Copyright &copy; <span id="year"></span> All Rights Reserved by <a href="#">Unipix</a></p>
+                <p class="--p-xs">Copyright &copy; <span id="year"></span> All Rights Reserved</p>
             </div>
         </div>
     </div>
@@ -95,7 +94,7 @@
     <!-- inner menu area desktop start -->
     <div class="inner-main-wrapper-desk">
         <div class="thumbnail">
-            <img src="assets/images/logo/logo__five.svg" alt="Unipix-university">
+            <img src="{{asset('assets/images/logo/logo__five.svg')}}" alt="Unipix-university">
         </div>
         <div class="inner-content">
             <p class="disc">
@@ -104,7 +103,7 @@
             <!-- offcanvase banner -->
             <div class="offcanvase__banner mt--50">
                 <div class="offcanvase__banner--content">
-                    <img src="assets/images/offcanvase.jpg" alt="offcanvase">
+                    <img src="{{asset('assets/images/offcanvase.jpg')}}" alt="offcanvase">
                     <a href="admission.html" class="rts-theme-btn">Apply Now</a>
                 </div>
             </div>

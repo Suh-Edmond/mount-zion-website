@@ -19,22 +19,22 @@
                 <!-- single slider -->
                 <div class="swiper-slide">
                     <div class="rts-slider-height rts-slider-overlay rt-relative ">
-                        <div class="rts-slider-bg" data-background="assets/images/banner/slider__4.jpg" style="background-image: url(assets/images/banner/slider__4.jpg);"></div>
+                        <div class="rts-slider-bg" data-background="assets/images/hero/slider__1.jpg" style="background-image: url(assets/images/hero/slider__1.jpg);"></div>
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-6 col-xl-6 col-md-8 col-sm-9">
                                     <div class="rts-slider">
                                         <div class="rts-slider-content">
-                                            <h6 class="rts-subtitle"><img src="assets/images/icon/e-cap.svg" alt="education hat"> knowledge meets innovation</h6>
+                                            <h6 class="rts-subtitle"><img src="assets/images/icon/e-cap.svg" alt="education hat"> excellence in healthcare education</h6>
                                             <h1 class="rts-slider-title">
-                                                Inspiring Minds
-                                                Shaping Futures
+                                                Mount Zion Clinic
+                                                Advancing Healthcare
                                             </h1>
                                             <p class="rts-slider-desc">
-                                                Remember to tailor the section names to fit the specific needs and structure of your university website.
+                                                Benefit from our commitment to the latest medical knowledge and innovative treatment approaches for your optimal well-being
                                             </p>
                                             <div class="rts-slider-btn">
-                                                <a href="../academic.html" class="rts-theme-btn btn-arrow">View Our Program <span><i class="fa-thin fa-arrow-right"></i></span></a>
+                                                <a href="{{route('main.programs')}}" class="rts-theme-btn btn-arrow">View Our Services <span><i class="fa-thin fa-arrow-right"></i></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -46,7 +46,7 @@
                 <!-- single slider -->
                 <div class="swiper-slide">
                     <div class="rts-slider-height rts-slider-overlay rt-relative ">
-                        <div class="rts-slider-bg" data-background="assets/images/banner/slider__5.jpg" style="background-image: url(assets/images/banner/slider__5.jpg);"></div>
+                        <div class="rts-slider-bg" data-background="assets/images/hero/slider__2.jpg" style="background-image: url(assets/images/hero/slider__2.jpg);"></div>
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-6 col-xl-6 col-md-8 col-sm-9">
@@ -54,14 +54,14 @@
                                         <div class="rts-slider-content">
                                             <h6 class="rts-subtitle"><img src="assets/images/icon/e-cap.svg" alt="education hat"> knowledge meets innovation</h6>
                                             <h1 class="rts-slider-title">
-                                                Inspiring Minds
-                                                Shaping Futures
+                                                Mount Zion Institutes
+                                                Advancing Healthcare
                                             </h1>
                                             <p class="rts-slider-desc">
-                                                Remember to tailor the section names to fit the specific needs and structure of your university website.
+                                                Be at the forefront of healthcare advancements through rigorous academic programs and opportunities for research and discovery.
                                             </p>
                                             <div class="rts-slider-btn">
-                                                <a href="../academic.html" class="rts-theme-btn btn-arrow">View Our Program <span><i class="fa-thin fa-arrow-right"></i></span></a>
+                                                <a href="{{route('main.programs')}}" class="rts-theme-btn btn-arrow">View Our Programs <span><i class="fa-thin fa-arrow-right"></i></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -72,111 +72,33 @@
                 </div>
             </div>
             <!-- slider arrow -->
-            <div class="rts-slider-arrow">
+            <!-- <div class="rts-slider-arrow">
                 <div class="rt-slider-btn rt-next">
                     <i class="fa-regular fa-arrow-left"></i>
                 </div>
                 <div class="rt-slider-btn rt-prev">
                     <i class="fa-regular fa-arrow-right"></i>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- hero slider  end -->
-    <!-- apply start -->
-    <section class="rts-application-area  rts-section-padding v_2">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="rts-section rt-center mb--80">
-                    <h2 class="rts-section-title">Apply Now</h2>
-                </div>
-            </div>
-            <!-- application form -->
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="rts-admission-form-image">
-                        <img src="assets/images/feature/admission-form.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-10">
-                    <div class="rts-application-form ">
-                        <div class="rts-application-form-content v__2">
-                            <h5 class="heading-title mb--25">Application Form</h5>
-                            <form action="#" class="rts-form">
-                                <div class="rts-input rt-flex">
-                                    <div class="single-input">
-                                        <input type="text" name="fname" id="fname" placeholder="First Name" required>
-                                    </div>
-                                    <div class="single-input">
-                                        <input type="text" name="lname" id="lname" placeholder="Last Name" required>
-                                    </div>
-                                    <div class="single-input">
-                                        <input type="email" name="email" id="email" placeholder="Email.." required>
-                                    </div>
-                                    <div class="single-input">
-                                        <input type="number" name="Phone" id="Phone" placeholder="Phone" required>
-                                    </div>
-                                </div>
 
-                                <div class="rts-input rt-flex">
-                                    <div class="single-input">
-                                        <input type="text" name="address" id="address" placeholder="address" required>
-                                    </div>
-                                    <div class="single-input">
-                                        <input type="text" name="city" id="city" placeholder="City" required>
-                                    </div>
-                                    <div class="single-input">
-                                        <input type="text" name="country" id="country" placeholder="Country" required>
-                                    </div>
-                                    <div class="single-input">
-                                        <input type="number" name="zip" id="zip" placeholder="Zip Code" required>
-                                    </div>
-                                </div>
-
-                                <div class="rts-input rt-flex">
-                                    <div class="single-input">
-                                        <input type="text" name="data" id="datepicker" placeholder="dd/mm/yy" required>
-                                    </div>
-                                    <div class="single-input">
-                                        <input type="text" name="subject" id="subjcet" placeholder="Your Subject">
-                                    </div>
-                                </div>
-                                <div class="rts-input w-full">
-                                </div>
-                                <div class="rts-input w-full">
-                                    <div class="single-input">
-                                        <textarea name="msg" id="msg" placeholder="Enter Your Comments"></textarea>
-                                    </div>
-                                </div>
-                                <button type="submit" class="rts-theme-btn rts-nbg-btn btn-arrow v2 full-btn">Apply Now <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></button>
-
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="rt-shape">
-                <img src="assets/images/apply/shape/01.png" alt="shape" class="shape rt-shape__1">
-                <img src="assets/images/apply/shape/02.png" alt="shape" class="shape rt-shape__2">
-                <img src="assets/images/apply/shape/03.png" alt="shape" class="shape rt-shape__3">
-                <img src="assets/images/apply/shape/04.png" alt="shape" class="shape rt-shape__4">
-            </div>
-        </div>
-    </section>
-    <!-- apply end -->
-    <!-- campus life start -->
-    <div class="rts-campus rts-campus-bg v_2">
+        <!-- history start -->
+        <div class="rts-campus rts-campus-bg v_2">
         <div class="container">
             <div class="row g-40 align-items-center">
                 <div class="col-lg-6">
                     <div class="rts-left-section">
                         <h2 class="section-title">
-                            Campus
+                            Our
                             <span>History</span>
                         </h2>
                         <div class="left-section-content">
-                            <p>Founded on the principles of knowledge, innovation, and community, Unipix University has a storied history that spans decades of academic excellence and societal impact. Our journey began with a vision to create a center of learning that would not only shape individual futures but contribute to the advancement of society as a whole.</p>
-                            <a href="../campus-life.html" class="rts-theme-btn primary btn-arrow">Read More<span><i class="fa-thin fa-arrow-right"></i></span></a>
+                            <p>
+                                Mount Zion University emerged from a profound need. Founded in , its origins lie in a vision to provide accessible and high-quality education for aspiring healthcare professionals in Cameroon and beyond. Initially established as Mount Zion University, it offered foundational programs in nursing and laboratory science.
+                            </p>
+                            <a href="{{route('main.about')}}" class="rts-theme-btn primary btn-arrow">Read More<span><i class="fa-thin fa-arrow-right"></i></span></a>
                         </div>
                     </div>
                 </div>
@@ -184,11 +106,11 @@
                     <div class="rts-right-section rt-relative">
 
                         <div class="campus-video">
-                            <img src="assets/images/feature/campus-2.jpg" alt="campus images">
-                            <a class="video-play popup-video" href="https://www.youtube.com/watch?v=Uwq1uiuM_9w">
+                            <img src="assets/images/home/dr_atem.jpg" alt="campus images">
+                            <!-- <a class="video-play popup-video" href="https://www.youtube.com/watch?v=Uwq1uiuM_9w">
                                 <img src="assets/images/icon/play-round.svg" class="round" alt="">
                                 <img src="assets/images/icon/play-icon.svg" class="play-icon" alt="">
-                            </a>
+                            </a> -->
                         </div>
 
                     </div>
@@ -202,14 +124,256 @@
         </div> -->
         </div>
     </div>
-    <!-- campus life end -->
+    <!-- history end -->
+
+    <!-- our mission start -->
+    <section class="program rts-section-padding">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-5">
+                    <div class="rts__section--wrapper v__2">
+                        <h2 class="rts__section--title text-capitalize">Our Mission</h2>
+                        <p class="rts__section--description">Embark on a journey of knowledge, discovery, and growth at Mount Zion University. Our admissions process is designed to identify bright, motivated individuals who are eager to contribute to our dynamic academic community.</p>
+                        <div class="campus__vector">
+                            <img src="assets/images/campus/campus__vector.svg" alt="">
+                        </div>
+                        <a href="academic.html" class="rts-theme-btn btn-arrow">View All Program
+                            <span><i class="fa-regular fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-10 mt-5 mt-md-0">
+                    <div class="row g-5">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="program__content">
+                                <div class="rts__program--item v__2" style="background-image: url(assets/images/program/program__1.jpg);">
+                                    <h5 class="rts__program--item--title">Summer Program</h5>
+                                    <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Unipix University.</p>
+                                    <a href="program-single.html" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                    </span></a>
+                                    <h5 class="rts__program--item--title--show">Summer Program</h5>
+                                </div>
+                                <!-- second one -->
+                                <div class="rts__program--item v__2" style="background-image: url(assets/images/program/program__2.jpg);">
+                                    <h5 class="rts__program--item--title">Undergraduate</h5>
+                                    <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Unipix University.</p>
+                                    <a href="program-single.html" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                    </span></a>
+                                    <h5 class="rts__program--item--title--show">Undergraduate</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="program__content mt--85">
+                                <div class="rts__program--item v__2" style="background-image: url(assets/images/program/program__3.jpg);">
+                                    <h5 class="rts__program--item--title">Summer Program</h5>
+                                    <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Unipix University.</p>
+                                    <a href="program-single.html" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                    </span></a>
+                                    <h5 class="rts__program--item--title--show">Summer Program</h5>
+                                </div>
+                                <!-- second one -->
+                                <div class="rts__program--item v__2" style="background-image: url(assets/images/program/program__4.jpg);">
+                                    <h5 class="rts__program--item--title">Online Program</h5>
+                                    <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Unipix University.</p>
+                                    <a href="program-single.html" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                    </span></a>
+                                    <h5 class="rts__program--item--title--show">Online Program</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- our mission end -->
+
+    <!-- our vision start -->
+    <div class="rts-campus pt--100 rts-campus-bg mobile-padding moving">
+        <div class="container">
+            <div class="row justify-content-sm-center justify-content-lg-start">
+                <div class="col-lg-6 col-xl-5 col-md-10 col-sm-11">
+                    <div class="rts-left-section">
+                        <h2 class="section-title rt-white mb--55">
+                            Our Vision
+                        </h2>
+                        <a href="{{route('main.academics')}}" class="about-btn rts-nbg-btn btn-arrow
+                    rt-white">Learn More <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-7 col-md-10 col-sm-11">
+                    <div class="rts-right-section rt-relative">
+                        <p class="rt-white mb--40">Embark on a journey of knowledge, discovery, and growth at Mount Zion
+                            University. Our admissions process is designed to identify bright, motivated individuals who are
+                            eager to contribute to our dynamic academic community.</p>
+                        <div class="rts-round-shape"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="pb-5 mt-5"></div>
+            <div class="rt-shape">
+                <img class="rt-shape__1" data-speed="0.04" src="assets/images/feature/shape/01.png" alt="">
+                <img class="shape rt-shape__2" data-speed="0.04" src="assets/images/feature/shape/02.png" alt="">
+                <img class="shape rt-shape__3" data-speed="0.04" src="assets/images/feature/shape/03.png" alt="">
+                <img class="shape rt-shape__4" data-speed="0.04" src="assets/images/feature/shape/04.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- our vision end -->
+
+    <!-- schools start -->
+    <section class="blog pt--120">
+        <div class="container">
+            <div class="row">
+                <div class="rts__section--wrapper v__8">
+                    <div class="rts__section--wrapper--left">
+                        <h2 class="rts__section--title mb--15">Our Campuses</h2>
+                        <p class="rts__section--description">Our mission is to provide you with valuable insights</p>
+                    </div>
+
+                </div>
+            </div>
+            <!-- schools area -->
+            <div class="row g-5">
+                @foreach($schools as $school)
+                <div class="col-lg-6 col-md-6">
+                    <div class="blog__single--item">
+                        <a href="{{route('main.schools.show', $school->slug)}}" class="blog__single--item--link">
+                            <div class="blog__single--item--thumb">
+                                <img src="{{ asset( $school->image_path) }}" alt="{{ $school->name }}">
+                            </div>
+                        </a>
+                        <div class="blog__single--item--meta">
+                            <a href={{route('main.schools.show', $school->slug)}} class="blog__cat">Campus</a>
+                            <h5 class="blog__single--item--title">
+                                <a href="{{route('main.schools.show', $school->slug)}}">{{ $school->name }}</a>
+                            </h5>
+
+                            <p class="blog__single--item--excerpt">{{ $school->address }}</p>
+
+                            <div class="blog__single--item--info">
+                                <div class="author">
+                                    <span><i class="fa-thin fa-phone"></i></span>
+                                    <a href={{'tel:'.$school->telephone}}>{{ $school->telephone }}</a>
+                                </div>
+                            </div>
+
+                            <div class="blog__single--item--info">
+                                <div class="author">
+                                    <span><i class="fa-thin fa-envelope"></i></span>
+                                    <a href={{'mailto:'.$school->email}}>{{ $school->email }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- schools end -->
+
+    <!-- Our partners start -->
+    <div class="rts-brand v_1 pb--85 pt--85">
+        <div class="container">
+        <div class="row">
+                <div class="rts__section--wrapper v__8">
+                    <div class="rts__section--wrapper--left">
+                        <h2 class="rts__section--title mb--15">Our Partners</h2>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-lg-12 col-md-11">
+                    <div class="rts-brand-slider swiper swiper-data" data-swiper='{
+                    "slidesPerView":6,
+                    "loop": true,
+                    "autoplay":{
+                        "delay":"3000"
+                    },
+                    "breakpoints":{
+                        "320":{
+                            "slidesPerView": 3,
+                            "centeredSlides": true
+                        },
+                        "575":{
+                            "slidesPerView": 4,
+                            "centeredSlides": true
+                        },
+                        "768":{
+                            "slidesPerView": 5,
+                            "centeredSlides": true
+                        },
+                        "991":{
+                            "slidesPerView": 6,
+                            "centeredSlides": true
+                        },
+                        "1201":{
+                            "slidesPerView": 6
+                        }
+                    }
+            }'>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="single-brand-logo">
+                                    <a href="#">
+                                        <img src="assets/images/brand/01.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="single-brand-logo">
+                                    <a href="#">
+                                        <img src="assets/images/brand/02.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="single-brand-logo">
+                                    <a href="#">
+                                        <img src="assets/images/brand/03.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="single-brand-logo">
+                                    <a href="#">
+                                        <img src="assets/images/brand/04.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="single-brand-logo">
+                                    <a href="#">
+                                        <img src="assets/images/brand/05.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="single-brand-logo">
+                                    <a href="#">
+                                        <img src="assets/images/brand/06.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our partners end -->
+
     <!-- program start -->
     <section class="rts-program v_2 rts-section-padding">
         <div class="container">
             <div class="row rt-center">
                 <div class="col-sm-12">
                     <div class="rts__section--wrapper v__5">
-                        <h2 class="rts__section--title">Discover Our Program</h2>
+                        <h2 class="rts__section--title">Discover Our Programs</h2>
                     </div>
                 </div>
             </div>
@@ -222,10 +386,10 @@
                                 <div class="icon">
                                     <img src="assets/images/program/icon/03.svg" alt="education">
                                 </div>
-                                <a href="../program-single.html" class="program-link">Graduate Admissions</a>
-                                <p>Embark on a journey of knowledge, discovery, and growth at Unipix University.</p>
+                                <a href="../program-single.html" class="program-link">Special Care</a>
+                                <p>Embark on a journey of knowledge, discovery, and growth at Mount Zion University.</p>
                                 <a href="../program-single.html" class="about-btn rts-nbg-btn btn-arrow
-rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                             </div>
                         </div>
                     </div>
@@ -237,21 +401,21 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 <ul class="list-unstyled">
                                     <li class="single-program">
                                         <div class="icon-box">
-                                            <img src="assets/images/icon/04.svg" alt="">
+                                            <img src="assets/images/icon/05.svg" alt="">
                                         </div>
-                                        <a href="../program-single.html">Major Programs</a>
+                                        <a href="../program-single.html">Special Care</a>
                                     </li>
                                     <li class="single-program">
                                         <div class="icon-box">
-                                            <img src="assets/images/icon/05.svg" alt="">
+                                            <img src="assets/images/icon/04.svg" alt="">
                                         </div>
-                                        <a href="../program-single.html">Minors Programs</a>
+                                        <a href="../program-single.html">HND Programs</a>
                                     </li>
                                     <li class="single-program">
                                         <div class="icon-box">
                                             <img src="assets/images/icon/06.svg" alt="">
                                         </div>
-                                        <a href="../program-single.html">Bachelor’s & Master’s</a>
+                                        <a href="../program-single.html">Bachelor’s Programs</a>
                                     </li>
                                 </ul>
                             </div>
@@ -265,8 +429,8 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 <div class="icon">
                                     <img src="assets/images/program/icon/01.svg" alt="education">
                                 </div>
-                                <a href="../program-single.html" class="program-link">Online Education</a>
-                                <p>Embark on a journey of knowledge, discovery, and growth at Unipix University.</p>
+                                <a href="../program-single.html" class="program-link">Bachelor's Programs</a>
+                                <p>Empower yourself with the skills to heal and lead at Mount Zion University</p>
                                 <a href="../program-single.html" class="about-btn rts-nbg-btn btn-arrow
 rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                             </div>
@@ -278,14 +442,47 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
         </div>
     </section>
     <!-- program end -->
-    <!-- scholarship appication -->
+
+
+    <!-- apply start -->
+    <section class="rts-application-area  rts-section-padding v_2">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="rts-section rt-center mb--80">
+                    <h2 class="rts-section-title">Apply Now</h2>
+                </div>
+            </div>
+            <!-- application form -->
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="rts-admission-form-image">
+                        <img src="assets/images/home/demonstration.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    @include('components.application-form')
+                </div>
+            </div>
+            <div class="rt-shape">
+                <img src="assets/images/apply/shape/01.png" alt="shape" class="shape rt-shape__1">
+                <img src="assets/images/apply/shape/02.png" alt="shape" class="shape rt-shape__2">
+                <img src="assets/images/apply/shape/03.png" alt="shape" class="shape rt-shape__3">
+                <img src="assets/images/apply/shape/04.png" alt="shape" class="shape rt-shape__4">
+            </div>
+        </div>
+    </section>
+    <!-- apply end -->
+
+    <!-- support us -->
     <section class="rts-scholarship rts-scholarship-bg rts-section-height">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="rts-scholarship-info">
-                        <h2 class="rts-section-title">Scholarships and Financial Aid</h2>
-                        <p class="w-740 mb--50">Each semester, Brac University is proud to honor academically talented and exceptionally skilled students with a variety of scholarships and awards. The university annually awards more than 100 million takas as scholarships to both undergraduate and postgraduate students.</p>
+                        <h2 class="rts-section-title">Support Us</h2>
+                        <p class="w-740 mb--50">
+                            We invite you to join us in our vision to strengthen healthcare in the Cameroon and beyond. Your sponsorship will be instrumental in sustaining access to quality health personnel education. Together, we can empower these future professionals to make a lasting positive impact on the health and well-being of our nation
+                        </p>
                         <a href="../scholarship.html" class="rts-theme-btn btn-arrow">Know More<span><i class="fa-thin fa-arrow-right"></i></span></a>
                     </div>
                 </div>
@@ -300,8 +497,10 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                 <div class="col-lg-12 col-sm-11">
                     <div class="rts-section mb--40 rt-between">
                         <h2 class="rts-section-title w-440">How to Apply to
-                            Unipix University</h2>
-                        <p class="w-520">If you have any questions or need assistance at any step of the application process, our admissions team is here to help. We look forward to welcoming you to Unipix University.</p>
+                            Mount Zion University</h2>
+                        <p class="w-520">
+                            There are four sessions of admissions for the one year course. Students are admitted either for January session, April session, June session or September session annually
+                        </p>
                     </div>
                 </div>
             </div>
@@ -351,7 +550,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
     </section>
     <!-- apply procedure end  -->
     <!-- research area -->
-    <section class="rts-research rt-relative research-bg rts-section-height">
+    <!-- <section class="rts-research rt-relative research-bg rts-section-height">
         <div class="container">
             <div class="section-bg rt-relative">
                 <div class="row justify-content-md-center">
@@ -434,10 +633,10 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- research area end -->
     <!-- notice board start -->
-    <section class="rts-notice rts-section-padding rts-section-padding">
+    <!-- <section class="rts-notice rts-section-padding rts-section-padding">
         <div class="container">
             <div class="row gy-5 gy-lg-0 justify-content-md-center">
                 <div class="col-md-11 col-lg-7">
@@ -779,7 +978,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- notice board end -->
     <!-- Testimonial Start -->
     <div class="rts-testimonial v_2 rt-relative pt--120 pb--120">
@@ -787,7 +986,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
             <div class="row justify-content-center">
                 <div class="col-lg-12 col-md-10">
                     <div class="rts-section text-center mb--45">
-                        <h2 class="rts-section-title">Our Students Feedback</h2>
+                        <h2 class="rts-section-title">Our Students' Feedback</h2>
                     </div>
                 </div>
             </div>
@@ -797,10 +996,10 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                     <div class="rts-testimonial-box">
                         <div class="testimonial-item rt-flex">
                             <div class="testimonial-item-image save-from-hidden">
-                                <img src="assets/images/testimonial/testimonial-big.jpg" alt="testimonial thumbnail">
-                                <a href="https://www.youtube.com/watch?v=7ahgosTZJHg" class="video-play popup-video">
+                                <img src="assets/images/home/student.jpg" alt="testimonial thumbnail">
+                                <!-- <a href="https://www.youtube.com/watch?v=7ahgosTZJHg" class="video-play popup-video">
                                     <img src="assets/images/icon/video-btn.svg" alt="video">
-                                </a>
+                                </a> -->
                             </div>
                             <div class="testimonial-item-content w-630 rt-relative">
                                 <div class="testmonial-v2">
@@ -824,7 +1023,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                                     </div>
                                                 </div>
                                                 <p class="testimonial-text">
-                                                    I would highly recommend Michael Richard to anyone interested the subject matter. It has provided me with invaluable knowledge & a newfound passion topic. My only suggestion would be to add more live.
+                                                    I would highly recommend Mount Zion University to anyone interested in professional health education. It has provided me with invaluable knowledge & a newfound passion for the topic. My only suggestion would be to add more live.
                                                 </p>
                                                 <div class="rt-testimonial-author mt--50">
                                                     <div class="rt-author-meta rt-flex rt-gap-20">
@@ -840,7 +1039,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                             </div>
                                         </div>
                                         <!-- single testimonial -->
-                                        <div class="swiper-slide">
+                                        <!-- <div class="swiper-slide">
                                             <div class="single-testimonial">
                                                 <div class="rt-between mb--50">
                                                     <div class="rt-icon">
@@ -872,9 +1071,9 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- single testimonial -->
-                                        <div class="swiper-slide">
+                                        <!-- <div class="swiper-slide">
                                             <div class="single-testimonial">
                                                 <div class="rt-between mb--50">
                                                     <div class="rt-icon">
@@ -906,7 +1105,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -928,8 +1127,8 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                         <h2 class="rts-section-title">
                             Latest From Our Blogs
                         </h2>
-                        <p class="rts-section-description">Whether you’re considering a foundation course or an undergraduate academics is a place.</p>
-                        <a href="../blog.html" class="rts-arrow">View All <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+                        <p class="rts-section-description">Whether you’re considering a 1 year course, HND or an undergraduate academics here is the place for you.</p>
+                        <a href="{{route('main.programs')}}" class="rts-arrow">View All <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                     </div>
                 </div>
             </div>
@@ -945,8 +1144,8 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 <div class="post-meta">
                                     <div class="rt-author">
                                         <span>
-                                        <i class="fa-light fa-user"></i>
-                                    </span>
+                                            <i class="fa-light fa-user"></i>
+                                        </span>
                                         <a href="#">Samira Khan</a>
                                     </div>
                                     <div class="rt-date">
@@ -974,8 +1173,8 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 <div class="post-meta">
                                     <div class="rt-author">
                                         <span>
-                                        <i class="fa-light fa-user"></i>
-                                    </span>
+                                            <i class="fa-light fa-user"></i>
+                                        </span>
                                         <a href="#">Samira Khan</a>
                                     </div>
                                     <div class="rt-date">
@@ -999,8 +1198,8 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 <div class="post-meta">
                                     <div class="rt-author">
                                         <span>
-                                        <i class="fa-light fa-user"></i>
-                                    </span>
+                                            <i class="fa-light fa-user"></i>
+                                        </span>
                                         <a href="#">Samira Khan</a>
                                     </div>
                                     <div class="rt-date">
@@ -1024,8 +1223,8 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 <div class="post-meta">
                                     <div class="rt-author">
                                         <span>
-                                        <i class="fa-light fa-user"></i>
-                                    </span>
+                                            <i class="fa-light fa-user"></i>
+                                        </span>
                                         <a href="#">Samira Khan</a>
                                     </div>
                                     <div class="rt-date">
@@ -1044,98 +1243,16 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
         </div>
     </div>
     <!-- blog area end -->
-    <!-- brand slider -->
-    <div class="rts-brand v_1 pb--120">
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-12 col-md-11">
-                    <div class="rts-brand-slider swiper swiper-data" data-swiper='{
-                    "slidesPerView":6,
-                    "loop": true,
-                    "autoplay":{
-                        "delay":"3000"
-                    },
-                    "breakpoints":{
-                        "320":{
-                            "slidesPerView": 3,
-                            "centeredSlides": true
-                        },
-                        "575":{
-                            "slidesPerView": 4,
-                            "centeredSlides": true
-                        },
-                        "768":{
-                            "slidesPerView": 5,
-                            "centeredSlides": true
-                        },
-                        "991":{
-                            "slidesPerView": 6,
-                            "centeredSlides": true
-                        },
-                        "1201":{
-                            "slidesPerView": 6
-                        }
-                    }
-            }'>
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="single-brand-logo">
-                                    <a href="#">
-                                        <img src="assets/images/brand/01.svg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="single-brand-logo">
-                                    <a href="#">
-                                        <img src="assets/images/brand/02.svg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="single-brand-logo">
-                                    <a href="#">
-                                        <img src="assets/images/brand/03.svg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="single-brand-logo">
-                                    <a href="#">
-                                        <img src="assets/images/brand/04.svg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="single-brand-logo">
-                                    <a href="#">
-                                        <img src="assets/images/brand/05.svg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="single-brand-logo">
-                                    <a href="#">
-                                        <img src="assets/images/brand/06.svg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- brand slider end -->
+
 
     <!-- newsletter -->
     <div class="rts-newsletter v_1 rts-cta-background rts__white">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="rts-newsletter-box" style="background-image: url(assets/images/newsletter/bg-1.jpg);">
+                    <div class="rts-newsletter-box" style="background-image: url(assets/images/home/alumni.jpg);">
                         <div class="rts-newsletter-box-content">
-                            <h4 class="newsletter-title">Don’t Miss Awesome Story From Our Alumni
+                            <h4 class="newsletter-title">Don’t Miss Any Awesome Story From Us
                             </h4>
                             <div class="newsletter-form w-530">
                                 <form action="#">
