@@ -4,7 +4,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="rts-footer-widget w-320">
                     <a href="{{route('main.home')}}" class="d-block rts-footer-logo mb--40">
-                        <img style="width: 200px" src="assets/images/logo/logo.png" alt="Unipix">
+                        <img style="width: 200px" src="{{asset('assets/images/logo/logo.png')}}" alt="Unipix">
                     </a>
                     <p>
                         We are a passionate institution dedicated to providing high-quality
@@ -50,7 +50,7 @@
                         <ul class="list-unstyled">
                             <li class="single-post">
                                 <a href="blog-details.html" class="blog-thumb">
-                                    <img src="assets/images/blog/w-1.jpg" alt="latest post">
+                                    <img src="{{asset('assets/images/blog/w-1.jpg')}}" alt="latest post">
                                 </a>
                                 <div class="post-content">
                                     <span class="rt-date">October 29, 2023</span>
@@ -61,7 +61,7 @@
                             </li>
                             <li class="single-post">
                                 <a href="blog-details.html" class="blog-thumb">
-                                    <img src="assets/images/blog/small-thumb-1.jpg" alt="latest post">
+                                    <img src="{{asset('assets/images/blog/small-thumb-1.jpg')}}" alt="latest post">
                                 </a>
                                 <div class="post-content">
                                     <span class="rt-date">October 29, 2023</span>
@@ -94,7 +94,7 @@
     <!-- inner menu area desktop start -->
     <div class="inner-main-wrapper-desk">
         <div class="thumbnail">
-            <img src="assets/images/logo/logo__five.svg" alt="Unipix-university">
+            <img src="{{asset('assets/images/logo/logo__five.svg')}}" alt="Unipix-university">
         </div>
         <div class="inner-content">
             <p class="disc">
@@ -103,7 +103,7 @@
             <!-- offcanvase banner -->
             <div class="offcanvase__banner mt--50">
                 <div class="offcanvase__banner--content">
-                    <img src="assets/images/offcanvase.jpg" alt="offcanvase">
+                    <img src="{{asset('assets/images/offcanvase.jpg')}}" alt="offcanvase">
                     <a href="admission.html" class="rts-theme-btn">Apply Now</a>
                 </div>
             </div>

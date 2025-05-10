@@ -83,36 +83,9 @@
         </div>
     </div>
     <!-- hero slider  end -->
-    <!-- apply start -->
-    <section class="rts-application-area  rts-section-padding v_2">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="rts-section rt-center mb--80">
-                    <h2 class="rts-section-title">Apply Now</h2>
-                </div>
-            </div>
-            <!-- application form -->
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="rts-admission-form-image">
-                        <img src="assets/images/home/demonstration.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-10">
-                    @include('components.application-form')
-                </div>
-            </div>
-            <div class="rt-shape">
-                <img src="assets/images/apply/shape/01.png" alt="shape" class="shape rt-shape__1">
-                <img src="assets/images/apply/shape/02.png" alt="shape" class="shape rt-shape__2">
-                <img src="assets/images/apply/shape/03.png" alt="shape" class="shape rt-shape__3">
-                <img src="assets/images/apply/shape/04.png" alt="shape" class="shape rt-shape__4">
-            </div>
-        </div>
-    </section>
-    <!-- apply end -->
-    <!-- campus life start -->
-    <div class="rts-campus rts-campus-bg v_2">
+
+        <!-- history start -->
+        <div class="rts-campus rts-campus-bg v_2">
         <div class="container">
             <div class="row g-40 align-items-center">
                 <div class="col-lg-6">
@@ -151,7 +124,249 @@
         </div> -->
         </div>
     </div>
-    <!-- campus life end -->
+    <!-- history end -->
+
+    <!-- our mission start -->
+    <section class="program rts-section-padding">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-5">
+                    <div class="rts__section--wrapper v__2">
+                        <h2 class="rts__section--title text-capitalize">Our Mission</h2>
+                        <p class="rts__section--description">Embark on a journey of knowledge, discovery, and growth at Mount Zion University. Our admissions process is designed to identify bright, motivated individuals who are eager to contribute to our dynamic academic community.</p>
+                        <div class="campus__vector">
+                            <img src="assets/images/campus/campus__vector.svg" alt="">
+                        </div>
+                        <a href="academic.html" class="rts-theme-btn btn-arrow">View All Program
+                            <span><i class="fa-regular fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-10 mt-5 mt-md-0">
+                    <div class="row g-5">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="program__content">
+                                <div class="rts__program--item v__2" style="background-image: url(assets/images/program/program__1.jpg);">
+                                    <h5 class="rts__program--item--title">Summer Program</h5>
+                                    <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Unipix University.</p>
+                                    <a href="program-single.html" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                    </span></a>
+                                    <h5 class="rts__program--item--title--show">Summer Program</h5>
+                                </div>
+                                <!-- second one -->
+                                <div class="rts__program--item v__2" style="background-image: url(assets/images/program/program__2.jpg);">
+                                    <h5 class="rts__program--item--title">Undergraduate</h5>
+                                    <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Unipix University.</p>
+                                    <a href="program-single.html" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                    </span></a>
+                                    <h5 class="rts__program--item--title--show">Undergraduate</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="program__content mt--85">
+                                <div class="rts__program--item v__2" style="background-image: url(assets/images/program/program__3.jpg);">
+                                    <h5 class="rts__program--item--title">Summer Program</h5>
+                                    <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Unipix University.</p>
+                                    <a href="program-single.html" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                    </span></a>
+                                    <h5 class="rts__program--item--title--show">Summer Program</h5>
+                                </div>
+                                <!-- second one -->
+                                <div class="rts__program--item v__2" style="background-image: url(assets/images/program/program__4.jpg);">
+                                    <h5 class="rts__program--item--title">Online Program</h5>
+                                    <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Unipix University.</p>
+                                    <a href="program-single.html" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                    </span></a>
+                                    <h5 class="rts__program--item--title--show">Online Program</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- our mission end -->
+
+    <!-- our vision start -->
+    <div class="rts-campus pt--100 rts-campus-bg mobile-padding moving">
+        <div class="container">
+            <div class="row justify-content-sm-center justify-content-lg-start">
+                <div class="col-lg-6 col-xl-5 col-md-10 col-sm-11">
+                    <div class="rts-left-section">
+                        <h2 class="section-title rt-white mb--55">
+                            Our Vision
+                        </h2>
+                        <a href="{{route('main.academics')}}" class="about-btn rts-nbg-btn btn-arrow
+                    rt-white">Learn More <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-7 col-md-10 col-sm-11">
+                    <div class="rts-right-section rt-relative">
+                        <p class="rt-white mb--40">Embark on a journey of knowledge, discovery, and growth at Mount Zion
+                            University. Our admissions process is designed to identify bright, motivated individuals who are
+                            eager to contribute to our dynamic academic community.</p>
+                        <div class="rts-round-shape"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="pb-5 mt-5"></div>
+            <div class="rt-shape">
+                <img class="rt-shape__1" data-speed="0.04" src="assets/images/feature/shape/01.png" alt="">
+                <img class="shape rt-shape__2" data-speed="0.04" src="assets/images/feature/shape/02.png" alt="">
+                <img class="shape rt-shape__3" data-speed="0.04" src="assets/images/feature/shape/03.png" alt="">
+                <img class="shape rt-shape__4" data-speed="0.04" src="assets/images/feature/shape/04.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- our vision end -->
+
+    <!-- schools start -->
+    <section class="blog pt--120">
+        <div class="container">
+            <div class="row">
+                <div class="rts__section--wrapper v__8">
+                    <div class="rts__section--wrapper--left">
+                        <h2 class="rts__section--title mb--15">Our Campuses</h2>
+                        <p class="rts__section--description">Our mission is to provide you with valuable insights</p>
+                    </div>
+
+                </div>
+            </div>
+            <!-- schools area -->
+            <div class="row g-5">
+                @foreach($schools as $school)
+                <div class="col-lg-6 col-md-6">
+                    <div class="blog__single--item">
+                        <a href="{{route('main.schools.show', $school->slug)}}" class="blog__single--item--link">
+                            <div class="blog__single--item--thumb">
+                                <img src="{{ asset( $school->image_path) }}" alt="{{ $school->name }}">
+                            </div>
+                        </a>
+                        <div class="blog__single--item--meta">
+                            <a href={{route('main.schools.show', $school->slug)}} class="blog__cat">Campus</a>
+                            <h5 class="blog__single--item--title">
+                                <a href="{{route('main.schools.show', $school->slug)}}">{{ $school->name }}</a>
+                            </h5>
+
+                            <p class="blog__single--item--excerpt">{{ $school->address }}</p>
+
+                            <div class="blog__single--item--info">
+                                <div class="author">
+                                    <span><i class="fa-thin fa-phone"></i></span>
+                                    <a href={{'tel:'.$school->telephone}}>{{ $school->telephone }}</a>
+                                </div>
+                            </div>
+
+                            <div class="blog__single--item--info">
+                                <div class="author">
+                                    <span><i class="fa-thin fa-envelope"></i></span>
+                                    <a href={{'mailto:'.$school->email}}>{{ $school->email }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- schools end -->
+
+    <!-- Our partners start -->
+    <div class="rts-brand v_1 pb--85 pt--85">
+        <div class="container">
+        <div class="row">
+                <div class="rts__section--wrapper v__8">
+                    <div class="rts__section--wrapper--left">
+                        <h2 class="rts__section--title mb--15">Our Partners</h2>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-lg-12 col-md-11">
+                    <div class="rts-brand-slider swiper swiper-data" data-swiper='{
+                    "slidesPerView":6,
+                    "loop": true,
+                    "autoplay":{
+                        "delay":"3000"
+                    },
+                    "breakpoints":{
+                        "320":{
+                            "slidesPerView": 3,
+                            "centeredSlides": true
+                        },
+                        "575":{
+                            "slidesPerView": 4,
+                            "centeredSlides": true
+                        },
+                        "768":{
+                            "slidesPerView": 5,
+                            "centeredSlides": true
+                        },
+                        "991":{
+                            "slidesPerView": 6,
+                            "centeredSlides": true
+                        },
+                        "1201":{
+                            "slidesPerView": 6
+                        }
+                    }
+            }'>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="single-brand-logo">
+                                    <a href="#">
+                                        <img src="assets/images/brand/01.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="single-brand-logo">
+                                    <a href="#">
+                                        <img src="assets/images/brand/02.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="single-brand-logo">
+                                    <a href="#">
+                                        <img src="assets/images/brand/03.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="single-brand-logo">
+                                    <a href="#">
+                                        <img src="assets/images/brand/04.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="single-brand-logo">
+                                    <a href="#">
+                                        <img src="assets/images/brand/05.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="single-brand-logo">
+                                    <a href="#">
+                                        <img src="assets/images/brand/06.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our partners end -->
+
     <!-- program start -->
     <section class="rts-program v_2 rts-section-padding">
         <div class="container">
@@ -227,6 +442,37 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
         </div>
     </section>
     <!-- program end -->
+
+
+    <!-- apply start -->
+    <section class="rts-application-area  rts-section-padding v_2">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="rts-section rt-center mb--80">
+                    <h2 class="rts-section-title">Apply Now</h2>
+                </div>
+            </div>
+            <!-- application form -->
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="rts-admission-form-image">
+                        <img src="assets/images/home/demonstration.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    @include('components.application-form')
+                </div>
+            </div>
+            <div class="rt-shape">
+                <img src="assets/images/apply/shape/01.png" alt="shape" class="shape rt-shape__1">
+                <img src="assets/images/apply/shape/02.png" alt="shape" class="shape rt-shape__2">
+                <img src="assets/images/apply/shape/03.png" alt="shape" class="shape rt-shape__3">
+                <img src="assets/images/apply/shape/04.png" alt="shape" class="shape rt-shape__4">
+            </div>
+        </div>
+    </section>
+    <!-- apply end -->
+
     <!-- support us -->
     <section class="rts-scholarship rts-scholarship-bg rts-section-height">
         <div class="container">
@@ -898,8 +1144,8 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 <div class="post-meta">
                                     <div class="rt-author">
                                         <span>
-                                        <i class="fa-light fa-user"></i>
-                                    </span>
+                                            <i class="fa-light fa-user"></i>
+                                        </span>
                                         <a href="#">Samira Khan</a>
                                     </div>
                                     <div class="rt-date">
@@ -927,8 +1173,8 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 <div class="post-meta">
                                     <div class="rt-author">
                                         <span>
-                                        <i class="fa-light fa-user"></i>
-                                    </span>
+                                            <i class="fa-light fa-user"></i>
+                                        </span>
                                         <a href="#">Samira Khan</a>
                                     </div>
                                     <div class="rt-date">
@@ -952,8 +1198,8 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 <div class="post-meta">
                                     <div class="rt-author">
                                         <span>
-                                        <i class="fa-light fa-user"></i>
-                                    </span>
+                                            <i class="fa-light fa-user"></i>
+                                        </span>
                                         <a href="#">Samira Khan</a>
                                     </div>
                                     <div class="rt-date">
@@ -977,8 +1223,8 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 <div class="post-meta">
                                     <div class="rt-author">
                                         <span>
-                                        <i class="fa-light fa-user"></i>
-                                    </span>
+                                            <i class="fa-light fa-user"></i>
+                                        </span>
                                         <a href="#">Samira Khan</a>
                                     </div>
                                     <div class="rt-date">

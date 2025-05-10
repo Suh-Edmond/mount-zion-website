@@ -33,6 +33,8 @@ Route::get('/scholarships', [ScholarshipController::class, 'index'])->name('main
 Route::get('tuition-fee', [TuitionController::class, 'index'])->name('main.tuition-fee');
 Route::get('alumni', [AlumniController::class, 'index'])->name('main.alumni');
 
+Route::get('academics/schools/{slug}', [AcademicController::class, 'school'])->name('main.schools.show');
+
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('academics', [FacultyController::class, 'index'])->name('manage.academics');
