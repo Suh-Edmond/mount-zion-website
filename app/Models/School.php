@@ -7,28 +7,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Program extends Model
+class School extends Model
 {
     use HasFactory, SoftDeletes;
     use GenerateUUID;
 
     protected $fillable = [
         'name',
-        'about',
         'image_path',
-        'tag',
-        'duration',
-        'school_id'
+        'about',
+        'telephone',
+        'address',
+        'region'
     ];
 
-
-    public function school()
+    public function programs()
     {
-        return $this->belongsTo(School::class);
-    }
-
-    public function admissions()
-    {
-        return $this->hasMany(Admission::class);
+        return $this->hasMany(Program::class);
     }
 }
