@@ -4,6 +4,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\Website\AboutController;
 use App\Http\Controllers\Website\AcademicController;
 use App\Http\Controllers\Website\AdmissionController;
@@ -38,14 +40,20 @@ Route::get('academics/schools/{schoolSlug}/{programSlug}', [AcademicController::
 
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
-    Route::get('academics', [FacultyController::class, 'index'])->name('manage.academics');
-    Route::get('academics-create', [FacultyController::class, 'createFaculty'])->name('manage.academics.create');
-    Route::post('academics-store', [FacultyController::class, 'storeFaculty'])->name('manage.academics.store');
-    Route::get('academics/details', [FacultyController::class, 'showFaculty'])->name('manage.academics.show');
-    Route::delete('academics/delete', [FacultyController::class, 'deleteFaculty'])->name('manage.academics.destroy');
-    Route::put('academics/details/edit', [FacultyController::class, 'updateFaculty'])->name('manage.academic.edit');
-    Route::get('academics/departments-listing', [DepartmentController::class, 'index'])->name('manage.academics.departments.list');
-    Route::get('academics/departments-listing/details', [DepartmentController::class, 'show'])->name('manage.academics.departments.show');
+    Route::get('/academics', [SchoolController::class, 'index'])->name('manage.academics');
+    Route::get('/academics-create', [SchoolController::class, 'createSchool'])->name('manage.academics.create');
+    Route::post('/academics-store', [SchoolController::class, 'storeSchool'])->name('manage.academics.store');
+    Route::get('/academics/details', [SchoolController::class, 'showSchool'])->name('manage.academics.show');
+    Route::delete('/academics/delete', [SchoolController::class, 'deleteSchool'])->name('manage.academics.destroy');
+    Route::put('academics/details/edit', [SchoolController::class, 'updateSchool'])->name('manage.academic.edit');
+    Route::get('academics/programs-listing', [ProgramController::class, 'listPrograms'])->name('manage.academics.programs.list');
+    Route::get('academics/programs-listing/details', [ProgramController::class, 'show'])->name('manage.academics.programs.show');
+    Route::get('academics/programs-listing/create', [ProgramController::class, 'createProgram'])->name('manage.academics.programs.create');
+    Route::post('academics/programs-listing/store', [ProgramController::class, 'storeProgram'])->name('manage.academics.programs.store');
+    Route::delete('academics/programs-listing/delete', [ProgramController::class, 'deleteProgram'])->name('manage.academics.programs.delete');
+    Route::delete('academics/programs-listing/store/edit-upload-image', [ProgramController::class, 'editUploadProgramImage'])->name('manage.academics.programs.edit-upload-image');
+    Route::put('academics/programs-listing/update', [ProgramController::class, 'editProgram'])->name('manage.academics.programs.edit');
+    Route::get('admission', [SchoolController::class, 'getSchools'])->name('manage.admission');
 });
 
 Route::middleware('auth')->group(function () {
