@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div class="breadcrumb-content">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="..">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Schools</li>
                         </ul>
                         <h2 class="section-title">{{ $school->name }}</h2>
@@ -23,7 +23,7 @@
     <!-- content -->
     <div class="rts-faculty-details rts-section-padding">
         <div class="container">
-            <div class="row">
+            <!-- <div class="row">
                 <div class="rts-section mb--60">
                     <h3 class="rts-section-title">Message from Dean</h3>
                 </div>
@@ -65,361 +65,55 @@
                         </figure>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="row g-5 faculty-sub-details rts-section-padding">
                 <div class="rts-section mb-4 text-center">
-                    <h3 class="rts-section-title">List of Departments</h3>
+                    <h3 class="rts-section-title">List of Progams</h3>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-cat-item">
-                        <div class="cat-thumb">
-                            <img src="{{ asset('assets/images/course/09.jpg') }}" alt="course-thumbnail">
-                        </div>
-                        <div class="cat-meta">
-                            <div class="cat-title">
-                                <a href="department-details.html">Department of English</a>
-                            </div>
-                            <div class="cat-link">
-                                <a href="department-details.html" class="cat-link-arrow"><i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-cat-item">
-                        <div class="cat-thumb">
-                            <img src="{{ asset('assets/images/course/10.jpg') }}" alt="course-thumbnail">
-                        </div>
-                        <div class="cat-meta">
-                            <div class="cat-title">
-                                <a href="department-details.html">Department of Music</a>
-                            </div>
-                            <div class="cat-link">
-                                <a href="department-details.html" class="cat-link-arrow"><i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-cat-item">
-                        <div class="cat-thumb">
-                            <img src="{{ asset('assets/images/course/11.jpg') }}" alt="course-thumbnail">
-                        </div>
-                        <div class="cat-meta">
-                            <div class="cat-title">
-                                <a href="department-details.html">Department of History</a>
-                            </div>
-                            <div class="cat-link">
-                                <a href="department-details.html" class="cat-link-arrow"><i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-cat-item">
-                        <div class="cat-thumb">
-                            <img src="{{ asset('assets/images/course/12.jpg') }}" alt="course-thumbnail">
-                        </div>
-                        <div class="cat-meta">
-                            <div class="cat-title">
-                                <a href="department-details.html">Department of Philosophy</a>
-                            </div>
-                            <div class="cat-link">
-                                <a href="department-details.html" class="cat-link-arrow"><i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-md-center g-0">
-                <div class="rts-section mb--60 text-center">
-                    <h3 class="rts-section-title">Academics & Program</h3>
-                </div>
-                <div class="col-lg-4 col-md-10">
-                    <div class="program__single--item">
-                        <div class="program__single--item--bg">
-                            <img src="{{ asset('assets/images/program/program__bg.jpg') }}" alt="">
-                        </div>
-                        <h5 class="program__single--item--title">undergraduate</h5>
 
-                        <ul class="program__single--item--list">
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Anthropology
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Applied Mathematics
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Biomedical Engineering
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Astrophysics
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                        </ul>
+                <div class="search-filter mb--40">
+                    <div class="row g-5">
+                        <div class="col-lg-5 col-md-6">
+                            <div class="category-filter">
+                                <h6>Program Type:</h6>
+                                <select name="cat-search" id="cat-filter">
+                                    @foreach ($programTypes as $programType)
+                                    <option value="{{ $programType }}">{{ $programType }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-10">
-                    <div class="program__single--item v__2">
-                        <div class="program__single--item--bg">
-                            <img src="{{ asset('assets/images/program/program__bg.jpg') }}" alt="">
+                <div class="all-program-categ</script>ory">
+                    <div class="row g-5">
+                        <!-- single item -->
+                        @foreach ($programs as $program)
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="single-cat-item">
+                                <div class="cat-thumb">
+                                    <img src="{{$program->image_path}}" alt="course-thumbnail">
+                                    <a href="{{ url()->current() . '/' . $program->slug }}" class="cat-link-btn">{{ $program->tag }}</a>
+                                </div>
+                                <div class="cat-meta">
+                                    <div class="cat-title">
+                                        <a href="{{ url()->current() . '/' . $program->slug }}">{{ $program->name }}</a>
+                                    </div>
+                                    <div class="cat-link">
+                                        <a href="{{ url()->current() . '/' . $program->slug }}" class="cat-link-arrow"><i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h5 class="program__single--item--title">graduate</h5>
+                        @endforeach
+                    </div>
 
-                        <ul class="program__single--item--list">
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Applied Computation
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Applied Mathematics
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Applied Computation
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Architecture
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-10">
-                    <div class="program__single--item">
-                        <div class="program__single--item--bg">
-                            <img src="{{ asset('assets/images/program/program__bg.jpg') }}" alt="">
-                        </div>
-                        <h5 class="program__single--item--title">Lifelong Learning</h5>
-
-                        <ul class="program__single--item--list">
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Personal Development
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Arts and Humanities
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Health and Wellness
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Social Sciences
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row pt--120">
-                <div class="rts__section--wrapper">
-                    <div class="rts__section--wrapper--left">
-                        <h2 class="rts__section--title text-capitalize">Upcoming event</h2>
-                    </div>
-                    <div class="rts__section--link">
-                        <a href="event.html" class="rts-nbg-btn btn-arrow">View All<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
-                            </span></a>
-                    </div>
-                </div>
-            </div>
-            <!-- event content -->
-            <div class="row g-5">
-                <!-- single event item -->
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="rts__single--event v__3">
-                        <div class="rts__single--event--thumb">
-                            <a href="event-details.html">
-                                <img src="{{ asset('assets/images/event/01.jpg') }}" alt="event">
-                            </a>
-                        </div>
-                        <div class="rts__single--event--meta">
-                            <div class="rts__single--event--meta--dl">
-                                <span class="date">
-                                    <img src="{{ asset('assets/images/icon/calendar.svg') }}" alt="">
-                                    <span>Nov 11, 2023</span>
-                                </span>
-                                <span class="location">
-                                    <i class="fa-sharp fa-light fa-location-dot"></i>
-                                    <span>Yarra Park, UK</span>
-                                </span>
-                            </div>
-                            <h5 class="rts__single--event--meta--title">
-                                <a href="event-details.html">
-                                    Edu Fest 2023: Igniting Minds Off on
-                                    Transforming Lives </a>
-                            </h5>
-                            <a href="event-details.html" class="rts__round--btn">
-                                <i class="fa-light fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- single event item -->
-                <!-- single event item -->
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="rts__single--event v__3">
-                        <div class="rts__single--event--thumb">
-                            <a href="event-details.html">
-                                <img src="{{ asset('assets/images/event/02.jpg') }}" alt="event">
-                            </a>
-                        </div>
-                        <div class="rts__single--event--meta">
-                            <div class="rts__single--event--meta--dl">
-                                <span class="date">
-                                    <img src="{{ asset('assets/images/icon/calendar.svg') }}" alt="">
-                                    <span>Nov 11, 2023</span>
-                                </span>
-                                <span class="location">
-                                    <i class="fa-sharp fa-light fa-location-dot"></i>
-                                    <span>Yarra Park, UK</span>
-                                </span>
-                            </div>
-                            <h5 class="rts__single--event--meta--title">
-                                <a href="event-details.html">
-                                    Sustainability Showcase: Green
-                                    Living at Unipix </a>
-                            </h5>
-                            <a href="event-details.html" class="rts__round--btn">
-                                <i class="fa-light fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- single event item -->
-                <!-- single event item -->
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="rts__single--event v__3">
-                        <div class="rts__single--event--thumb">
-                            <a href="event-details.html">
-                                <img src="{{ asset('assets/images/event/03.jpg') }}" alt="event">
-                            </a>
-                        </div>
-                        <div class="rts__single--event--meta">
-                            <div class="rts__single--event--meta--dl">
-                                <span class="date">
-                                    <img src="{{ asset('assets/images/icon/calendar.svg') }}" alt="">
-                                    <span>Nov 11, 2023</span>
-                                </span>
-                                <span class="location">
-                                    <i class="fa-sharp fa-light fa-location-dot"></i>
-                                    <span>Yarra Park, UK</span>
-                                </span>
-                            </div>
-                            <h5 class="rts__single--event--meta--title">
-                                <a href="event-details.html">
-                                    Career Carnival: Explore Your
-                                    Professional Journey </a>
-                            </h5>
-                            <a href="event-details.html" class="rts__round--btn">
-                                <i class="fa-light fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- single event item -->
-            </div>
-        </div>
-    </div>
-    <!-- content end -->
-    <!-- gallery -->
-    <div class="rts-gallery section-bg rts-section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="rts-section mb--50 rt-center">
-                    <h2 class="rts-section-title">University Sport Gallery</h2>
-                </div>
-            </div>
-            <div class="gallery-area">
-                <div class="row g-5">
-                    <!-- single gallery item -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery">
-                            <a href="{{ asset('assets/images/campus/gallery/2x1.jpg') }}" class="single-gallery__item"></a>
-                                <img src="{{ asset('assets/images/campus/gallery/01.jpg') }}" alt="gallery">
-                                <div class="single-gallery__icon">
-                                    <i class="fa-light fa-circle-plus"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single gallery item -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery">
-                            <a href="{{ asset('assets/images/campus/gallery/2x2.jpg') }}" class="single-gallery__item"></a>
-                                <img src="{{ asset('assets/images/campus/gallery/02.jpg') }}" alt="gallery">
-                                <div class="single-gallery__icon">
-                                    <i class="fa-light fa-circle-plus"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single gallery item -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery">
-                            <a href="{{ asset('assets/images/campus/gallery/2x3.jpg') }}" class="single-gallery__item">
-                                <img src="{{ asset('assets/images/campus/gallery/03.jpg') }}" alt="gallery">
-                                <div class="single-gallery__icon">
-                                    <i class="fa-light fa-circle-plus"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single gallery item -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery">
-                            <a href="{{ asset('assets/images/campus/gallery/2x4.jpg') }}" class="single-gallery__item">
-                                <img src="{{ asset('assets/images/campus/gallery/04.jpg') }}" alt="gallery">
-                                <div class="single-gallery__icon">
-                                    <i class="fa-light fa-circle-plus"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single gallery item -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery">
-                            <a href="{{ asset('assets/images/campus/gallery/2x5.jpg') }}" class="single-gallery__item">
-                                <img src="{{ asset('assets/images/campus/gallery/05.jpg') }}" alt="gallery">
-                                <div class="single-gallery__icon">
-                                    <i class="fa-light fa-circle-plus"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single gallery item -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery">
-                            <a href="{{ asset('assets/images/campus/gallery/2x6.jpg') }}" class="single-gallery__item"></a>
-                                <img src="{{ asset('assets/images/campus/gallery/06.jpg') }}" alt="gallery">
-                                <div class="single-gallery__icon">
-                                    <i class="fa-light fa-circle-plus"></i>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="rts-load-more-btn ">
+                        <a href="#" class="rts-theme-btn primary lh-100">Load More</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- gallery end -->
 
 </x-guest-layout>
