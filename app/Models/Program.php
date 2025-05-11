@@ -31,4 +31,9 @@ class Program extends Model
     {
         return $this->hasMany(Admission::class);
     }
+
+    public function stripDescriptionTags($desc)
+    {
+        return strip_tags($desc);
+    }
 }

@@ -3,13 +3,16 @@
         <div class="flex justify-between">
             <header class="flex flex-row ">
                 <h2 class="text-lg font-medium text-gray-900">
-                    {{ __('Departments') }}
+                    {{ __('Programs') }}
                 </h2>
             </header>
 
             <div>
-                <x-primary-button id="addOutline" x-data="add-program-outline-modal" x-on:click.prevent="$dispatch('open-modal', 'add-program-outline-modal')">{{ __('Add Department') }}</x-primary-button>
-                <a href="{{route('manage.academics.departments.list', ['slug' => $faculty->slug])}}">
+
+                <a href="{{route('manage.academics.programs.create', ['slug' => $school->slug])}}">
+                    <x-primary-button>{{ __('Add Program') }}</x-primary-button>
+                </a>
+                <a href="{{route('manage.academics.programs.list', ['slug' => $school->slug])}}">
                     <x-secondary-button>{{ __('View more') }}</x-secondary-button>
                 </a>
             </div>
@@ -17,10 +20,10 @@
 
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-4">
-            @foreach($departments as $key => $dept)
+            @foreach($programs as $key => $program)
                 <div class="rounded overflow-hidden shadow-lg flex flex-col my-3">
-                    <a href="{{route('manage.academics.departments.show', ['slug'=> $dept->slug])}}"></a>
-                    <div class="relative"><a href="{{route('manage.academics.departments.show', ['slug'=> $dept->slug])}}">
+                    <a href="{{route('manage.academics.programs.show', ['slug'=> $program->slug])}}"></a>
+                    <div class="relative"><a href="{{route('manage.academics.programs.show', ['slug'=> $program->slug])}}">
                             <img class="w-full"
                                  src="{{asset('/images/dept_image.png')}}"
                                  alt="Blog Image" height="50px">
@@ -30,8 +33,8 @@
                         </a>
                     </div>
                     <div class="px-6 py-4 mb-auto">
-                        <a href="{{route('manage.academics.departments.show', ['slug'=> $dept->slug])}}"
-                           class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{$dept->name}}</a>
+                        <a href="{{route('manage.academics.programs.show', ['slug'=> $program->slug])}}"
+                           class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{$program->name}}</a>
                     </div>
                     <div class="px-6 py-3 flex flex-row items-center justify-between bg-gray-100">
                 <span href="#" class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
@@ -47,7 +50,7 @@
                             </g>
                         </g>
                     </svg>
-                    <span class="ml-1">{{$dept->created_at->format('D, d M Y')}}</span>
+                    <span class="ml-1">{{$program->created_at->format('D, d M Y')}}</span>
                 </span>
                     </div>
                 </div>

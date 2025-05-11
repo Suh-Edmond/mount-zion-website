@@ -14,8 +14,8 @@ class School extends Model
 
     protected $fillable = [
         'name',
+        'email',
         'image_path',
-        'about',
         'telephone',
         'address',
         'region'
@@ -25,4 +25,11 @@ class School extends Model
     {
         return $this->hasMany(Program::class);
     }
+
+    public function stripDescriptionTags($desc)
+    {
+        return strip_tags($desc);
+    }
+
+
 }
