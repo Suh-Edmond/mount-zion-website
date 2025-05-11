@@ -15,7 +15,7 @@
     >{{ __('Delete Program') }}</x-danger-button>
 
     <x-modal name="confirm-program-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
-        <form method="post" action="{{ route('manage.academics.programs.delete', ['slug' => $program->slug]) }}" class="p-6">
+        <form method="post" action="{{ route('manage.academics.programs.delete', ['slug' => $program->slug, 'school_slug' => $program->school->slug]) }}" class="p-6">
             @csrf
             @method('delete')
 

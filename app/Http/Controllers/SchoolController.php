@@ -59,10 +59,7 @@ class SchoolController extends Controller
     {
         $this->schoolService->deleteSchool($request);
 
-        $data = [
-            'schools' => $this->schoolService->index($request)
-        ];
-        return redirect()->route('manage.academics')->with(['status' => 'School deleted successfully', 'data' => $data]);
+        return redirect()->route('manage.academics')->with(['status' => 'School deleted successfully']);
     }
 
     public function updateSchool(CreateSchoolRequest $request)

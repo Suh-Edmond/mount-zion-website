@@ -64,7 +64,7 @@ class ProgramController extends Controller
     {
         $this->programService->deleteProgram($request);
 
-        return Redirect::route('manage.academics.programs.list', ['slug' => $request['slug']])->with('status', 'Program deleted successfully');
+        return Redirect::route('manage.academics.programs.list', ['slug' => $request['school_slug']])->with('status', 'Program deleted successfully');
     }
 
     public function editUploadProgramImage(Request $request)
