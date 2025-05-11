@@ -1,8 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdmissionYearController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DepartmentController;
-use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SchoolController;
@@ -54,6 +53,10 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::delete('academics/programs-listing/store/edit-upload-image', [ProgramController::class, 'editUploadProgramImage'])->name('manage.academics.programs.edit-upload-image');
     Route::put('academics/programs-listing/update', [ProgramController::class, 'editProgram'])->name('manage.academics.programs.edit');
     Route::get('admission', [SchoolController::class, 'getSchools'])->name('manage.admission');
+    Route::get('admission/years', [AdmissionYearController::class, 'index'])->name('manage.admission.years');
+    Route::post('admission/years/store', [AdmissionYearController::class, 'createAdmissionYear'])->name('manage.admission.years.create');
+    Route::delete('admission/years/remove', [AdmissionYearController::class, 'removeAdmissionYear'])->name('manage.admission.years.remove');
+    Route::get('admission/year/applicants', [AdmissionController::class, 'getApplications'])->name('manage.admission.applicants');
 });
 
 Route::middleware('auth')->group(function () {

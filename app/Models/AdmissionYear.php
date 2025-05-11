@@ -15,6 +15,7 @@ class AdmissionYear extends Model
     protected $fillable = [
         'name',
         'year',
+        'status'
     ];
 
     public function admission()
