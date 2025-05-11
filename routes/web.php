@@ -57,6 +57,8 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::post('admission/years/store', [AdmissionYearController::class, 'createAdmissionYear'])->name('manage.admission.years.create');
     Route::delete('admission/years/remove', [AdmissionYearController::class, 'removeAdmissionYear'])->name('manage.admission.years.remove');
     Route::get('admission/year/applicants', [AdmissionController::class, 'getApplications'])->name('manage.admission.applicants');
+    Route::get('admission/year/applicants/profile', [AdmissionController::class, 'viewApplication'])->name('manage.admission.applicants.show');
+
 });
 
 Route::middleware('auth')->group(function () {

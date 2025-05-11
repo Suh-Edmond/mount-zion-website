@@ -27,4 +27,9 @@ class AdmissionYearService implements AdmissionYearInterface
             'status'   => 1
         ]);
     }
+
+    public function listYears()
+    {
+        return AdmissionYear::orderBy('year', 'desc')->get();
+    }
 }

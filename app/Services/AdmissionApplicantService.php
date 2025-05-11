@@ -3,12 +3,13 @@
 namespace App\Services;
 
 use App\Interface\AdmissionApplicantInterface;
+use App\Models\Admission;
 
 class AdmissionApplicantService implements AdmissionApplicantInterface
 {
     public function getApplicants($request)
     {
-        // TODO: Implement getApplicants() method.
+        return Admission::paginate(10);
     }
 
     public function showApplicant($request)

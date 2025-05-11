@@ -9,4 +9,6 @@ interface AdmissionYearInterface
     public function createAdmissionYear($request);
 
     public function removeAdmissionYear($request);
+
+    public function listYears();
 }
