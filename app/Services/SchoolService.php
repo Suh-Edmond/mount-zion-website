@@ -54,4 +54,9 @@ class SchoolService implements SchoolInterface
 
         $deleted->delete();
     }
+
+    public function getContactInfos($request)
+    {
+        return School::select('email', 'telephone', 'address', 'name')->get();
+    }
 }

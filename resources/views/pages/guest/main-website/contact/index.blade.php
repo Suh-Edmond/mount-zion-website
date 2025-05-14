@@ -2,7 +2,7 @@
 
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
-    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/banner/breadcrumb.jpg);">
+    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/contact/classroom.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -20,12 +20,14 @@
     <!-- BREADCRUMB AREA END -->
 
 
+    @foreach ($contacts as $contact)
+
     <!-- rts contact info -->
     <section class="rts-contact-info rts-section-padding">
         <div class="container">
             <div class="row">
                 <div class="rts-section rt-center mb--40">
-                    <h2 class="rts__section--title text-capitalize">General Contact Information</h2>
+                    <h2 class="rts__section--title text-capitalize">{{$contact->name}}</h2>
                 </div>
             </div>
             <div class="contact-information">
@@ -37,8 +39,7 @@
                                     <i class="fa-thin fa-map-location-dot"></i>
                                 </div>
                                 <p class="--p-m">
-                                    400 Broome St, New York, <br>
-                                    NY 10013, USA
+                                   {{$contact->address}}
                                 </p>
                             </div>
                         </div>
@@ -50,8 +51,7 @@
                                     <i class="fa-thin fa-phone"></i>
                                 </div>
                                 <div class="method">
-                                    <a href="callto:+442041542541" class="phone">+44 20 4154 2541</a>
-                                    <a href="callto:+442041542542" class="phone">+44 20 4154 2542</a>
+                                    <a href="callto:+442041542541" class="phone">{{$contact->telephone}}</a>
                                 </div>
                             </div>
                         </div>
@@ -81,73 +81,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="contact-map mt--30">
+                    <iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.247149201644!2d10.1490851!3d5.9606524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105f17e741384fe1%3A0x1f6f0e68e9dd5589!2sMount%20Zion%20Clinic!5e0!3m2!1sen!2scm!4v1747219261031!5m2!1sen!2scm" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </div>
     </section>
     <!-- rts contact info end -->
+    @endforeach
 
-
-    <!-- other contact method -->
-    <div class="rts-campus-contact pb--120">
-        <div class="container">
-            <div class="row">
-                <div class="rts-seciton rt-center mb--40">
-                    <h2 class="rts__section--title text-capitalize">Other Campus Contacts</h2>
-                </div>
-            </div>
-            <div class="contact-method">
-                <div class="row justify-content-md-start justify-content-sm-center g-5">
-                    <div class="col-lg-4 col-md-6 col-sm-10">
-                        <div class="contact-method__single">
-                            <div class="contact-img-bg">
-                                <img src="assets/images/contact/01.jpg" alt="">
-                            </div>
-                            <div class="contact-text">
-                                <h3 class="contact-title">London</h3>
-                                <p class="description">University of London, 15 Talbot Square, Tyburnia, London W2 1TT, UK</p>
-                                <div class="contact-link">
-                                    <a href="callto:+442078628360">+44 20 7862 8360</a>
-                                    <a href="mailto:Unipix.info@edu">Unipix.info@edu</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-10">
-                        <div class="contact-method__single">
-                            <div class="contact-img-bg">
-                                <img src="assets/images/contact/02.jpg" alt="">
-                            </div>
-                            <div class="contact-text">
-                                <h3 class="contact-title">New York</h3>
-                                <p class="description">80 Washington Square E, New York, NY 10003, USA</p>
-                                <div class="contact-link">
-                                    <a href="callto:+442078628360">+44 20 7862 8360</a>
-                                    <a href="mailto:Unipix.info@edu">Unipix.info@edu</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-10">
-                        <div class="contact-method__single">
-                            <div class="contact-img-bg">
-                                <img src="assets/images/contact/03.jpg" alt="">
-                            </div>
-                            <div class="contact-text">
-                                <h3 class="contact-title">Boston</h3>
-                                <p class="description">Center for Computing & Data Sciences, 665 Commonwealth Ave, Boston, MA 02215, USA</p>
-                                <div class="contact-link">
-                                    <a href="callto:+442078628360">+44 20 7862 8360</a>
-                                    <a href="mailto:Unipix.info@edu">Unipix.info@edu</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="contact-map mt--30">
-                <iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14602.288851207937!2d90.47855065!3d23.798243149999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1663151706353!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </div>
-    <!-- other contact method end -->
 </x-guest-layout>

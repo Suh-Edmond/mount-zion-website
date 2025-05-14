@@ -5,7 +5,7 @@
                 <div class="header__wrapper">
                     <div class="header__logo">
                         <a href="{{route('main.home')}}" class="header__logo--link">
-                            <img style="width: 300px" src="{{ asset('assets/images/logo/logo.png') }}" alt="unipix">
+                            <img style="width: 100px" src="{{ asset('assets/images/logo/resized_logo.png') }}" alt="unipix">
                         </a>
                     </div>
                     <div class="header__menu">
