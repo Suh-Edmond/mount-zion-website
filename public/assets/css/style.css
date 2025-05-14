@@ -16737,6 +16737,19 @@ body.index-sc h1, body.index-sc h2, body.index-sc h3, body.index-sc h4, body.ind
   display: block;
   margin-top: 30px;
 }
+.header__logo-img {
+  width: 100px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .header__logo-img {
+    width: 80px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .header__logo-img {
+    width: 50px;
+  }
+}
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   #side-bar .inner-main-wrapper-desk {
     display: none;

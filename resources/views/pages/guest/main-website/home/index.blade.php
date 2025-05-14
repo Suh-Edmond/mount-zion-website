@@ -55,7 +55,6 @@
                                             <h6 class="rts-subtitle"><img src="assets/images/icon/e-cap.svg" alt="education hat"> knowledge meets innovation</h6>
                                             <h1 class="rts-slider-title">
                                                 Mount Zion Institutes
-                                                Advancing Healthcare
                                             </h1>
                                             <p class="rts-slider-desc">
                                                 Be at the forefront of healthcare advancements through rigorous academic programs and opportunities for research and discovery.
@@ -71,15 +70,6 @@
                     </div>
                 </div>
             </div>
-            <!-- slider arrow -->
-            <!-- <div class="rts-slider-arrow">
-                <div class="rt-slider-btn rt-next">
-                    <i class="fa-regular fa-arrow-left"></i>
-                </div>
-                <div class="rt-slider-btn rt-prev">
-                    <i class="fa-regular fa-arrow-right"></i>
-                </div>
-            </div> -->
         </div>
     </div>
     <!-- hero slider  end -->
@@ -381,9 +371,9 @@
                                 <div class="icon">
                                     <img src="assets/images/program/icon/03.svg" alt="education">
                                 </div>
-                                <a href="../program-single.html" class="program-link">Special Care</a>
+                                <a href="{{route('main.academics')}}" class="program-link">Special Care</a>
                                 <p>Embark on a journey of knowledge, discovery, and growth at Mount Zion University.</p>
-                                <a href="../program-single.html" class="about-btn rts-nbg-btn btn-arrow
+                                <a href="{{route('main.academics')}}" class="about-btn rts-nbg-btn btn-arrow
 rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                             </div>
                         </div>
@@ -398,19 +388,19 @@ rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow
                                         <div class="icon-box">
                                             <img src="assets/images/icon/05.svg" alt="">
                                         </div>
-                                        <a href="../program-single.html">Special Care</a>
+                                        <a href="{{route('main.academics')}}">Special Care</a>
                                     </li>
                                     <li class="single-program">
                                         <div class="icon-box">
                                             <img src="assets/images/icon/04.svg" alt="">
                                         </div>
-                                        <a href="../program-single.html">HND Programs</a>
+                                        <a href="{{route('main.academics')}}">HND Programs</a>
                                     </li>
                                     <li class="single-program">
                                         <div class="icon-box">
                                             <img src="assets/images/icon/06.svg" alt="">
                                         </div>
-                                        <a href="../program-single.html">Bachelor’s Programs</a>
+                                        <a href="{{route('main.academics')}}">Bachelor’s Programs</a>
                                     </li>
                                 </ul>
                             </div>
@@ -424,9 +414,9 @@ rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow
                                 <div class="icon">
                                     <img src="assets/images/program/icon/01.svg" alt="education">
                                 </div>
-                                <a href="../program-single.html" class="program-link">Bachelor's Programs</a>
+                                <a href="{{route('main.academics')}}" class="program-link">Bachelor's Programs</a>
                                 <p>Empower yourself with the skills to heal and lead at Mount Zion University</p>
-                                <a href="../program-single.html" class="about-btn rts-nbg-btn btn-arrow
+                                <a href="{{route('main.academics')}}" class="about-btn rts-nbg-btn btn-arrow
 rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                             </div>
                         </div>
@@ -478,143 +468,16 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                         <p class="w-740 mb--50">
                             We invite you to join us in our vision to strengthen healthcare in the Cameroon and beyond. Your sponsorship will be instrumental in sustaining access to quality health personnel education. Together, we can empower these future professionals to make a lasting positive impact on the health and well-being of our nation
                         </p>
-                        <a href="../scholarship.html" class="rts-theme-btn btn-arrow">Know More<span><i class="fa-thin fa-arrow-right"></i></span></a>
+                        <a href="{{route('main.contact')}}" class="rts-theme-btn btn-arrow">Know More<span><i class="fa-thin fa-arrow-right"></i></span></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- scholarship appication end -->
-    <!-- apply procedure  -->
-    <section class="rts-application-procedure rts-section-padding">
-        <div class="container">
-            <div class="row justify-content-sm-center">
-                <div class="col-lg-12 col-sm-11">
-                    <div class="rts-section mb--40 rt-between">
-                        <h2 class="rts-section-title w-440">How to Apply to
-                            Mount Zion University</h2>
-                        <p class="w-520">
-                            There are four sessions of admissions for the one year course. Students are admitted either for January session, April session, June session or September session annually
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- apply content -->
-            <div class="row justify-content-sm-center justify-content-md-start g-5">
-                <div class="col-lg-4 col-md-6 col-sm-11">
-                    <div class="single-procedure">
-                        <div class="procedure-image">
-                            <img src="assets/images/apply/01.jpg" alt="application-thumb">
-                        </div>
-                        <div class="rt-clip-serial rt-clip-text">01</div>
-                        <div class="icon">
-                            <img src="assets/images/icon/07.svg" alt="">
-                        </div>
-                        <a href="#">Create an Account:</a>
-                        <p>Take the time to explore the diverse range of undergraduate and graduate programs offered at Unipix University</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-11">
-                    <div class="single-procedure">
-                        <div class="procedure-image">
-                            <img src="assets/images/apply/01.jpg" alt="application-thumb">
-                        </div>
-                        <div class="rt-clip-serial rt-clip-text">02</div>
-                        <div class="icon">
-                            <img src="assets/images/icon/06.svg" alt="">
-                        </div>
-                        <a href="#">Online Application</a>
-                        <p>Take the time to explore the diverse range of undergraduate and graduate programs offered at Unipix University</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-11">
-                    <div class="single-procedure">
-                        <div class="procedure-image">
-                            <img src="assets/images/apply/01.jpg" alt="application-thumb">
-                        </div>
-                        <div class="rt-clip-serial rt-clip-text">03</div>
-                        <div class="icon">
-                            <img src="assets/images/icon/06.svg" alt="">
-                        </div>
-                        <a href="#">Programs & Requirements</a>
-                        <p>Take the time to explore the diverse range of undergraduate and graduate programs offered at Unipix University</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- support end -->
 
-    <div class="rts-testimonial v_2 rt-relative pt--120 pb--120">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12 col-md-10">
-                    <div class="rts-section text-center mb--45">
-                        <h2 class="rts-section-title">Our Students' Feedback</h2>
-                    </div>
-                </div>
-            </div>
-            <!-- testimonial content -->
-            <div class="row justify-content-center">
-                <div class="col-lg-12 col-md-10">
-                    <div class="rts-testimonial-box">
-                        <div class="testimonial-item rt-flex">
-                            <div class="testimonial-item-image save-from-hidden">
-                                <img src="assets/images/home/student.jpg" alt="testimonial thumbnail">
-                                <!-- <a href="https://www.youtube.com/watch?v=7ahgosTZJHg" class="video-play popup-video">
-                                    <img src="assets/images/icon/video-btn.svg" alt="video">
-                                </a> -->
-                            </div>
-                            <div class="testimonial-item-content w-630 rt-relative">
-                                <div class="testmonial-v2">
-                                    <div class="swiper-wrapper">
-                                        <!-- single testimonial -->
-                                        <div class="swiper-slide">
-                                            <div class="single-testimonial">
-                                                <div class="rt-between mb--50">
-                                                    <div class="rt-icon">
-                                                        <img src="assets/images/testimonial/quote.svg" alt="quote icon">
-                                                    </div>
-                                                    <div class="rt-review">
-                                                        <div class="rating-star mb--10">
-                                                            <i class="fa-sharp fa-solid fa-star"></i>
-                                                            <i class="fa-sharp fa-solid fa-star"></i>
-                                                            <i class="fa-sharp fa-solid fa-star"></i>
-                                                            <i class="fa-sharp fa-solid fa-star"></i>
-                                                            <i class="fa-sharp fa-light fa-star"></i>
-                                                        </div>
-                                                        <p class="rt-secondary rt-medium --p-s">4.5 ( 112 Review)</p>
-                                                    </div>
-                                                </div>
-                                                <p class="testimonial-text">
-                                                    I would highly recommend Mount Zion University to anyone interested in professional health education. It has provided me with invaluable knowledge & a newfound passion for the topic. My only suggestion would be to add more live.
-                                                </p>
-                                                <div class="rt-testimonial-author mt--50">
-                                                    <div class="rt-author-meta rt-flex rt-gap-20">
-                                                        <div class="rt-author-img">
-                                                            <img src="assets/images/testimonial/author-1.png" alt="author">
-                                                        </div>
-                                                        <div class="rt-author-info">
-                                                            <h5 class="mb-1">David Jhon</h5>
-                                                            <p>Artist and Instructor</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- rts dot -->
-                            <div class="swiper-pagination"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial end -->
     <!-- blog area start -->
-    <div class="rts-blog rts-section-padding v_2 no-bg">
+    <!-- <div class="rts-blog rts-section-padding v_2 no-bg">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-11 col-lg-12">
@@ -627,7 +490,6 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                     </div>
                 </div>
             </div>
-            <!-- blog content -->
             <div class="row g-5">
                 <div class="col-lg-6">
                     <div class="rts-blog-post blog-v-full">
@@ -657,7 +519,6 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                 </div>
                 <div class="col-lg-6">
                     <div class="rts-blog-post">
-                        <!-- single blog -->
                         <div class="single-blog-post">
                             <div class="blog-thumb">
                                 <a href="../blog-details.html">
@@ -682,7 +543,6 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 </a>
                             </div>
                         </div>
-                        <!-- single blog -->
                         <div class="single-blog-post">
                             <div class="blog-thumb">
                                 <a href="../blog-details.html">
@@ -707,7 +567,6 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 </a>
                             </div>
                         </div>
-                        <!-- single blog -->
                         <div class="single-blog-post">
                             <div class="blog-thumb">
                                 <a href="../blog-details.html">
@@ -736,11 +595,11 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- blog area end -->
 
     <!-- newsletter -->
-    <div class="rts-newsletter v_1 rts-cta-background rts__white">
+    <!-- <div class="rts-newsletter v_1 rts-cta-background rts__white">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -759,6 +618,6 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- newsletter end -->
 </x-guest-layout>
