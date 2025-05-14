@@ -12,4 +12,6 @@ interface ProgramInterface
     public function updateProgram($request);
 
     public function showProgram($request);
+
+    public function getPrograms($school_id, $program_type);
 }

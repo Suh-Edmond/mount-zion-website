@@ -23,7 +23,10 @@ class ProgramService implements ProgramInterface
 
     public function getProgramTypes($schoolId)
     {
-        return Program::where('school_id', $schoolId)->distinct()->pluck('tag');
+        if ($schoolId) {
+            return Program::where('school_id', $schoolId)->distinct()->pluck('tag');
+        }
+        return Program::distinct()->pluck('tag');
     }
 
     public function listPrograms($request)
@@ -32,6 +35,20 @@ class ProgramService implements ProgramInterface
         return School::where('slug', $slug)->firstOrFail();
     }
 
+    public function getPrograms($school_id, $program_type)
+    {
+        $query = Program::query();
+
+        if ($school_id) {
+            $query->where('school_id', $school_id);
+        }
+        
+        if ($program_type) {
+            $query->where('tag', $program_type);
+        }
+
+        return $query->orderBy('name', 'ASC')->paginate(10);
+    }
 
     public function createProgram($request)
     {
