@@ -25,7 +25,34 @@ class AcademicController extends Controller
 
     public function academicArea(Request $request)
     {
-        return view('pages.guest.main-website.academic.academic-area');
+        $schoolSlug = $request['school'] ?? null;
+        $programType = $request['program_type'] ?? null;
+
+        $schools = $this->schoolService->getSchools($request);
+        
+        if ($schoolSlug) {
+            $school = $this->schoolService->show($schoolSlug);
+        }
+
+        $programTypes = $this->programService->getProgramTypes($school->id ?? null);
+        $programs = $this->programService->getPrograms($school->id??null, $programType);
+        
+        // Update each program with its associated school
+        if ($programs->count() > 0) {
+            $programs->getCollection()->transform(function ($program) use ($schools) {
+            $schoolId = $program->school_id ?? null;
+            if ($schoolId && !empty($schools)) {
+                $program->school = collect($schools)->firstWhere('id', $schoolId);
+            }
+            return $program;
+            });
+        }
+
+        return view('pages.guest.main-website.academic.academic-area', [
+            'programTypes' => $programTypes,
+            'schools' => $schools,
+            'programs' => $programs
+        ]);
     }
 
     public function school(Request $request, $slug)

@@ -15,4 +15,6 @@ interface SchoolInterface
     public function getSchool($request);
 
     public function deleteSchool($request);
+
+    public function getContactInfos($request);
 }

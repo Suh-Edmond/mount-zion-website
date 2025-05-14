@@ -16694,10 +16694,10 @@ body.index-sc h1, body.index-sc h2, body.index-sc h3, body.index-sc h4, body.ind
   background: var(--rt-white);
 }
 .header__sticky.fixed .header__logo--link img {
-  filter: invert(100);
+  /* filter: invert(100); */
 }
 .header__sticky.fixed .header__right--item .menu__trigger img {
-  filter: invert(100);
+  /* filter: invert(100); */
 }
 .header__sticky.fixed .navigation__menu--item__link {
   padding: 30px 0;
@@ -16736,6 +16736,19 @@ body.index-sc h1, body.index-sc h2, body.index-sc h3, body.index-sc h4, body.ind
 #side-bar .inner-main-wrapper-desk {
   display: block;
   margin-top: 30px;
+}
+.header__logo-img {
+  width: 100px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .header__logo-img {
+    width: 80px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .header__logo-img {
+    width: 50px;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   #side-bar .inner-main-wrapper-desk {
@@ -18307,7 +18320,7 @@ body.index-sc h1, body.index-sc h2, body.index-sc h3, body.index-sc h4, body.ind
 }
 
 .single-brand-logo a img {
-  filter: saturate(0.5) contrast(0.1);
+  /* filter: saturate(0.5) contrast(0.1); */
   transition: var(--transition);
 }
 .single-brand-logo:hover a img {
