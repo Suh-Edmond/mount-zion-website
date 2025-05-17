@@ -127,7 +127,7 @@
                                 <img src="assets/images/campus/04.jpg" alt="item-image">
                             </div>
                             <div class="single-item__meta">
-                                <h5 class="item-title"><a href="#">The Arts at Unipix</a></h5>
+                                <h5 class="item-title"><a href="#">The Arts at Mount Zion</a></h5>
                                 <p class="item-description">Stanford has a rich tradition of fostering creativity and the arts, A vibrant campus</p>
                             </div>
                         </div>

@@ -31,8 +31,8 @@
                                 <img src="assets/images/course/scholarship-big.jpg" alt="program">
                             </div>
                             <div class="program-about">
-                                <h4 class="title">Scholarship Opportunities at Unipix University</h4>
-                                <p>At Unipix University, we are committed to supporting academic excellence and ensuring that deserving students have access to quality education. Through a range of scholarship opportunities, we aim to recognize and reward outstanding achievements. Explore the various scholarships available:</p>
+                                <h4 class="title">Scholarship Opportunities at Mount Zion University</h4>
+                                <p>At Mount Zion University, we are committed to supporting academic excellence and ensuring that deserving students have access to quality education. Through a range of scholarship opportunities, we aim to recognize and reward outstanding achievements. Explore the various scholarships available:</p>
                             </div>
                             <div class="repeating-content">
                                 <h5 class="title">Merit-Based Scholarships</h5>
@@ -137,7 +137,7 @@
                                     </div>
                                 </div>
                                 <p class="desc mt--40">
-                                    For detailed information on eligibility criteria, application deadlines, and the application process for each scholarship, please visit our [Scholarships] page or contact the Unipix University Financial Aid Office.
+                                    For detailed information on eligibility criteria, application deadlines, and the application process for each scholarship, please visit our [Scholarships] page or contact the Mount Zion University Financial Aid Office.
                                 </p>
                             </div>
 
@@ -145,10 +145,10 @@
                             <!-- si = scholarship-information -->
                             <div class="si">
                                 <h4 class="title">Scholarship Requirements at
-                                    Unipix University
+                                    Mount Zion University
                                 </h4>
                                 <p>
-                                    At Unipix University, we believe in recognizing and supporting exceptional talent and achievements. Our scholarship programs aim to provide financial assistance
+                                    At Mount Zion University, we believe in recognizing and supporting exceptional talent and achievements. Our scholarship programs aim to provide financial assistance
                                 </p>
                                 <div class="si__list">
                                     <ul class="list-unstyled">
@@ -187,7 +187,7 @@
                                     <div class="accordion" id="rts-accordion">
                                         <div class="accordion-item">
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                What are the admission requirements for Unipix University?
+                                                What are the admission requirements for Mount Zion University?
                                             </button>
                                             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#rts-accordion">
                                                 <div class="accordion-body">
@@ -211,7 +211,7 @@
                                         </div>
                                         <div class="accordion-item">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                How do I contact Unipix University?
+                                                How do I contact Mount Zion University?
                                             </button>
                                             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#rts-accordion">
                                                 <div class="accordion-body">
@@ -291,7 +291,7 @@
                                 <p>B.A. in Africana Studies</p>
                                 <div class="contact-info">
                                     <h5>Contact:</h5>
-                                    <a href="mailto:barry.Unipix@info.com">barry.Unipix@info.com</a>
+                                    <a href="mailto:barry.mountzion@info.com">barry.mountzion@info.com</a>
                                     <a href="callto:121">664-254-251</a>
                                 </div>
                                 <div class="social-info">

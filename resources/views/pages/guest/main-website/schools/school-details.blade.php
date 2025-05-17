@@ -40,10 +40,10 @@
                     <div class="faculty-content-text ms-lg-5 mt-5 mt-lg-0">
                         <p class="h6 mb-
                         4">It's your Time Join to explore</p>
-                        <p class="mb-5">The Faculty of Arts Unipix University warmly welcomes you to a vast, vivid and vigorous academic landscape of relentless pursuits and superb brilliance.</p>
+                        <p class="mb-5">The Faculty of Arts Mount Zion University warmly welcomes you to a vast, vivid and vigorous academic landscape of relentless pursuits and superb brilliance.</p>
                         <p class="h6 mb-
                         4">Learn to lead</p>
-                        <p class="mb-5">In line with the lifelong motto of Unipix 'where leaders are created', FA is devoted to produce accomplished, as well as skilled, learners who can meet the professional requirements of today's local and global job market. Be it an academic seminar or an in-house cricket tournament or a debate festival, students and teachers at FA work hand in hand to make it a success. This is how we make sure that each of our students remains engaged in academic and extracurricular rigors to grow to his or her fullest extent. This is how FA of Unipix creates local leaders for the global demands.</p>
+                        <p class="mb-5">In line with the lifelong motto of Mount Zion 'where leaders are created', FA is devoted to produce accomplished, as well as skilled, learners who can meet the professional requirements of today's local and global job market. Be it an academic seminar or an in-house cricket tournament or a debate festival, students and teachers at FA work hand in hand to make it a success. This is how we make sure that each of our students remains engaged in academic and extracurricular rigors to grow to his or her fullest extent. This is how FA of Mount Zion creates local leaders for the global demands.</p>
                         <p class="h6 mb-
                         4">Challenge yourself to change the world</p>
                         <p>Education becomes meaningful only when it can change the world when necessary. This is what my colleagues and I are working for every single day of the week at FA. I hope that you will find whatever information you may need here and if not please feel free to let me know. I warmly welcome your comments and suggestions. Thank you very much for your kind visit.</p>

@@ -23,7 +23,9 @@ class CreateAdmissionYearRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'year' => 'required'
+            'year' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date'
         ];
     }
 }

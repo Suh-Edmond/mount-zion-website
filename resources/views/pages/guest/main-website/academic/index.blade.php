@@ -84,7 +84,7 @@
                 <div class="col-lg-5 col-md-11">
                     <div class="rts-multi-row-content">
                         <h4 class="row-title">Undergraduate Education</h4>
-                        <p>Unipix Undergrad is your guide to undergraduate academics and opportunities run by the Vice Provost for Undergraduate Education.</p>
+                        <p>Mount Zion Undergrad is your guide to undergraduate academics and opportunities run by the Vice Provost for Undergraduate Education.</p>
                         <div class="program-list">
                             <a href="program-single.html" class="program-item"><span>Africana Studies <i class="fa-regular fa-chevron-right"></i></span> <span>A.B</span></a>
                             <a href="program-single.html" class="program-item"><span>Accounting, BS <i class="fa-regular fa-chevron-right"></i></span> <span>A.B</span></a>
@@ -127,8 +127,8 @@
                         <div class="program-list">
                             <div class="single-list">
                                 <h4 class="row-title">Lifelong Learning</h4>
-                                <p>Unipix offers a wide range of programs, classes, internships, and an entire online high school.</p>
-                                <a href="#" class="about-btn rts-nbg-btn btn-arrow">Unipix Undergraduate <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+                                <p>Mount Zion offers a wide range of programs, classes, internships, and an entire online high school.</p>
+                                <a href="#" class="about-btn rts-nbg-btn btn-arrow">Mount Zion Undergraduate <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                             </div>
                             <div class="single-list">
                                 <h4 class="row-title">Professional Development</h4>
@@ -159,7 +159,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="rts-video-section-text rt-center mx-3">
-                        <p>Embark on a journey of knowledge, discovery, and growth at Unipix University. Our admissions process is designed to identify bright, motivated individuals who are eager to contribute to our dynamic academic community. Whether you're a recent high school graduate or a transfer student seeking a new academic home, we invite you to explore the possibilities that await you.</p>
+                        <p>Embark on a journey of knowledge, discovery, and growth at Mount Zion University. Our admissions process is designed to identify bright, motivated individuals who are eager to contribute to our dynamic academic community. Whether you're a recent high school graduate or a transfer student seeking a new academic home, we invite you to explore the possibilities that await you.</p>
                         <a href="campus-life.html" class="mt--15 about-btn rts-nbg-btn btn-arrow">Visit Campus <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                     </div>
                 </div>

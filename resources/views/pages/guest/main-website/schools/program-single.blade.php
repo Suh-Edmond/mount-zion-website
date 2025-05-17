@@ -375,7 +375,7 @@
                                 <p>B.A. in Africana Studies</p>
                                 <div class="contact-info">
                                     <h5>Contact:</h5>
-                                    <a href="mailto:barry.Unipix@info.com">barry.Unipix@info.com</a>
+                                    <a href="mailto:barry.mountzion@info.com">barry.mountzion@info.com</a>
                                     <a href="callto:121">664-254-251</a>
                                 </div>
                                 <div class="social-info">

@@ -33,6 +33,7 @@ Route::get('/campus-life', [CampusController::class, 'index'])->name('main.campu
 Route::get('/scholarships', [ScholarshipController::class, 'index'])->name('main.scholarship');
 Route::get('tuition-fee', [TuitionController::class, 'index'])->name('main.tuition-fee');
 Route::get('alumni', [AlumniController::class, 'index'])->name('main.alumni');
+Route::post('/admissions/add-applicant', [AdmissionController::class, 'addApplicant'])->name('main.admission.applicant.store');
 
 Route::get('academics/schools/{slug}', [AcademicController::class, 'school'])->name('main.schools.show');
 Route::get('academics/schools/{schoolSlug}/{programSlug}', [AcademicController::class, 'program'])->name('main.schools.program.show');

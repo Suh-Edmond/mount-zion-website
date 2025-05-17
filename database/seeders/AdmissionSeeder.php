@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection ALL */
 
 namespace Database\Seeders;
 
@@ -34,7 +34,6 @@ class AdmissionSeeder extends Seeder
                 'user_id'    => $generator->randomElement($this->users),
                 'program_id'   => $generator->randomElement($this->programs),
                 'admission_year_id'        => $generator->randomElement($this->admissionYears),
-                'admission_session' => $generator->randomElement([AdmissionSession::JANUARY, AdmissionSession::JUNE, AdmissionSession::SEPTEMBER, AdmissionSession::APRIL])
             ]);
         }
     }

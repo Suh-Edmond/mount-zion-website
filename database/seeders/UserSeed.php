@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Constant\Gender;
+use App\Constant\UserType;
 use App\Models\User;
+use Carbon\Carbon;
 use Faker\Generator;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -21,7 +24,11 @@ class UserSeed extends Seeder
                 'password' => Hash::make('password'),
                 'telephone' => $generator->phoneNumber,
                 'region'   => $generator->randomElement(['Northwest', 'Southwest']),
-                'address'  => $generator->address
+                'address'  => $generator->address,
+                'dob'      => Carbon::now(),
+                'pob'      => $generator->address,
+                'gender'   => $generator->randomElement([Gender::MALE, Gender::FEMALE]),
+                'user_type' => $generator->randomElement([UserType::APPLICANT, UserType::STAFF])
             ]);
         }
     }

@@ -60,37 +60,26 @@
                                     <table class="table">
                                         <thead class="table-theme">
                                         <tr>
-                                            <td>Event</td>
-                                            <td>Restrictive Early Action</td>
-                                            <td>Regular Decision</td>
+                                            <td>Name</td>
+                                            <td>Year</td>
+                                            <td>Start Date</td>
+                                            <td>End Date</td>
+                                            <td>Status</td>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td>Standard Application Deadline</td>
-                                            <td>November 1</td>
-                                            <td>January 10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Notification of Missing Documents</td>
-                                            <td>Mid-November</td>
-                                            <td>Mid-February</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Decision Released By</td>
-                                            <td>Mid-December</td>
-                                            <td>Early April</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Student Reply Date</td>
-                                            <td>May 1</td>
-                                            <td>May 1</td>
+                                            <td>{{$admissionSession->name}}</td>
+                                            <td>{{$admissionSession->year}}</td>
+                                            <td>{{$admissionSession->start_date}}</td>
+                                            <td>{{$admissionSession->end_date}}</td>
+                                            <td>{{$admissionSession->end_date ? 'ACTIVE': 'IN_ACTIVE'}}</td>
                                         </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <p> Unipix reserves the right to evaluate an application and render a final decision even if all pieces of the application have not been received.</p>
-                                <p class="w-95 mx-0">Applicants are limited to a total of three applications for undergraduate admission, whether for first-year admission, transfer admission or a <br>combination of both. If you have submitted fewer than three applications to Unipix, you may reapply.
+                                <p> Mount Zion reserves the right to evaluate an application and render a final decision even if all pieces of the application have not been received.</p>
+                                <p class="w-95 mx-0">Applicants are limited to a total of three applications for undergraduate admission, whether for first-year admission, transfer admission or a <br>combination of both. If you have submitted fewer than three applications to Mount Zion, you may reapply.
                                 </p>
                             </div>
                         </div>
@@ -98,179 +87,94 @@
                 </div>
             </div>
             <div class="row sticky-coloum-wrap g-5 mt--45">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="rts-ap-section">
                         <h3 class="rts-section-title mb--30">Application Details</h3>
                         <div class="rts-application-form">
-                            <form action="#">
+                            <form method="post" action="">
+
                                 <div class="single-form-part">
                                     <h5 class="form-title">Personal Information</h5>
                                     <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="fname">First Name</label>
-                                            <input type="text" id="fname" placeholder="First name">
+                                            <input type="text" name="fname" placeholder="First name" required>
                                         </div>
                                         <div class="single-input-item">
                                             <label for="lname">Last Name</label>
-                                            <input type="text" id="lname" placeholder="Last name">
+                                            <input type="text" name="lname" placeholder="Last name" required>
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="email2">Enter your mail</label>
-                                            <input type="email" id="email2" placeholder="Enter your mail">
+                                            <input type="email" name="email" placeholder="Enter your mail" required>
                                         </div>
                                         <div class="single-input-item">
                                             <label for="phone">Enter Phone Number</label>
-                                            <input type="tel" id="phone" placeholder="Enter Phone Number">
+                                            <input type="tel" name="telephone" placeholder="Enter Phone Number" required>
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="dob">Date of Birth</label>
-                                            <input type="text" id="datepicker" placeholder="dd/mm/yy">
+                                            <input type="date" name="dob" placeholder="dd/mm/yy" required>
                                         </div>
+                                        <div class="single-input-item">
+                                            <label for="pob">Place of Birth</label>
+                                            <input type="text" name="pob" placeholder="Buea" required>
+                                        </div>
+                                    </div>
+                                    <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="gender">Gender</label>
-                                            <select name="gender" id="gender">
-                                                <option value="*">Gender</option>
-                                                <option value="*">Male</option>
-                                                <option value="*">Female</option>
+                                            <select name="gender" required>
+                                                @foreach($genders as $key => $gender)
+                                                    <option value="{{$gender}}">{{$gender}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="single-input-item">
+                                            <label for="region">Select your Region </label>
+                                            <select name="region" id="region" placeholder="Region of origin" required>
+                                                @foreach($regions as $key => $value)
+                                                    <option value="{{$value}}">{{$value}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="country">Select your Country </label>
-                                            <input id="country" type="text" placeholder="Country">
+                                            <label for="gender">Select Program</label>
+                                            <select name="program_id" required>
+                                                @foreach($programs as $key => $program)
+                                                    <option value="{{$program->id}}">{{$program->name}} - {{$program->duration}} year(s)</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="single-input">
+                                        <div class="single-input-item">
+                                            <label for="sub">Application Files:</label>
+                                            <input type="file" name="files">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="single-form-part">
-                                    <h5 class="form-title">Academic Information</h5>
-                                    <div class="single-input">
-                                        <div class="single-input-item">
-                                            <label for="cname">Collage Name</label>
-                                            <input id="cname" type="text" placeholder="Collage Name">
-                                        </div>
-                                        <div class="single-input-item">
-                                            <label for="gpa">Enter your GPA</label>
-                                            <input id="gpa" type="text" placeholder="Enter your GPA">
-                                        </div>
-                                    </div>
-                                    <div class="single-input">
-                                        <div class="single-input-item">
-                                            <label for="cname2">Collage Name</label>
-                                            <input id="cname2" type="text" placeholder="current college">
-                                        </div>
-                                        <div class="single-input-item">
-                                            <label for="gpa2">Enter your GPA</label>
-                                            <input type="text" id="gpa2" placeholder="Current GPA">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-form-part">
-                                    <h5 class="form-title">Financial Information</h5>
-                                    <div class="single-input">
-                                        <div class="single-input-item">
-                                            <label for="income">Household Income</label>
-                                            <select name="income" id="income">
-                                                <option value="*">Less then $1k</option>
-                                                <option value="*">Less then $2k</option>
-                                                <option value="*">Less then $3k</option>
-                                            </select>
-                                        </div>
-                                        <div class="single-input-item">
-                                            <label for="yes">applying for need-based financial aid</label>
-                                            <select name="yes" id="yes">
-                                                <option value="*">yes</option>
-                                                <option value="*">no</option>
-                                            </select>
-                                        </div>
-                                    </div>
 
-                                </div>
                                 <div class="single-form-part">
                                     <h5 class="form-title">Agreement and Submission</h5>
                                     <p>By submitting this application, I confirm that all information provided is accurate and complete. I understand that any false
                                         information may result in the disqualification of my application.
                                     </p>
-                                    <div class="single-input-item">
-                                        <label for="sub">Application Submission:</label>
-                                        <input type="file" id="sub">
-                                    </div>
 
                                     <div class="d-flex align-items-center single-checkbox mt--20">
-                                        <input type="checkbox" id="exampleCheck1">
-                                        <label for="exampleCheck1">By submitting this form, you agree to the Unipix University Privacy Notice</label>
+                                        <input type="checkbox" name="has_agreed" required>
+                                        <label for="exampleCheck1">By submitting this form, you agree to the Mount Zion University Privacy Notice</label>
                                     </div>
                                 </div>
-                                <button type="submit" class="rts-theme-btn primary with-arrow">Submit Application<span><i class="fa-thin fa-arrow-right"></i></span></button>
+                                <button type="submit" class="rts-theme-btn primary with-arrow submit">Submit Application<span><i class="fa-thin fa-arrow-right"></i></span></button>
                             </form>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 sticky-coloum-item">
-                    <div class="program-sidebar">
-                        <!-- curriculum -->
-                        <div class="program-curriculum">
-                            <h6 class="heading-title">B.A In African Studies</h6>
-                            <div class="program-menu">
-                                <ul class="list-unstyled">
-                                    <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Course Curriculum</a></li>
-                                    <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Program Faculty</a></li>
-                                    <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Apply Admission</a></li>
-                                    <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Scholarship </a></li>
-                                    <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Joint Event</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- contact info -->
-                        <div class="program-info">
-                            <h5>Department Contact Info</h5>
-                            <p>B.A. in Africana Studies</p>
-                            <div class="contact-info">
-                                <h5>Contact:</h5>
-                                <a href="mailto:barry.Unipix@info.com">barry.Unipix@info.com</a>
-                                <a href="callto:121">664-254-251</a>
-                            </div>
-                            <div class="social-info">
-                                <h5>Social Info:</h5>
-                                <div class="social-info-link">
-                                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- join event -->
-                        <div class="program-event">
-                            <div class="program-event-content">
-                                <p>Joint New Event About
-                                    African History
-                                </p>
-                                <h4 class="event-title">B.A. in Africana
-                                    Studies</h4>
-                                <div class="single-event-content-meta">
-                                    <div class="event-time">
-                                        <span><i class="fa-sharp fa-thin fa-clock"></i></span>
-                                        <span>10:30 am</span>
-                                    </div>
-                                    <div class="event-place">
-                                        <span><i class="fa-sharp fa-thin fa-location-dot"></i></span>
-                                        <span>Yarra Park, UK</span>
-                                    </div>
-                                    <div class="event-date">
-                                        <span><i class="fal fa-calendar"></i></span>
-                                        <span>November 28, 2023</span>
-                                    </div>
-                                </div>
-                                <a href="#" class="rts-theme-btn with-arrow btn-white lh-100">Joint Now <span><i class="fa-thin fa-arrow-right"></i></span></a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -279,3 +183,49 @@
     </div>
     <!-- admission page content end -->
 </x-guest-layout>
+
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $(document).on('click', '.submit', function(e){
+        e.preventDefault();
+
+        var fname = $("input[name=fname]").val();
+        var lname = $("input[name=lname]").val();
+        var telephone = $("input[name=telephone]").val();
+        var email = $("input[name=email]").val();
+        var region = $("select[name=region]").val();
+        var gender = $("input[name=gender]").val();
+        var has_agreed = $("input[name=has_agreed]").val();
+        var dob = $("input[name=dob]").val();
+        var pob = $("input[name=pob]").val();
+        var program_id = $("select[name=program_id]").val();
+
+
+        $.ajax({
+            url: "{{route('main.admission.applicant.store', ['admission_year_id' => $admissionSession->id])}}",
+            type: "POST",
+            data: {
+                "fname" : fname,
+                "lname": lname,
+                "telephone": telephone,
+                "email": email,
+                "region" :region,
+                "gender": gender,
+                "has_agreed":has_agreed,
+                "address":"address",
+                "dob":dob,
+                "pob": pob,
+                "program_id":program_id
+            },
+            success: function(data){
+                console.log(data)	// here comes the login form
+            },
+            error: function(data){
+            },
+        });
+    });
+</script>

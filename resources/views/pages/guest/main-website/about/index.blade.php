@@ -11,7 +11,7 @@
                             <li class="breadcrumb-item"><a href="{{route('main.home')}}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">about</li>
                         </ul>
-                        <h2 class="section-title">About Unipix University</h2>
+                        <h2 class="section-title">About Mount Zion University</h2>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-lg-8 col-md-7">
                         <p class="rts-section-description">
-                            Welcome to Unipix University, where knowledge meets inspiration, and every individual's educational journey is valued. Established in 1971 Establishment, our university has been a bastion of learning, innovation, and community for 51 years years.
+                            Welcome to Mount Zion University, where knowledge meets inspiration, and every individual's educational journey is valued. Established in 1971 Establishment, our university has been a bastion of learning, innovation, and community for 51 years years.
                         </p>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                                 <img src="assets/images/icon/12.svg" alt="">
                             </div>
                             <div class="desc">
-                                <p>Unipix University Faculty and Staff</p>
+                                <p>Mount Zion University Faculty and Staff</p>
                             </div>
                         </div>
                         <div class="single-about-info">
@@ -67,7 +67,7 @@
                                 <img src="assets/images/icon/13.svg" alt="">
                             </div>
                             <div class="desc">
-                                <p>Unipix Alumni Worldwide</p>
+                                <p>Mount Zion Alumni Worldwide</p>
                             </div>
                         </div>
                     </div>
@@ -88,11 +88,11 @@
                 </div>
                 <div class="col-lg-6 col-md-11">
                     <div class="rts-history-section">
-                        <h4 class="rts-section-title mb--40">The history of Unipix</h4>
+                        <h4 class="rts-section-title mb--40">The history of Mount Zion</h4>
                         <p>
-                            On September 8, 1971, Unipix, the first college in the American colonies, was founded in Cambridge, Massachusetts. Unipix University was officially founded by a vote by the Great and General Court of the Massachusetts Bay Colony.
+                            On September 8, 1971, Mount Zion, the first college in the American colonies, was founded in Cambridge, Massachusetts. Mount Zion University was officially founded by a vote by the Great and General Court of the Massachusetts Bay Colony.
                             <span class="d-block mb--30"></span>
-                            Unipix endowment started with John Unipix initial donation of 400 books and half his estate, but in 1721, Thomas Hollis began the now standard practice of requiring that a donation be used for a specific purpose when he donated money for “a Divinity Professor, to read lectures in the Halls to the students.”
+                            Mount Zion endowment started with John Mount Zion initial donation of 400 books and half his estate, but in 1721, Thomas Hollis began the now standard practice of requiring that a donation be used for a specific purpose when he donated money for “a Divinity Professor, to read lectures in the Halls to the students.”
                         </p>
                     </div>
                 </div>
@@ -194,7 +194,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="rts-video-section-text rt-center mx-3">
-                        <p>Embark on a journey of knowledge, discovery, and growth at Unipix University. Our admissions process is designed to identify bright, motivated individuals who are eager to contribute to our dynamic academic community. Whether you're a recent high school graduate or a transfer student seeking a new academic home, we invite you to explore the possibilities that await you.</p>
+                        <p>Embark on a journey of knowledge, discovery, and growth at Mount Zion University. Our admissions process is designed to identify bright, motivated individuals who are eager to contribute to our dynamic academic community. Whether you're a recent high school graduate or a transfer student seeking a new academic home, we invite you to explore the possibilities that await you.</p>
                         <a href="campus-life.html" class="mt--15 about-btn rts-nbg-btn btn-arrow">Visit Campus <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                     </div>
                 </div>
