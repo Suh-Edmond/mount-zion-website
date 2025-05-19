@@ -18,9 +18,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap");
 :root {
   --rt-theme: #09A24F;
-  --rt-primary: #890C25;
+  /* --rt-primary: #890C25;
   --rt-primary-1: #B71A34;
-  --rt-primary-2: #890C25;
+  --rt-primary-2: #890C25; */
+
+  --rt-primary: #EC2021;
+  --rt-primary-1: #EC2021;
+  --rt-primary-2: #EC2021;
+
   --rt-secondary: #110C2D;
   --rt-footer: #181818;
   --rt-body: #737477;

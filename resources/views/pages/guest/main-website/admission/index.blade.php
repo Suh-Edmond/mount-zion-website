@@ -11,7 +11,7 @@
                             <li class="breadcrumb-item"><a href="{{route('main.home')}}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Apply Admission</li>
                         </ul>
-                        <h2 class="section-title">Apply to Mount Zion University</h2>
+                        <h2 class="section-title">Apply to Mount Zion Higher Institute</h2>
                     </div>
                 </div>
             </div>

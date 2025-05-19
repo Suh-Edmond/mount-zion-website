@@ -79,11 +79,20 @@
                 </li>
 
                 <li class="has-droupdown">
-                    <a href="#" class="main">Academics</a>
+                    <a class="main">About</a>
                     <ul class="submenu mm-collapse">
-                        <li><a class="mobile-menu-link" href="admission.html">Admission</a></li>
-                        <li><a class="mobile-menu-link" href="academic-area.html">Programs</a></li>
-                        <li><a class="mobile-menu-link" href="tution-fee.html">Tution Fee</a></li>
+                        <li><a class="mobile-menu-link" href="{{route('main.about')}}">MOunt Zion Institutes</a></li>
+                        <li><a class="mobile-menu-link" href="{{route('main.clinic')}}">MOunt Zion Clinic</a></li>
+                        <li><a class="mobile-menu-link" href="{{route('main.ceo')}}">The CEO</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-droupdown">
+                    <a class="main">Academics</a>
+                    <ul class="submenu mm-collapse">
+                        <li><a class="mobile-menu-link" href="{{route('main.admission')}}">Admission</a></li>
+                        <li><a class="mobile-menu-link" href="{{route('main.academic-area')}}">Programs</a></li>
+                        <li><a class="mobile-menu-link" href="{{route('main.tuition-fee')}}">Tution Fee</a></li>
                     </ul>
                 </li>
 
@@ -91,7 +100,7 @@
                     <a href="{{route('main.event')}}" class="main">Events</a>
                 </li>
                 <li>
-                    <a href="{{route('main.blog')}}" class="main">Blog</a>
+                    <a href="{{route('main.donate')}}" class="main">Donate</a>
                 </li>
                 <li>
                     <a href="{{route('main.contact')}}" class="main">Contact</a>

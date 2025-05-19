@@ -28,9 +28,13 @@ Route::get('/academics', [AcademicController::class, 'index'])->name('main.acade
 Route::get('/academic-area', [AcademicController::class, 'academicArea'])->name('main.academic-area');
 Route::get('/programs', [AcademicController::class, 'academicArea'])->name('main.programs');
 Route::get('/about', [AboutController::class, 'index'])->name('main.about');
+Route::get('/about-ceo', [AboutController::class, 'aboutCeo'])->name('main.ceo');
+Route::get('/about-clinic', [AboutController::class, 'aboutClinic'])->name('main.clinic');
 Route::get('/admissions', [AdmissionController::class, 'index'])->name('main.admission');
 Route::get('/campus-life', [CampusController::class, 'index'])->name('main.campus-life');
 Route::get('/scholarships', [ScholarshipController::class, 'index'])->name('main.scholarship');
+Route::get('/donate', [ScholarshipController::class, 'index'])->name('main.donate');
+
 Route::get('tuition-fee', [TuitionController::class, 'index'])->name('main.tuition-fee');
 Route::get('alumni', [AlumniController::class, 'index'])->name('main.alumni');
 

@@ -2,7 +2,7 @@
 
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
-    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/about/procession.jpg);">
+    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/hero/slider__2.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -11,7 +11,7 @@
                             <li class="breadcrumb-item"><a href="{{route('main.home')}}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">About</li>
                         </ul>
-                        <h2 class="section-title">About Mount Zion Higher Institutes</h2>
+                        <h2 class="section-title">About Mount Zion Clinic Bamenda</h2>
                     </div>
                 </div>
             </div>
