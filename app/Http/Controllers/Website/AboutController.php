@@ -11,4 +11,14 @@ class AboutController extends Controller
     {
         return view('pages.guest.main-website.about.index');
     }
+
+    public function aboutCeo(Request $request)
+    {
+        return view('pages.guest.main-website.about.about-ceo');
+    }
+
+    public function aboutClinic(Request $request)
+    {
+        return view('pages.guest.main-website.about.about-clinic');
+    }
 }

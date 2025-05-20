@@ -16,8 +16,13 @@
                                         <a href="{{route('main.home')}}" class="navigation__menu--item__link">Home</a>
                                     </li>
 
-                                    <li class="navigation__menu--item">
-                                        <a href="{{route('main.about')}}" class="navigation__menu--item__link">About</a>
+                                    <li class="navigation__menu--item has-child has-arrow">
+                                        <a class="navigation__menu--item__link">About</a>
+                                        <ul class="submenu sub__style">
+                                            <li><a href="{{route('main.about')}}">The Institutes</a></li>
+                                            <li><a href="{{route('main.clinic')}}">The Clinic</a></li>
+                                            <li><a href="{{route('main.ceo')}}">The CEO</a></li>
+                                        </ul>
                                     </li>
                                     <li class="navigation__menu--item has-child has-arrow">
                                         <a href="{{route('main.academics')}}" class="navigation__menu--item__link">Academics</a>
@@ -31,7 +36,7 @@
                                     <a href="{{route('main.event')}}" class="navigation__menu--item__link">Events</a>
                                     </li>
                                     <li class="navigation__menu--item"></li>
-                                    <a href="{{route('main.blog')}}" class="navigation__menu--item__link">Blog</a>
+                                    <a href="{{route('main.donate')}}" class="navigation__menu--item__link">Donate</a>
                                     </li>
                                     <li class="navigation__menu--item">
                                         <a href="{{route('main.contact')}}" class="navigation__menu--item__link">Contact</a>

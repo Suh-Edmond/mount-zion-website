@@ -2,7 +2,7 @@
 
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
-    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/about/procession.jpg);">
+    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/hero/slider__2.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -11,8 +11,7 @@
                             <li class="breadcrumb-item"><a href="{{route('main.home')}}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">About</li>
                         </ul>
-                        <h2 class="section-title">About Mount Zion Higher Institutes</h2>
-                        <h2 class="section-title">About Mount Zion University</h2>
+                        <h2 class="section-title">About Mount Zion Clinic Bamenda</h2>
                     </div>
                 </div>
             </div>
@@ -55,7 +54,7 @@
                                     we are proud to announce that starting in October 2025, we will offer a Bachelor’s degree (BSc) program in Nursing.
                                 </p>
                                 <p>
-                                Today, thousands of MZHI alumni are making a meaningful impact in healthcare delivery across Cameroon, Africa,
+                                Today, thousands of MZHI alumni are making a meaningful impact in healthcare delivery across Cameroon, Africa, 
                                 and beyond—carrying forward the legacy of excellence and compassion that defines our institution.
                                 </p>
                             </div>
@@ -64,83 +63,6 @@
                 </div>
             </div>
             <!-- history end-->
-            <div class="row">
-                <div class="rts-section">
-                    <div class="col-lg-4 col-md-5">
-                        <h3 class="rts-section-title">About University</h3>
-                    </div>
-                    <div class="col-lg-8 col-md-7">
-                        <p class="rts-section-description">
-                            Welcome to Mount Zion University, where knowledge meets inspiration, and every individual's educational journey is valued. Established in 1971 Establishment, our university has been a bastion of learning, innovation, and community for 51 years years.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-5 justify-content-md-center justify-content-start">
-                <div class="col-lg-7 col-xl-8 col-md-11">
-                    <div class="rts-about-section">
-                        <img src="assets/images/about/about-01.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-5 col-xl-4 col-md-11">
-                    <div class="rts-about-details">
-                        <div class="single-about-info">
-                            <div class="content">
-                                <h3 class="title">20,000</h3>
-                                <img src="assets/images/icon/11.svg" alt="">
-                            </div>
-                            <div class="desc">
-                                <p>undergraduate and graduate students</p>
-                            </div>
-                        </div>
-                        <div class="single-about-info">
-                            <div class="content">
-                                <h3 class="title">16,214</h3>
-                                <img src="assets/images/icon/12.svg" alt="">
-                            </div>
-                            <div class="desc">
-                                <p>Mount Zion University Faculty and Staff</p>
-                            </div>
-                        </div>
-                        <div class="single-about-info">
-                            <div class="content">
-                                <h3 class="title">300k</h3>
-                                <img src="assets/images/icon/13.svg" alt="">
-                            </div>
-                            <div class="desc">
-                                <p>Mount Zion Alumni Worldwide</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- about university end -->
-
-    <!-- history -->
-    <div class="rts-history">
-        <div class="container">
-            <div class="row g-5 justify-content-md-center justify-content-start align-items-center">
-                <div class="col-lg-6 col-md-11">
-                    <div class="rts-history-image">
-                        <img src="assets/images/about/history.jpg" alt="history">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-11">
-                    <div class="rts-history-section">
-                        <h4 class="rts-section-title mb--40">The history of Mount Zion</h4>
-                        <p>
-                            On September 8, 1971, Mount Zion, the first college in the American colonies, was founded in Cambridge, Massachusetts. Mount Zion University was officially founded by a vote by the Great and General Court of the Massachusetts Bay Colony.
-                            <span class="d-block mb--30"></span>
-                            Mount Zion endowment started with John Mount Zion initial donation of 400 books and half his estate, but in 1721, Thomas Hollis began the now standard practice of requiring that a donation be used for a specific purpose when he donated money for “a Divinity Professor, to read lectures in the Halls to the students.”
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- history end-->
 
             <div class="border-top my-60"></div>
 
@@ -212,8 +134,6 @@
                 <div class="col-lg-8">
                     <div class="rts-video-section-text rt-center mx-3">
                         <a href="{{route('main.admission')}}" class="mt--15 about-btn rts-nbg-btn btn-arrow">Apply Now <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
-                        <p>Embark on a journey of knowledge, discovery, and growth at Mount Zion University. Our admissions process is designed to identify bright, motivated individuals who are eager to contribute to our dynamic academic community. Whether you're a recent high school graduate or a transfer student seeking a new academic home, we invite you to explore the possibilities that await you.</p>
-                        <a href="campus-life.html" class="mt--15 about-btn rts-nbg-btn btn-arrow">Visit Campus <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                     </div>
                 </div>
             </div>

@@ -34,7 +34,7 @@
                                                 Benefit from our commitment to the latest medical knowledge and innovative treatment approaches for your optimal well-being
                                             </p>
                                             <div class="rts-slider-btn">
-                                                <a href="{{route('main.programs')}}" class="rts-theme-btn btn-arrow">View Our Services <span><i class="fa-thin fa-arrow-right"></i></span></a>
+                                                <a href="{{route('main.clinic')}}" class="rts-theme-btn btn-arrow">View Our Services <span><i class="fa-thin fa-arrow-right"></i></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -74,8 +74,8 @@
     </div>
     <!-- hero slider  end -->
 
-        <!-- history start -->
-        <div class="rts-campus rts-campus-bg v_2">
+    <!-- history start -->
+    <div class="rts-campus rts-campus-bg v_2">
         <div class="container">
             <div class="row g-40 align-items-center">
                 <div class="col-lg-6">
@@ -86,7 +86,15 @@
                         </h2>
                         <div class="left-section-content">
                             <p>
-                                Mount Zion University emerged from a profound need. Founded in , its origins lie in a vision to provide accessible and high-quality education for aspiring healthcare professionals in Cameroon and beyond. Initially established as Mount Zion University, it offered foundational programs in nursing and laboratory science.
+                                Since our inception in 2003 in Bamenda as a one-year training institute for Special Care Nurses,
+                                MZHI has grown steadily to meet the evolving demands of healthcare education. In 2007,
+                                we expanded our impact with the establishment of a second campus in Buea, offering greater access to
+                                our programs across the region.
+                            </p>
+                            <p>
+                                In 2023, we achieved a significant milestone by receiving official authorization from the Ministry of Higher
+                                Education to run a three-year Higher National Diploma (HND) program in Nursing. Continuing this upward trajectory,
+                                we are proud to announce that starting in October 2025, we will offer a Bachelor’s degree (BSc) program in Nursing.
                             </p>
                             <a href="{{route('main.about')}}" class="rts-theme-btn primary btn-arrow">Read More<span><i class="fa-thin fa-arrow-right"></i></span></a>
                         </div>
@@ -142,7 +150,7 @@
                                     <h5 class="rts__program--item--title">Special Programs</h5>
                                     <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Mount Zion with our 1 year programs.</p>
                                     <a href="{{route('main.academics')}}" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
-                                    </span></a>
+                                        </span></a>
                                     <h5 class="rts__program--item--title--show">Special Programs</h5>
                                 </div>
                                 <!-- second one -->
@@ -150,7 +158,7 @@
                                     <h5 class="rts__program--item--title">HND Programs</h5>
                                     <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Mount Zion with our HND programs.</p>
                                     <a href="{{route('main.academics')}}" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
-                                    </span></a>
+                                        </span></a>
                                     <h5 class="rts__program--item--title--show">HND Programs</h5>
                                 </div>
                             </div>
@@ -161,10 +169,10 @@
                                     <h5 class="rts__program--item--title">Bsc Programs</h5>
                                     <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Mount Zion Institute.</p>
                                     <a href="program-single.html" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
-                                    </span></a>
+                                        </span></a>
                                     <h5 class="rts__program--item--title--show">Bsc Programs</h5>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -263,7 +271,7 @@
     <!-- Our partners start -->
     <div class="rts-brand v_1 pb--85 pt--85">
         <div class="container">
-        <div class="row">
+            <div class="row">
                 <div class="rts__section--wrapper v__8">
                     <div class="rts__section--wrapper--left">
                         <h2 class="rts__section--title mb--15">Our Partners</h2>
@@ -372,7 +380,7 @@
                                     <img src="assets/images/program/icon/03.svg" alt="education">
                                 </div>
                                 <a href="{{route('main.academics')}}" class="program-link">Special Care</a>
-                                <p>Embark on a journey of knowledge, discovery, and growth at Mount Zion University.</p>
+                                <titute>Embark on a journey of knowledge, discovery, and growth at Mount Zion Higher Institute.</p>
                                 <a href="{{route('main.academics')}}" class="about-btn rts-nbg-btn btn-arrow
 rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                             </div>
@@ -415,7 +423,7 @@ rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow
                                     <img src="assets/images/program/icon/01.svg" alt="education">
                                 </div>
                                 <a href="{{route('main.academics')}}" class="program-link">Bachelor's Programs</a>
-                                <p>Empower yourself with the skills to heal and lead at Mount Zion University</p>
+                                <titute>Empower yourself with the skills to heal and lead at Mount Zion Higher Institute</p>
                                 <a href="{{route('main.academics')}}" class="about-btn rts-nbg-btn btn-arrow
 rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                             </div>
