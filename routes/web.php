@@ -37,9 +37,11 @@ Route::get('/donate', [ScholarshipController::class, 'index'])->name('main.donat
 
 Route::get('tuition-fee', [TuitionController::class, 'index'])->name('main.tuition-fee');
 Route::get('alumni', [AlumniController::class, 'index'])->name('main.alumni');
+Route::post('/admissions/add-applicant', [AdmissionController::class, 'addApplicant'])->name('main.admission.applicant.store');
 
 Route::get('academics/schools/{slug}', [AcademicController::class, 'school'])->name('main.schools.show');
 Route::get('academics/schools/{schoolSlug}/{programSlug}', [AcademicController::class, 'program'])->name('main.schools.program.show');
+Route::get('/academics/{id}/load-programs', [ProgramController::class, 'fetchProgramsBySchool'])->name('main.schools.programs.fetch-all');
 
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -62,6 +64,12 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::delete('admission/years/remove', [AdmissionYearController::class, 'removeAdmissionYear'])->name('manage.admission.years.remove');
     Route::get('admission/year/applicants', [AdmissionController::class, 'getApplications'])->name('manage.admission.applicants');
     Route::get('admission/year/applicants/profile', [AdmissionController::class, 'viewApplication'])->name('manage.admission.applicants.show');
+    Route::put('admission/years/update', [AdmissionYearController::class, 'updateAdmissionYear'])->name('manage.admission.years.edit');
+    Route::delete('admission/year/applicants/profile/remove', [AdmissionController::class, 'deleteApplication'])->name('manage.admission.applicants.delete');
+    Route::put('admission/year/applicants/profile/validate-application', [AdmissionController::class, 'validateApplication'])->name('manage.admission.applicant.validate-application');
+    Route::get('admission/year/applicants/create-application', [AdmissionController::class, 'createApplication'])->name('manage.admission.applicant.create-application');
+    Route::post('admission/year/applicants/add-application/store', [AdmissionController::class, 'saveApplication'])->name('manage.admission.applicant.store-application');
+
 
 });
 

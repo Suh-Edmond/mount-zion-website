@@ -15,8 +15,8 @@ class Admission extends Model
     protected $fillable = [
         'user_id',
         'admission_year_id',
-        'admission_session',
-        'program_id'
+        'program_id',
+        'applicant_status'
     ];
 
 
@@ -39,5 +39,10 @@ class Admission extends Model
     public function admissionDocuments()
     {
         return $this->hasMany(AdmissionDocument::class);
+    }
+
+    public function trimApplicantStatus($status)
+    {
+        return str_replace('_', ' ', $status);
     }
 }

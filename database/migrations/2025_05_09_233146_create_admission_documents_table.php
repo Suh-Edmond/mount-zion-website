@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection ALL */
 
 use App\Constant\DocumentCategory;
 use Illuminate\Database\Migrations\Migration;

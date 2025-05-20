@@ -25,6 +25,20 @@
             <x-input-error class="mt-2" :messages="$errors->slotCreation->get('year')"/>
         </div>
 
+        <div class="my-4">
+            <x-input-label for="year" :value="__('Start Date')"/>
+            <input type="date" id="start_date" value="{{old('start_date')}}" required name="start_date" min="2020" max="2050" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500 focus:border-blue-500 p-2">
+
+            <x-input-error class="mt-2" :messages="$errors->slotCreation->get('start_date')"/>
+        </div>
+
+        <div class="my-4">
+            <x-input-label for="end_date" :value="__('End Date')"/>
+            <input type="date" id="end_date" value="{{old('end_date')}}" required name="end_date" min="2020" max="2050" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500 focus:border-blue-500 p-2">
+
+            <x-input-error class="mt-2" :messages="$errors->slotCreation->get('end_date')"/>
+        </div>
+
 
         <div class="mt-6 flex justify-end">
             <x-secondary-button x-on:click="$dispatch('close')">

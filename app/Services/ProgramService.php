@@ -42,7 +42,7 @@ class ProgramService implements ProgramInterface
         if ($school_id) {
             $query->where('school_id', $school_id);
         }
-        
+
         if ($program_type) {
             $query->where('tag', $program_type);
         }
@@ -89,6 +89,12 @@ class ProgramService implements ProgramInterface
         $program = Program::where('slug', $request['slug'])->firstOrFail();
 
         return $program->update($data);
+    }
+
+
+    public function loadPrograms()
+    {
+        return Program::orderBy('name', 'ASC')->get();
     }
 
 

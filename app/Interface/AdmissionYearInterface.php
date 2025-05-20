@@ -11,4 +11,10 @@ interface AdmissionYearInterface
     public function removeAdmissionYear($request);
 
     public function listYears();
+
+    public function getCurrentAdmissionSession();
+
+    public function updateAdmissionYear($request);
+
+    public function getAdmissionSessionByYear($request);
 }

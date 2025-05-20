@@ -38,6 +38,8 @@
                 {{ $slot }}
             </main>
 
+            <!-- jquery js -->
+            <script src="{{ asset('assets/js/vendor/jquery.min.js') }}"></script>
             <script>
                 tinymce.init({
                     selector: 'textarea',

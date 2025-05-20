@@ -11,7 +11,7 @@
                             <li class="breadcrumb-item"><a href="{{route('main.home')}}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Alumni</li>
                         </ul>
-                        <h2 class="section-title">Unipix Alumni</h2>
+                        <h2 class="section-title">Mount Zion Alumni</h2>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="rts__section--wrapper v__9">
-                        <h2 class="rts__section--title">Save the date for Unipix Reunion Homecoming!</h2>
+                        <h2 class="rts__section--title">Save the date for Mount Zion Reunion Homecoming!</h2>
                         <p class="rts__section--description">Calling all ’4s and ’9s! It’s time to reunite with your
                             classmates on November 24–27, 2024.</p>
                     </div>
@@ -113,7 +113,7 @@
                             <h5 class="rts__single--event--meta--title">
                                 <a href="event-details.html">
                                     Sustainability Showcase: Green
-                                    Living at Unipix </a>
+                                    Living at Mount Zion </a>
                             </h5>
                             <a href="event-details.html" class="rts__round--btn">
                                 <i class="fa-light fa-arrow-right"></i>
@@ -165,12 +165,12 @@
                 <div class="col-xl-5 col-lg-6 col-md-6 col-sm-11">
                     <div class="left__side">
                         <div class="rts__section--wrapper v__7">
-                            <h2 class="rts__section--title">Stories of Unipix Student</h2>
-                            <p class="rts__section--description">Embark on a journey of knowledge, discovery, and growth at Unipix University. Our admissions process is designed identify bright, motivated individuals who are eager contribute to our dynamic academic community.</p>
+                            <h2 class="rts__section--title">Stories of Mount Zion Student</h2>
+                            <p class="rts__section--description">Embark on a journey of knowledge, discovery, and growth at Mount Zion University. Our admissions process is designed identify bright, motivated individuals who are eager contribute to our dynamic academic community.</p>
                         </div>
                         <div class="left__side__image">
                             <img src="assets/images/alumni/01.jpg" alt="alumni">
-                            <h5 class="left__side__title">Voices of Victory: Unipix Student Stories</h5>
+                            <h5 class="left__side__title">Voices of Victory: Mount Zion Student Stories</h5>
                             <p class="left__side__description">Through these narratives, readers gain insight into the diverse backgrounds, aspirations, and achievements of individuals.</p>
                         </div>
                     </div>
@@ -181,8 +181,8 @@
                         <div class="right__side__image">
                             <img src="assets/images/alumni/02.jpg" alt="alumni">
                         </div>
-                        <h5 class="right__side__title">Unveiling Unipix: Inspiring Student Stories</h5>
-                        <p class="right__side__description">Delve into the heartfelt narratives of Unipix students, where each story resonates with triumph, resilience, and personal growth. From academic achievements to life-changing experiences, these stories illuminate.</p>
+                        <h5 class="right__side__title">Unveiling Mount Zion: Inspiring Student Stories</h5>
+                        <p class="right__side__description">Delve into the heartfelt narratives of Mount Zion students, where each story resonates with triumph, resilience, and personal growth. From academic achievements to life-changing experiences, these stories illuminate.</p>
                         <div class="right__side__link">
                             <a href="program-single.html" class="rts-theme-btn btn-arrow">View all story
                                 <span><i class="fa-regular fa-arrow-right"></i></span>

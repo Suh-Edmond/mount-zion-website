@@ -23,7 +23,7 @@
     <!-- content -->
     <div class="rts-faculty-details rts-section-padding">
         <div class="container">
-            
+
             <div class="row g-5 faculty-sub-details rts-section-padding">
                 <div class="rts-section mb-4 text-center">
                     <h3 class="rts-section-title">List of Progams</h3>

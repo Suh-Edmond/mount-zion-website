@@ -11,4 +11,8 @@ interface AdmissionApplicantInterface
     public function downloadApplicantFiles($request);
 
     public function deleteApplicant($request);
+
+    public function createApplicant($request);
+
+    public function validateApplication($request);
 }

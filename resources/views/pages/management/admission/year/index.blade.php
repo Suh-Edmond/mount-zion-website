@@ -15,17 +15,17 @@
         <div class="flex flex-row gap-3">
 
             <div class="basis-1/4 flex-auto">
-                <x-input-label for="category" :value="__('Filter Status')" />
-                <select id="status" name="status" onchange="filterByStatus()" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <x-input-label for="status" :value="__('Filter Status')" />
+                <select id="status" name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected>Choose a status</option>
-                    <option value="ACTIVE">Active</option>
-                    <option value="IN_ACTIVE">In Active</option>
+                    <option value="1">Active</option>
+                    <option value="0">In Active</option>
                     <option value="ALL">ALL</option>
                 </select>
             </div>
             <div class="basis-1/4 flex-auto">
                 <x-input-label for="sort" :value="__('Sort')" />
-                <select id="sort" name="sort" onchange="sortBlogBy()" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <select id="sort" name="sort"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected>Choose sort</option>
                     <option value="DATE_DESC">Newest First</option>
                     <option value="DATE_ASC">Oldest First</option>
@@ -50,6 +50,8 @@
                             <th class="bg-blue-800 text-white border text-center px-1 py-2">S/N</th>
                             <th class="bg-blue-800 text-white border text-center px-4 py-2">Name</th>
                             <th class="bg-blue-800 text-white border text-center px-4 py-2">Year</th>
+                            <th class="bg-blue-800 text-white border text-center px-4 py-2">Start Date</th>
+                            <th class="bg-blue-800 text-white border text-center px-4 py-2">End Date</th>
                             <th class="bg-blue-800 text-white border text-center px-4 py-2">Status</th>
                             <th class="bg-blue-800 text-white border text-center  py-2">Action</th>
                         </tr>
@@ -60,6 +62,8 @@
                                 <td class="border text-center py-4">{{$key+1}}</td>
                                 <td class="border px-4 py-4 text-center">{{$value->name}}</td>
                                 <td class="border px-4 py-4 text-center">{{$value->year}}</td>
+                                <td class="border px-4 py-4 text-center">{{date('d/m/Y g:i:s A', strtotime($value->start_date))}}</td>
+                                <td class="border px-4 py-4 text-center">{{date('d/m/Y g:i:s A', strtotime($value->end_date))}}</td>
                                 @if($value->status)
                                     <td class="border px-4 py-4 text-green-700 text-center w-20">Active</td>
                                 @else
@@ -71,6 +75,9 @@
                                             <span><i class="fa fa-bars"></i></span>
                                         </x-slot>
                                         <x-slot name="content">
+                                            <x-dropdown-link   class="text-blue-600" x-on:click.prevent="$dispatch('open-modal', 'edit-admission-year{{$value->id}}')">
+                                                <span><i class="fa fa-pencil   text-blue-800 mr-5 cursor-pointer mr-6 "></i>{{ __('Edit') }}</span>
+                                            </x-dropdown-link>
                                             <x-dropdown-link   class="text-red-600" x-on:click.prevent="$dispatch('open-modal', 'confirm-deletion{{$value->id}}')">
                                                 <span><i class="fa fa-trash text-red-600 cursor-pointer mr-6 "></i>{{ __('Remove') }}</span>
                                             </x-dropdown-link>
@@ -79,6 +86,7 @@
                                 </td>
                             </tr>
                             @include('pages.management.admission.year.delete-year')
+                            @include('pages.management.admission.year.edit-admission-year')
 
                         @endforeach
                         </tbody>
@@ -134,9 +142,11 @@
 
 <script>
     $(document).ready(function() {
+        console.log("enter here")
 
         $('#status').on('change', function (e){
             let url = new URL(location.href);
+            console.log(url)
             let searchParams = new URLSearchParams(url.search);
 
 
@@ -148,18 +158,6 @@
 
         })
 
-        $('#program_id').on('change', function (e){
-            let url = new URL(location.href);
-            let searchParams = new URLSearchParams(url.search);
-
-
-            searchParams.set('program_slug', e.target.value)
-
-            url.search = searchParams.toString();
-
-            location.href = url
-
-        })
 
         $('#sort').on('change', function (e){
             let url = new URL(location.href);
@@ -177,6 +175,7 @@
         $('#goBack').on('click', function (e){
             history.back();
         })
+
 
 
     })
