@@ -62,6 +62,9 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::put('admission/years/update', [AdmissionYearController::class, 'updateAdmissionYear'])->name('manage.admission.years.edit');
     Route::delete('admission/year/applicants/profile/remove', [AdmissionController::class, 'deleteApplication'])->name('manage.admission.applicants.delete');
     Route::put('admission/year/applicants/profile/validate-application', [AdmissionController::class, 'validateApplication'])->name('manage.admission.applicant.validate-application');
+    Route::get('admission/year/applicants/create-application', [AdmissionController::class, 'createApplication'])->name('manage.admission.applicant.create-application');
+    Route::post('admission/year/applicants/add-application/store', [AdmissionController::class, 'saveApplication'])->name('manage.admission.applicant.store-application');
+
 
 });
 

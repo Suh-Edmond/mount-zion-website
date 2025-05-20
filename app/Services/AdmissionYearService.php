@@ -71,4 +71,10 @@ class AdmissionYearService implements AdmissionYearInterface
         $admissionYear = AdmissionYear::where('slug', $request['slug'])->firstOrFail();
         $admissionYear->update($request->all());
     }
+
+    public function getAdmissionSessionByYear($request)
+    {
+        $current_year = $this->getCurrentAdmissionSession();
+        return AdmissionYear::where('year', $current_year->year)->orderBy('created_at', 'DESC')->get();
+    }
 }

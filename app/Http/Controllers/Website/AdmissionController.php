@@ -7,8 +7,10 @@ use App\Http\Requests\AdmissionApplicantionRequest;
 use App\Services\AdmissionApplicantService;
 use App\Services\AdmissionYearService;
 use App\Services\ProgramService;
+use App\Services\SchoolService;
 use App\Traits\HelperTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AdmissionController extends Controller
 {
@@ -16,14 +18,16 @@ class AdmissionController extends Controller
     private AdmissionYearService $admissionYearService;
     private AdmissionApplicantService $admissionApplicantService;
     private ProgramService $programService;
+    private SchoolService $schoolService;
 
     public function __construct(AdmissionYearService $admissionYearService,
                                 AdmissionApplicantService $admissionApplicantService,
-                                ProgramService  $programService)
+                                ProgramService  $programService, SchoolService $schoolService)
     {
         $this->admissionYearService = $admissionYearService;
         $this->admissionApplicantService = $admissionApplicantService;
         $this->programService = $programService;
+        $this->schoolService = $schoolService;
     }
     public function index(Request $request)
     {
@@ -46,18 +50,14 @@ class AdmissionController extends Controller
     {
         $years = $this->admissionYearService->listYears();
         $applicants = $this->admissionApplicantService->getApplicants($request);
-        $genders = $this->getGenders();
-        $regions = $this->getRegions();
-        $programs = $this->programService->loadPrograms();
-        $admissionSession = $this->admissionYearService->getCurrentAdmissionSession();
+        $schools = $this->schoolService->getSchools($request);
+        $admissionSessions = $this->admissionYearService->getAdmissionSessionByYear($request);
 
         $data = [
             'years' => $years,
             'applicants' => $applicants,
-            'genders' => $genders,
-            'regions' => $regions,
-            'programs' => $programs,
-            'admissionSession' => $admissionSession
+            'schools'    => $schools,
+            'admissionSessions' => $admissionSessions
         ];
 
         return view('pages.management.admission.applicants.index')->with($data);
@@ -97,5 +97,29 @@ class AdmissionController extends Controller
 
         return redirect()->back()->with(['status' => 'Application validated successfully']);
 
+    }
+
+    public function createApplication()
+    {
+        $genders = $this->getGenders();
+        $regions = $this->getRegions();
+        $programs = $this->programService->loadPrograms();
+        $admissionSession = $this->admissionYearService->getCurrentAdmissionSession();
+
+        $data = [
+            'genders' => $genders,
+            'regions' => $regions,
+            'programs' => $programs,
+            'admissionSession' => $admissionSession
+        ];
+
+        return view('pages.management.admission.applicants.add-applicant')->with($data);
+    }
+
+    public function saveApplication(AdmissionApplicantionRequest $applicantionRequest)
+    {
+        $this->admissionApplicantService->createApplicant($applicantionRequest);
+
+        return Redirect::route('manage.admission.applicants')->with(['status' => 'Applicant created successfully']);
     }
 }

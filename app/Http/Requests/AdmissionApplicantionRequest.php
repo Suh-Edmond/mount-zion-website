@@ -24,8 +24,8 @@ class AdmissionApplicantionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'lname' => ['required', 'string', 'max:255'],
-            'fname' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'telephone' => ['required', 'string'],
             'region'   =>  ['required', 'string'],

@@ -40,4 +40,9 @@ class Admission extends Model
     {
         return $this->hasMany(AdmissionDocument::class);
     }
+
+    public function trimApplicantStatus($status)
+    {
+        return str_replace('_', ' ', $status);
+    }
 }

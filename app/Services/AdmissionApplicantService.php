@@ -16,7 +16,44 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 {
     public function getApplicants($request)
     {
-        return Admission::paginate(10);
+        $school_filter = $request['school_filter'];
+        $session_filter = $request['session_filter'];
+        $year_filter    = $request['year_filter'];
+        $sort           = $request['sort'];
+
+        $admissions =  Admission::select('*');
+        if(isset($school_filter)){
+            $admissions = $admissions->whereHas('program', function ($query) use ($school_filter){
+                $query->where('school_id', $school_filter);
+            });
+        }
+        if(isset($year_filter)){
+            $admissions = $admissions->whereHas('admissionYear', function ($query) use ($year_filter){
+                $query->where('year', $year_filter);
+            });
+        }
+        if (isset($session_filter)){
+            $admissions = $admissions->whereHas('admissionYear', function ($query) use ($session_filter){
+                $query->where('slug', $session_filter);
+            });
+        }
+        if (isset($sort)){
+            switch ($sort) {
+                case 'DATE_DESC':
+                    $admissions->orderBy('created_at');
+                    break;
+                case 'NAME':
+                    $admissions = $admissions->whereHas('user', function ($query) use ($sort){
+                        $query->orderBy('name');
+                    });
+                    break;
+                default:
+                    $admissions->orderByDesc('created_at');
+                    break;
+            }
+        }
+
+        return $admissions->orderBy('created_at', 'DESC')->paginate(10);
     }
 
     public function showApplicant($request)
@@ -38,13 +75,13 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
     public function createApplicant($request)
     {
-        dd($request->all());
+
         $admissionYear = AdmissionYear::findOrFail($request['admission_year_id']);
         $program = Program::findOrFail($request['program_id']);
         $applicant = User::where('email', $request['email'])->first();
         if(!isset($applicant)){
             $applicant = User::create([
-                'name'              => $request['fname'].' '.$request['lname'],
+                'name'              => $request['first_name'].' '.$request['last_name'],
                 'email'             => $request->email,
                 'password'          => '',
                 'telephone'         => $request['telephone'],
