@@ -1,5 +1,5 @@
-<section class="space-y-6 space-x-3 p-5">
-    <x-modal name="confirm-deletion{{$value->id}}" :show="$errors->userDeletion->isNotEmpty()" focusable>
+<x-modal name="confirm-deletion{{$value->id}}" :show="$errors->userDeletion->isNotEmpty()" focusable>
+    <div class="p-4">
         <form method="post" action="{{ route('manage.admission.years.remove', ['slug' => $value->slug]) }}" class="p-6">
             @csrf
             @method('delete')
@@ -31,6 +31,5 @@
                 </x-danger-button>
             </div>
         </form>
-    </x-modal>
-</section>
-
+    </div>
+</x-modal>

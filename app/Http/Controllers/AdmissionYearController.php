@@ -33,6 +33,13 @@ class AdmissionYearController extends Controller
         return redirect()->back()->with(['status' => 'Admission year created successfully']);
     }
 
+    public function updateAdmissionYear(CreateAdmissionYearRequest $request)
+    {
+        $this->admissionYearService->updateAdmissionYear($request);
+
+        return redirect()->back()->with(['status' => 'Admission Year updated successfully']);
+    }
+
     public function removeAdmissionYear(Request $request)
     {
         $this->admissionYearService->removeAdmissionYear($request);
