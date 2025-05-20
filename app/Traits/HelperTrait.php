@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Constant\AdmissionStatus;
 use App\Constant\Gender;
 
 trait HelperTrait
@@ -23,5 +24,9 @@ trait HelperTrait
 
     public function getGenders(){
         return [Gender::MALE, Gender::FEMALE];
+    }
+
+    public function getApplicationStatus() {
+        return [AdmissionStatus::ADMITTED, AdmissionStatus::REJECTED];
     }
 }

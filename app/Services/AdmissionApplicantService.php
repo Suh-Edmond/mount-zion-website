@@ -38,6 +38,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
     public function createApplicant($request)
     {
+        dd($request->all());
         $admissionYear = AdmissionYear::findOrFail($request['admission_year_id']);
         $program = Program::findOrFail($request['program_id']);
         $applicant = User::where('email', $request['email'])->first();
@@ -67,6 +68,14 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
             $this->sendAdmissionEmails($applicant, $program);
         }
+    }
+
+    public function validateApplication($request)
+    {
+        $application = Admission::where('slug', $request['slug'])->firstOrFail();
+        $application->update([
+            'applicant_status' => $request['applicant_status']
+        ]);
     }
 
     private function sendAdmissionEmails($applicant, $program){

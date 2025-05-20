@@ -65,7 +65,15 @@ class AdmissionController extends Controller
 
     public function viewApplication(Request $request)
     {
-        //TODO:
+        $data = $this->admissionApplicantService->showApplicant($request);
+        $applicationStatuses = $this->getApplicationStatus();
+
+        $data = [
+            'applicant' => $data,
+            'applicationStatuses' => $applicationStatuses
+        ];
+
+        return view('pages.management.admission.applicants.show')->with($data);
     }
 
     public function addApplicant(AdmissionApplicantionRequest  $request)
@@ -81,5 +89,13 @@ class AdmissionController extends Controller
         $this->admissionApplicantService->deleteApplicant($request);
 
         return redirect()->back()->with(['status' => 'Applicant removed successfully']);
+    }
+
+    public function validateApplication(Request $request)
+    {
+        $this->admissionApplicantService->validateApplication($request);
+
+        return redirect()->back()->with(['status' => 'Application validated successfully']);
+
     }
 }

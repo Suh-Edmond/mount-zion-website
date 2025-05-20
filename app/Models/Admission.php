@@ -15,7 +15,8 @@ class Admission extends Model
     protected $fillable = [
         'user_id',
         'admission_year_id',
-        'program_id'
+        'program_id',
+        'applicant_status'
     ];
 
 

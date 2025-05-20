@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Constant\AdmissionSession;
+use App\Constant\AdmissionStatus;
 use App\Constant\ProgramType;
 use App\Models\Admission;
 use App\Models\AdmissionYear;
@@ -34,6 +35,7 @@ class AdmissionSeeder extends Seeder
                 'user_id'    => $generator->randomElement($this->users),
                 'program_id'   => $generator->randomElement($this->programs),
                 'admission_year_id'        => $generator->randomElement($this->admissionYears),
+                'applicant_status'         => $generator->randomElement([AdmissionStatus::ADMITTED, AdmissionStatus::REJECTED])
             ]);
         }
     }
