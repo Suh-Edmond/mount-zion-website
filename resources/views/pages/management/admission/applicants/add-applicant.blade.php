@@ -88,12 +88,21 @@
                         </div>
 
                         <div class="mt-5 w-full mb-4">
+                            <x-input-label for="school_id" :value="__('School')" />
+                            <select id="school_id" name="school_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected>Choose School</option>
+                                @foreach($schools as $key => $school)
+                                    <option value="{{$school->id}} {{old('school_id') === $school->id ? 'selected' : ''}}">{{$school->name}}</option>
+                                @endforeach
+                            </select>
+                            <x-input-error :messages="$errors->get('program_id')" class="mt-2" />
+                        </div>
+
+
+                        <div class="mt-5 w-full mb-4">
                             <x-input-label for="program_id" :value="__('Program')" />
                             <select id="program_id" name="program_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Choose Program</option>
-                                @foreach($programs as $key => $program)
-                                    <option value="{{$program->id}} {{old('program_id') === $program->id ? 'selected' : ''}}">{{$program->name}} - {{$program->duration}} year(s)</option>
-                                @endforeach
                             </select>
                             <x-input-error :messages="$errors->get('program_id')" class="mt-2" />
                         </div>
@@ -119,3 +128,42 @@
         </div>
     </div>
 </x-app-layout>
+
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $(document).on('change', '#school_id', function (e){
+        e.preventDefault();
+        var school_id = ($(this).val());
+
+        // $('#program_id').find('option').not(':first').remove();
+
+        var url = "{{route('main.schools.programs.fetch-all', ':id')}}";
+
+        url = url.replace(':id', school_id);
+
+        $.ajax({
+            url: url,
+            method: 'GET',
+            data: {},
+
+            success: function(data) {
+                let option = "";
+                let yearslabel = "year(s)"
+                for (var i = 0; i < data.data.length; i++){
+                    option += '<option value="'+data.data[i].id+'">'+data.data[i].name+ ' - '+ data.data[i].duration+ yearslabel +' </option>';
+                }
+                $('#program_id').html('');
+                $('#program_id').html(option);
+
+            },
+            error: function(data){
+            },
+
+        });
+    })
+</script>

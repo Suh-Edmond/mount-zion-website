@@ -97,12 +97,12 @@
                                     <h5 class="form-title">Personal Information</h5>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="fname">First Name</label>
-                                            <input type="text" name="fname" placeholder="First name" required>
+                                            <label for="first_name">First Name</label>
+                                            <input type="text" name="first_name" placeholder="First name" required>
                                         </div>
                                         <div class="single-input-item">
-                                            <label for="lname">Last Name</label>
-                                            <input type="text" name="lname" placeholder="Last name" required>
+                                            <label for="last_name">Last Name</label>
+                                            <input type="text" name="last_name" placeholder="Last name" required>
                                         </div>
                                     </div>
                                     <div class="single-input">
@@ -145,11 +145,20 @@
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="gender">Select Program</label>
-                                            <select name="program_id" required>
-                                                @foreach($programs as $key => $program)
-                                                    <option value="{{$program->id}}">{{$program->name}} - {{$program->duration}} year(s)</option>
+                                            <label for="school_id">School</label>
+                                            <select id="school_id" required>
+                                                <option value="#">Choose school</option>
+                                                @foreach($schools as $key => $school)
+                                                    <option value="{{$school->id}}">{{$school->name}}</option>
                                                 @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="single-input">
+                                        <div class="single-input-item">
+                                            <label for="program_id">Program</label>
+                                            <select id="program_id" name="program_id" required>
+                                                <option value="#">Choose program</option>
                                             </select>
                                         </div>
                                     </div>
@@ -190,11 +199,42 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
+    $(document).on('change', '#school_id', function (e){
+        e.preventDefault();
+        var school_id = ($(this).val());
+
+        $('#program_id').find('option').not(':first').remove();
+
+        var url = "{{route('main.schools.programs.fetch-all', ':id')}}";
+
+        url = url.replace(':id', school_id);
+
+        $.ajax({
+            url: url,
+            method: 'GET',
+            data: {},
+
+            success: function(data) {
+                let option = "";
+                let yearslabel = "year(s)"
+                for (var i = 0; i < data.data.length; i++){
+                    option += '<option value="'+data.data[i].id+'">'+data.data[i].name+ ' - '+ data.data[i].duration+ yearslabel +' </option>';
+                }
+                $('#program_id').html('');
+                $('#program_id').html(option);
+
+            },
+            error: function(data){
+            },
+
+        });
+    })
     $(document).on('click', '.submit', function(e){
         e.preventDefault();
 
-        var fname = $("input[name=fname]").val();
-        var lname = $("input[name=lname]").val();
+        var fname = $("input[name=first_name]").val();
+        var lname = $("input[name=last_name]").val();
         var telephone = $("input[name=telephone]").val();
         var email = $("input[name=email]").val();
         var region = $("select[name=region]").val();
@@ -209,8 +249,8 @@
             url: "{{route('main.admission.applicant.store', ['admission_year_id' => $admissionSession->id])}}",
             type: "POST",
             data: {
-                "fname" : fname,
-                "lname": lname,
+                "first_name" : fname,
+                "last_name": lname,
                 "telephone": telephone,
                 "email": email,
                 "region" :region,
@@ -222,7 +262,7 @@
                 "program_id":program_id
             },
             success: function(data){
-                console.log(data)	// here comes the login form
+
             },
             error: function(data){
             },

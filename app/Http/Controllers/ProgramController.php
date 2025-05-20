@@ -77,4 +77,12 @@ class ProgramController extends Controller
 
         return Redirect::route('manage.academics.programs.show', ['slug' => $request['slug']])->with('status', 'Program information updated successfully');
     }
+
+    public function fetchProgramsBySchool($id)
+    {
+
+        $data = $this->programService->index($id);
+
+        return response()->json(['data' => $data]);
+    }
 }

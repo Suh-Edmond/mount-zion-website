@@ -33,13 +33,13 @@ class AdmissionController extends Controller
     {
         $genders = $this->getGenders();
         $regions = $this->getRegions();
-        $programs = $this->programService->loadPrograms();
+        $schools = $this->schoolService->index($request)->get();
         $admissionSession = $this->admissionYearService->getCurrentAdmissionSession();
 
         $data = [
             'genders' => $genders,
             'regions' => $regions,
-            'programs' => $programs,
+            'schools' => $schools,
             'admissionSession' => $admissionSession
         ];
 
@@ -99,18 +99,20 @@ class AdmissionController extends Controller
 
     }
 
-    public function createApplication()
+    public function createApplication(Request $request)
     {
         $genders = $this->getGenders();
         $regions = $this->getRegions();
         $programs = $this->programService->loadPrograms();
         $admissionSession = $this->admissionYearService->getCurrentAdmissionSession();
+        $schools = $this->schoolService->index($request)->get();
 
         $data = [
             'genders' => $genders,
             'regions' => $regions,
             'programs' => $programs,
-            'admissionSession' => $admissionSession
+            'admissionSession' => $admissionSession,
+            'schools'          => $schools
         ];
 
         return view('pages.management.admission.applicants.add-applicant')->with($data);

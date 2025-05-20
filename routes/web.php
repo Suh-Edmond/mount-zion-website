@@ -37,6 +37,7 @@ Route::post('/admissions/add-applicant', [AdmissionController::class, 'addApplic
 
 Route::get('academics/schools/{slug}', [AcademicController::class, 'school'])->name('main.schools.show');
 Route::get('academics/schools/{schoolSlug}/{programSlug}', [AcademicController::class, 'program'])->name('main.schools.program.show');
+Route::get('/academics/{id}/load-programs', [ProgramController::class, 'fetchProgramsBySchool'])->name('main.schools.programs.fetch-all');
 
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
