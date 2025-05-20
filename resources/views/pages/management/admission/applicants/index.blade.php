@@ -1,10 +1,13 @@
 @section('title', "Admission Applicants")
 <x-app-layout >
     <x-slot name="header">
-        <div class="flex justify-start">
+        <div class="flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{__('Applicant Management')}}
             </h2>
+            <x-primary-button   x-data=""
+                                x-on:click.prevent="$dispatch('open-modal', 'add-applicant')"
+            >{{ __('Add Applicant') }}</x-primary-button>
         </div>
     </x-slot>
 
@@ -16,6 +19,16 @@
                 <select id="program_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected>Choose a year</option>
 
+                    @foreach($years as $year)
+                        <option value="{{$year->slug}}">{{$year->name}}</option>
+                    @endforeach
+                    <option value="ALL">All</option>
+                </select>
+            </div>
+            <div class="basis-1/4 flex-auto">
+                <x-input-label for="category" :value="__('Filter Session')" />
+                <select id="program_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option selected>Choose a session</option>
                     @foreach($years as $year)
                         <option value="{{$year->slug}}">{{$year->name}}</option>
                     @endforeach
@@ -49,7 +62,7 @@
                             <th class="bg-blue-800 text-white border text-center px-1 py-2">S/N</th>
                             <th class="bg-blue-800 text-white border text-center px-4 py-2">Name</th>
                             <th class="bg-blue-800 text-white border text-center px-4 py-2">Email</th>
-                            <th class="bg-blue-800 text-white border text-center px-4 py-2">Telephone</th>
+                            <th class="bg-blue-800 text-white border text-center px-4 py-2">Program</th>
                             <th class="bg-blue-800 text-white border text-center  py-2">Action</th>
                         </tr>
                         </thead>
@@ -59,7 +72,7 @@
                                 <td class="border text-center py-4">{{$key+1}}</td>
                                 <td class="border px-4 py-4 text-center">{{$value->user->name}}</td>
                                 <td class="border px-4 py-4 text-center">{{$value->user->email}}</td>
-                                <td class="border px-4 py-4 text-center">{{$value->user->telephone}}</td>
+                                <td class="border px-4 py-4 text-center">{{$value->program->name}}</td>
                                 <td class="border  py-4 text-center cursor-pointer">
                                     <x-dropdown align="right" width="48" style="z-index: 5">
                                         <x-slot name="trigger">
@@ -69,14 +82,14 @@
                                             <x-dropdown-link href="{{route('manage.admission.applicants.show', ['slug' => $value->slug])}}">
                                                 <span><i class="fa fa-user   cursor-pointer mr-5 "></i>{{ __('Profile') }}</span>
                                             </x-dropdown-link>
-                                            <x-dropdown-link   class="text-red-600" x-on:click.prevent="$dispatch('open-modal', 'confirm-deletion{{$value->id}}')">
+                                            <x-dropdown-link   class="text-red-600" x-on:click.prevent="$dispatch('open-modal', 'confirm-applicant-deletion{{$value->id}}')">
                                                 <span><i class="fa fa-trash text-red-600 cursor-pointer mr-6 "></i>{{ __('Remove') }}</span>
                                             </x-dropdown-link>
                                         </x-slot>
                                     </x-dropdown>
                                 </td>
                             </tr>
-
+                            @include('pages.management.admission.applicants.partials.delete-applicant')
                         @endforeach
                         </tbody>
                     </table>
@@ -125,7 +138,7 @@
         </div>
     </div>
 
-    @include('pages.management.admission.year.create')
+    @include('pages.management.admission.applicants.partials.add-applicant')
 
 </x-app-layout>
 

@@ -46,10 +46,18 @@ class AdmissionController extends Controller
     {
         $years = $this->admissionYearService->listYears();
         $applicants = $this->admissionApplicantService->getApplicants($request);
+        $genders = $this->getGenders();
+        $regions = $this->getRegions();
+        $programs = $this->programService->loadPrograms();
+        $admissionSession = $this->admissionYearService->getCurrentAdmissionSession();
 
         $data = [
             'years' => $years,
-            'applicants' => $applicants
+            'applicants' => $applicants,
+            'genders' => $genders,
+            'regions' => $regions,
+            'programs' => $programs,
+            'admissionSession' => $admissionSession
         ];
 
         return view('pages.management.admission.applicants.index')->with($data);
@@ -66,5 +74,12 @@ class AdmissionController extends Controller
         $this->admissionApplicantService->createApplicant($request);
 
         return response()->json(['status' => 'Applicant submitted successfully']);
+    }
+
+    public function deleteApplication(Request $request)
+    {
+        $this->admissionApplicantService->deleteApplicant($request);
+
+        return redirect()->back()->with(['status' => 'Applicant removed successfully']);
     }
 }
