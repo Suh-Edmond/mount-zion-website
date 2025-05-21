@@ -9,6 +9,6 @@ class ScholarshipController extends Controller
 {
     public function index(Request $request)
     {
-        return view('pages.guest.main-website.scholarship.index');
+        return view('pages.guest.main-website.donation.index');
     }
 }
