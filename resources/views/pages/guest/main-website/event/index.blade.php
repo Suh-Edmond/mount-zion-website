@@ -2,7 +2,7 @@
 
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
-    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/banner/breadcrumb.jpg);">
+    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/event/graduation.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -11,7 +11,7 @@
                             <li class="breadcrumb-item"><a href="{{route('main.home')}}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Events</li>
                         </ul>
-                        <h2 class="section-title">University Event</h2>
+                        <h2 class="section-title">Events</h2>
                     </div>
                 </div>
             </div>

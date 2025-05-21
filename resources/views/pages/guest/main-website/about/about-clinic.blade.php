@@ -19,8 +19,29 @@
     </section>
     <!-- BREADCRUMB AREA END -->
 
-    <!-- about university -->
-    <section class="rts-about-university rts-section-padding">
+    <section class="rts-campus-tour rts-section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <h2 class="section-title rt-center mb--50">Brief History</h2>
+                <div class="col-12">
+                    <div class="rts-video-section height-500 mb--50">
+                        <a href="https://www.youtube.com/watch?v=Uwq1uiuM_9w" class="rts-video-section-player popup-video video-btn">
+                            <i class="fa-sharp fa-solid fa-play"></i>
+                        </a>
+                        <img src="assets/images/about/clinic_building.jpg" alt="video-bg">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <!-- <div class="rts-video-section-text rt-center mx-3">
+                        <a href="{{route('main.admission')}}" class="mt--15 about-btn rts-nbg-btn btn-arrow">Apply Now <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- about clinic -->
+    <section class="rts-about-university">
         <div class="container">
             <!-- history -->
             <div class="rts-history row mb-5">
@@ -28,35 +49,28 @@
                     <div class="row g-5 justify-content-md-center justify-content-start align-items-center">
                         <div class="col-lg-6 col-md-11">
                             <div class="rts-history-image">
-                                <img src="assets/images/about/classroom_2.jpg" alt="history">
+                                <img src="assets/images/about/patient.jpg" alt="history">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-11">
                             <div class="rts-history-section">
-                                <h4 class="rts-section-title mb--40">The history of Mount Zion Higher Institutes</h4>
+                                <h4 class="rts-section-title mb--40"></h4>
 
                                 <p>
-                                    At Mount Zion Higher Institutes of Nursing and Midwifery, we are committed to training high-quality nurses
-                                    at the Diploma, HND, and BSc levels. Our mission is to equip students with the knowledge, skills,
-                                    and professional ethics required to serve both locally and internationally, while upholding the
-                                    dignity and values of the medical profession.
+                                    Mount Zion Clinic is a leading medical facility in Bamenda, Cameroon,
+                                    committed to delivering compassionate, high-quality, and affordable
+                                    healthcare to over 300,000 residents in the region.
+                                    Since our founding in September 1992, we have grown into a trusted institution
+                                    known for integrity, professionalism, and holistic care.
                                 </p>
 
                                 <p>
-                                    Since our inception in 2003 in Bamenda as a one-year training institute for Special Care Nurses,
-                                    MZHI has grown steadily to meet the evolving demands of healthcare education. In 2007,
-                                    we expanded our impact with the establishment of a second campus in Buea, offering greater access to
-                                    our programs across the region.
+                                    For over 33 years, we have served thousands of patients across core specialties
+                                    including General Medicine, Obstetrics and Gynaecology, Paediatrics, and Minor Surgeries.
                                 </p>
-                                <p>
-                                    In 2023, we achieved a significant milestone by receiving official authorization from the Ministry of Higher
-                                    Education to run a three-year Higher National Diploma (HND) program in Nursing. Continuing this upward trajectory,
-                                    we are proud to announce that starting in October 2025, we will offer a Bachelor’s degree (BSc) program in Nursing.
-                                </p>
-                                <p>
-                                Today, thousands of MZHI alumni are making a meaningful impact in healthcare delivery across Cameroon, Africa, 
-                                and beyond—carrying forward the legacy of excellence and compassion that defines our institution.
-                                </p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
                             </div>
                         </div>
                     </div>
@@ -64,79 +78,115 @@
             </div>
             <!-- history end-->
 
-            <div class="border-top my-60"></div>
 
-            <!-- mission and vision starts -->
+            <section class="rts-research-section rts-section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="rts-research-section__content">
+                            <div class="rts-section">
+                                <h3 class="rts-section-title">
+                                    Our Services
+                                </h3>
+                            </div>
+                        </div>
+                        <!-- research item -->
+                        <div class="research__items">
+                            <!-- apply content -->
+
+                            <div class="row justify-content-sm-center justify-content-md-start g-5">
+                                <div class="col-lg-4 col-md-6 col-sm-11">
+                                    <div class="research-procedure">
+                                        <div class="rt-serial">01</div>
+                                        <a href="#">Outpatient consultations</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-11">
+                                    <div class="research-procedure primary-style">
+                                        <div class="rt-serial">02</div>
+                                        <a>Laboratory services</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-11">
+                                    <div class="research-procedure">
+                                        <div class="rt-serial">03</div>
+                                        <a>In-patient care with 20-bed unit</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3 justify-content-sm-center justify-content-md-start g-5">
+                                <div class="col-lg-4 col-md-6 col-sm-11">
+                                    <div class="research-procedure">
+                                        <div class="rt-serial">04</div>
+                                        <a>Antenatal and maternity care</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-11">
+                                    <div class="research-procedure primary-style">
+                                        <div class="rt-serial">05</div>
+                                        <a>Dental services</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-11">
+                                    <div class="research-procedure">
+                                        <div class="rt-serial">06</div>
+                                        <a>Community health outreach</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4 justify-content-sm-center justify-content-md-start g-5">
+                                <div class="col-lg-4 col-md-6 col-sm-11">
+                                    <div class="research-procedure">
+                                        <div class="rt-serial">07</div>
+                                        <a>Nursing education programs (Diploma, HND, and BSc in Nursing)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- excellence starts -->
             <div class="row align-items-center justify-content-md-center">
                 <div class="col-lg-6 col-md-11">
                     <div class="faculty-content-text me-5">
-                        <h4 class="font-32 mb-4">Mission</h4>
+                        <h4 class="font-32 mb-4 mt-5">Excellence</h4>
+
                         <p>
-                            Mount Zion is dedicated to delivering modern, high-quality education in health sciences, grounded in ethics, integrity,
-                            and compassionate care. We empower students with practical, up-to-date knowledge to serve communities and advance
-                            global healthcare. Our goal is to become a sustainable, world-class institution
-                            through excellence in learning, innovation, and service.
+                            In July 2018, we reached a major milestone by moving into our permanent,
+                            purpose-built facility on Vicky Street, Bamenda—enhancing our capacity to serve
+                            more patients in a modern, welcoming environment.
                         </p>
-                        <h4 class="font-32 mb-4 mt-5">Vision</h4>
                         <p>
-                            To be recognized as a global leader in higher education, research, and innovation,
-                            committed to excellence and dedicated to meeting the aspirations of the international community.
+                            Passionately pro-life, Mount Zion Clinic is deeply committed to
+                            protecting the dignity of human life from conception to natural
+                            death. Our approach goes beyond physical treatment, addressing the
+                            emotional and spiritual needs of those we care for.
+                        </p>
+                        <p>
+                            In recognition of our unwavering commitment, Mount Zion Clinic was
+                            awarded the Prize of Excellence in Pro-Life Work in 2024, following a national
+                            survey conducted by a consortium of newspapers. This honor reflects our ongoing dedication
+                            to life-affirming healthcare and community service.
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-11">
                     <figure class="mt-5 mt-lg-0">
-                        <img class="mw-100" src="{{asset('assets/images/hero/slider__2.jpg')}}" alt="">
+                        <img class="mw-100" src="{{asset('assets/images/about/award.jpg')}}" alt="">
                     </figure>
                 </div>
             </div>
-            <!-- mission and vision ends -->
+            <!-- excellence ends -->
         </div>
     </section>
     <!-- about university end -->
 
 
     <div class="rts-funfact rts-section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 ">
-                    <div class="rts-funfact-wrapper">
-                        <div class="single-cta-item">
-                            <h2 class="single-cta-item__title">90%</h2>
-                            <p>post-graduation success rate</p>
-                        </div>
-                        <div class="single-cta-item">
-                            <h2 class="single-cta-item__title">Top</h2>
-                            <p>Institute that provides a holistic training</p>
-                        </div>
-                        <div class="single-cta-item">
-                            <h2 class="single-cta-item__title">No. 1</h2>
-                            <p>in the nation for special care nurses</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      
     </div>
 
-    <section class="rts-campus-tour rts-section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <h2 class="section-title rt-center mb--50">Our Campus Tour</h2>
-                <div class="col-12">
-                    <div class="rts-video-section height-500 mb--50">
-                        <a href="https://www.youtube.com/watch?v=Uwq1uiuM_9w" class="rts-video-section-player popup-video video-btn">
-                            <i class="fa-sharp fa-solid fa-play"></i>
-                        </a>
-                        <img src="assets/images/about/video-thumb.jpg" alt="video-bg">
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="rts-video-section-text rt-center mx-3">
-                        <a href="{{route('main.admission')}}" class="mt--15 about-btn rts-nbg-btn btn-arrow">Apply Now <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 </x-guest-layout>
