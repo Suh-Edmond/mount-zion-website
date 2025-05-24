@@ -49,6 +49,11 @@
                         </x-slot>
                     </x-dropdown>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('manage.events')" :active="request()->is('*/manage.events/*') || request()->routeIs('manage.events')" >
+                        {{ __('Events') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -111,6 +116,11 @@
             <x-responsive-nav-link :href="route('manage.admission')" :active="request()->routeIs('manage.admission')">
                 {{ __('Admission') }}
             </x-responsive-nav-link>
+            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <x-nav-link :href="route('manage.events')" :active="request()->is('*/manage.events/*') || request()->routeIs('manage.events')" >
+                    {{ __('Events') }}
+                </x-nav-link>
+            </div>
 
         </div>
 
