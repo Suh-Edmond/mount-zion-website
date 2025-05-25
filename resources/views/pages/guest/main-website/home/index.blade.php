@@ -235,7 +235,7 @@
                     <div class="blog__single--item">
                         <a href="{{route('main.schools.show', $school->slug)}}" class="blog__single--item--link">
                             <div class="blog__single--item--thumb">
-                                <img src="{{ asset( $school->image_path) }}" alt="{{ $school->name }}">
+                                <img src="{{ asset( $school->image_path) }}" alt="{{ $school->name }}" style="height: 300px !important;">
                             </div>
                         </a>
                         <div class="blog__single--item--meta">
@@ -313,42 +313,42 @@
                             <div class="swiper-slide">
                                 <div class="single-brand-logo">
                                     <a href="{{route('main.about')}}">
-                                        <img src="assets/images/partners/partner_3.png" alt="">
+                                        <img src="assets/images/partners/partner_3.png" alt="" width="100px" height="100px">
                                     </a>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="single-brand-logo">
                                     <a href="{{route('main.about')}}">
-                                        <img src="assets/images/partners/partner_1.jpg" alt="">
+                                        <img src="assets/images/partners/partner_1.jpg" alt="" width="100px" height="100px">
                                     </a>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="single-brand-logo">
                                     <a href="{{route('main.about')}}">
-                                        <img src="assets/images/partners/partner_2.jpg" alt="">
+                                        <img src="assets/images/partners/partner_2.jpg" alt="" width="100px" height="100px">
                                     </a>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="single-brand-logo">
                                     <a href="{{route('main.about')}}">
-                                        <img src="assets/images/partners/partner_3.png" alt="">
+                                        <img src="assets/images/partners/partner_3.png" alt="" width="100px" height="100px">
                                     </a>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="single-brand-logo">
                                     <a href="{{route('main.about')}}">
-                                        <img src="assets/images/partners/partner_1.jpg" alt="">
+                                        <img src="assets/images/partners/partner_1.jpg" alt="" width="100px" height="100px">
                                     </a>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="single-brand-logo">
                                     <a href="{{route('main.about')}}">
-                                        <img src="assets/images/partners/partner_2.jpg" alt="">
+                                        <img src="assets/images/partners/partner_2.jpg" alt="" width="100px" height="100px">
                                     </a>
                                 </div>
                             </div>
@@ -423,7 +423,7 @@ rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow
                                     <img src="assets/images/program/icon/01.svg" alt="education">
                                 </div>
                                 <a href="{{route('main.academics')}}" class="program-link">Bachelor's Programs</a>
-                                <titute>Empower yourself with the skills to heal and lead at Mount Zion Higher Institute</p>
+                                <p>Empower yourself with the skills to heal and lead at Mount Zion Higher Institute</p>
                                 <a href="{{route('main.academics')}}" class="about-btn rts-nbg-btn btn-arrow
 rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                             </div>
@@ -437,34 +437,91 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
     <!-- program end -->
 
 
-    <!-- apply start -->
-    <section class="rts-application-area  rts-section-padding v_2">
+    <!-- clinic centers start -->
+    <section class="rts-research rt-relative research-bg rts-section-height">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="rts-section rt-center mb--80">
-                    <h2 class="rts-section-title">Apply Now</h2>
-                </div>
-            </div>
-            <!-- application form -->
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="rts-admission-form-image">
-                        <img src="assets/images/home/demonstration.jpg" alt="">
+            <div class="section-bg rt-relative">
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-5 col-md-11">
+                        <div class="rts-research-image">
+                            <img src="assets/images/hero/slider__2.jpg" alt="research">
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-11">
+                        <div class="research-content-area">
+                            <h2 class="rts-section-title mt--80 mb--20">
+                                Mount Zion Clinics:
+                            </h2>
+                            <p>Discover a network of cutting-edge research and health that serve as hubs of innovation
+                                within Mount Zion From state-of-the-art laboratories.</p>
+                            <div class="research-subject mt--30">
+                                <div class="single-research">
+                                    <div class="icon">
+                                        <img src="assets/images/icon/09.svg" alt="biomedical">
+                                    </div>
+                                    <div class="content">
+                                        <h6>Obstetrics and Gynaecology</h6>
+                                        <p>
+                                            Delve into groundbreaking
+                                            research in Obstetrics, and Gynaecology
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="single-research">
+                                    <div class="icon">
+                                        <img src="assets/images/icon/10.svg" alt="biomedical">
+                                    </div>
+                                    <div class="content">
+                                        <h6> Paediatrics, and Minor Surgeries</h6>
+                                        <p>
+                                            From clinical trials to public
+                                            health initiatives
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="research-meta-info mt--50 mb--70">
+                                <a href="{{route('main.contact')}}" class="rts-theme-btn btn-arrow">Join Community<span><i
+                                            class="fa-thin fa-arrow-right"></i></span></a>
+                                <div class="research-author">
+                                    <div class="image">
+                                        <img src="assets/images/about/dr_atem_1.jpg" alt="author" width="50px" height="50px" style="border: 50%">
+                                    </div>
+                                    <div class="info">
+                                        <h6>Dr. Atem Paul</h6>
+                                        <p>The CEO</p>
+                                    </div>
+                                </div>
+                                <div class="research-author">
+                                    <div class="image">
+                                        <img src="assets/images/icon/phone.svg" alt="phone">
+                                    </div>
+                                    <div class="info">
+                                        <h6><a href="callto:121">+1012405451</a></h6>
+                                        <p>Phone Number</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="research-big-text rt-clip-text">Our Clinic Community</div>
                     </div>
                 </div>
-                <div class="col-lg-10">
-                    @include('components.application-form')
-                </div>
+
             </div>
             <div class="rt-shape">
-                <img src="assets/images/apply/shape/01.png" alt="shape" class="shape rt-shape__1">
-                <img src="assets/images/apply/shape/02.png" alt="shape" class="shape rt-shape__2">
-                <img src="assets/images/apply/shape/03.png" alt="shape" class="shape rt-shape__3">
-                <img src="assets/images/apply/shape/04.png" alt="shape" class="shape rt-shape__4">
+                <div class="rt-shape__1">
+                    <img src="assets/images/feature/research/01.svg" alt="">
+                </div>
+                <div class="rt-shape__2">
+                    <img src="assets/images/feature/research/02.svg" alt="">
+                </div>
+                <div class="rt-shape__3">
+                    <img src="assets/images/feature/research/03.svg" alt="">
+                </div>
             </div>
         </div>
     </section>
-    <!-- apply end -->
+    <!-- clinic center end -->
 
     <!-- support us -->
     <section class="rts-scholarship rts-scholarship-bg rts-section-height">
@@ -485,16 +542,16 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
     <!-- support end -->
 
     <!-- blog area start -->
-    <!-- <div class="rts-blog rts-section-padding v_2 no-bg">
+     <div class="rts-blog rts-section-padding v_2 no-bg">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-11 col-lg-12">
                     <div class="rts-section rts-border-bottom-1 mb--50 pb--20">
                         <h2 class="rts-section-title">
-                            Latest From Our Blogs
+                            Latest From Our Events
                         </h2>
                         <p class="rts-section-description">Whether you’re considering a 1 year course, HND or an undergraduate academics here is the place for you.</p>
-                        <a href="{{route('main.programs')}}" class="rts-arrow">View All <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+                        <a href="{{route('main.event')}}" class="rts-arrow">View All <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                     </div>
                 </div>
             </div>
@@ -527,7 +584,8 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                 </div>
                 <div class="col-lg-6">
                     <div class="rts-blog-post">
-                        <div class="single-blog-post">
+                        @foreach($events as  $key => $evt)
+                         <div class="single-blog-post">
                             <div class="blog-thumb">
                                 <a href="../blog-details.html">
                                     <img src="assets/images/blog/small-thumb-1.jpg" alt="post-thumbnail">
@@ -539,75 +597,28 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                         <span>
                                             <i class="fa-light fa-user"></i>
                                         </span>
-                                        <a href="#">Samira Khan</a>
+                                        <a href="#">{{$evt->getFirstSpeaker($evt->speakers)}}</a>
                                     </div>
                                     <div class="rt-date">
                                         <span><i class="fal fa-calendar"></i></span>
-                                        <span>November 28, 2023</span>
+                                        <span>{{ \Carbon\Carbon::parse($evt->event_date)->format('F j, Y') }}</span>
                                     </div>
                                 </div>
                                 <a href="../blog-details.html" class="post-title">
-                                    Classroom community-building It’s ok to try something new!
+                                    {{$evt->title}}
                                 </a>
                             </div>
                         </div>
-                        <div class="single-blog-post">
-                            <div class="blog-thumb">
-                                <a href="../blog-details.html">
-                                    <img src="assets/images/blog/small-thumb-2.jpg" alt="post-thumbnail">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="post-meta">
-                                    <div class="rt-author">
-                                        <span>
-                                            <i class="fa-light fa-user"></i>
-                                        </span>
-                                        <a href="#">Samira Khan</a>
-                                    </div>
-                                    <div class="rt-date">
-                                        <span><i class="fal fa-calendar"></i></span>
-                                        <span>November 28, 2023</span>
-                                    </div>
-                                </div>
-                                <a href="../blog-details.html" class="post-title">
-                                    Those inequalities are inequalities that occur within households
-                                </a>
-                            </div>
-                        </div>
-                        <div class="single-blog-post">
-                            <div class="blog-thumb">
-                                <a href="../blog-details.html">
-                                    <img src="assets/images/blog/small-thumb-3.jpg" alt="post-thumbnail">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="post-meta">
-                                    <div class="rt-author">
-                                        <span>
-                                            <i class="fa-light fa-user"></i>
-                                        </span>
-                                        <a href="#">Samira Khan</a>
-                                    </div>
-                                    <div class="rt-date">
-                                        <span><i class="fal fa-calendar"></i></span>
-                                        <span>November 28, 2023</span>
-                                    </div>
-                                </div>
-                                <a href="../blog-details.html" class="post-title">
-                                    After decades of improvement, health rates on worrying
-                                </a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- blog area end -->
 
     <!-- newsletter -->
-    <!-- <div class="rts-newsletter v_1 rts-cta-background rts__white">
+    <div class="rts-newsletter v_1 rts-cta-background rts__white">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -626,6 +637,6 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- newsletter end -->
 </x-guest-layout>

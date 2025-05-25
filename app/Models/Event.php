@@ -38,4 +38,11 @@ class Event extends Model
     {
         return $this->hasMany(EventGallery::class);
     }
+
+
+    //TODO: ENSURE THE IS A MAIN SPEAKER
+    public function getFirstSpeaker($speakers)
+    {
+        return count($speakers) > 1 ? $speakers[0]->name : '';
+    }
 }
