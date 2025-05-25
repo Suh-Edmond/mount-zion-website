@@ -73,7 +73,7 @@
                                             <td>{{$admissionSession->year}}</td>
                                             <td>{{$admissionSession->start_date}}</td>
                                             <td>{{$admissionSession->end_date}}</td>
-                                            <td>{{$admissionSession->end_date ? 'ACTIVE': 'IN_ACTIVE'}}</td>
+                                            <td style="{{$admissionSession->status ? 'color:green':'color:red'}} ">{{$admissionSession->status ? 'ACTIVE': 'IN_ACTIVE'}}</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -91,51 +91,57 @@
                     <div class="rts-ap-section">
                         <h3 class="rts-section-title mb--30">Application Details</h3>
                         <div class="rts-application-form">
-                            <form method="post" action="">
-
+                            <form method="post" action="" id="application-form">
                                 <div class="single-form-part">
                                     <h5 class="form-title">Personal Information</h5>
+                                    <p style="padding-bottom: 10px; font-size: medium">All fields with <span style="color: red">*</span> are required</p>
+
+                                    <div class="alert alert-danger print-error-msg" style="display:none">
+                                        <ul></ul>
+                                    </div>
+
+
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="first_name">First Name</label>
-                                            <input type="text" name="first_name" placeholder="First name" required>
+                                            <label for="first_name">First Name <span style="color: red">*</span></label>
+                                            <input type="text" id="first_name"  name="first_name" placeholder="First name" required>
                                         </div>
                                         <div class="single-input-item">
-                                            <label for="last_name">Last Name</label>
-                                            <input type="text" name="last_name" placeholder="Last name" required>
+                                            <label for="last_name">Last Name <span style="color: red">*</span></label>
+                                            <input type="text" id="last_name" name="last_name" placeholder="Last name" required>
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="email2">Enter your mail</label>
-                                            <input type="email" name="email" placeholder="Enter your mail" required>
+                                            <label for="email2">Email <span style="color: red">*</span></label>
+                                            <input type="email" id="email" name="email" placeholder="Enter your mail" required>
                                         </div>
                                         <div class="single-input-item">
-                                            <label for="phone">Enter Phone Number</label>
-                                            <input type="tel" name="telephone" placeholder="Enter Phone Number" required>
-                                        </div>
-                                    </div>
-                                    <div class="single-input">
-                                        <div class="single-input-item">
-                                            <label for="dob">Date of Birth</label>
-                                            <input type="date" name="dob" placeholder="dd/mm/yy" required>
-                                        </div>
-                                        <div class="single-input-item">
-                                            <label for="pob">Place of Birth</label>
-                                            <input type="text" name="pob" placeholder="Buea" required>
+                                            <label for="phone">Phone Number <span style="color: red">*</span></label>
+                                            <input type="tel" id="telephone" name="telephone" placeholder="Enter Phone Number" required>
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="gender">Gender</label>
-                                            <select name="gender" required>
+                                            <label for="dob">Date of Birth <span style="color: red">*</span></label>
+                                            <input type="date" id="dob" name="dob" placeholder="dd/mm/yy" required>
+                                        </div>
+                                        <div class="single-input-item">
+                                            <label for="pob">Place of Birth <span style="color: red">*</span></label>
+                                            <input type="text" id="pob" name="pob" placeholder="Buea" required>
+                                        </div>
+                                    </div>
+                                    <div class="single-input">
+                                        <div class="single-input-item">
+                                            <label for="gender">Gender <span style="color: red">*</span></label>
+                                            <select name="gender" id="gender" required>
                                                 @foreach($genders as $key => $gender)
                                                     <option value="{{$gender}}">{{$gender}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="single-input-item">
-                                            <label for="region">Select your Region </label>
+                                            <label for="region">Select your Region <span style="color: red">*</span></label>
                                             <select name="region" id="region" placeholder="Region of origin" required>
                                                 @foreach($regions as $key => $value)
                                                     <option value="{{$value}}">{{$value}}</option>
@@ -145,8 +151,8 @@
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="school_id">School</label>
-                                            <select id="school_id" required>
+                                            <label for="school_id">School <span style="color: red">*</span></label>
+                                            <select id="school_id" name="school_id" required>
                                                 <option value="#">Choose school</option>
                                                 @foreach($schools as $key => $school)
                                                     <option value="{{$school->id}}">{{$school->name}}</option>
@@ -156,7 +162,7 @@
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="program_id">Program</label>
+                                            <label for="program_id">Program <span style="color: red">*</span></label>
                                             <select id="program_id" name="program_id" required>
                                                 <option value="#">Choose program</option>
                                             </select>
@@ -164,8 +170,8 @@
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="sub">Application Files:</label>
-                                            <input type="file" name="files">
+                                            <label for="sub">Application Files <span style="color: red">*</span></label>
+                                            <input type="file" id="file" name="files">
                                         </div>
                                     </div>
                                 </div>
@@ -177,11 +183,16 @@
                                     </p>
 
                                     <div class="d-flex align-items-center single-checkbox mt--20">
-                                        <input type="checkbox" name="has_agreed" required>
+                                        <input type="checkbox" id="has_agreed" name="has_agreed" required>
                                         <label for="exampleCheck1">By submitting this form, you agree to the Mount Zion University Privacy Notice</label>
                                     </div>
                                 </div>
-                                <button type="submit" class="rts-theme-btn primary with-arrow submit">Submit Application<span><i class="fa-thin fa-arrow-right"></i></span></button>
+                                <button type="submit" class="rts-theme-btn primary with-arrow submit app_button">Submit Application
+                                    <span><i class="fa-thin fa-arrow-right button_icon"></i></span>
+                                </button> <span class="success_msg fw-bold text-lg" style="display: none">Your application was submitted successfully. A copy was sent to your email address</span>
+                                <button type="submit" class="rts-theme-btn primary with-arrow submit loader_button" style="display: none">
+                                    Submitting... <span class="application_spinner"></span>
+                                </button>
                             </form>
 
                         </div>
@@ -193,6 +204,29 @@
     <!-- admission page content end -->
 </x-guest-layout>
 
+<style type="text/css">
+    .application_spinner {
+        width: 30px;
+        --b: 8px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        padding: 1px;
+        background: conic-gradient(#0000 10%, #edf2f7) content-box;
+        -webkit-mask:
+            repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg),
+            radial-gradient(farthest-side,#0000 calc(100% - var(--b) - 1px),#000 calc(100% - var(--b)));
+        -webkit-mask-composite: destination-in;
+        mask-composite: intersect;
+        animation:l4 1s infinite steps(10);
+    }
+    @keyframes l4 {to{transform: rotate(1turn)}}
+
+    .success_msg {
+        color: green;
+        display: none;
+    }
+
+</style>
 <script type="text/javascript">
     $.ajaxSetup({
         headers: {
@@ -230,6 +264,7 @@
 
         });
     })
+
     $(document).on('click', '.submit', function(e){
         e.preventDefault();
 
@@ -243,6 +278,11 @@
         var dob = $("input[name=dob]").val();
         var pob = $("input[name=pob]").val();
         var program_id = $("select[name=program_id]").val();
+        var school_id = $("select[name=school_id]").val();
+
+        $(".app_button").css("display", "none");
+        $(".loader_button").css("display", "inline-block");
+        $(".application_spinner").css('display', 'inline-block')
 
 
         $.ajax({
@@ -259,12 +299,25 @@
                 "address":"address",
                 "dob":dob,
                 "pob": pob,
+                "school_id": school_id,
                 "program_id":program_id
             },
             success: function(data){
-
+                $('#application-form').find(".print-error-msg").css("display", "none");
+                $(".app_button").css("display", "inline-block");
+                $(".loader_button").css("display", "none");
+                $(".success_msg").css("display", "inline-block")
+                $(".application_spinner").css('display', 'none')
             },
-            error: function(data){
+            error: function(response){
+                $(".app_button").css("display", "inline-block");
+                $(".loader_button").css("display", "none");
+
+                $('#application-form').find(".print-error-msg").find("ul").html('');
+                $('#application-form').find(".print-error-msg").css('display','block');
+                $.each( response.responseJSON.errors, function( key, value ) {
+                    $('#application-form').find(".print-error-msg").find("ul").append('<li>'+value+'</li>');
+                });
             },
         });
     });

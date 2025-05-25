@@ -40,7 +40,8 @@ class AdmissionController extends Controller
             'genders' => $genders,
             'regions' => $regions,
             'schools' => $schools,
-            'admissionSession' => $admissionSession
+            'admissionSession' => $admissionSession,
+            'application_deadline_expired' => $this->checkIfApplicationDeadlineHadExpire($admissionSession->end_date),
         ];
 
         return view('pages.guest.main-website.admission.index')->with($data);
