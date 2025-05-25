@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdmissionYearController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EventSpeakerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SchoolController;
@@ -20,10 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('main.home');
 Route::get('/contact', [ContactController::class, 'index'])->name('main.contact');
-Route::get('/blogs', [BlogController::class, 'index'])->name('main.blog');
-Route::get('/blogs-detail', [BlogController::class, 'detail'])->name('main.blog.detail');
 Route::get('/events', [EventController::class, 'index'])->name('main.event');
-Route::get('/event-detail', [EventController::class, 'detail'])->name('main.event.detail');
+Route::get('/events/{slug}', [EventController::class, 'detail'])->name('main.event.detail');
 Route::get('/academics', [AcademicController::class, 'index'])->name('main.academics');
 Route::get('/academic-area', [AcademicController::class, 'academicArea'])->name('main.academic-area');
 Route::get('/programs', [AcademicController::class, 'academicArea'])->name('main.programs');
@@ -38,7 +37,6 @@ Route::get('/donate', [ScholarshipController::class, 'index'])->name('main.donat
 Route::get('tuition-fee', [TuitionController::class, 'index'])->name('main.tuition-fee');
 Route::get('alumni', [AlumniController::class, 'index'])->name('main.alumni');
 Route::post('/admissions/add-applicant', [AdmissionController::class, 'addApplicant'])->name('main.admission.applicant.store');
-
 Route::get('academics/schools/{slug}', [AcademicController::class, 'school'])->name('main.schools.show');
 Route::get('academics/schools/{schoolSlug}/{programSlug}', [AcademicController::class, 'program'])->name('main.schools.program.show');
 Route::get('/academics/{id}/load-programs', [ProgramController::class, 'fetchProgramsBySchool'])->name('main.schools.programs.fetch-all');
@@ -69,8 +67,13 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::put('admission/year/applicants/profile/validate-application', [AdmissionController::class, 'validateApplication'])->name('manage.admission.applicant.validate-application');
     Route::get('admission/year/applicants/create-application', [AdmissionController::class, 'createApplication'])->name('manage.admission.applicant.create-application');
     Route::post('admission/year/applicants/add-application/store', [AdmissionController::class, 'saveApplication'])->name('manage.admission.applicant.store-application');
-
-
+    Route::get('events-management', [EventController::class, 'fetchEvents'])->name('manage.events');
+    Route::get('events-management/information', [EventController::class, 'showEventInformation'])->name('manage.events.show');
+    Route::get('events-management/create', [EventController::class, 'createEvent'])->name('manage.events.create');
+    Route::put('/events-management/update', [EventController::class, 'updateEvent'])->name('manage.events.update');
+    Route::get('events-management/detail/speakers', [EventSpeakerController::class, 'listSpeakers'])->name('manage.events.speakers.list');
+    Route::get('events-management/detail/speakers/information', [EventSpeakerController::class, 'showSpeakers'])->name('manage.events.speakers.show');
+    Route::get('events-management/detail/speakers/create', [EventSpeakerController::class, 'showSpeakers'])->name('manage.events.speakers.create');
 });
 
 Route::middleware('auth')->group(function () {

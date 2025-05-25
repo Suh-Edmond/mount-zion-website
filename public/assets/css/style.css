@@ -26094,4 +26094,17 @@ body.index-sc h1, body.index-sc h2, body.index-sc h3, body.index-sc h4, body.ind
   z-index: 999;
   top: 0;
 }
+.custom_list {
+  position: relative;
+  padding-top: 20px;
+}
+.custom_list .single-feature::before {
+  position: absolute;
+  content: "";
+  left: -30px;
+  top: 5px;
+  background-image: url(../images/icon/arrow-rotate.svg);
+  height: 18px;
+  width: 14px;
+}
 /*# sourceMappingURL=../maps/style.css.map */

@@ -36,32 +36,92 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <!-- <div class="faculty-content-text ms-lg-5 mt-5 mt-lg-0">
-                        <p class="h6 mb-
-                        4">It’s your Time Join to explore</p>
-                        <p class="mb-5">The Faculty of Arts Unipix University warmly welcomes you to a vast, vivid and vigorous academic landscape of relentless pursuits and superb brilliance.</p>
-                        <p class="h6 mb-
-                        4">Learn to lead</p>
-                        <p class="mb-5">In line with the lifelong motto of Unipix ‘where leaders are created’, FA is devoted to produce accomplished, as well as skilled, learners who can meet the professional requirements of today’s local and global job market. Be it an academic seminar or an in-house cricket tournament or a debate festival, students and teachers at FA work hand in hand to make it a success. This is how we make sure that each of our students remains engaged in academic and extracurricular rigors to grow to his or her fullest extent. This is how FA of Unipix creates local leaders for the global demands.</p>
-                        <p class="h6 mb-
-                        4">Challenge yourself to change the world</p>
-                        <p>Education becomes meaningful only when it can change the world when necessary. This is what my colleagues and I are working for every single day of the week at FA. I hope that you will find whatever information you may need here and if not please feel free to let me know. I warmly welcome your comments and suggestions. Thank you very much for your kind visit.</p>
-                    </div> -->
+                    <div class="faculty-content-text ms-lg-5 mt-5 mt-lg-0">
+                        <p class="h6 mb-4">
+
+                        </p>
+                        <p class="mb-5">
+                            Dr. Atem Paul is a distinguished physician, educator, and visionary healthcare leader.
+                            He is the Founder and Executive Director of Mount Zion, an integrated institution that
+                            comprises Mount Zion Clinic and the Mount Zion Higher Institutes of Nursing and Midwifery in
+                            Bamenda and Buea, Cameroon. Born on September 28, 1957, in Kembong village in the South-West
+                            Region of Cameroon, Dr. Paul was shaped by early life challenges, including the loss of his father
+                            at the age of five. Despite these hardships, his unwavering commitment to education and service set
+                            the foundation for a life of impact.
+                        </p>
+                        <p class="h6 mb-4"></p>
+                        <p class="mb-5">
+                            Recognizing the critical need for skilled healthcare professionals in Cameroon, Dr. Paul expanded
+                            his vision to medical education. In 2003, he launched a one-year nursing training program, which has
+                            grown into the Mount Zion Higher Institutes. Today, the institutes offer accredited programs including
+                            the Higher National Diploma (HND) in Nursing, and starting in October 2025,
+                            they will offer a Bachelor’s Degree in Nursing through a partnership with the University of Buea.
+                        </p>
+                    </div>
                 </div>
                 <div class="border-top my-60"></div>
                 <div class="row align-items-center justify-content-md-center">
                     <div class="col-lg-6 col-md-11">
-                        <!-- <div class="faculty-content-text me-5">
-                            <h4 class="font-32 mb-4">Mission</h4>
-                            <p>Create innovative knowledge through intellectual practice, critical engagement, and creative endeavor. It is dedicated to providing students with enriched curriculum that fosters deeper understanding and appreciation of societies, cultures, languages, literatures, and artistic trends to address the contemporary global and local challenges.</p>
-                            <h4 class="font-32 mb-4 mt-5">Vision</h4>
-                            <p>Create innovative knowledge through intellectual practice, critical engagement, and creative endeavor. It is dedicated to providing students with enriched curriculum that fosters deeper understanding and appreciation of societies, cultures, languages, literatures, and artistic trends to address the contemporary global and local challenges.</p>
-                        </div> -->
+                        <div class="faculty-content-text me-5">
+                            <h4 class="font-32 mb-4"></h4>
+                            <p>
+                                Dr. Paul also serves as the Director of Luke Society Cameroon, an international Christian
+                                medical mission. Under his leadership, the Society has established rural health centers in
+                                the villages of Tingo and Okwala. His professional journey has taken him around the world—from
+                                internships in the United States and Germany to collaborative work with organizations such as
+                                the American Association of Pro-Life Obstetricians and Gynecologists (AAPLOG).
+                            </p>
+                            <h4 class="font-32 mb-4 mt-5"></h4>
+                            <p>
+                                A dedicated husband and father of four, Dr. Paul leads a life grounded in faith,
+                                family, and service. He enjoys caring for his cats and is also an avid snail
+                                farmer—a quiet and rewarding hobby that reflects his appreciation for patience,
+                                sustainability, and nature
+                            </p>
+                        </div>
                     </div>
+                    <div class="col-lg-6 col-md-11">
+                        <figure class="mt-5 mt-lg-0">
+                            <img class="mw-100" src="{{asset('assets/images/about/dr_atem_3.jpg')}}" alt="">
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="row align-items-center justify-content-md-center rts-section-padding">
                     <div class="col-lg-6 col-md-11">
                         <figure class="mt-5 mt-lg-0">
                             <img class="mw-100" src="{{asset('assets/images/about/dr_atem_2.jpg')}}" alt="">
                         </figure>
+                    </div>
+                </div>
+
+                <div class="row align-items-center justify-content-md-center rts-section-padding">
+                    <div class="col-lg-6 col-md-11">
+                        <div class="faculty-content-text me-5">
+                            <h4 class="font-32 mb-4"></h4>
+                            <p>
+                                His life’s mission continues to focus on advancing healthcare, evangelism, and
+                                professional training, with the goal of empowering a new generation to serve with
+                                both skill and compassion.
+                            </p>
+                            <h4 class="font-32 mb-4 mt-5">Books written by Dr.Atem Paul</h4>
+                            <div class="event-details__content--feature">
+                                <div class="custom_list">
+                                    <p class="feature-heading">- Beyond Medicine</p>
+                                </div>
+                                <div class="custom_list">
+                                    <p class="feature-heading">- Practical Therapeutics</p>
+                                </div>
+                                <div class="custom_list">
+                                    <p class="feature-heading">- Divine Prescriptions: Exploring the Spiritual and Medical Benefits of Worship. —Available on Amazon</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-11">
+                        <!-- <figure class="mt-5 mt-lg-0">
+                            <img class="mw-100" src="{{asset('assets/images/about/dr_atem_2.jpg')}}" alt="">
+                        </figure> -->
                     </div>
                 </div>
             </div>

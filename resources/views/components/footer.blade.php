@@ -18,8 +18,7 @@
                     <div class="rts-footer-menu">
                         <ul>
                             <li><a href="{{route('main.academic-area')}}">Academic</a></li>
-                            <li><a href="{{route('main.campus-life')}}">Campus life</a></li>
-                            <li><a href="{{route('main.programs')}}">Research</a></li>
+                            <li><a href="{{route('main.academic-area')}}">Research</a></li>
                         </ul>
                     </div>
                 </div>
@@ -31,7 +30,6 @@
                         <ul>
                             <li><a href="{{route('main.about')}}">About </a></li>
                             <li><a href="{{route('main.tuition-fee')}}">Tuition Fee</a></li>
-                            <li><a href="{{route('main.alumni')}}">Alumni</a></li>
                             <li><a href="{{route('main.event')}}">Events</a></li>
                         </ul>
                     </div>
