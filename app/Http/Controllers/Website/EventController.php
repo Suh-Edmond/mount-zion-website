@@ -19,12 +19,42 @@ class EventController extends Controller
 
     public function index(Request $request)
     {
-        return view('pages.guest.main-website.event.index');
+        $events = $this->eventManagementService->fetchEvents($request);
+
+        if (!$events->first()?->relationLoaded('eventGallery')) {
+            $events->load('eventGallery');
+        }
+
+        if (!$events->first()?->relationLoaded('eventSections')) {
+            $events->load('eventSections');
+        }
+
+        if (!$events->first()?->relationLoaded('speakers')) {
+            $events->load('speakers');
+        }
+
+        // Add the first gallery image to each event
+        $events = $events->map(function ($event) {
+            $event->poster_url = $event->eventGallery->first() ? $event->eventGallery->first()->file_path : null;
+            return $event;
+        });
+
+        return view('pages.guest.main-website.event.index', [
+            'events' => $events
+        ]);
     }
 
     public function detail(Request $request)
     {
-        return view('pages.guest.main-website.event.detail');
+        $event = $this->eventManagementService->showEventInformation($request);
+        if(!$event->relationLoaded('eventGallery')) {
+            $event->load('eventGallery');
+        }
+
+        $event->poster_url = $event->eventGallery->first() ? $event->eventGallery->first()->file_path : null;
+        return view('pages.guest.main-website.event.detail', [
+            'event'=> $event
+        ]);
     }
 
     public function fetchEvents(Request $request)

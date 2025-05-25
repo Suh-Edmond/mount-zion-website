@@ -21,10 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('main.home');
 Route::get('/contact', [ContactController::class, 'index'])->name('main.contact');
-Route::get('/blogs', [BlogController::class, 'index'])->name('main.blog');
-Route::get('/blogs-detail', [BlogController::class, 'detail'])->name('main.blog.detail');
 Route::get('/events', [EventController::class, 'index'])->name('main.event');
-Route::get('/event-detail', [EventController::class, 'detail'])->name('main.event.detail');
+Route::get('/events/{slug}', [EventController::class, 'detail'])->name('main.event.detail');
 Route::get('/academics', [AcademicController::class, 'index'])->name('main.academics');
 Route::get('/academic-area', [AcademicController::class, 'academicArea'])->name('main.academic-area');
 Route::get('/programs', [AcademicController::class, 'academicArea'])->name('main.programs');

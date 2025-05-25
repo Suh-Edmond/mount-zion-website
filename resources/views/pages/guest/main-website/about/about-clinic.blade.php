@@ -149,7 +149,7 @@
             </section>
 
             <!-- excellence starts -->
-            <div class="row align-items-center justify-content-md-center">
+            <div class="row align-items-center justify-content-md-center rts-section-padding">
                 <div class="col-lg-6 col-md-11">
                     <div class="faculty-content-text me-5">
                         <h4 class="font-32 mb-4 mt-5">Excellence</h4>
@@ -184,9 +184,123 @@
     </section>
     <!-- about university end -->
 
+    <div class="rts-gallery rts__light rts-section-padding ">
+        <div class="container">
+            <div class="row">
+                <div class="rts__section--wrapper v__5">
+                    <h2 class="rts__section--title">Gallery</h2>
+                </div>
+            </div>
+            <div class="gallery-area">
+                <div class="row g-5">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image1.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image1.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image21.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image21.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image26.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image26.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image4.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image4.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image37.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image37.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image7.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image7.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image12.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image12.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image39.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image39.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image3.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image3.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="rts-funfact rts-section-padding">
-      
+
     </div>
 
 </x-guest-layout>
