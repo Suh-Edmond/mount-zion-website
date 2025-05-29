@@ -130,7 +130,7 @@
                                 <div class="col-lg-4 col-md-6 col-sm-11">
                                     <div class="research-procedure">
                                         <div class="rt-serial">06</div>
-                                        <a>Community health outreach</a>
+                                        <a href="{{ route('main.communityOutreach') }}">Community health outreach</a>
                                     </div>
                                 </div>
                             </div>
@@ -195,52 +195,8 @@
                 <div class="row g-5">
                     <div class="col-lg-4 col-md-6">
                         <div class="single-gallery">
-                            <a href="{{asset('assets/images/about/clinic/image1.jpg')}}" class="single-gallery__item">
-                                <img src="{{asset('assets/images/about/clinic/image1.jpg')}}" alt="gallery">
-                                <div class="single-gallery__icon">
-                                    <i class="fa-light fa-circle-plus"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery">
-                            <a href="{{asset('assets/images/about/clinic/image21.jpg')}}" class="single-gallery__item">
-                                <img src="{{asset('assets/images/about/clinic/image21.jpg')}}" alt="gallery">
-                                <div class="single-gallery__icon">
-                                    <i class="fa-light fa-circle-plus"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery">
-                            <a href="{{asset('assets/images/about/clinic/image26.jpg')}}" class="single-gallery__item">
-                                <img src="{{asset('assets/images/about/clinic/image26.jpg')}}" alt="gallery">
-                                <div class="single-gallery__icon">
-                                    <i class="fa-light fa-circle-plus"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery">
                             <a href="{{asset('assets/images/about/clinic/image4.jpg')}}" class="single-gallery__item">
                                 <img src="{{asset('assets/images/about/clinic/image4.jpg')}}" alt="gallery">
-                                <div class="single-gallery__icon">
-                                    <i class="fa-light fa-circle-plus"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery">
-                            <a href="{{asset('assets/images/about/clinic/image37.jpg')}}" class="single-gallery__item">
-                                <img src="{{asset('assets/images/about/clinic/image37.jpg')}}" alt="gallery">
                                 <div class="single-gallery__icon">
                                     <i class="fa-light fa-circle-plus"></i>
                                 </div>
@@ -259,23 +215,10 @@
                         </div>
                     </div>
 
-
                     <div class="col-lg-4 col-md-6">
                         <div class="single-gallery">
                             <a href="{{asset('assets/images/about/clinic/image12.jpg')}}" class="single-gallery__item">
                                 <img src="{{asset('assets/images/about/clinic/image12.jpg')}}" alt="gallery">
-                                <div class="single-gallery__icon">
-                                    <i class="fa-light fa-circle-plus"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery">
-                            <a href="{{asset('assets/images/about/clinic/image39.jpg')}}" class="single-gallery__item">
-                                <img src="{{asset('assets/images/about/clinic/image39.jpg')}}" alt="gallery">
                                 <div class="single-gallery__icon">
                                     <i class="fa-light fa-circle-plus"></i>
                                 </div>
@@ -294,6 +237,100 @@
                         </div>
                     </div>
 
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image17.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image17.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image24.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image24.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image24.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image24.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image29.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image29.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image30.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image30.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image33.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image33.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image31.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image31.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-gallery">
+                            <a href="{{asset('assets/images/about/clinic/image10.jpg')}}" class="single-gallery__item">
+                                <img src="{{asset('assets/images/about/clinic/image10.jpg')}}" alt="gallery">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mt--50">
+                    <a href="{{route('main.communityOutreach')}}">
+                        Mount Zion Clinic in partnership with The Luke Society Intl. medical missions to Tingo Okwala Cameroon
+                    </a>
                 </div>
             </div>
         </div>

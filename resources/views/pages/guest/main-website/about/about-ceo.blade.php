@@ -10,7 +10,7 @@
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('main.home')}}">Home</a></li>
                         </ul>
-                        <h2 class="section-title">About our CEO</h2>
+                        <h2 class="section-title">About our Administrators</h2>
                     </div>
                 </div>
             </div>

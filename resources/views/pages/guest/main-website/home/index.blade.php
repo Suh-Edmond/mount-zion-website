@@ -125,7 +125,7 @@
     <!-- history end -->
 
     <!-- our mission start -->
-    <section class="program rts-section-padding">
+    <section id="mission" class="program rts-section-padding">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-5">
@@ -137,7 +137,7 @@
                         <div class="campus__vector">
                             <img src="assets/images/campus/campus__vector.svg" alt="">
                         </div>
-                        <a href="{{route('main.academics')}}" class="rts-theme-btn btn-arrow">View All Program
+                        <a href="{{route('main.academic-area')}}" class="rts-theme-btn btn-arrow">View All Program
                             <span><i class="fa-regular fa-arrow-right"></i></span>
                         </a>
                     </div>
@@ -149,7 +149,7 @@
                                 <div class="rts__program--item v__2" style="background-image: url(assets/images/home/procession.jpg);">
                                     <h5 class="rts__program--item--title">Special Programs</h5>
                                     <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Mount Zion with our 1 year programs.</p>
-                                    <a href="{{route('main.academics')}}" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                    <a href="{{route('main.academic-area')}}" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
                                         </span></a>
                                     <h5 class="rts__program--item--title--show">Special Programs</h5>
                                 </div>
@@ -157,7 +157,7 @@
                                 <div class="rts__program--item v__2" style="background-image: url(assets/images/home/classroom_1.jpg);">
                                     <h5 class="rts__program--item--title">HND Programs</h5>
                                     <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Mount Zion with our HND programs.</p>
-                                    <a href="{{route('main.academics')}}" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                    <a href="{{route('main.academic-area')}}" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
                                         </span></a>
                                     <h5 class="rts__program--item--title--show">HND Programs</h5>
                                 </div>
@@ -168,7 +168,7 @@
                                 <div class="rts__program--item v__2" style="background-image: url(assets/images/home/demonstration.jpg);">
                                     <h5 class="rts__program--item--title">Bsc Programs</h5>
                                     <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Mount Zion Institute.</p>
-                                    <a href="program-single.html" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                    <a href="{{route('main.academic-area')}}" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
                                         </span></a>
                                     <h5 class="rts__program--item--title--show">Bsc Programs</h5>
                                 </div>
@@ -183,7 +183,7 @@
     <!-- our mission end -->
 
     <!-- our vision start -->
-    <div class="rts-campus pt--100 rts-campus-bg mobile-padding moving">
+    <div id="vision" class="rts-campus pt--100 rts-campus-bg mobile-padding moving">
         <div class="container">
             <div class="row justify-content-sm-center justify-content-lg-start">
                 <div class="col-lg-6 col-xl-5 col-md-10 col-sm-11">
@@ -191,7 +191,7 @@
                         <h2 class="section-title rt-white mb--55">
                             Our Vision
                         </h2>
-                        <a href="{{route('main.academics')}}" class="about-btn rts-nbg-btn btn-arrow
+                        <a href="{{route('main.academic-area')}}" class="about-btn rts-nbg-btn btn-arrow
                     rt-white">Learn More <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
 
                     </div>
@@ -379,9 +379,9 @@
                                 <div class="icon">
                                     <img src="assets/images/program/icon/03.svg" alt="education">
                                 </div>
-                                <a href="{{route('main.academics')}}" class="program-link">Special Care</a>
+                                <a href="{{route('main.academic-area')}}" class="program-link">Special Care</a>
                                 <titute>Embark on a journey of knowledge, discovery, and growth at Mount Zion Higher Institute.</p>
-                                <a href="{{route('main.academics')}}" class="about-btn rts-nbg-btn btn-arrow
+                                    <a href="{{route('main.academic-area')}}" class="about-btn rts-nbg-btn btn-arrow
 rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                             </div>
                         </div>
@@ -396,19 +396,19 @@ rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow
                                         <div class="icon-box">
                                             <img src="assets/images/icon/05.svg" alt="">
                                         </div>
-                                        <a href="{{route('main.academics')}}">Special Care</a>
+                                        <a href="{{route('main.academic-area')}}">Special Care</a>
                                     </li>
                                     <li class="single-program">
                                         <div class="icon-box">
                                             <img src="assets/images/icon/04.svg" alt="">
                                         </div>
-                                        <a href="{{route('main.academics')}}">HND Programs</a>
+                                        <a href="{{route('main.academic-area')}}">HND Programs</a>
                                     </li>
                                     <li class="single-program">
                                         <div class="icon-box">
                                             <img src="assets/images/icon/06.svg" alt="">
                                         </div>
-                                        <a href="{{route('main.academics')}}">Bachelor’s Programs</a>
+                                        <a href="{{route('main.academic-area')}}">Bachelor’s Programs</a>
                                     </li>
                                 </ul>
                             </div>
@@ -422,9 +422,9 @@ rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow
                                 <div class="icon">
                                     <img src="assets/images/program/icon/01.svg" alt="education">
                                 </div>
-                                <a href="{{route('main.academics')}}" class="program-link">Bachelor's Programs</a>
+                                <a href="{{route('main.academic-area')}}" class="program-link">Bachelor's Programs</a>
                                 <p>Empower yourself with the skills to heal and lead at Mount Zion Higher Institute</p>
-                                <a href="{{route('main.academics')}}" class="about-btn rts-nbg-btn btn-arrow
+                                <a href="{{route('main.academic-area')}}" class="about-btn rts-nbg-btn btn-arrow
 rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                             </div>
                         </div>
@@ -531,9 +531,11 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                     <div class="rts-scholarship-info">
                         <h2 class="rts-section-title">Support Us</h2>
                         <p class="w-740 mb--50">
-                            We invite you to join us in our vision to strengthen healthcare in the Cameroon and beyond. Your sponsorship will be instrumental in sustaining access to quality health personnel education. Together, we can empower these future professionals to make a lasting positive impact on the health and well-being of our nation
+                            Every year, we counsel young women considering abortion—many of whom feel 
+                            financially unprepared to continue their pregnancies. Your support helps us offer real 
+                            alternatives through free medical care, encouragement, and hope
                         </p>
-                        <a href="{{route('main.contact')}}" class="rts-theme-btn btn-arrow">Know More<span><i class="fa-thin fa-arrow-right"></i></span></a>
+                        <a href="{{route('main.donate')}}" class="rts-theme-btn btn-arrow">Donate Now<span><i class="fa-thin fa-arrow-right"></i></span></a>
                     </div>
                 </div>
             </div>
@@ -542,7 +544,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
     <!-- support end -->
 
     <!-- blog area start -->
-     <div class="rts-blog rts-section-padding v_2 no-bg">
+    <!-- <div class="rts-blog rts-section-padding v_2 no-bg">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-11 col-lg-12">
@@ -584,8 +586,8 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                 </div>
                 <div class="col-lg-6">
                     <div class="rts-blog-post">
-                        @foreach($events as  $key => $evt)
-                         <div class="single-blog-post">
+                        @foreach($events as $key => $evt)
+                        <div class="single-blog-post">
                             <div class="blog-thumb">
                                 <a href="../blog-details.html">
                                     <img src="assets/images/blog/small-thumb-1.jpg" alt="post-thumbnail">
@@ -614,11 +616,11 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- blog area end -->
 
     <!-- newsletter -->
-    <div class="rts-newsletter v_1 rts-cta-background rts__white">
+    <!-- <div class="rts-newsletter v_1 rts-cta-background rts__white">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -637,6 +639,6 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- newsletter end -->
 </x-guest-layout>

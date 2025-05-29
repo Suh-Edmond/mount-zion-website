@@ -77,20 +77,23 @@
                 </li>
 
                 <li class="has-droupdown">
-                    <a class="main">About</a>
+                    <a class="main">About Us</a>
                     <ul class="submenu mm-collapse">
-                        <li><a class="mobile-menu-link" href="{{route('main.about')}}">MOunt Zion Institutes</a></li>
-                        <li><a class="mobile-menu-link" href="{{route('main.clinic')}}">MOunt Zion Clinic</a></li>
-                        <li><a class="mobile-menu-link" href="{{route('main.ceo')}}">The CEO</a></li>
+                        <li><a class="mobile-menu-link" href="{{route('main.home').'#mission'}}">Mission</a></li>
+                        <li><a class="mobile-menu-link" href="{{route('main.home').'#vision'}}">Vision</a></li>
+                        <li><a class="mobile-menu-link" href="{{route('main.clinic')}}">MZ Clinic</a></li>
+                        <li><a class="mobile-menu-link" href="{{route('main.about')}}">MZHI</a></li>
+                        <li><a class="mobile-menu-link" href="{{route('main.ceo')}}">Administrators</a></li>
                     </ul>
                 </li>
 
                 <li class="has-droupdown">
                     <a class="main">Academics</a>
                     <ul class="submenu mm-collapse">
-                        <li><a class="mobile-menu-link" href="{{route('main.admission')}}">Admission</a></li>
                         <li><a class="mobile-menu-link" href="{{route('main.academic-area')}}">Programs</a></li>
-                        <li><a class="mobile-menu-link" href="{{route('main.tuition-fee')}}">Tution Fee</a></li>
+                        <li><a class="mobile-menu-link" href="{{route('main.admission')}}">Eligibility Criteria</a></li>
+                        <li><a class="mobile-menu-link" href="{{route('main.tuition-fee')}}">Tuition Fee</a></li>
+                        <li><a class="mobile-menu-link" href="{{route('main.staff')}}">MZHI Staff</a></li>
                     </ul>
                 </li>
 

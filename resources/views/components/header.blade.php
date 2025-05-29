@@ -17,19 +17,22 @@
                                     </li>
 
                                     <li class="navigation__menu--item has-child has-arrow">
-                                        <a class="navigation__menu--item__link">About</a>
+                                        <a class="navigation__menu--item__link">About Us</a>
                                         <ul class="submenu sub__style">
-                                            <li><a href="{{route('main.about')}}">The Institutes</a></li>
-                                            <li><a href="{{route('main.clinic')}}">The Clinic</a></li>
-                                            <li><a href="{{route('main.ceo')}}">The CEO</a></li>
+                                            <li><a href="{{route('main.home').'#mission'}}">Mission</a></li>
+                                            <li><a href="{{route('main.home').'#vision'}}">Vision</a></li>
+                                            <li><a href="{{route('main.clinic')}}">MZ Clinic</a></li>
+                                            <li><a href="{{route('main.about')}}">MZHI</a></li>
+                                            <li><a href="{{route('main.ceo')}}">Administrators</a></li>
                                         </ul>
                                     </li>
                                     <li class="navigation__menu--item has-child has-arrow">
-                                        <a href="{{route('main.academics')}}" class="navigation__menu--item__link">Academics</a>
+                                        <a class="navigation__menu--item__link">Academics</a>
                                         <ul class="submenu sub__style">
-                                            <li><a href="{{route('main.admission')}}">Admission</a></li>
                                             <li><a href="{{route('main.academic-area')}}">Programs</a></li>
+                                            <li><a href="{{route('main.admission')}}">Eligibility Criteria </a></li>
                                             <li><a href="{{route('main.tuition-fee')}}">Tuition Fee</a></li>
+                                            <li><a href="{{route('main.staff')}}">MZHI Staff</a></li>
                                         </ul>
                                     </li>
                                     <li class="navigation__menu--item"></li>
