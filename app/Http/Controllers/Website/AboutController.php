@@ -21,4 +21,9 @@ class AboutController extends Controller
     {
         return view('pages.guest.main-website.about.about-clinic');
     }
+
+    public function communityOutreach(Request $request)
+    {
+        return view('pages.guest.main-website.about.clinic-community-outreach');
+    }
 }

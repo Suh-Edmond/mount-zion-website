@@ -18,11 +18,6 @@ class AcademicController extends Controller
         $this->programService = $programService;
     }
 
-    public function index(Request $request)
-    {
-        return view('pages.guest.main-website.academic.index');
-    }
-
     public function academicArea(Request $request)
     {
         $schoolSlug = $request['school'] ?? null;
@@ -75,5 +70,10 @@ class AcademicController extends Controller
             'school' => $school,
             'program' => $program,
         ]);
+    }
+
+    public function staff(Request $request)
+    {
+        return view('pages.guest.main-website.academic.faculty-staff');
     }
 }

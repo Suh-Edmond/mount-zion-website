@@ -22567,7 +22567,7 @@ body.index-sc h1, body.index-sc h2, body.index-sc h3, body.index-sc h4, body.ind
 .rts-scholarship-description .si__list ul {
   margin: 0;
   padding: 0;
-  column-count: 2;
+  column-count: 1;
   column-gap: 30px;
 }
 @media screen and (max-width: 992px) {
@@ -26106,5 +26106,14 @@ body.index-sc h1, body.index-sc h2, body.index-sc h3, body.index-sc h4, body.ind
   background-image: url(../images/icon/arrow-rotate.svg);
   height: 18px;
   width: 14px;
+}
+
+.single-donation-info {
+  padding: 20px !important;
+}
+
+.donation-channel-image {
+  height: 40px;
+  width: 100px;
 }
 /*# sourceMappingURL=../maps/style.css.map */
