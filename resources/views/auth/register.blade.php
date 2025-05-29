@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-auth-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -14,6 +14,28 @@
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- Telephone -->
+        <div class="mt-4">
+            <x-input-label for="telephone" :value="__('Telephone')" />
+            <x-text-input id="telephone" class="block mt-1 w-full" type="text" name="telephone" :value="old('telephone')" required autocomplete="telephone" />
+            <x-input-error :messages="$errors->get('telephone')" class="mt-2" />
+        </div>
+
+
+        <!-- Address -->
+        <div class="mt-4">
+            <x-input-label for="address" :value="__('Address')" />
+            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autocomplete="address" />
+            <x-input-error :messages="$errors->get('address')" class="mt-2" />
+        </div>
+
+        <!-- Region -->
+        <div class="mt-4">
+            <x-input-label for="region" :value="__('Region')" />
+            <x-text-input id="region" class="block mt-1 w-full" type="text" name="region" :value="old('region')" required autocomplete="region" />
+            <x-input-error :messages="$errors->get('region')" class="mt-2" />
         </div>
 
         <!-- Password -->
@@ -49,4 +71,4 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-auth-layout>
