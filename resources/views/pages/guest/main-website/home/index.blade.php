@@ -30,9 +30,6 @@
                                                 Mount Zion Clinic
                                                 Advancing Healthcare
                                             </h1>
-                                            <p class="rts-slider-desc">
-                                                Benefit from our commitment to the latest medical knowledge and innovative treatment approaches for your optimal well-being
-                                            </p>
                                             <div class="rts-slider-btn">
                                                 <a href="{{route('main.clinic')}}" class="rts-theme-btn btn-arrow">View Our Services <span><i class="fa-thin fa-arrow-right"></i></span></a>
                                             </div>
@@ -54,11 +51,8 @@
                                         <div class="rts-slider-content">
                                             <h6 class="rts-subtitle"><img src="assets/images/icon/e-cap.svg" alt="education hat"> knowledge meets innovation</h6>
                                             <h1 class="rts-slider-title">
-                                                Mount Zion Institutes
+                                                Mount Zion Higher Institutes
                                             </h1>
-                                            <p class="rts-slider-desc">
-                                                Be at the forefront of healthcare advancements through rigorous academic programs and opportunities for research and discovery.
-                                            </p>
                                             <div class="rts-slider-btn">
                                                 <a href="{{route('main.programs')}}" class="rts-theme-btn btn-arrow">View Our Programs <span><i class="fa-thin fa-arrow-right"></i></span></a>
                                             </div>
@@ -86,15 +80,10 @@
                         </h2>
                         <div class="left-section-content">
                             <p>
-                                Since our inception in 2003 in Bamenda as a one-year training institute for Special Care Nurses,
-                                MZHI has grown steadily to meet the evolving demands of healthcare education. In 2007,
-                                we expanded our impact with the establishment of a second campus in Buea, offering greater access to
-                                our programs across the region.
+                                Mount Zion Clinic is a leading medical facility in Bamenda, Cameroon, committed to delivering compassionate, high-quality, and affordable healthcare to over 300,000 residents in the region. Since our founding in September 1992, we have grown into a trusted institution known for integrity, professionalism, and holistic care.
                             </p>
                             <p>
-                                In 2023, we achieved a significant milestone by receiving official authorization from the Ministry of Higher
-                                Education to run a three-year Higher National Diploma (HND) program in Nursing. Continuing this upward trajectory,
-                                we are proud to announce that starting in October 2025, we will offer a Bachelor’s degree (BSc) program in Nursing.
+                                For over 33 years, we have served thousands of patients across core specialties including General Medicine, Obstetrics and Gynaecology, Paediatrics, and Minor Surgeries
                             </p>
                             <a href="{{route('main.about')}}" class="rts-theme-btn primary btn-arrow">Read More<span><i class="fa-thin fa-arrow-right"></i></span></a>
                         </div>
@@ -147,30 +136,30 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="program__content">
                                 <div class="rts__program--item v__2" style="background-image: url(assets/images/home/procession.jpg);">
-                                    <h5 class="rts__program--item--title">Special Programs</h5>
+                                    <h5 class="rts__program--item--title">Special Care Nursing Program</h5>
                                     <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Mount Zion with our 1 year programs.</p>
                                     <a href="{{route('main.academic-area')}}" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
                                         </span></a>
-                                    <h5 class="rts__program--item--title--show">Special Programs</h5>
+                                    <h5 class="rts__program--item--title--show">Special Care Nursing Program</h5>
                                 </div>
                                 <!-- second one -->
                                 <div class="rts__program--item v__2" style="background-image: url(assets/images/home/classroom_1.jpg);">
-                                    <h5 class="rts__program--item--title">HND Programs</h5>
+                                    <h5 class="rts__program--item--title">HND Program</h5>
                                     <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Mount Zion with our HND programs.</p>
                                     <a href="{{route('main.academic-area')}}" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
                                         </span></a>
-                                    <h5 class="rts__program--item--title--show">HND Programs</h5>
+                                    <h5 class="rts__program--item--title--show">HND Program</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">
                             <div class="program__content mt--85">
                                 <div class="rts__program--item v__2" style="background-image: url(assets/images/home/demonstration.jpg);">
-                                    <h5 class="rts__program--item--title">Bsc Programs</h5>
+                                    <h5 class="rts__program--item--title">Bsc Program</h5>
                                     <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Mount Zion Institute.</p>
                                     <a href="{{route('main.academic-area')}}" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
                                         </span></a>
-                                    <h5 class="rts__program--item--title--show">Bsc Programs</h5>
+                                    <h5 class="rts__program--item--title--show">Bsc Program</h5>
                                 </div>
 
                             </div>
@@ -239,7 +228,7 @@
                             </div>
                         </a>
                         <div class="blog__single--item--meta">
-                            <a href={{route('main.schools.show', $school->slug)}} class="blog__cat">Campus</a>
+                            <a href="{{route('main.schools.show', $school->slug)}}" class="blog__cat">Campus</a>
                             <h5 class="blog__single--item--title">
                                 <a href="{{route('main.schools.show', $school->slug)}}">{{ $school->name }}</a>
                             </h5>
@@ -249,14 +238,14 @@
                             <div class="blog__single--item--info">
                                 <div class="author">
                                     <span><i class="fa-thin fa-phone"></i></span>
-                                    <a href={{'tel:'.$school->telephone}}>{{ $school->telephone }}</a>
+                                    <a href="{{'tel:'.$school->telephone}}">{{ $school->telephone }}</a>
                                 </div>
                             </div>
 
                             <div class="blog__single--item--info">
                                 <div class="author">
                                     <span><i class="fa-thin fa-envelope"></i></span>
-                                    <a href={{'mailto:'.$school->email}}>{{ $school->email }}</a>
+                                    <a href="{{'mailto:'.$school->email}}">{{ $school->email }}</a>
                                 </div>
                             </div>
                         </div>
@@ -379,7 +368,7 @@
                                 <div class="icon">
                                     <img src="assets/images/program/icon/03.svg" alt="education">
                                 </div>
-                                <a href="{{route('main.academic-area')}}" class="program-link">Special Care</a>
+                                <a href="{{route('main.academic-area')}}" class="program-link">Special Care Nursing</a>
                                 <titute>Embark on a journey of knowledge, discovery, and growth at Mount Zion Higher Institute.</p>
                                     <a href="{{route('main.academic-area')}}" class="about-btn rts-nbg-btn btn-arrow
 rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
@@ -396,19 +385,19 @@ rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow
                                         <div class="icon-box">
                                             <img src="assets/images/icon/05.svg" alt="">
                                         </div>
-                                        <a href="{{route('main.academic-area')}}">Special Care</a>
+                                        <a href="{{route('main.academic-area')}}">Special Care Nursing</a>
                                     </li>
                                     <li class="single-program">
                                         <div class="icon-box">
                                             <img src="assets/images/icon/04.svg" alt="">
                                         </div>
-                                        <a href="{{route('main.academic-area')}}">HND Programs</a>
+                                        <a href="{{route('main.academic-area')}}">HND Program</a>
                                     </li>
                                     <li class="single-program">
                                         <div class="icon-box">
                                             <img src="assets/images/icon/06.svg" alt="">
                                         </div>
-                                        <a href="{{route('main.academic-area')}}">Bachelor’s Programs</a>
+                                        <a href="{{route('main.academic-area')}}">Bachelor’s Program</a>
                                     </li>
                                 </ul>
                             </div>
@@ -422,7 +411,7 @@ rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow
                                 <div class="icon">
                                     <img src="assets/images/program/icon/01.svg" alt="education">
                                 </div>
-                                <a href="{{route('main.academic-area')}}" class="program-link">Bachelor's Programs</a>
+                                <a href="{{route('main.academic-area')}}" class="program-link">Bachelor's Program</a>
                                 <p>Empower yourself with the skills to heal and lead at Mount Zion Higher Institute</p>
                                 <a href="{{route('main.academic-area')}}" class="about-btn rts-nbg-btn btn-arrow
 rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
@@ -452,8 +441,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                             <h2 class="rts-section-title mt--80 mb--20">
                                 Mount Zion Clinics:
                             </h2>
-                            <p>Discover a network of cutting-edge research and health that serve as hubs of innovation
-                                within Mount Zion From state-of-the-art laboratories.</p>
+                            <p>Serving the community with trusted, compassionate healthcare for all ages.</p>
                             <div class="research-subject mt--30">
                                 <div class="single-research">
                                     <div class="icon">
@@ -462,8 +450,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                     <div class="content">
                                         <h6>Obstetrics and Gynaecology</h6>
                                         <p>
-                                            Delve into groundbreaking
-                                            research in Obstetrics, and Gynaecology
+                                            Caring support for women through pregnancy, childbirth, and beyond.
                                         </p>
                                     </div>
                                 </div>
@@ -474,8 +461,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                     <div class="content">
                                         <h6> Paediatrics, and Minor Surgeries</h6>
                                         <p>
-                                            From clinical trials to public
-                                            health initiatives
+                                           Reliable care for children’s health and simple surgical needs.
                                         </p>
                                     </div>
                                 </div>
@@ -497,8 +483,17 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                         <img src="assets/images/icon/phone.svg" alt="phone">
                                     </div>
                                     <div class="info">
-                                        <h6><a href="callto:121">+1012405451</a></h6>
+                                        <h6><a href="callto:121">(+237)677770177 / (+237)696953664</a></h6>
                                         <p>Phone Number</p>
+                                    </div>
+                                </div>
+                                <div class="research-author">
+                                    <div class="image">
+                                        <img src="assets/images/icon/mail.svg" alt="phone">
+                                    </div>
+                                    <div class="info">
+                                        <h6><a href="mailto:dratempaul2015@gmail.com">dratempaul2015@gmail.com</a></h6>
+                                        <p>Email</p>
                                     </div>
                                 </div>
                             </div>
