@@ -6,7 +6,7 @@ enum ProgramType
 {
     public const BACHELOR = "BACHELOR";
 
-    public const SPECIAL_CARE = "SPECIAL_CARE";
+    public const SPECIAL_CARE = "SPECIAL CARE NURSING";
 
     public const HND = "HND";
 

@@ -28,7 +28,7 @@ class SchoolSeeder extends Seeder
         School::create([
             'name'   => "Mount Zion Institute Buea",
             'image_path' => 'assets/images/campus/gallery/bamenda_campus.png',
-            'email' => 'dratempaul2015@gmail.com',
+            'email' => 'dratempaul2016@gmail.com',
             'telephone' => "(+2370677770177 / (+237)696953664",
             'address' => "Street One, Great Soppo Buea - Cameroon",
             'region' => 'Southwest'
