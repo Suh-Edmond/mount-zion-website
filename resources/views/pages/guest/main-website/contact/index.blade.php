@@ -23,7 +23,7 @@
     @foreach ($contacts as $contact)
 
     <!-- rts contact info -->
-    <section class="rts-contact-info rts-section-padding">
+    <section class="rts-contact-info rts-section-padding" id="branch_contact">
         <div class="container">
             <div class="row">
                 <div class="rts-section rt-center mb--40">

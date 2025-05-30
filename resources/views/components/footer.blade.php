@@ -6,10 +6,6 @@
                     <a href="{{route('main.home')}}" class="d-block rts-footer-logo mb--40">
                         <img style="width: 200px" src="{{asset('assets/images/logo/resized_logo.png')}}" alt="Unipix">
                     </a>
-                    <p>
-                        We are a passionate institution dedicated to providing high-quality
-                        resources for learners of all backgrounds.
-                    </p>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-6">
@@ -18,7 +14,7 @@
                     <div class="rts-footer-menu">
                         <ul>
                             <li><a href="{{route('main.academic-area')}}">Academic</a></li>
-                            <li><a href="{{route('main.academic-area')}}">Research</a></li>
+                            <li><a href="{{route('main.tuition-fee')}}">Tuition Fee</a></li>
                         </ul>
                     </div>
                 </div>
@@ -28,9 +24,19 @@
                     <h6 class="rt-semi">Our Clinic</h6>
                     <div class="rts-footer-menu">
                         <ul>
-                            <li><a href="{{route('main.about')}}">About </a></li>
-                            <li><a href="{{route('main.tuition-fee')}}">Tuition Fee</a></li>
-                            <li><a href="{{route('main.event')}}">Events</a></li>
+                            <li><a href="{{route('main.clinic')}}">About Mount Zion Chinic</a></li>
+                            <li><a href="{{route('main.clinic').'#mount_zion_services'}}">Our Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-4">
+                <div class="rts-footer-widget ml--30">
+                    <h6 class="rt-semi">Contact</h6>
+                    <div class="rts-footer-menu">
+                        <ul>
+                            <li><a href="{{route('main.contact').'#branch_contact'}}">Bamenda Branch </a></li>
+                            <li><a href="{{route('main.contact').'#branch_contact'}}">Buea Branch</a></li>
                         </ul>
                     </div>
                 </div>
