@@ -431,12 +431,12 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
         <div class="container">
             <div class="section-bg rt-relative">
                 <div class="row justify-content-md-center">
-                    <div class="col-lg-4 col-md-11">
+                    <div class="col-lg-5 col-md-11">
                         <div class="rts-research-image">
                             <img src="assets/images/hero/slider__2.jpg" alt="research">
                         </div>
                     </div>
-                    <div class="col-lg-8 col-md-11">
+                    <div class="col-lg-7 col-md-11">
                         <div class="research-content-area">
                             <h2 class="rts-section-title mt--80 mb--20">
                                 Mount Zion Clinic:
@@ -485,15 +485,6 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                     <div class="info">
                                         <h6><a href="callto:121">(+237)677770177 / (+237)696953664</a></h6>
                                         <p>Phone Number</p>
-                                    </div>
-                                </div>
-                                <div class="research-author">
-                                    <div class="image">
-                                        <img src="assets/images/icon/mail.svg" alt="email" height="27px" width="27px">
-                                    </div>
-                                    <div class="info">
-                                        <h6><a href="mailto:dratempaul2015@gmail.com">dratempaul2015@gmail.com</a></h6>
-                                        <p>Email</p>
                                     </div>
                                 </div>
                             </div>
