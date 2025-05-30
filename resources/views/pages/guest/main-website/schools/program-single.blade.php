@@ -37,7 +37,7 @@
                     <div class="col-lg-8">
                         <div class="program-description-area" id="curriculum">
                             <div class="program-big-thumb">
-                                <img src="{{$program->image_path}}" alt="program">
+                                <img src="/{{$program->image_path}}" alt="program">
                             </div>
                             <div class="program-about">
                                 <h4 class="title">About The Program</h4>
@@ -45,7 +45,7 @@
                                     {{$program->about}}
                                 </div>
                             </div>
-                            <div class="program-credit-area">
+                            <!-- <div class="program-credit-area">
                                 <h5 class="title">Program Courses: 40 credits</h5>
                                 <p>Core Required Courses for all majors:</p>
                                 <div class="program-accordion">
@@ -285,7 +285,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- single testimonial -->
                             <div class="program-student-testimonial rt-relative">
                                 <h5 class="title">Student Testimonials</h5>
