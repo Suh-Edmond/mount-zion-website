@@ -489,7 +489,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 </div>
                                 <div class="research-author">
                                     <div class="image">
-                                        <img src="assets/images/icon/mail.svg" alt="phone">
+                                        <img src="assets/images/icon/mail.svg" alt="email" height="20px" width="20px">
                                     </div>
                                     <div class="info">
                                         <h6><a href="mailto:dratempaul2015@gmail.com">dratempaul2015@gmail.com</a></h6>

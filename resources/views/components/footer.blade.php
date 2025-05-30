@@ -24,7 +24,7 @@
                     <h6 class="rt-semi">Our Clinic</h6>
                     <div class="rts-footer-menu">
                         <ul>
-                            <li><a href="{{route('main.clinic')}}">About Mount Zion Chinic</a></li>
+                            <li><a href="{{route('main.clinic')}}">About</a></li>
                             <li><a href="{{route('main.clinic').'#mount_zion_services'}}">Our Services</a></li>
                         </ul>
                     </div>
