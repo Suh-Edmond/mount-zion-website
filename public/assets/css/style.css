@@ -16760,6 +16760,11 @@ body.index-sc h1, body.index-sc h2, body.index-sc h3, body.index-sc h4, body.ind
     display: none;
   }
 }
+@media only screen and (max-width: 1199px) {
+  #side-bar .inner-main-wrapper-desk {
+    display: none;
+  }
+}
 @media only screen and (max-width: 767px) {
   #side-bar .inner-main-wrapper-desk {
     display: none;
@@ -16768,6 +16773,13 @@ body.index-sc h1, body.index-sc h2, body.index-sc h3, body.index-sc h4, body.ind
 #side-bar .mobile-menu-main {
   display: none;
 }
+
+@media only screen and (max-width: 1199px) {
+  #side-bar .mobile-menu-main {
+    display: block;
+  }
+}
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   #side-bar .mobile-menu-main {
     display: block;
