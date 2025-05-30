@@ -38,18 +38,28 @@
                             <h3 class="rts-section-title">Requirements and Deadlines</h3>
                             <div class="requirement-deadline__content">
                                 <ul>
-                                    <li class="single-requirement">$90 nonrefundable application fee or fee waiver request</li>
-                                    <li class="single-requirement">ACT or SAT test scores (test optional)</li>
-                                    <li class="single-requirement">School Report form and counselor letter of recommendation </li>
-                                    <li class="single-requirement">Official transcript(s) or academic results</li>
-                                    <li class="single-requirement">Letters of recommendation from two teachers</li>
-                                    <li class="single-requirement">Midyear transcript (due by February 15)</li>
-                                    <li class="single-requirement">$90 nonrefundable application fee or fee waiver request</li>
-                                    <li class="single-requirement">ACT or SAT test scores (test optional)</li>
-                                    <li class="single-requirement">School Report form and counselor letter of recommendation </li>
-                                    <li class="single-requirement">Official transcript(s) or academic results</li>
-                                    <li class="single-requirement">Letters of recommendation from two teachers</li>
-                                    <li class="single-requirement">Midyear transcript (due by February 15)</li>
+                                    <li class="single-requirement">Health Care Assistant (Special Care Nursing) - 1 Year
+                                        <ul>
+                                            <li class="single-requirement">Ability to read and write (minimum requirement)</li>
+                                            <li class="single-requirement">First school leaving certificate (FSLC) or GCE OL/AL Levels or Bachelor Degree</li>
+                                            <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
+                                        </ul>
+                                    </li>
+                                    <li class="single-requirement">Higher National Diploma in Nursing / Midwifery -3 Years
+                                         <ul>
+                                            <li class="single-requirement">GCE Advanced levels certificate or an equivalent for international students (minimum requirement)</li>
+                                            <li class="single-requirement">One year health care assistant training (Not Mandatory)</li>
+                                            <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="single-requirement">Bachelor's Degree in Nursing/Midwifery - 4 Years
+                                         <ul>
+                                            <li class="single-requirement">GCE Advanced levels certificate or an equivalent for international students (minimum requirement)</li>
+                                            <li class="single-requirement">Higher National Diploma in Nursing (Students with completed HND only do one extra year of training)</li>
+                                            <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
