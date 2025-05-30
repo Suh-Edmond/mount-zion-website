@@ -30,7 +30,7 @@ class AdmissionSeeder extends Seeder
      */
     public function run(Generator $generator): void
     {
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             Admission::create([
                 'user_id'    => $generator->randomElement($this->users),
                 'program_id'   => $generator->randomElement($this->programs),
