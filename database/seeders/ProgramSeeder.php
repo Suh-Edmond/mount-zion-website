@@ -24,15 +24,60 @@ class ProgramSeeder extends Seeder
      */
     public function run(Generator $generator): void
     {
-        for ($i = 0; $i < 35; $i++) {
-            Program::create([
-                'name'    => $generator->sentence(3),
+        $buea_campus = $this->schools[0];
+        $bamenda_campus = $this->schools[1];
+        Program::create([
+                'name'    => "Health Care Assistant (Special Care Nursing)",
                 'about'        => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-                'image_path'   => '/images/dept_image.png',
-                'duration'        => $generator->randomElement([1, 2, 3, 4]),
-                'tag' => $generator->randomElement([ProgramType::HND, ProgramType::BACHELOR, ProgramType::SPECIAL_CARE]),
-                'school_id' => $generator->randomElement($this->schools)
-            ]);
-        }
+                'image_path'   => 'assets/images/campus/gallery/health_care_program.png',
+                'duration'        => 1,
+                'tag' => ProgramType::SPECIAL_CARE,
+                'school_id' => $buea_campus
+        ]);
+
+        Program::create([
+                'name'    => "Health Care Assistant (Special Care Nursing)",
+                'about'        => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+                'image_path'   => 'assets/images/campus/gallery/health_care_program.png',
+                'duration'        => 1,
+                'tag' => ProgramType::SPECIAL_CARE,
+                'school_id' => $bamenda_campus
+        ]);
+
+        Program::create([
+                'name'    => "Higher National Diploma in Nursing / Midwifery",
+                'about'        => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+                'image_path'   => 'assets/images/campus/gallery/health_care_program.png',
+                'duration'        => 3,
+                'tag' => ProgramType::HND,
+                'school_id' => $bamenda_campus
+        ]);
+
+        Program::create([
+                'name'    => "Higher National Diploma in Nursing / Midwifery",
+                'about'        => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+                'image_path'   => 'assets/images/campus/gallery/health_care_program.png',
+                'duration'        => 3,
+                'tag' => ProgramType::HND,
+                'school_id' => $buea_campus
+        ]);
+
+         Program::create([
+                'name'    => "Bachelor's Degree in Nursing/Midwifery",
+                'about'        => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+                'image_path'   => 'assets/images/campus/gallery/health_care_program.png',
+                'duration'        => 4,
+                'tag' => ProgramType::BACHELOR,
+                'school_id' => $buea_campus
+        ]);
+
+        Program::create([
+                'name'    => "Bachelor's Degree in Nursing/Midwifery",
+                'about'        => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+                'image_path'   => 'assets/images/campus/gallery/health_care_program.png',
+                'duration'        => 4,
+                'tag' => ProgramType::BACHELOR,
+                'school_id' => $bamenda_campus
+        ]);
     }
 }
