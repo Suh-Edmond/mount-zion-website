@@ -439,7 +439,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                     <div class="col-lg-7 col-md-11">
                         <div class="research-content-area">
                             <h2 class="rts-section-title mt--80 mb--20">
-                                Mount Zion Clinics:
+                                Mount Zion Clinic:
                             </h2>
                             <p>Serving the community with trusted, compassionate healthcare for all ages.</p>
                             <div class="research-subject mt--30">
