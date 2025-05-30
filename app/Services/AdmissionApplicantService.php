@@ -80,7 +80,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         $program = Program::findOrFail($request['program_id']);
         $applicant = User::where('email', $request['email'])->first();
         if($admissionYear->status == false){
-            return response()->json(['message' => "Admission deadline has expired! Please wait for the nest admission session"])
+            return response()->json(['message' => "Admission deadline has expired! Please wait for the nest admission session"]);
         }
         if(!isset($applicant)){
             $applicant = User::create([
