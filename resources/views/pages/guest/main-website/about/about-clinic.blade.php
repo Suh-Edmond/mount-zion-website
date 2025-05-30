@@ -25,7 +25,7 @@
                 <h2 class="section-title rt-center mb--50">Brief History</h2>
                 <div class="col-12">
                     <div class="rts-video-section height-500 mb--50">
-                        <a href="https://www.youtube.com/watch?v=Uwq1uiuM_9w" class="rts-video-section-player popup-video video-btn">
+                        <a href="https://www.youtube.com/watch?v=NhHUtymH9f8" class="rts-video-section-player popup-video video-btn">
                             <i class="fa-sharp fa-solid fa-play"></i>
                         </a>
                         <img src="assets/images/about/clinic_building.jpg" alt="video-bg">
