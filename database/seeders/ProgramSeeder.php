@@ -38,7 +38,7 @@ class ProgramSeeder extends Seeder
         Program::create([
                 'name'    => "Health Care Assistant (Special Care Nursing)",
                 'about'        => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-                'image_path'   => 'assets/images/campus/gallery/health_care_program.png',
+                'image_path'   => 'assets/images/campus/gallery/bachelor_degree.png',
                 'duration'        => 1,
                 'tag' => ProgramType::SPECIAL_CARE,
                 'school_id' => $bamenda_campus
@@ -74,7 +74,7 @@ class ProgramSeeder extends Seeder
         Program::create([
                 'name'    => "Bachelor's Degree in Nursing/Midwifery",
                 'about'        => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-                'image_path'   => 'assets/images/campus/gallery/health_care_program.png',
+                'image_path'   => 'assets/images/campus/gallery/hnd_degree.png',
                 'duration'        => 4,
                 'tag' => ProgramType::BACHELOR,
                 'school_id' => $bamenda_campus
