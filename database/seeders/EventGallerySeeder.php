@@ -28,13 +28,13 @@ class EventGallerySeeder extends Seeder
             if(!isset($main_image)){
                 EventGallery::create([
                     'event_id'  => $event_id,
-                    'file_path' => $generator->randomElement(["assets/images/blog/01.jpg", "assets/images/blog/02.jpg", "assets/images/blog/03.jpg", "assets/images/blog/04.jpg", "assets/images/blog/05.jpg"]),
+                    'file_path' => "assets/images/blog/04.jpg",
                     'is_main'   => true
                 ]);
             }else{
                 EventGallery::create([
                     'event_id'  => $event_id,
-                    'file_path' => $generator->randomElement(["assets/images/blog/01.jpg", "assets/images/blog/02.jpg", "assets/images/blog/03.jpg", "assets/images/blog/04.jpg", "assets/images/blog/05.jpg"]),
+                    'file_path' => "assets/images/blog/04.jpg",
                     'is_main'   => false
                 ]);
             }
