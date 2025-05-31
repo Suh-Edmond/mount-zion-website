@@ -26128,4 +26128,10 @@ body.index-sc h1, body.index-sc h2, body.index-sc h3, body.index-sc h4, body.ind
   height: 40px;
   width: 100px;
 }
+
+@media screen and (max-width: 992px) {
+  .semister-fee .rts-fee-chart__content .active {
+    overflow-y: scroll;
+  }
+}
 /*# sourceMappingURL=../maps/style.css.map */
