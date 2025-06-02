@@ -85,7 +85,7 @@
                             <p>
                                 For over 33 years, we have served thousands of patients across core specialties including General Medicine, Obstetrics and Gynaecology, Paediatrics, and Minor Surgeries
                             </p>
-                            <a href="{{route('main.about')}}" class="rts-theme-btn primary btn-arrow">Read More<span><i class="fa-thin fa-arrow-right"></i></span></a>
+                            <a href="{{route('main.clinic')}}" class="rts-theme-btn primary btn-arrow">Read More<span><i class="fa-thin fa-arrow-right"></i></span></a>
                         </div>
                     </div>
                 </div>
@@ -180,7 +180,7 @@
                         <h2 class="section-title rt-white mb--55">
                             Our Vision
                         </h2>
-                        <a href="{{route('main.academic-area')}}" class="about-btn rts-nbg-btn btn-arrow
+                        <a href="{{route('main.donate')}}" class="about-btn rts-nbg-btn btn-arrow
                     rt-white">Learn More <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
 
                     </div>
