@@ -39,7 +39,7 @@
 
                         <div class="rts-fee-chart__content">
                             <div class="fade show active">
-                                <table class="table">
+                                <table class="table tuition-table">
                                     <thead class="table-theme">
                                         <tr>
                                             <th></th>
@@ -75,7 +75,7 @@
 
                         <div class="rts-fee-chart__content">
                             <div class="fade show active">
-                                <table class="table">
+                                <table class="table tuition-table">
                                     <thead class="table-theme">
                                         <tr>
                                             <th></th>
@@ -143,7 +143,7 @@
 
                         <div class="rts-fee-chart__content">
                             <div class="fade show active">
-                                <table class="table">
+                                <table class="table tuition-table">
                                     <thead class="table-theme">
                                         <tr>
                                             <th></th>
