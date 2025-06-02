@@ -85,7 +85,7 @@
                             <p>
                                 For over 33 years, we have served thousands of patients across core specialties including General Medicine, Obstetrics and Gynaecology, Paediatrics, and Minor Surgeries
                             </p>
-                            <a href="{{route('main.about')}}" class="rts-theme-btn primary btn-arrow">Read More<span><i class="fa-thin fa-arrow-right"></i></span></a>
+                            <a href="{{route('main.clinic')}}" class="rts-theme-btn primary btn-arrow">Read More<span><i class="fa-thin fa-arrow-right"></i></span></a>
                         </div>
                     </div>
                 </div>
@@ -180,7 +180,7 @@
                         <h2 class="section-title rt-white mb--55">
                             Our Vision
                         </h2>
-                        <a href="{{route('main.academic-area')}}" class="about-btn rts-nbg-btn btn-arrow
+                        <a href="{{route('main.donate')}}" class="about-btn rts-nbg-btn btn-arrow
                     rt-white">Learn More <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
 
                     </div>
@@ -431,12 +431,12 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
         <div class="container">
             <div class="section-bg rt-relative">
                 <div class="row justify-content-md-center">
-                    <div class="col-lg-4 col-md-11">
+                    <div class="col-lg-5 col-md-11">
                         <div class="rts-research-image">
                             <img src="assets/images/hero/slider__2.jpg" alt="research">
                         </div>
                     </div>
-                    <div class="col-lg-8 col-md-11">
+                    <div class="col-lg-7 col-md-11">
                         <div class="research-content-area">
                             <h2 class="rts-section-title mt--80 mb--20">
                                 Mount Zion Clinic:
@@ -485,15 +485,6 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                     <div class="info">
                                         <h6><a href="callto:121">(+237)677770177 / (+237)696953664</a></h6>
                                         <p>Phone Number</p>
-                                    </div>
-                                </div>
-                                <div class="research-author">
-                                    <div class="image">
-                                        <img src="assets/images/icon/mail.svg" alt="email" height="27px" width="27px">
-                                    </div>
-                                    <div class="info">
-                                        <h6><a href="mailto:dratempaul2015@gmail.com">dratempaul2015@gmail.com</a></h6>
-                                        <p>Email</p>
                                     </div>
                                 </div>
                             </div>
