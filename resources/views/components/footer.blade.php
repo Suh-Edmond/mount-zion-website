@@ -13,7 +13,7 @@
                     <h6 class="rt-semi">Our Campus</h6>
                     <div class="rts-footer-menu">
                         <ul>
-                            <li><a href="{{route('main.academic-area')}}">Academic</a></li>
+                            <li><a href="{{route('main.academic-area')}}">Academics</a></li>
                             <li><a href="{{route('main.tuition-fee')}}">Tuition Fee</a></li>
                         </ul>
                     </div>
