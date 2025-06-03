@@ -49,13 +49,17 @@
                             at the age of five. Despite these hardships, his unwavering commitment to education and service set
                             the foundation for a life of impact.
                         </p>
-                        <p class="h6 mb-4"></p>
+                        <p class="h6 mb-4">
+                            Dr. Paul began his medical education at the prestigious University of Ibadan College of Medicine in Nigeria,
+                            graduating in 1986. He completed his housemanship at Pankshin General Hospital near Jos, Nigeria before returning to Cameroon
+                            with a deep sense of mission—to provide accessible, high-quality healthcare. His early career with the Cameroon Baptist Convention Health Services
+                            provided valuable experience and affirmed his calling in community-centered medical care.
+                        </p>
                         <p class="mb-5">
-                            Recognizing the critical need for skilled healthcare professionals in Cameroon, Dr. Paul expanded
-                            his vision to medical education. In 2003, he launched a one-year nursing training program, which has
-                            grown into the Mount Zion Higher Institutes. Today, the institutes offer accredited programs including
-                            the Higher National Diploma (HND) in Nursing, and starting in October 2025,
-                            they will offer a Bachelor’s Degree in Nursing through a partnership with the University of Buea.
+                            In 1992, Dr. Paul established Mount Zion Clinic in Bamenda to deliver holistic, faith-based healthcare. 
+                            The clinic’s motto—“We Care for the Whole Man: Body, Soul, and Spirit”—reflects his belief in treating patients with compassion,
+                             dignity, and spiritual care alongside medical excellence. In 2018, after more than two decades in rented premises,
+                              the clinic moved into its purpose-built facility, a major milestone in its evolution.
                         </p>
                     </div>
                 </div>
@@ -65,18 +69,14 @@
                         <div class="faculty-content-text me-5">
                             <h4 class="font-32 mb-4"></h4>
                             <p>
-                                Dr. Paul also serves as the Director of Luke Society Cameroon, an international Christian
-                                medical mission. Under his leadership, the Society has established rural health centers in
-                                the villages of Tingo and Okwala. His professional journey has taken him around the world—from
-                                internships in the United States and Germany to collaborative work with organizations such as
-                                the American Association of Pro-Life Obstetricians and Gynecologists (AAPLOG).
+                               Recognizing the critical need for skilled healthcare professionals in Cameroon, Dr. Paul expanded his vision to medical education. In 2003, he launched a one-year nursing training program, which has grown into the Mount Zion Higher Institutes. Today, the institutes offer accredited programs including the Higher National Diploma (HND) in Nursing, and starting in October 2025, they will offer a Bachelor’s Degree in Nursing through a partnership with the University of Buea.
                             </p>
                             <h4 class="font-32 mb-4 mt-5"></h4>
                             <p>
-                                A dedicated husband and father of four, Dr. Paul leads a life grounded in faith,
-                                family, and service. He enjoys caring for his cats and is also an avid snail
-                                farmer—a quiet and rewarding hobby that reflects his appreciation for patience,
-                                sustainability, and nature
+                               Dr. Paul also serves as the Director of Luke Society Cameroon, an international Christian medical mission. Under his leadership, the Society has established rural health centers in the villages of Tingo and Okwala. His professional journey has taken him around the world—from internships in the United States and Germany to collaborative work with organizations such as the American Association of Pro-Life Obstetricians and Gynecologists (AAPLOG).
+                            </p>
+                            <p>
+                                A dedicated husband and father of four, Dr. Paul leads a life grounded in faith, family, and service. He enjoys caring for his cats and is also an avid snail farmer—a quiet and rewarding hobby that reflects his appreciation for patience, sustainability, and nature.
                             </p>
                         </div>
                     </div>
