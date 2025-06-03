@@ -73,7 +73,8 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::put('/events-management/update', [EventController::class, 'updateEvent'])->name('manage.events.update');
     Route::get('events-management/detail/speakers', [EventSpeakerController::class, 'listSpeakers'])->name('manage.events.speakers.list');
     Route::get('events-management/detail/speakers/information', [EventSpeakerController::class, 'showSpeakers'])->name('manage.events.speakers.show');
-    Route::get('events-management/detail/speakers/create', [EventSpeakerController::class, 'showSpeakers'])->name('manage.events.speakers.create');
+    Route::get('events-management/detail/speakers/create', [EventSpeakerController::class, 'createSpeakers'])->name('manage.events.speakers.create');
+    Route::post('events-management/detail/speakers/store', [EventSpeakerController::class, 'storeSpeakers'])->name('manage.events.speakers.store');
 });
 
 Route::middleware('auth')->group(function () {
