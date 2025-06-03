@@ -113,7 +113,7 @@
                                     <p class="feature-heading">- Practical Therapeutics</p>
                                 </div>
                                 <div class="custom_list">
-                                    <p class="feature-heading"><a href="https://a.co/d/2DuDBPy">- Divine Prescriptions: Exploring the Spiritual and Medical Benefits of Worship. —Available on Amazon </a></p>
+                                    <p class="feature-heading"><a href="https://a.co/d/2DuDBPy">- Divine Prescriptions: Exploring the Spiritual and Medical Benefits of Worship. —Click to download from Amazon </a></p>
                                 </div>
                             </div>
                         </div>
