@@ -137,7 +137,7 @@
                             <div class="program__content">
                                 <div class="rts__program--item v__2" style="background-image: url(assets/images/home/procession.jpg);">
                                     <h5 class="rts__program--item--title">Special Care Nursing Program</h5>
-                                    <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Mount Zion with our 1 year programs.</p>
+                                    <p class="rts__program--item--description">Begin your journey to becoming a Health Care Assistant at MZHI through our one-year program.</p>
                                     <a href="{{route('main.academic-area')}}" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
                                         </span></a>
                                     <h5 class="rts__program--item--title--show">Special Care Nursing Program</h5>
@@ -145,7 +145,7 @@
                                 <!-- second one -->
                                 <div class="rts__program--item v__2" style="background-image: url(assets/images/home/classroom_1.jpg);">
                                     <h5 class="rts__program--item--title">HND Program</h5>
-                                    <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Mount Zion with our HND programs.</p>
+                                    <p class="rts__program--item--description">Build a strong foundation for your career in healthcare through MZHI’s HND program.</p>
                                     <a href="{{route('main.academic-area')}}" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
                                         </span></a>
                                     <h5 class="rts__program--item--title--show">HND Program</h5>
@@ -156,7 +156,7 @@
                             <div class="program__content mt--85">
                                 <div class="rts__program--item v__2" style="background-image: url(assets/images/home/demonstration.jpg);">
                                     <h5 class="rts__program--item--title">Bsc Program</h5>
-                                    <p class="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Mount Zion Institute.</p>
+                                    <p class="rts__program--item--description">Shape a meaningful career in healthcare with MZHI’s BSc program.</p>
                                     <a href="{{route('main.academic-area')}}" class="rts-nbg-btn btn-arrow">Learn More<span><i class="fa-sharp fa-regular fa-arrow-right"></i>
                                         </span></a>
                                     <h5 class="rts__program--item--title--show">Bsc Program</h5>
@@ -212,7 +212,6 @@
                 <div class="rts__section--wrapper v__8">
                     <div class="rts__section--wrapper--left">
                         <h2 class="rts__section--title mb--15">Our Campuses</h2>
-                        <p class="rts__section--description">Our mission is to provide you with valuable insights</p>
                     </div>
 
                 </div>
@@ -369,7 +368,7 @@
                                     <img src="assets/images/program/icon/03.svg" alt="education">
                                 </div>
                                 <a href="{{route('main.academic-area')}}" class="program-link">Special Care Nursing</a>
-                                <titute>Embark on a journey of knowledge, discovery, and growth at Mount Zion Higher Institute.</p>
+                                <p>Embark on a journey of knowledge, discovery, and growth at Mount Zion Higher Institute.</p>
                                     <a href="{{route('main.academic-area')}}" class="about-btn rts-nbg-btn btn-arrow
 rt-white before-white">View Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                             </div>
