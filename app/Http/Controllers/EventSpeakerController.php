@@ -31,7 +31,7 @@ class EventSpeakerController extends Controller
         return view('pages.management.events.speakers.index')->with($data);
     }
 
-    public function createSpeakers(Request $request)
+    public function createSpeaker(Request $request)
     {
         $event = Event::where('slug', $request['slug'])->firstOrFail();
 
@@ -43,14 +43,25 @@ class EventSpeakerController extends Controller
     }
 
 
-    public function showSpeakers(Request $request){
+    public function showSpeaker(Request $request){
 
     }
 
-    public function storeSpeakers(CreateEventSpeakerRequest $request)
+    public function storeSpeaker(CreateEventSpeakerRequest $request)
     {
         $this->eventSpeakerService->createEventSpeaker($request);
 
         return redirect()->route('manage.events.speakers.list', ['slug' => $request['slug']])->with(['status' => 'Speaker added successfully']);
+    }
+
+    public function deleteSpeaker(Request $request)  
+    {
+        $this->eventSpeakerService->deleteSpeaker($request);
+
+         return redirect()->back()->with(['status' => 'Speaker deleted successfully']);
+    }
+
+    public function updateSpeakerPicture(){
+
     }
 }

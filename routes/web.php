@@ -72,9 +72,11 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('events-management/create', [EventController::class, 'createEvent'])->name('manage.events.create');
     Route::put('/events-management/update', [EventController::class, 'updateEvent'])->name('manage.events.update');
     Route::get('events-management/detail/speakers', [EventSpeakerController::class, 'listSpeakers'])->name('manage.events.speakers.list');
-    Route::get('events-management/detail/speakers/information', [EventSpeakerController::class, 'showSpeakers'])->name('manage.events.speakers.show');
-    Route::get('events-management/detail/speakers/create', [EventSpeakerController::class, 'createSpeakers'])->name('manage.events.speakers.create');
-    Route::post('events-management/detail/speakers/store', [EventSpeakerController::class, 'storeSpeakers'])->name('manage.events.speakers.store');
+    Route::get('events-management/detail/speakers/information', [EventSpeakerController::class, 'showSpeaker'])->name('manage.events.speakers.show');
+    Route::get('events-management/detail/speakers/create', [EventSpeakerController::class, 'createSpeaker'])->name('manage.events.speakers.create');
+    Route::post('events-management/detail/speakers/store', [EventSpeakerController::class, 'storeSpeaker'])->name('manage.events.speakers.store');
+    Route::delete('events-management/detail/speakers/remove', [EventSpeakerController::class, 'deleteSpeaker'])->name('manage.events.speakers.delete');
+    Route::post('events-management/detail/speakers/picture/update', [EventSpeakerController::class, 'updateSpeakerPicture'])->name('manage.events.speakers.update-picture');
 });
 
 Route::middleware('auth')->group(function () {

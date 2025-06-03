@@ -26,8 +26,8 @@ class EventSpeakerService  implements EventSpeakerInterface
 
     public function deleteSpeaker($request) {
         $speaker = Speaker::where('slug', $request['slug'])->firstOrFail();
-
-        return $speaker->deleted();
+        
+        return $speaker->delete();
     }
 
     private function createSocialMediahandle($request)

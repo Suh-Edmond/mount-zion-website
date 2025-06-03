@@ -40,13 +40,25 @@
                     </a>
                 </div>
                 <div class="px-6 py-4 mb-auto text-center">
-                    <a href="#" x-on:click.prevent="$dispatch('open-modal', 'edit-event-speaker{{$speaker->id}}')"
+                    <div class="flex justify-start">
+                        <a href="#" x-data=""
+                            x-on:click.prevent="$dispatch('open-modal', 'edit-speaker-picture{{$speaker->id}}')"
+                            class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">
+                            <i class="fa fa-pencil text-blue-600 cursor-pointer mr-6 "></i></a>
+
+                        <a href="#" x-data=""
+                            x-on:click.prevent="$dispatch('open-modal', 'remove-speaker{{$speaker->id}}')"
+                            class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">
+                            <i class="fa fa-trash text-red-600 cursor-pointer mr-6 "></i></a>
+                    </div>
+                    <a href="#" x-data="" x-on:click.prevent="$dispatch('open-modal', 'edit-speaker{{$speaker->id}}')"
                         class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{$speaker->name}}</a><br>
-                    <a href="#" x-on:click.prevent="$dispatch('open-modal', 'edit-event-speaker{{$speaker->id}}')"
+                    <a href="#" x-data="" x-on:click.prevent="$dispatch('open-modal', 'edit-speaker{{$speaker->id}}')"
                         class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{$speaker->title}}</a>
                 </div>
             </div>
-
+            @include('pages.management.events.speakers.partials.delete-speaker')
+            @include('pages.management.events.speakers.partials.edit-speaker-picture')
             @include('pages.management.events.speakers.partials.edit-speaker')
             @endforeach
         </div>

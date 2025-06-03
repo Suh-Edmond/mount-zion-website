@@ -33,7 +33,7 @@ class Speaker extends Model
 
     public function getLinkedlnLink($social_media){
         $handles = $this->getSpeakerSocialMediaHandle($social_media);
-        if(isEmpty($handles)){
+        if(count($handles) < 1){
             return "";
         }
 
@@ -42,7 +42,7 @@ class Speaker extends Model
 
     public function getFacebookLink($social_media){
         $handles = $this->getSpeakerSocialMediaHandle($social_media);
-        if(isEmpty($handles)){
+        if(count($handles) < 1){
             return "";
         }
 
@@ -51,7 +51,7 @@ class Speaker extends Model
 
     public function getSkypeLink($social_media){
         $handles = $this->getSpeakerSocialMediaHandle($social_media);
-        if(isEmpty($handles)){
+        if(count($handles) < 1){
             return "";
         }
 
