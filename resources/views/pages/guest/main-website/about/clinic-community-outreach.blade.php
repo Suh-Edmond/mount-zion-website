@@ -23,10 +23,10 @@
         <div class="container">
             <div class="row">
                 <div class="rts__section--wrapper v__5">
-                    <h5 class="rts__section--title">
+                    <h4 class="rts__section--title">
                         Mount Zion Clinic in partnership with The Luke Society Intl. 
                         medical missions to Tingo Okwala Cameroon
-                    </h2>
+                    </h4>
                 </div>
             </div>
             <div class="gallery-area">
@@ -103,38 +103,21 @@
         </div>
     </div>
 
-    <div id="vision" class="rts-campus pt--100 rts-campus-bg mobile-padding moving">
+    <section class="rts-campus-tour rts-section-padding">
         <div class="container">
-            <div class="row justify-content-sm-center justify-content-lg-start">
-                <div class="col-lg-6 col-xl-5 col-md-10 col-sm-11">
-                    <div class="rts-left-section">
-                        <h2 class="section-title rt-white mb--55">
-                            Our Partnership with The Luke Society
-                        </h2>
-                        <a href="https://www.lukesociety.org/bamenda-cameroon" class="about-btn rts-nbg-btn btn-arrow
-                    rt-white">Learn More <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
-
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-7 col-md-10 col-sm-11">
-                    <div class="rts-right-section rt-relative">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="rts-video-section-text rt-center mx-3">
+                        <a href="https://www.lukesociety.org/bamenda-cameroon" class="mt--15 about-btn rts-nbg-btn btn-arrow">Learn more <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                         <p class="rt-white mb--40">
                             Since October 2004, Mount Zion Clinic has been blessed to partner with The Luke Society—a Christian ministry that works internationally with indigenous medical professionals to bring healing and hope in Jesus’ name.
 
 Through this partnership, Mount Zion Clinic has not only strengthened its core mission but also established rural clinics in the villages of Tingoh and Okwala providing medical care, health education, and spiritual encouragement in communities with limited access to healthcare.
                         </p>
-                        <div class="rts-round-shape"></div>
                     </div>
                 </div>
             </div>
-            <div class="pb-5 mt-5"></div>
-            <div class="rt-shape">
-                <img class="rt-shape__1" data-speed="0.04" src="assets/images/feature/shape/01.png" alt="">
-                <img class="shape rt-shape__2" data-speed="0.04" src="assets/images/feature/shape/02.png" alt="">
-                <img class="shape rt-shape__3" data-speed="0.04" src="assets/images/feature/shape/03.png" alt="">
-                <img class="shape rt-shape__4" data-speed="0.04" src="assets/images/feature/shape/04.png" alt="">
-            </div>
         </div>
-    </div>
+    </section>
 
 </x-guest-layout>
