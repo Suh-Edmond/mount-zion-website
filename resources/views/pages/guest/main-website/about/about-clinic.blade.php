@@ -333,15 +333,10 @@
                     </a>
 
                     <a href="{{route('main.communityOutreach')}}" class="about-btn rts-nbg-btn btn-arrow
-                    rt-white">Learn More <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+                    rt-red">Learn More <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
 
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="rts-funfact rts-section-padding">
-
-    </div>
-
 </x-guest-layout>

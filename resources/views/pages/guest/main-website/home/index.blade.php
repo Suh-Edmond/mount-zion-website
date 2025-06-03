@@ -466,8 +466,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                 </div>
                             </div>
                             <div class="research-meta-info mt--50 mb--70">
-                                <a href="{{route('main.contact')}}" class="rts-theme-btn btn-arrow">Join Community<span><i
-                                            class="fa-thin fa-arrow-right"></i></span></a>
+                                <a href="{{route('main.contact')}}" class="rts-theme-btn btn-arrow">Join Community<span><i class="fa-thin fa-arrow-right"></i></span></a>
                                 <div class="research-author">
                                     <div class="image">
                                         <img src="assets/images/about/dr_atem_1.jpg" alt="author" width="50px" height="50px" style="border: 50%">
@@ -482,7 +481,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                         <img src="assets/images/icon/phone.svg" alt="phone">
                                     </div>
                                     <div class="info">
-                                        <h6><a href="callto:121">(+237)677770177 / (+237)696953664</a></h6>
+                                        <h6 style="font-size:12px"><a href="callto:+237677770177">(+237)677770177 (+237)696953664</a></h6>
                                         <p>Phone Number</p>
                                     </div>
                                 </div>
