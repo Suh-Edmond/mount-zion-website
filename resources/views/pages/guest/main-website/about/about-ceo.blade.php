@@ -49,7 +49,7 @@
                             at the age of five. Despite these hardships, his unwavering commitment to education and service set
                             the foundation for a life of impact.
                         </p>
-                        <p class="h6 mb-4">
+                        <p class="mb-5">
                             Dr. Paul began his medical education at the prestigious University of Ibadan College of Medicine in Nigeria,
                             graduating in 1986. He completed his housemanship at Pankshin General Hospital near Jos, Nigeria before returning to Cameroon
                             with a deep sense of mission—to provide accessible, high-quality healthcare. His early career with the Cameroon Baptist Convention Health Services
@@ -113,7 +113,7 @@
                                     <p class="feature-heading">- Practical Therapeutics</p>
                                 </div>
                                 <div class="custom_list">
-                                    <p class="feature-heading">- Divine Prescriptions: Exploring the Spiritual and Medical Benefits of Worship. —Available on Amazon</p>
+                                    <p class="feature-heading"><a href="https://a.co/d/2DuDBPy">- Divine Prescriptions: Exploring the Spiritual and Medical Benefits of Worship. —Available on Amazon </a></p>
                                 </div>
                             </div>
                         </div>
