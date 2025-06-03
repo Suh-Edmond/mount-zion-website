@@ -35,31 +35,25 @@
                         </div>
 
                         <div class="requirement-deadline">
-                            <h3 class="rts-section-title">Requirements and Deadlines</h3>
+                            <h3 class="rts-section-title">Admission Requirements</h3>
                             <div class="requirement-deadline__content">
+                                <h6 class="form-title">Health Care Assistant (Special Care Nursing) - 1 Year </h6>
                                 <ul>
-                                    <li class="single-requirement">Health Care Assistant (Special Care Nursing) - 1 Year
-                                        <ul>
-                                            <li class="single-requirement">Ability to read and write (minimum requirement)</li>
-                                            <li class="single-requirement">First school leaving certificate (FSLC) or GCE OL/AL Levels or Bachelor Degree</li>
-                                            <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
-                                        </ul>
-                                    </li>
-                                    <li class="single-requirement">Higher National Diploma in Nursing / Midwifery -3 Years
-                                         <ul>
-                                            <li class="single-requirement">GCE Advanced levels certificate or an equivalent for international students (minimum requirement)</li>
-                                            <li class="single-requirement">One year health care assistant training (Not Mandatory)</li>
-                                            <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="single-requirement">Bachelor's Degree in Nursing/Midwifery - 4 Years
-                                         <ul>
-                                            <li class="single-requirement">GCE Advanced levels certificate or an equivalent for international students (minimum requirement)</li>
-                                            <li class="single-requirement">Higher National Diploma in Nursing (Students with completed HND only do one extra year of training)</li>
-                                            <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
-                                        </ul>
-                                    </li>
+                                    <li class="single-requirement">Ability to read and write (minimum requirement)</li>
+                                    <li class="single-requirement">First school leaving certificate (FSLC) or GCE OL/AL Levels or Bachelor Degree</li>
+                                    <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
+                                </ul>
+                                <h6 class="my-5 form-title">Higher National Diploma in Nursing / Midwifery -3 Years </h6>
+                                <ul>
+                                    <li class="single-requirement">GCE Advanced levels certificate or an equivalent for international students (minimum requirement)</li>
+                                    <li class="single-requirement">One year health care assistant training (Not Mandatory)</li>
+                                    <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
+                                </ul>
+                                <h6 class="my-5 form-title" >Bachelor's Degree in Nursing/Midwifery - 4 Years</h6>
+                                <ul>
+                                    <li class="single-requirement">GCE Advanced levels certificate or an equivalent for international students (minimum requirement)</li>
+                                    <li class="single-requirement">Higher National Diploma in Nursing (Students with completed HND only do one extra year of training)</li>
+                                    <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
                                 </ul>
                             </div>
                         </div>

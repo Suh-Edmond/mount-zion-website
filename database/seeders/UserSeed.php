@@ -31,5 +31,18 @@ class UserSeed extends Seeder
                 'user_type' => $generator->randomElement([UserType::APPLICANT, UserType::STAFF])
             ]);
         }
+
+        User::create([
+            'name'   => "testuser",
+            'email'  => "testuser@gmail.com",
+            'password' => Hash::make('testuser'),
+            'telephone' => $generator->phoneNumber,
+            'region'   => $generator->randomElement(['Northwest', 'Southwest']),
+            'address'  => $generator->address,
+            'dob'      => Carbon::now(),
+            'pob'      => $generator->address,
+            'gender'   => Gender::MALE,
+            'user_type' => UserType::STAFF
+        ]);
     }
 }
