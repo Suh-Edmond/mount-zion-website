@@ -331,6 +331,10 @@
                     <a href="{{route('main.communityOutreach')}}">
                         Mount Zion Clinic in partnership with The Luke Society Intl. medical missions to Tingo Okwala Cameroon
                     </a>
+
+                    <a href="{{route('main.communityOutreach')}}" class="about-btn rts-nbg-btn btn-arrow
+                    rt-white">Learn More <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+
                 </div>
             </div>
         </div>

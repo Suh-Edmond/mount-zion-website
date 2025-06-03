@@ -136,8 +136,12 @@
                 <div class="col-lg-8">
                     <div class="rts-video-section-text rt-center mx-3">
                         <a href="{{route('main.admission')}}" class="mt--15 about-btn rts-nbg-btn btn-arrow">Apply Now <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
-                        <p>Embark on a journey of knowledge, discovery, and growth at Mount Zion University. Our admissions process is designed to identify bright, motivated individuals who are eager to contribute to our dynamic academic community. Whether you're a recent high school graduate or a transfer student seeking a new academic home, we invite you to explore the possibilities that await you.</p>
-                        <a href="{{route('main.admission')}}" class="mt--15 about-btn rts-nbg-btn btn-arrow">Visit Campus <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+                        <p>
+                            Begin your journey in compassionate healthcare at Mount Zion Institute for Nursing and Midwifery.
+                            Our admissions process seeks dedicated and caring individuals with a passion for nursing, midwifery, and community service.
+
+                            Whether you’re a recent secondary school graduate or just someone looking to pursue a meaningful career in healthcare, we welcome you to explore the opportunities that await you at our institute.
+                        </p>
                     </div>
                 </div>
             </div>
