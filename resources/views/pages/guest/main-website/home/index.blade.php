@@ -481,7 +481,7 @@ rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arro
                                         <img src="assets/images/icon/phone.svg" alt="phone">
                                     </div>
                                     <div class="info">
-                                        <h6 style="font-size:12px"><a href="callto:+237677770177">(+237)677770177 (+237)696953664</a></h6>
+                                        <h6><a href="callto:+237677770177">(+237)677770177 (+237)696953664</a></h6>
                                         <p>Phone Number</p>
                                     </div>
                                 </div>
