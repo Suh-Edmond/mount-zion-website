@@ -79,7 +79,7 @@
                             </div>
                             <div class="staf-info">
                                 <h5 class="name">Ngenyi Chiarrita</h5>
-                                <span class="designation">Head Of Academic Affairs</span>
+                                <span class="designation">Head of Academic Affairs</span>
                             </div>
                         </div>
                     </div>

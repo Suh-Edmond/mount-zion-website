@@ -33,7 +33,7 @@ class AdmissionApplicantionRequest extends FormRequest
             'admission_year_id' => ['required', Rule::exists('admission_years', 'id')],
             'program_id' => ['required', Rule::exists('programs', 'id')],
             'school_id' => ['required', Rule::exists('schools', 'id')],
-            'has_agreed' => 'required'
+            'has_agreed' => 'required|boolean'
         ];
     }
 }
