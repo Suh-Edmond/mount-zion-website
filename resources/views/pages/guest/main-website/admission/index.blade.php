@@ -29,7 +29,7 @@
                        <h4 class="rts-section-title">Requirements and Deadlines</h4>
 
                         <div class="admission-big-thumb">
-                            <img src="assets/images/course/admission_image.jpeg" alt="admission" style="height:200px !important;">
+                            <img src="assets/images/course/admission_image.jpeg" alt="admission" style="height:400px !important;">
                         </div>
 
                         <div class="requirement-deadline">
