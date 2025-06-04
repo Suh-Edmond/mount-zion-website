@@ -23,7 +23,7 @@ class CreateEventSectionRequest extends FormRequest
     {
         return [
             'title'  => 'required|string|max:255|min:5',
-            'body'   => 'requried|string|max:1000'
+            'body'   => 'required|string|max:1000'
         ];
     }
 }

@@ -10,8 +10,8 @@ class EventSectionService implements EventSectionInterface {
     public function createSection($request)
     {
         $event = Event::where('slug', $request['slug'])->firstOrFail();
-
-        EventSection::create([
+        
+        return EventSection::create([
             'event_id'     => $event->id,
             'title'        => $request['title'],
             'body'         => $request['body']
@@ -21,6 +21,7 @@ class EventSectionService implements EventSectionInterface {
     public function listEventSections($request)
     {
         $event = Event::where('slug', $request['slug'])->firstOrFail();
+        
         return $event->eventSections()->orderBy('created_at', 'DESC')->get();
     }
 
