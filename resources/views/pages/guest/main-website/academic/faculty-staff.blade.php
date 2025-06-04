@@ -1,3 +1,4 @@
+@section('title', 'Staff')
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
     <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/staff/amphi.jpg);">
