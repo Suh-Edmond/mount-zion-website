@@ -24,7 +24,7 @@
         <div class="container">
             <div class="rts-program-single-header">
                 <div class="row align-items-center g-3">
-                    <div class="col-lg-6">
+                    <div class="col-lg-9">
                         <h3 class="rts-section-title">{{$program->name}}</h3>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                                 <div class="program-menu">
                                     <ul class="list-unstyled">
                                         <li><a href="{{route('main.admission').'#eligibility'}}"><span><i class="fa-light fa-arrow-right"></i></span>Admission Eligibility</a></li>
-                                        <li><a href="{{route('main.admission').'#eligibility'}}"><span><i class="fa-light fa-arrow-right"></i></span>Duration: {{$program->duration}}</a></li>
+                                        <li><a href="{{route('main.admission').'#eligibility'}}"><span><i class="fa-light fa-arrow-right"></i></span>Duration: {{$program->duration}} years</a></li>
                                         <li><a href="{{route('main.admission').'#eligibility'}}"><span><i class="fa-light fa-arrow-right"></i></span>Tag: {{$program->tag}}</a></li>
                                     </ul>
                                 </div>
