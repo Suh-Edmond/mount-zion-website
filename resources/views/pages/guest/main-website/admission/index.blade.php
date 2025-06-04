@@ -26,10 +26,10 @@
             <div class="row">
                 <div class="col-12">
                     <div class="admission-content-top">
-                       <h3 class="rts-section-title">Requirements and Deadlines</h3>
+                       <h4 class="rts-section-title">Requirements and Deadlines</h4>
 
                         <div class="admission-big-thumb">
-                            <img src="assets/images/course/admission_image.jpeg" alt="admission" height="200px">
+                            <img src="assets/images/course/admission_image.jpeg" alt="admission" style="height:200px !important;">
                         </div>
 
                         <div class="requirement-deadline">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="application-deadline">
-                            <h3 class="rts-section-title">Application Deadlines</h3>
+                            <h4 class="rts-section-title">Application Deadlines</h4>
                             <div class="application-deadline__content">
                                 <div class="application-deadline__content--table">
                                     <table class="table">
@@ -99,7 +99,7 @@ Please note that applicants may submit up to three applications in total—this 
             <div class="row sticky-coloum-wrap g-5 mt--45">
                 <div class="col-lg-12">
                     <div class="rts-ap-section">
-                        <h3 class="rts-section-title mb--30">Application Details</h3>
+                        <h4 class="rts-section-title mb--30">Application Details</h4>
                         <div class="rts-application-form">
                             <form method="post" action="" id="application-form">
                                 <div class="single-form-part">
