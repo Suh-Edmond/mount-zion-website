@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row">
                 <div class="semister-fee__content">
-                    <h5 class="rts-section-title">One Year Programs</h5>
+                    <h5 class="rts-section-title">Special Care Nursing Program</h5>
                     <!-- tab item -->
                     <div class="rts-fee-chart">
 
@@ -50,7 +50,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td rowspan="3">All One Year Progams</td>
+                                            <td rowspan="3">One Year Progam</td>
                                             <td>100,000 FCFA</td>
                                             <td>100,000 FCFA</td>
                                             <td>50,000 FCFA</td>
@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="semister-fee__content v_2 mt--80">
-                    <h5 class="rts-section-title">Three Year Programs</h5>
+                    <h5 class="rts-section-title">HND in Nursing/Midwifery Program</h5>
                     <!-- tab item -->
                     <div class="rts-fee-chart">
 

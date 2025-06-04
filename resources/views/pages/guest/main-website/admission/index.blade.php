@@ -2,7 +2,7 @@
 
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
-    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/banner/breadcrumb.jpg);">
+    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/banner/mount_zion_admission_main.jpeg);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -11,7 +11,7 @@
                             <li class="breadcrumb-item"><a href="{{route('main.home')}}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Apply Admission</li>
                         </ul>
-                        <h2 class="section-title">Apply to Mount Zion Higher Institute</h2>
+                        <h2 class="section-title">Apply to Mount Zion Higher Institutes</h2>
                     </div>
                 </div>
             </div>
@@ -21,21 +21,18 @@
 
 
     <!-- admission page content -->
-    <div class="rts-page-content rts-section-padding">
+    <div class="rts-page-content rts-section-padding" id="eligibility">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="admission-content-top">
-                        <h3 class="rts-section-title">
-                            First-Year Applicants
-                        </h3>
+                       <h3 class="rts-section-title">Requirements and Deadlines</h3>
 
                         <div class="admission-big-thumb">
-                            <img src="assets/images/course/admission-bg.jpg" alt="admission">
+                            <img src="assets/images/course/admission_image.jpeg" alt="admission">
                         </div>
 
                         <div class="requirement-deadline">
-                            <h3 class="rts-section-title">Requirements and Deadlines</h3>
                             <div class="requirement-deadline__content">
                                 <ul>
                                     <li class="single-requirement">Health Care Assistant (Special Care Nursing) - 1 Year
@@ -88,8 +85,11 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <p> Mount Zion reserves the right to evaluate an application and render a final decision even if all pieces of the application have not been received.</p>
-                                <p class="w-95 mx-0">Applicants are limited to a total of three applications for undergraduate admission, whether for first-year admission, transfer admission or a <br>combination of both. If you have submitted fewer than three applications to Mount Zion, you may reapply.
+                                <h6 class="rts-section-title">Application Policy</h3>
+                                <p> 
+                Mount Zion Higher Institute for Nursing and Midwifery retains the right to review and make a final decision on any application, even if some required materials are still pending at the time of review.
+
+Please note that applicants may submit up to three applications in total—this includes first-time applications, transfer applications, or a mix of both. If you have submitted fewer than three applications, you are welcome to apply again.
                                 </p>
                             </div>
                         </div>
@@ -193,7 +193,7 @@
                                     </p>
 
                                     <div class="d-flex align-items-center single-checkbox mt--20">
-                                        <input type="checkbox" id="has_agreed" name="has_agreed" required>
+                                        <input type="checkbox" id="has_agreed" name="has_agreed" required value="true">
                                         <label for="exampleCheck1">By submitting this form, you agree to the Mount Zion University Privacy Notice</label>
                                     </div>
                                 </div>
