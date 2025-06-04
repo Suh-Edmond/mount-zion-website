@@ -53,6 +53,7 @@
                                 <div class="program-menu">
                                     <ul class="list-unstyled">
                                         <li><a href="{{route('main.admission').'#eligibility'}}"><span><i class="fa-light fa-arrow-right"></i></span>Admission Eligibility</a></li>
+                                        <li><a href="{{route('main.tuition-fee')}}"><span><i class="fa-light fa-arrow-right"></i></span>Tuition fee</a></li>
                                         <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Duration: {{$program->duration}} years</a></li>
                                         <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Tag: {{$program->tag}}</a></li>
                                     </ul>
