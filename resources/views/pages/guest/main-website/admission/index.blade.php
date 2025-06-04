@@ -29,7 +29,7 @@
                        <h3 class="rts-section-title">Requirements and Deadlines</h3>
 
                         <div class="admission-big-thumb">
-                            <img src="assets/images/course/admission_image.jpeg" alt="admission">
+                            <img src="assets/images/course/admission_image.jpeg" alt="admission" height="200px">
                         </div>
 
                         <div class="requirement-deadline">
@@ -85,7 +85,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <h6 class="rts-section-title">Application Policy</h3>
+                                <h4 class="rts-section-title">Application Policy</h4>
                                 <p> 
                 Mount Zion Higher Institute for Nursing and Midwifery retains the right to review and make a final decision on any application, even if some required materials are still pending at the time of review.
 

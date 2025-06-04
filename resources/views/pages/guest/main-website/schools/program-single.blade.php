@@ -25,10 +25,7 @@
             <div class="rts-program-single-header">
                 <div class="row align-items-center g-3">
                     <div class="col-lg-6">
-                        <h3 class="rts-section-title">The Accounting program offers a Bachelor of Science in Accounting.</h3>
-                    </div>
-                    <div class="col-lg-6">
-                        <p class="rts-section-description">The program continues to attract students from all ethnic, racial, and cultural backgrounds as they recognize ways that Africana Studies provides them with a forum to examine the intellectual life, the historical experience, and the cultural understanding of one of this country’s largest racial minority groups.</p>
+                        <h3 class="rts-section-title">{{$program->name}}</h3>
                     </div>
                 </div>
             </div>
@@ -52,10 +49,12 @@
                         <div class="program-sidebar">
                             <!-- curriculum -->
                             <div class="program-curriculum">
-                                <h6 class="heading-title">Admission Eligibility</h6>
+                                <h6 class="heading-title">Program Information</h6>
                                 <div class="program-menu">
                                     <ul class="list-unstyled">
-                                        <li><a href="{{route('main.admission').'#eligibility'}}"><span><i class="fa-light fa-arrow-right"></i></span>View Eligibility</a></li>
+                                        <li><a href="{{route('main.admission').'#eligibility'}}"><span><i class="fa-light fa-arrow-right"></i></span>Admission Eligibility</a></li>
+                                        <li><a href="{{route('main.admission').'#eligibility'}}"><span><i class="fa-light fa-arrow-right"></i></span>Duration: {{$program->duration}}</a></li>
+                                        <li><a href="{{route('main.admission').'#eligibility'}}"><span><i class="fa-light fa-arrow-right"></i></span>Tag: {{$program->tag}}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -65,7 +64,7 @@
                                 <p>{{$program->school->address}}</p>
                                 <div class="contact-info">
                                     <h5>Contact:</h5>
-                                    <a href="mailto:barry.mountzion@info.com">{{$program->school->email}}</a>
+                                    <a :href="mailto:{{$program->school->email}}">{{$program->school->email}}</a>
                                     <a href="callto:+237">{{$program->school->telephone}}</a>
                                 </div>
                                 <div class="social-info">
