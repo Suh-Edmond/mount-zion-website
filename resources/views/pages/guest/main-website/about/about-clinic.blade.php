@@ -1,4 +1,4 @@
-@section('title', 'About')
+@section('title', 'About Clinic')
 
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->

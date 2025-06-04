@@ -1,4 +1,4 @@
-@section('title', 'About')
+@section('title', 'About Community Outreach')
 
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
