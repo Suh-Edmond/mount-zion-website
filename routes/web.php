@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdmissionYearController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EventSectionController;
 use App\Http\Controllers\EventSpeakerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
@@ -72,8 +73,14 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('events-management/create', [EventController::class, 'createEvent'])->name('manage.events.create');
     Route::put('/events-management/update', [EventController::class, 'updateEvent'])->name('manage.events.update');
     Route::get('events-management/detail/speakers', [EventSpeakerController::class, 'listSpeakers'])->name('manage.events.speakers.list');
-    Route::get('events-management/detail/speakers/information', [EventSpeakerController::class, 'showSpeakers'])->name('manage.events.speakers.show');
-    Route::get('events-management/detail/speakers/create', [EventSpeakerController::class, 'showSpeakers'])->name('manage.events.speakers.create');
+    Route::get('events-management/detail/speakers/information', [EventSpeakerController::class, 'showSpeaker'])->name('manage.events.speakers.show');
+    Route::get('events-management/detail/speakers/create', [EventSpeakerController::class, 'createSpeaker'])->name('manage.events.speakers.create');
+    Route::post('events-management/detail/speakers/store', [EventSpeakerController::class, 'storeSpeaker'])->name('manage.events.speakers.store');
+    Route::delete('events-management/detail/speakers/remove', [EventSpeakerController::class, 'deleteSpeaker'])->name('manage.events.speakers.delete');
+    Route::post('events-management/detail/speakers/picture/update', [EventSpeakerController::class, 'updateSpeakerPicture'])->name('manage.events.speakers.update-picture');
+    Route::get('events-managment/detail/sections/list', [EventSectionController::class, 'listEventSections'])->name('manage.events.sections.list');
+    Route::post('events-managment/detail/sections/add', [EventSectionController::class, 'addEventSection'])->name('manage.events.create');
+    Route::delete('events-managment/detail/sections/remove', [EventSectionController::class, 'deleteEventSection'])->name('manage.events.section.delete');
 });
 
 Route::middleware('auth')->group(function () {

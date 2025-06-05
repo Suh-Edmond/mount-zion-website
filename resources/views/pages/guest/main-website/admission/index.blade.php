@@ -2,7 +2,8 @@
 
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
-    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/banner/mount_zion_admission_main.jpeg);">
+    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg"
+        style="background-image: url(assets/images/banner/mount_zion_admission_main.jpeg);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -26,37 +27,38 @@
             <div class="row">
                 <div class="col-12">
                     <div class="admission-content-top">
-                       <h4 class="rts-section-title">Requirements and Deadlines</h4>
+                        <h4 class="rts-section-title">Requirements and Deadlines</h4>
 
                         <div class="admission-big-thumb">
-                            <img src="assets/images/course/admission_image.jpeg" alt="admission" style="height:400px !important;width:150rem !important;">
+                            <img src="assets/images/course/admission_image.jpeg" alt="admission"
+                                style="height:400px !important;width:150rem !important;">
                         </div>
 
                         <div class="requirement-deadline">
                             <div class="requirement-deadline__content">
+                                <h6 class="form-title">Health Care Assistant (Special Care Nursing) - 1 Year </h6>
                                 <ul>
-                                    <li class="single-requirement">Health Care Assistant (Special Care Nursing) - 1 Year
-                                        <ul>
-                                            <li class="single-requirement">Ability to read and write (minimum requirement)</li>
-                                            <li class="single-requirement">First school leaving certificate (FSLC) or GCE OL/AL Levels or Bachelor Degree</li>
-                                            <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
-                                        </ul>
-                                    </li>
-                                    <li class="single-requirement">Higher National Diploma in Nursing / Midwifery -3 Years
-                                         <ul>
-                                            <li class="single-requirement">GCE Advanced levels certificate or an equivalent for international students (minimum requirement)</li>
-                                            <li class="single-requirement">One year health care assistant training (Not Mandatory)</li>
-                                            <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="single-requirement">Bachelor's Degree in Nursing/Midwifery - 4 Years
-                                         <ul>
-                                            <li class="single-requirement">GCE Advanced levels certificate or an equivalent for international students (minimum requirement)</li>
-                                            <li class="single-requirement">Higher National Diploma in Nursing (Students with completed HND only do one extra year of training)</li>
-                                            <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
-                                        </ul>
-                                    </li>
+                                    <li class="single-requirement">Ability to read and write (minimum requirement)</li>
+                                    <li class="single-requirement">First school leaving certificate (FSLC) or GCE OL/AL
+                                        Levels or Bachelor Degree</li>
+                                    <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
+                                </ul>
+                                <h6 class="my-5 form-title">Higher National Diploma in Nursing / Midwifery -3 Years
+                                </h6>
+                                <ul>
+                                    <li class="single-requirement">GCE Advanced levels certificate or an equivalent for
+                                        international students (minimum requirement)</li>
+                                    <li class="single-requirement">One year health care assistant training (Not
+                                        Mandatory)</li>
+                                    <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
+                                </ul>
+                                <h6 class="my-5 form-title">Bachelor's Degree in Nursing/Midwifery - 4 Years</h6>
+                                <ul>
+                                    <li class="single-requirement">GCE Advanced levels certificate or an equivalent for
+                                        international students (minimum requirement)</li>
+                                    <li class="single-requirement">Higher National Diploma in Nursing (Students with
+                                        completed HND only do one extra year of training)</li>
+                                    <li class="single-requirement">Identifying Documents (ID Card,Passport etc)</li>
                                 </ul>
                             </div>
                         </div>
@@ -66,30 +68,35 @@
                                 <div class="application-deadline__content--table">
                                     <table class="table">
                                         <thead class="table-theme">
-                                        <tr>
-                                            <td>Name</td>
-                                            <td>Year</td>
-                                            <td>Start Date</td>
-                                            <td>End Date</td>
-                                            <td>Status</td>
-                                        </tr>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Year</td>
+                                                <td>Start Date</td>
+                                                <td>End Date</td>
+                                                <td>Status</td>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>{{$admissionSession->name}}</td>
-                                            <td>{{$admissionSession->year}}</td>
-                                            <td>{{$admissionSession->start_date}}</td>
-                                            <td>{{$admissionSession->end_date}}</td>
-                                            <td style="{{$admissionSession->status ? 'color:green':'color:red'}} ">{{$admissionSession->status ? 'ACTIVE': 'IN_ACTIVE'}}</td>
-                                        </tr>
+                                            <tr>
+                                                <td>{{$admissionSession->name}}</td>
+                                                <td>{{$admissionSession->year}}</td>
+                                                <td>{{$admissionSession->start_date}}</td>
+                                                <td>{{$admissionSession->end_date}}</td>
+                                                <td style="{{$admissionSession->status ? 'color:green':'color:red'}} ">
+                                                    {{$admissionSession->status ? 'ACTIVE': 'IN_ACTIVE'}}</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <h4 class="rts-section-title mt--45">Application Policy</h4>
-                                <p> 
-                Mount Zion Higher Institute for Nursing and Midwifery retains the right to review and make a final decision on any application, even if some required materials are still pending at the time of review.
+                                <p>
+                                    Mount Zion Higher Institute for Nursing and Midwifery retains the right to review
+                                    and make a final decision on any application, even if some required materials are
+                                    still pending at the time of review.
 
-Please note that applicants may submit up to three applications in total—this includes first-time applications, transfer applications, or a mix of both. If you have submitted fewer than three applications, you are welcome to apply again.
+                                    Please note that applicants may submit up to three applications in total—this
+                                    includes first-time applications, transfer applications, or a mix of both. If you
+                                    have submitted fewer than three applications, you are welcome to apply again.
                                 </p>
                             </div>
                         </div>
@@ -104,7 +111,8 @@ Please note that applicants may submit up to three applications in total—this 
                             <form method="post" action="" id="application-form">
                                 <div class="single-form-part">
                                     <h5 class="form-title">Personal Information</h5>
-                                    <p style="padding-bottom: 10px; font-size: medium">All fields with <span style="color: red">*</span> are required</p>
+                                    <p style="padding-bottom: 10px; font-size: medium">All fields with <span
+                                            style="color: red">*</span> are required</p>
 
                                     <div class="alert alert-danger print-error-msg" style="display:none">
                                         <ul></ul>
@@ -114,21 +122,25 @@ Please note that applicants may submit up to three applications in total—this 
                                     <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="first_name">First Name <span style="color: red">*</span></label>
-                                            <input type="text" id="first_name"  name="first_name" placeholder="First name" required>
+                                            <input type="text" id="first_name" name="first_name"
+                                                placeholder="First name" required>
                                         </div>
                                         <div class="single-input-item">
                                             <label for="last_name">Last Name <span style="color: red">*</span></label>
-                                            <input type="text" id="last_name" name="last_name" placeholder="Last name" required>
+                                            <input type="text" id="last_name" name="last_name" placeholder="Last name"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="email2">Email <span style="color: red">*</span></label>
-                                            <input type="email" id="email" name="email" placeholder="Enter your mail" required>
+                                            <input type="email" id="email" name="email" placeholder="Enter your mail"
+                                                required>
                                         </div>
                                         <div class="single-input-item">
                                             <label for="phone">Phone Number <span style="color: red">*</span></label>
-                                            <input type="tel" id="telephone" name="telephone" placeholder="Enter Phone Number" required>
+                                            <input type="tel" id="telephone" name="telephone"
+                                                placeholder="Enter Phone Number" required>
                                         </div>
                                     </div>
                                     <div class="single-input">
@@ -146,15 +158,16 @@ Please note that applicants may submit up to three applications in total—this 
                                             <label for="gender">Gender <span style="color: red">*</span></label>
                                             <select name="gender" id="gender" required>
                                                 @foreach($genders as $key => $gender)
-                                                    <option value="{{$gender}}">{{$gender}}</option>
+                                                <option value="{{$gender}}">{{$gender}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="single-input-item">
-                                            <label for="region">Select your Region <span style="color: red">*</span></label>
+                                            <label for="region">Select your Region <span
+                                                    style="color: red">*</span></label>
                                             <select name="region" id="region" placeholder="Region of origin" required>
                                                 @foreach($regions as $key => $value)
-                                                    <option value="{{$value}}">{{$value}}</option>
+                                                <option value="{{$value}}">{{$value}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -165,7 +178,7 @@ Please note that applicants may submit up to three applications in total—this 
                                             <select id="school_id" name="school_id" required>
                                                 <option value="#">Choose school</option>
                                                 @foreach($schools as $key => $school)
-                                                    <option value="{{$school->id}}">{{$school->name}}</option>
+                                                <option value="{{$school->id}}">{{$school->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -188,19 +201,24 @@ Please note that applicants may submit up to three applications in total—this 
 
                                 <div class="single-form-part">
                                     <h5 class="form-title">Agreement and Submission</h5>
-                                    <p>By submitting this application, I confirm that all information provided is accurate and complete. I understand that any false
+                                    <p>By submitting this application, I confirm that all information provided is
+                                        accurate and complete. I understand that any false
                                         information may result in the disqualification of my application.
                                     </p>
 
                                     <div class="d-flex align-items-center single-checkbox mt--20">
                                         <input type="checkbox" id="has_agreed" name="has_agreed" required value="true">
-                                        <label for="exampleCheck1">By submitting this form, you agree to the Mount Zion University Privacy Notice</label>
+                                        <label for="exampleCheck1">By submitting this form, you agree to the Mount Zion
+                                            University Privacy Notice</label>
                                     </div>
                                 </div>
-                                <button type="submit" class="rts-theme-btn primary with-arrow submit app_button">Submit Application
+                                <button type="submit" class="rts-theme-btn primary with-arrow submit app_button">Submit
+                                    Application
                                     <span><i class="fa-thin fa-arrow-right button_icon"></i></span>
-                                </button> <span class="success_msg fw-bold text-lg" style="display: none">Your application was submitted successfully. A copy was sent to your email address</span>
-                                <button type="submit" class="rts-theme-btn primary with-arrow submit loader_button" style="display: none">
+                                </button> <span class="success_msg fw-bold text-lg" style="display: none">Your
+                                    application was submitted successfully. A copy was sent to your email address</span>
+                                <button type="submit" class="rts-theme-btn primary with-arrow submit loader_button"
+                                    style="display: none">
                                     Submitting... <span class="application_spinner"></span>
                                 </button>
                             </form>
@@ -223,19 +241,23 @@ Please note that applicants may submit up to three applications in total—this 
         padding: 1px;
         background: conic-gradient(#0000 10%, #edf2f7) content-box;
         -webkit-mask:
-            repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg),
-            radial-gradient(farthest-side,#0000 calc(100% - var(--b) - 1px),#000 calc(100% - var(--b)));
+            repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+            radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
         -webkit-mask-composite: destination-in;
         mask-composite: intersect;
-        animation:l4 1s infinite steps(10);
+        animation: l4 1s infinite steps(10);
     }
-    @keyframes l4 {to{transform: rotate(1turn)}}
+
+    @keyframes l4 {
+        to {
+            transform: rotate(1turn)
+        }
+    }
 
     .success_msg {
         color: green;
         display: none;
     }
-
 </style>
 <script type="text/javascript">
     $.ajaxSetup({
