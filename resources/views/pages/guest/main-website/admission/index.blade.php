@@ -208,7 +208,7 @@
 
                                     <div class="d-flex align-items-center single-checkbox mt--20">
                                         <input type="checkbox" id="has_agreed" name="has_agreed" required value="true">
-                                        <label for="exampleCheck1">By submitting this form, you agree to the Mount Zion
+                                        <label for="has_agreed">By submitting this form, you agree to the Mount Zion
                                             University Privacy Notice</label>
                                     </div>
                                 </div>
