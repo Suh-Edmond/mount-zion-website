@@ -35,7 +35,7 @@ class EventSectionController extends Controller
     {
         $this->eventSectionService->createSection($request);
          
-        return redirect()->route("manage.events.sections.list", ['slug' => $request['slug']])->with(['status' => 'Section added successfully']);
+        return back()->with(['status' => 'Section save successfully']);
     }
 
 
@@ -43,6 +43,6 @@ class EventSectionController extends Controller
     {
         $this->eventSectionService->deleteEventSection($request);
 
-        return redirect()->back()->with(['status' => 'Section removed successfully']);
+        return back()->with(['status' => 'Section removed successfully']);
     }
 }

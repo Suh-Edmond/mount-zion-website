@@ -15,7 +15,7 @@
                 </a>
                 <a href="#">
                     <button id="goBack" class="text-blue-800 text-sm">
-                        {{ __('Speakers') }}<span><i class="fa fa-chevron-right px-5 fa-sm"></i></span>
+                        {{ __('Speakers') }}
                     </button>
                 </a>
             </div>
@@ -28,6 +28,16 @@
 
 
     <div class="max-w-7xl mx-auto bg-white shadow-sm sm:rounded-lg py-5 px-5 mt-4 ">
+        <div class="flex justify-between">
+            <header class="flex flex-row ">
+                <h2 class="text-lg font-medium text-gray-900">
+                    {{ __('Event Speakers Management') }}
+                </h2>
+                <x-auth-session-status :status="session('status')" x-data="{ show: true }" x-show="show"
+                    x-init="setTimeout(() => show = false, 2000)" class="ml-4 pt-2">
+                </x-auth-session-status>
+            </header>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-4">
             @foreach($speakers as $key => $speaker)
             <div class="rounded overflow-hidden shadow-sm flex flex-col my-3">
@@ -43,12 +53,12 @@
                     <div class="flex justify-start">
                         <a href="#" x-data=""
                             x-on:click.prevent="$dispatch('open-modal', 'edit-speaker-picture{{$speaker->id}}')"
-                            class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">
+                            class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-1">
                             <i class="fa fa-pencil text-blue-600 cursor-pointer mr-6 "></i></a>
 
                         <a href="#" x-data=""
                             x-on:click.prevent="$dispatch('open-modal', 'remove-speaker{{$speaker->id}}')"
-                            class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">
+                            class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-1">
                             <i class="fa fa-trash text-red-600 cursor-pointer mr-6 "></i></a>
                     </div>
                     <a href="#" x-data="" x-on:click.prevent="$dispatch('open-modal', 'edit-speaker{{$speaker->id}}')"

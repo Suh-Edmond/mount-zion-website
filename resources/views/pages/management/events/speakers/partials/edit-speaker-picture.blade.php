@@ -23,15 +23,12 @@
                 </div>
 
 
-                <div class="mt-6 flex justify-end">
+                <div class="mt-6 flex justify-end space-x-3">
                     <x-secondary-button x-on:click="$dispatch('close')">
                         {{ __('Cancel') }}
                     </x-secondary-button>
 
                     <x-primary-button>{{ __('Save') }}</x-primary-button>
-                    <x-auth-session-status :status="session('status')" x-data="{ show: true }" x-show="show"
-                        x-transition x-init="setTimeout(() => show = false, 2000)">
-                    </x-auth-session-status>
                 </div>
             </form>
         </div>

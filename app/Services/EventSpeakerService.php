@@ -20,6 +20,16 @@ class EventSpeakerService  implements EventSpeakerInterface
         ]);
     }
 
+    public function updateEventSpeaker($request)
+    {
+        $speaker = Speaker::where('slug', $request['slug'])->firstOrFail();
+        $speaker->update([
+            'name'                 =>  $request['name'],
+            'title'                => $request['title'],
+            'social_media_handles'  => $this->createSocialMediahandle($request)
+        ]);
+    }
+
     public function showSpeaker($request) {
         return Speaker::where('slug', $request['slug'])->firstOrFail();
     }
