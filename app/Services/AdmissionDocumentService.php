@@ -20,14 +20,14 @@ class AdmissionDocumentService implements AdmissionDocumentInterface, FileUpload
 
     public function downloadAdmissionDocument($request)
     {
-
+        $this->getFile($request);
     }
 
     public function uploadFile($request)
     {
         $admission         = Admission::where('slug', $request['slug'])->firstOrFail();
 
-        $directory        = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $request['type'];
+        $directory        = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug "/". $request['type'];
 
         $extension        = $file->getClientOriginalExtension();
 
@@ -47,6 +47,36 @@ class AdmissionDocumentService implements AdmissionDocumentInterface, FileUpload
         }catch (\Exception $exception){
             throw new BusinessValidationException($exception->getMessage(), 400);
         }
+    }
+
+    public function deleteFile($request)
+    {
+        $admission = Admission::where('slug', $request['slug'])->firstOrFail();
+
+        $directory      = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug "/". $request['type'];
+
+        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$fileName;
+
+        $path = public_path($uploadedFilePath);
+
+        Storage::disk('public')->delete($path);
+
+        $image->delete();
+
+        return Redirect::back()->with(['status' => 'Image remove successfully']);
+    }
+
+    public function getFile($request)
+    {
+        $admission         = Admission::where('slug', $request['slug'])->firstOrFail();
+
+        $directory         = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug "/". $request['type'];
+
+        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
+
+        $headers = array('Content-Type: application/pdf');
+
+        return Response::download($uploadedFilePath, $fileName, $headers);
     }
 
     private function saveFile($path, $admission, $type)

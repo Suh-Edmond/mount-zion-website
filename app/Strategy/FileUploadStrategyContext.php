@@ -19,4 +19,14 @@ class FileUploadStrategyContext {
     {
         return $this->strategy->uploadFile($request);
     }
+
+    public function deleteFile($request)
+    {
+        return $this->strategy->deleteFile($request);
+    }
+
+    public function getFile($request)
+    {
+        return $this->strategy->getFile($request);
+    }
 }

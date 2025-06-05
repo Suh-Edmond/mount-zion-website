@@ -70,6 +70,36 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
         }
     }
 
+    public function deleteFile($request)
+    {
+        $gallery = EventGallery::where('slug', $request['slug'])->firstOrFail();
+
+        $directory      = FileUploadCategory::SPEAKER. "/". $gallery->event->slug . "/". $gallery->slug;
+
+        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$fileName;
+
+        $path = public_path($uploadedFilePath);
+
+        Storage::disk('public')->delete($path);
+
+        $image->delete();
+
+        return Redirect::back()->with(['status' => 'Image remove successfully']);
+    }
+
+    public function getFile($request)
+    {
+        $gallery         = EventGallery::where('slug', $request['slug'])->firstOrFail();
+
+        $directory      =  FileUploadCategory::SPEAKER. "/". $gallery->event->slug . "/". $gallery->slug;
+
+        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
+
+        $headers = array('Content-Type: application/pdf');
+
+        return Response::download($uploadedFilePath, $fileName, $headers);
+    }
+
     private function saveFile($path, $gallery, $is_main)
     {
         $speaker->update([

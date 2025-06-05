@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Interface\SchoolInterface;
 use App\Models\Faculty;
 use App\Models\School;
+use Illuminate\Support\Facades\Response;
 
 class SchoolService implements SchoolInterface, FileUploadInterface
 {
@@ -86,10 +87,42 @@ class SchoolService implements SchoolInterface, FileUploadInterface
         }
     }
 
+    public function deleteFile($request)
+    {
+        $school = School::where('slug', $request['slug'])->firstOrFail();
+
+        $directory      = FileUploadCategory::SCHOOL. "/". $school->slug;
+
+        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$fileName;
+
+        $path = public_path($uploadedFilePath);
+
+        Storage::disk('public')->delete($path);
+
+        $image->delete();
+
+        return Redirect::back()->with(['status' => 'Image remove successfully']);
+    }
+
+    public function getFile($request)
+    {
+        $school         = School::where('slug', $request['slug'])->firstOrFail();
+
+        $directory      = FileUploadCategory::SCHOOL. "/". $school->slug;
+
+        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
+
+        $headers = array('Content-Type: application/pdf');
+
+        return Response::download($uploadedFilePath, $fileName, $headers);
+    }
+
     private function saveFile($path, $school)
     {
         $school->update([
             'image_path'  => $path
         ]);
     }
+
+    
 }

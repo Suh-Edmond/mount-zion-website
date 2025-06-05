@@ -53,7 +53,7 @@ class EventSpeakerService  implements EventSpeakerInterface, FileUploadInterface
     {
         $speaker         = Speaker::where('slug', $request['slug'])->firstOrFail();
 
-        $directory      = FileUploadCategory::SPEAKER. "/". $speaker->slug;
+        $directory      = FileUploadCategory::SPEAKER. "/". $speaker->event->slug . "/". $speaker->slug;
 
         $extension      = $file->getClientOriginalExtension();
 
@@ -80,6 +80,37 @@ class EventSpeakerService  implements EventSpeakerInterface, FileUploadInterface
         $speaker->update([
             'picture'  => $path
         ]);
+    }
+
+    
+    public function deleteFile($request)
+    {
+        $speaker = Speaker::where('slug', $request['slug'])->firstOrFail();
+
+        $directory      = FileUploadCategory::SPEAKER. "/". $speaker->event->slug . "/". $speaker->slug;
+
+        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$fileName;
+
+        $path = public_path($uploadedFilePath);
+
+        Storage::disk('public')->delete($path);
+
+        $image->delete();
+
+        return Redirect::back()->with(['status' => 'Image remove successfully']);
+    }
+
+    public function getFile($request)
+    {
+        $speaker         = Speaker::where('slug', $request['slug'])->firstOrFail();
+
+        $directory      =  FileUploadCategory::SPEAKER. "/". $speaker->event->slug . "/". $speaker->slug;
+
+        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
+
+        $headers = array('Content-Type: application/pdf');
+
+        return Response::download($uploadedFilePath, $fileName, $headers);
     }
 
     private function createSocialMediahandle($request)

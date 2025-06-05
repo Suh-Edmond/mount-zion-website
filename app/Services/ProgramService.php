@@ -101,7 +101,7 @@ class ProgramService implements ProgramInterface, FileUploadInterface
     {
         $program         = Program::where('slug', $request['slug'])->firstOrFail();
 
-        $directory      = FileUploadCategory::PROGRAM. "/". $program->slug;
+        $directory      = FileUploadCategory::PROGRAM. "/". $program->school->slug . "/". $program->slug;
 
         $extension      = $file->getClientOriginalExtension();
 
@@ -128,6 +128,36 @@ class ProgramService implements ProgramInterface, FileUploadInterface
         $program->update([
             'image_path'  => $path
         ]);
+    }
+
+    public function deleteFile($request)
+    {
+        $program = Program::where('slug', $request['slug'])->firstOrFail();
+
+        $directory      = FileUploadCategory::PROGRAM. "/". $program->school->slug . "/". $program->slug;
+
+        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$fileName;
+
+        $path = public_path($uploadedFilePath);
+
+        Storage::disk('public')->delete($path);
+
+        $image->delete();
+
+        return Redirect::back()->with(['status' => 'Image remove successfully']);
+    }
+
+    public function getFile($request)
+    {
+        $program         = Program::where('slug', $request['slug'])->firstOrFail();
+
+        $directory       =  FileUploadCategory::PROGRAM. "/". $program->school->slug . "/". $program->slug;
+
+        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
+
+        $headers = array('Content-Type: application/pdf');
+
+        return Response::download($uploadedFilePath, $fileName, $headers);
     }
 
 
