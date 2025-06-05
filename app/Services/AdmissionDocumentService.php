@@ -5,15 +5,15 @@ namespace App\Services;
 class AdmissionDocumentService implements AdmissionDocumentInterface, FileUploadInterface  {
     public function uploadAdmissionDocument($request)
     {
-        if(isset($request('id_card'))){
+        if(isset($request('id_card')) && $request['id_card'] === FileUploadCategory::ID_CARD){
             $this->uploadFile($request);
         }
 
-        if(isset($request['gce_cert'])){
+        if(isset($request['gce_cert']) && $request['id_card'] === FileUploadCategory::GCE_CERT){
             $this->uploadFile($request);
         }
 
-        if(isset($request["hnd_cert"])){
+        if(isset($request["hnd_cert"]) && $request['id_card'] === FileUploadCategory::HND_CERT){
             $this->uploadFile($request);
         }
     }
