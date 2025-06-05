@@ -11,7 +11,7 @@
                 </a>
                 <a href="{{route('manage.events.show', ['slug' => $event->slug])}}">
                     <button id="goBack" class="text-blue-800 text-sm">
-                        {{ $event->title }}<span><i class="fa fa-chevron-right px-5 fa-sm"></i></span>
+                        {{ $event->title }}
                     </button>
                 </a>
             </div>
@@ -79,8 +79,3 @@
         });
     });
 </script>
-
-
-
-
-

@@ -20,13 +20,10 @@ class EventSpeakerController extends Controller
 
     public function listSpeakers(Request $request)
     {
-        $slug = $request['slug'];
-        $event = Event::where('slug', $slug)->first();
-        $speakers = $event->speakers()->orderBy('name', 'desc')->get();
-
+        $data = $this->eventSpeakerService->listSpeakers($request);
         $data = [
-            'event' => $event,
-            'speakers' => $speakers
+            'event' => $data[0],
+            'speakers' => $data[1]
         ];
 
         return view('pages.management.events.speakers.index')->with($data);

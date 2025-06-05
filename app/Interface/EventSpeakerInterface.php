@@ -4,6 +4,8 @@
 namespace App\Interface;
 
 interface EventSpeakerInterface {
+    public function listSpeakers($request);
+    
     public function createEventSpeaker($request);
 
     public function updateEventSpeaker($request);

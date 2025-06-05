@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdmissionYearController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EventGalleryController;
 use App\Http\Controllers\EventSectionController;
 use App\Http\Controllers\EventSpeakerController;
 use App\Http\Controllers\ProfileController;
@@ -80,8 +81,12 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::delete('events-management/detail/speakers/remove', [EventSpeakerController::class, 'deleteSpeaker'])->name('manage.events.speakers.delete');
     Route::post('events-management/detail/speakers/picture/update', [EventSpeakerController::class, 'updateSpeakerPicture'])->name('manage.events.speakers.update-picture');
     Route::get('events-managment/detail/sections/list', [EventSectionController::class, 'listEventSections'])->name('manage.events.sections.list');
-    Route::post('events-managment/detail/sections/add', [EventSectionController::class, 'addEventSection'])->name('manage.events.create');
+    Route::post('events-managment/detail/sections/add', [EventSectionController::class, 'addEventSection'])->name('manage.events.sections.create');
     Route::delete('events-managment/detail/sections/remove', [EventSectionController::class, 'deleteEventSection'])->name('manage.events.section.delete');
+    Route::get('events-managment/detail/gallery/list', [EventGalleryController::class, 'index'])->name('manage.events.gallery.list');
+    Route::post('events-managment/detail/gallery/add', [EventGalleryController::class, 'store'])->name('manage.events.gallery.create');
+    Route::put('events-managment/detail/gallery/update', [EventGalleryController::class, 'update'])->name('manage.events.gallery.update');
+    Route::delete('events-managment/detail/gallery/remove', [EventGalleryController::class, 'delete'])->name('manage.events.gallery.delete');
 });
 
 Route::middleware('auth')->group(function () {

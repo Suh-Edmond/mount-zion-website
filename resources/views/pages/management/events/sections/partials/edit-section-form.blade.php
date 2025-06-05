@@ -15,7 +15,7 @@
                 </p>
             </div>
 
-            <form method="post" action="{{ route('manage.events.create', ['slug' => $event->slug]) }}"
+            <form method="post" action="{{ route('manage.events.sections.create', ['slug' => $event->slug]) }}"
                 class="mt-6 space-y-6">
                 @csrf
 

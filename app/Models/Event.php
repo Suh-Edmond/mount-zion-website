@@ -45,4 +45,11 @@ class Event extends Model
     {
         return count($speakers) > 1 ? $speakers[0]->name : '';
     }
+
+    public function getMainImage($event)
+    {
+        $mainImage = $event->eventGallery()->where('is_main', true)->first();
+         
+        return $mainImage->file_path ?? "";
+    }
 }

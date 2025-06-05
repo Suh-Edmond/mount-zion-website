@@ -8,6 +8,15 @@ use App\Models\Speaker;
 
 class EventSpeakerService  implements EventSpeakerInterface
 {
+
+    public function listSpeakers($request)
+    {
+        $event = Event::where('slug', $request['slug'])->first();
+        $speakers = $event->speakers()->orderBy('name', 'desc')->get();
+
+        return [$event, $speakers];
+    }
+
     public function createEventSpeaker($request)
     {
         $event = Event::where('slug', $request['slug'])->firstOrFail();
