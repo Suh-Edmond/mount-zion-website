@@ -22818,11 +22818,11 @@ body.index-sc h1, body.index-sc h2, body.index-sc h3, body.index-sc h4, body.ind
   padding: 0;
   margin: 0;
   list-style: none;
-  column-count: 2;
+  column-count: 1;
 }
 @media screen and (max-width: 576px) {
   .admission-content-top .requirement-deadline__content ul {
-    column-count: 1;
+    column-count: 3;
   }
 }
 .admission-content-top .requirement-deadline__content ul li {

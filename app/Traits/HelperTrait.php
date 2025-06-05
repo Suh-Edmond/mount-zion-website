@@ -34,4 +34,10 @@ trait HelperTrait
     public function checkIfApplicationDeadlineHadExpire($end_date){
         return Carbon::now()->isAfter($end_date);
     }
+
+
+    public function getSocialMediaLinksOfSpeaker($handles)
+    {
+        return $handles->split("#");
+    }
 }

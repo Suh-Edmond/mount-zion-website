@@ -2,7 +2,7 @@
     <div>
         <div class="flex justify-between">
             <div class="bg-white shadow-sm sm:rounded-lg cursor-pointer mb-4">
-                <img src="{{asset('/images/dept_image.png')}}" alt="Program Image">
+                <img src="{{asset($program->image_path)}}" alt="Program Image">
             </div>
 
             <span><i class="fa fa-pencil text-blue-800 cursor-pointer"></i></span>

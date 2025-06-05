@@ -1,0 +1,18 @@
+<?php
+
+
+namespace App\Interface;
+
+interface EventSpeakerInterface {
+    public function listSpeakers($request);
+    
+    public function createEventSpeaker($request);
+
+    public function updateEventSpeaker($request);
+
+    public function showSpeaker($request);
+
+    public function deleteSpeaker($request);
+
+    
+}
