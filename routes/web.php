@@ -87,6 +87,8 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::post('events-managment/detail/gallery/add', [EventGalleryController::class, 'store'])->name('manage.events.gallery.create');
     Route::put('events-managment/detail/gallery/update', [EventGalleryController::class, 'update'])->name('manage.events.gallery.update');
     Route::delete('events-managment/detail/gallery/remove', [EventGalleryController::class, 'delete'])->name('manage.events.gallery.delete');
+
+    Route::post('upload-documents', [EventGalleryController::class, 'uploadDocument'])->name('manage.documents.upload');
 });
 
 Route::middleware('auth')->group(function () {

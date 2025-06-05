@@ -7,7 +7,7 @@
                 </h5>
             </div>
 
-            <form method="post" action="{{ route('manage.events.gallery.create', ['slug' => $value->event->slug]) }}"
+            <form method="post" action="{{ route('{{ route('manage.documents.upload', ['slug' => $value->slug, 'type' => 'none']') }}"
                 class="mt-6 space-y-6" enctype="multipart/form-data">
                 @csrf
 

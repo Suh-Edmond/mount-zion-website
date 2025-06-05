@@ -5,7 +5,8 @@
                 <img src="{{asset($school->image_path)}}" alt="Faculty Image">
             </div>
 
-            <span><i class="fa fa-pencil text-blue-800 cursor-pointer"></i></span>
+            <x-primary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'upload_image_modal')">
+                <i class="fa fa-pencil text-blue-800 cursor-pointer"></i></x-primary-button>
         </div>
 
         <div class="flex justify-between">
@@ -47,4 +48,5 @@
     </div>
 
     @include('pages.management.school.partials.edit-school-form')
+    @include('pages.management.school.partials.upload-image-modal')
 </section>
