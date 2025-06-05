@@ -1,3 +1,4 @@
+@section('title', 'Staff')
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
     <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/staff/amphi.jpg);">
@@ -79,7 +80,7 @@
                             </div>
                             <div class="staf-info">
                                 <h5 class="name">Ngenyi Chiarrita</h5>
-                                <span class="designation">Head Of Academic Affairs</span>
+                                <span class="designation">Head of Academic Affairs</span>
                             </div>
                         </div>
                     </div>
