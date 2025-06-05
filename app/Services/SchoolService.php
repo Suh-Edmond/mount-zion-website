@@ -6,7 +6,7 @@ use App\Interface\SchoolInterface;
 use App\Models\Faculty;
 use App\Models\School;
 
-class SchoolService implements SchoolInterface
+class SchoolService implements SchoolInterface, FileUploadInterface
 {
 
     public function index($request)
@@ -58,5 +58,38 @@ class SchoolService implements SchoolInterface
     public function getContactInfos($request)
     {
         return School::select('email', 'telephone', 'address', 'name')->get();
+    }
+
+    public function uploadFile($request)
+    {
+        $school         = School::where('slug', $request['slug'])->firstOrFail();
+
+        $directory      = FileUploadCategory::SCHOOL. "/". $school->slug;
+
+        $extension      = $file->getClientOriginalExtension();
+
+        $fileName       =   time() . '_' . uniqid() . '.' . $extension;
+
+         try {
+            $request->validate([
+                'image' => 'required|image|mimes:jpg,jpeg,png|max:2048'
+            ]);
+
+             $request->file('image')->storeAs(FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory, $fileName, 'public');
+
+             $filePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
+
+             $this->saveFile($filePath, $school);
+
+        }catch (\Exception $exception){
+            throw new BusinessValidationException($exception->getMessage(), 400);
+        }
+    }
+
+    private function saveFile($path, $school)
+    {
+        $school->update([
+            'image_path'  => $path
+        ]);
     }
 }

@@ -6,7 +6,7 @@ use App\Interface\EventSpeakerInterface;
 use App\Models\Event;
 use App\Models\Speaker;
 
-class EventSpeakerService  implements EventSpeakerInterface
+class EventSpeakerService  implements EventSpeakerInterface, FileUploadInterface
 {
 
     public function listSpeakers($request)
@@ -47,6 +47,39 @@ class EventSpeakerService  implements EventSpeakerInterface
         $speaker = Speaker::where('slug', $request['slug'])->firstOrFail();
         
         return $speaker->delete();
+    }
+
+    public function uploadFile($request)
+    {
+        $speaker         = Speaker::where('slug', $request['slug'])->firstOrFail();
+
+        $directory      = FileUploadCategory::SPEAKER. "/". $speaker->slug;
+
+        $extension      = $file->getClientOriginalExtension();
+
+        $fileName       =   time() . '_' . uniqid() . '.' . $extension;
+
+         try {
+            $request->validate([
+                'image' => 'required|image|mimes:jpg,jpeg,png|max:2048'
+            ]);
+
+             $request->file('image')->storeAs(FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory, $fileName, 'public');
+
+             $filePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
+
+             $this->saveFile($filePath, $speaker);
+
+        }catch (\Exception $exception){
+            throw new BusinessValidationException($exception->getMessage(), 400);
+        }
+    }
+
+    private function saveFile($path, $speaker)
+    {
+        $speaker->update([
+            'picture'  => $path
+        ]);
     }
 
     private function createSocialMediahandle($request)

@@ -22822,7 +22822,7 @@ body.index-sc h1, body.index-sc h2, body.index-sc h3, body.index-sc h4, body.ind
 }
 @media screen and (max-width: 576px) {
   .admission-content-top .requirement-deadline__content ul {
-    column-count: 3;
+    column-count: 2;
   }
 }
 .admission-content-top .requirement-deadline__content ul li {
