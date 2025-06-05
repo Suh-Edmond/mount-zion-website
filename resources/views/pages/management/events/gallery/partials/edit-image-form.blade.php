@@ -1,14 +1,13 @@
-<x-modal name="edit-speaker-picture{{$speaker->id}}" :show="$errors->slotCreation->isNotEmpty()" focusable x-data="">
+<x-modal name="edit_image_modal{{$value->id}}" :show="$errors->slotCreation->isNotEmpty()" focusable x-data="">
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div>
                 <h5 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{__('Edit Picture')}}
+                    {{__('Edit Image')}}
                 </h5>
             </div>
 
-            <form method="post"
-                action="{{ route('manage.events.speakers.update-picture', ['slug' => $speaker->slug]) }}"
+            <form method="post" action="{{ route('manage.events.gallery.update', ['slug' => $value->event->slug]) }}"
                 class="mt-6 space-y-6" enctype="multipart/form-data">
                 @csrf
 
@@ -21,7 +20,6 @@
                         (MAX. 1Mb).</p>
                     <x-input-error class="mt-2" :messages="$errors->get('picture')" />
                 </div>
-
 
                 <div class="mt-6 flex justify-end space-x-3">
                     <x-secondary-button x-on:click="$dispatch('close')">

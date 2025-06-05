@@ -7,25 +7,27 @@
                 </h2>
 
                 <p class="mt-1 text-sm text-gray-600">
-                    {{ __("Provide Information to add event speaker.") }}
+                    {{ __("Provide information to update event speaker.") }}
                 </p>
             </div>
 
-            <form method="post" action="{{ route('manage.events.speakers.store', ['slug' => $speaker->event->slug]) }}"
-                class="mt-6 space-y-6" enctype="multipart/form-data">
+            <form method="post"
+                action="{{ route('manage.events.speakers.update', ['slug' => $speaker->slug, 'event_slug' => $speaker->event->slug]) }}"
+                class="mt-6 space-y-6">
                 @csrf
+                @method('PUT')
 
                 <div class="grow my-4">
                     <x-input-label for="name" :value="__('Name')" />
-                    <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" value="{{$speaker->name}}"
-                        required autocomplete="name" />
+                    <x-text-input id="name" name="name" type="text" class="mt-1 block w-full"
+                        value="{{old('name', $speaker->name)}}" required autocomplete="name" />
                     <x-input-error class="mt-2" :messages="$errors->get('name')" />
                 </div>
 
                 <div class="grow my-4">
                     <x-input-label for="title" :value="__('Title')" />
                     <x-text-input id="title" name="title" type="text" class="mt-1 block w-full"
-                        value="{{$speaker->title}}" required autocomplete="title" />
+                        value="{{old('title', $speaker->title)}}" required autocomplete="title" />
                     <x-input-error class="mt-2" :messages="$errors->get('title')" />
                 </div>
 
@@ -51,7 +53,8 @@
                 </div>
 
 
-                <div class="mt-6 flex justify-end">
+
+                <div class="mt-6 flex justify-end space-x-3">
                     <x-secondary-button x-on:click="$dispatch('close')">
                         {{ __('Cancel') }}
                     </x-secondary-button>

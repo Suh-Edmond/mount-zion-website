@@ -96,6 +96,10 @@
                                 x-transition x-init="setTimeout(() => show = false, 2000)">
                             </x-auth-session-status>
                         </div>
+
+                        <a href="{{route('manage.events.speakers.list', ['slug' => $event->slug])}}">
+                            <x-secondary-button>{{ __('Back') }}</x-secondary-button>
+                        </a>
                     </div>
                 </form>
             </div>

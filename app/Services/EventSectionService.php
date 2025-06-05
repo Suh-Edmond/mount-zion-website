@@ -22,7 +22,7 @@ class EventSectionService implements EventSectionInterface {
     {
         $event = Event::where('slug', $request['slug'])->firstOrFail();
         
-        return $event->eventSections()->orderBy('created_at', 'DESC')->get();
+        return $event->eventSections()->orderBy('created_at', 'DESC')->paginate(10);
     }
 
     public function showEventSection($request)

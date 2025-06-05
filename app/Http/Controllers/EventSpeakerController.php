@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateEventSpeakerRequest;
+use App\Http\Requests\UpdateEventSpeakerRequest;
 use App\Models\Event;
 use App\Services\EventSpeakerService;
 use Illuminate\Http\Request;
@@ -19,13 +20,10 @@ class EventSpeakerController extends Controller
 
     public function listSpeakers(Request $request)
     {
-        $slug = $request['slug'];
-        $event = Event::where('slug', $slug)->first();
-        $speakers = $event->speakers()->orderBy('name', 'desc')->get();
-
+        $data = $this->eventSpeakerService->listSpeakers($request);
         $data = [
-            'event' => $event,
-            'speakers' => $speakers
+            'event' => $data[0],
+            'speakers' => $data[1]
         ];
 
         return view('pages.management.events.speakers.index')->with($data);
@@ -49,16 +47,25 @@ class EventSpeakerController extends Controller
 
     public function storeSpeaker(CreateEventSpeakerRequest $request)
     {
+        
         $this->eventSpeakerService->createEventSpeaker($request);
 
-        return redirect()->route('manage.events.speakers.list', ['slug' => $request['slug']])->with(['status' => 'Speaker added successfully']);
+        return redirect()->route('manage.events.speakers.list', ['slug' => $request['slug']])->with(['status' => 'Speaker save successfully']);
+    }
+
+    public function updateSpeaker(UpdateEventSpeakerRequest $request)
+    {
+        
+        $this->eventSpeakerService->updateEventSpeaker($request);
+
+        return back()->with(['status' => 'Speaker save successfully']);
     }
 
     public function deleteSpeaker(Request $request)  
     {
         $this->eventSpeakerService->deleteSpeaker($request);
 
-         return redirect()->back()->with(['status' => 'Speaker deleted successfully']);
+         return back()->with(['status' => 'Speaker deleted successfully']);
     }
 
     public function updateSpeakerPicture(){

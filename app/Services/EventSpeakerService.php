@@ -8,6 +8,15 @@ use App\Models\Speaker;
 
 class EventSpeakerService  implements EventSpeakerInterface
 {
+
+    public function listSpeakers($request)
+    {
+        $event = Event::where('slug', $request['slug'])->first();
+        $speakers = $event->speakers()->orderBy('name', 'desc')->get();
+
+        return [$event, $speakers];
+    }
+
     public function createEventSpeaker($request)
     {
         $event = Event::where('slug', $request['slug'])->firstOrFail();
@@ -16,6 +25,16 @@ class EventSpeakerService  implements EventSpeakerInterface
             'title'                => $request['title'],
             'picture'              => '',
             'event_id'              => $event->id,
+            'social_media_handles'  => $this->createSocialMediahandle($request)
+        ]);
+    }
+
+    public function updateEventSpeaker($request)
+    {
+        $speaker = Speaker::where('slug', $request['slug'])->firstOrFail();
+        $speaker->update([
+            'name'                 =>  $request['name'],
+            'title'                => $request['title'],
             'social_media_handles'  => $this->createSocialMediahandle($request)
         ]);
     }

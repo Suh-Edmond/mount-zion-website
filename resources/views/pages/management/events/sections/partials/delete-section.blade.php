@@ -1,9 +1,8 @@
 <x-modal name="delete_section{{$section->id}}" :show="$errors->userDeletion->isNotEmpty()" focusable x-data="">
-    <div class="py-12">
+    <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <form method="post"
-                action="{{ route('manage.events.section.delete', ['slug' => $section->slug, 'event_slug' => $section->event->slug]) }}"
-                class="p-6">
+                action="{{ route('manage.events.section.delete', ['slug' => $section->slug, 'event_slug' => $section->event->slug]) }}">
                 @csrf
                 @method('delete')
 
@@ -12,7 +11,7 @@
                 </h2>
 
 
-                <p class="mt-1 text-md font-medium text-gray-600">
+                <p class="mt-1 text-md font-bold text-gray-600">
                     Title: {{ $section->title }}
                 </p>
 
