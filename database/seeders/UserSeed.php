@@ -17,20 +17,20 @@ class UserSeed extends Seeder
      */
     public function run(Generator $generator): void
     {
-        for ($i = 0; $i < 4; $i++) {
-            User::create([
-                'name'   => $generator->name,
-                'email'  => $generator->email,
-                'password' => Hash::make('password'),
-                'telephone' => $generator->phoneNumber,
-                'region'   => $generator->randomElement(['Northwest', 'Southwest']),
-                'address'  => $generator->address,
-                'dob'      => Carbon::now(),
-                'pob'      => $generator->address,
-                'gender'   => $generator->randomElement([Gender::MALE, Gender::FEMALE]),
-                'user_type' => $generator->randomElement([UserType::APPLICANT, UserType::STAFF])
-            ]);
-        }
+        // for ($i = 0; $i < 4; $i++) {
+        //     User::create([
+        //         'name'   => $generator->name,
+        //         'email'  => $generator->email,
+        //         'password' => Hash::make('password'),
+        //         'telephone' => $generator->phoneNumber,
+        //         'region'   => $generator->randomElement(['Northwest', 'Southwest']),
+        //         'address'  => $generator->address,
+        //         'dob'      => Carbon::now(),
+        //         'pob'      => $generator->address,
+        //         'gender'   => $generator->randomElement([Gender::MALE, Gender::FEMALE]),
+        //         'user_type' => $generator->randomElement([UserType::APPLICANT, UserType::STAFF])
+        //     ]);
+        // }
 
         User::create([
             'name'   => "testuser",
@@ -38,11 +38,13 @@ class UserSeed extends Seeder
             'password' => Hash::make('testuser'),
             'telephone' => $generator->phoneNumber,
             'region'   => $generator->randomElement(['Northwest', 'Southwest']),
-            'address'  => $generator->address,
+            'address'  => "Buea",
             'dob'      => Carbon::now(),
-            'pob'      => $generator->address,
+            'pob'      => "Buea",
             'gender'   => Gender::MALE,
             'user_type' => UserType::STAFF
         ]);
+
+        
     }
 }

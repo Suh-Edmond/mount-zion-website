@@ -8,7 +8,7 @@ use App\Models\Program;
 use App\Models\School;
 use Illuminate\Validation\Rule;
 
-class ProgramService implements ProgramInterface
+class ProgramService implements ProgramInterface, FileUploadInterface
 {
 
     public function index($schoolId)
@@ -95,6 +95,69 @@ class ProgramService implements ProgramInterface
     public function loadPrograms()
     {
         return Program::orderBy('name', 'ASC')->get();
+    }
+
+    public function uploadFile($request)
+    {
+        $program         = Program::where('slug', $request['slug'])->firstOrFail();
+
+        $directory      = FileUploadCategory::PROGRAM. "/". $program->school->slug . "/". $program->slug;
+
+        $extension      = $file->getClientOriginalExtension();
+
+        $fileName       =   time() . '_' . uniqid() . '.' . $extension;
+
+         try {
+            $request->validate([
+                'image' => 'required|image|mimes:jpg,jpeg,png|max:2048'
+            ]);
+
+             $request->file('image')->storeAs(FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory, $fileName, 'public');
+
+             $filePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
+
+             $this->saveFile($filePath, $program);
+
+        }catch (\Exception $exception){
+            throw new BusinessValidationException($exception->getMessage(), 400);
+        }
+    }
+
+    private function saveFile($path, $program)
+    {
+        $program->update([
+            'image_path'  => $path
+        ]);
+    }
+
+    public function deleteFile($request)
+    {
+        $program = Program::where('slug', $request['slug'])->firstOrFail();
+
+        $directory      = FileUploadCategory::PROGRAM. "/". $program->school->slug . "/". $program->slug;
+
+        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$fileName;
+
+        $path = public_path($uploadedFilePath);
+
+        Storage::disk('public')->delete($path);
+
+        $image->delete();
+
+        return Redirect::back()->with(['status' => 'Image remove successfully']);
+    }
+
+    public function getFile($request)
+    {
+        $program         = Program::where('slug', $request['slug'])->firstOrFail();
+
+        $directory       =  FileUploadCategory::PROGRAM. "/". $program->school->slug . "/". $program->slug;
+
+        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
+
+        $headers = array('Content-Type: application/pdf');
+
+        return Response::download($uploadedFilePath, $fileName, $headers);
     }
 
 
