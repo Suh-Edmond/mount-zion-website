@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Interface\SchoolInterface;
+use App\Interface\FileUploadInterface;
 use App\Models\Faculty;
 use App\Models\School;
 use Illuminate\Support\Facades\Response;

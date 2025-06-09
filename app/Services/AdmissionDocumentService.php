@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Services;
+use App\Interface\FileUploadInterface;
+use App\Interface\AdmissionDocumentInterface;
 
 class AdmissionDocumentService implements AdmissionDocumentInterface, FileUploadInterface  {
     public function uploadAdmissionDocument($request)
