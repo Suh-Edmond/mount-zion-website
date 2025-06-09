@@ -3,7 +3,7 @@
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
     <section class="rts-breadcrumb breadcrumb-height breadcumb-bg"
-        style="background-image: url(assets/images/banner/mount_zion_admission_main.jpeg);">
+        style="background-image: url(assets/images/elligibility/inside.png);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -29,9 +29,9 @@
                     <div class="admission-content-top">
                         <h4 class="rts-section-title">Requirements and Deadlines</h4>
 
-                        <div class="admission-big-thumb">
-                            <img src="assets/images/course/admission_image.jpeg" alt="admission"
-                                style="height:400px !important;width:150rem !important;">
+                        <div class="admission-big-thumb" style="max-height: 400px;">
+                            <img src="assets/images/elligibility/outside.png" alt="admission"
+                                style="height:400px !important;width:150rem !important; object-fit: cover;">
                         </div>
 
                         <div class="requirement-deadline">
@@ -208,7 +208,7 @@
 
                                     <div class="d-flex align-items-center single-checkbox mt--20">
                                         <input type="checkbox" id="has_agreed" name="has_agreed" required value="true">
-                                        <label for="exampleCheck1">By submitting this form, you agree to the Mount Zion
+                                        <label for="has_agreed">By submitting this form, you agree to the Mount Zion
                                             University Privacy Notice</label>
                                     </div>
                                 </div>
