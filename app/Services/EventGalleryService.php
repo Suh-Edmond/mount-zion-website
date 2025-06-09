@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Interface\EventGalleryInterface;
+use App\Interface\FileUploadInterface;
 use App\Models\Event;
 use App\Models\EventGallery;
 

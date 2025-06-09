@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Interface\EventSpeakerInterface;
+use App\Interface\FileUploadInterface;
 use App\Models\Event;
 use App\Models\Speaker;
 
