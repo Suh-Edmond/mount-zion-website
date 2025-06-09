@@ -222,8 +222,8 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="blog__single--item">
                         <a href="{{route('main.schools.show', $school->slug)}}" class="blog__single--item--link">
-                            <div class="blog__single--item--thumb">
-                                <img src="{{ asset( $school->image_path) }}" alt="{{ $school->name }}" style="height: 305px !important;">
+                            <div class="blog__single--item--thumb" style="height: 280px;">
+                                <img src="{{ asset( $school->image_path) }}" alt="{{ $school->name }}" style="object-fit: cover; height: 100%">
                             </div>
                         </a>
                         <div class="blog__single--item--meta">
