@@ -1,8 +1,8 @@
 <section>
     <div>
-        <div class="flex justify-between">
+        <div class="flex justify-between items-start">
             <div class="bg-white shadow-sm sm:rounded-lg cursor-pointer mb-4">
-                <img src="{{asset($school->image_path)}}" alt="Faculty Image">
+                <img class="h-[320px]" src="{{asset($school->image_path)}}" alt="Faculty Image">
             </div>
 
             <x-primary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'upload_image_modal')">

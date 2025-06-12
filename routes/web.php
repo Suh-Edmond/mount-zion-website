@@ -51,6 +51,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('/academics/details', [SchoolController::class, 'showSchool'])->name('manage.academics.show');
     Route::delete('/academics/delete', [SchoolController::class, 'deleteSchool'])->name('manage.academics.destroy');
     Route::put('academics/details/edit', [SchoolController::class, 'updateSchool'])->name('manage.academic.edit');
+    Route::post('academics/details/edit-school-image', [SchoolController::class, 'updateSchoolImage'])->name('manage.academic.edit.image');
     Route::get('academics/programs-listing', [ProgramController::class, 'listPrograms'])->name('manage.academics.programs.list');
     Route::get('academics/programs-listing/details', [ProgramController::class, 'show'])->name('manage.academics.programs.show');
     Route::get('academics/programs-listing/create', [ProgramController::class, 'createProgram'])->name('manage.academics.programs.create');

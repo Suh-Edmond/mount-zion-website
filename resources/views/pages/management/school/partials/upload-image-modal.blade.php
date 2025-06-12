@@ -8,7 +8,7 @@
             </div>
 
             <form method="post"
-                action="{{ route('manage.documents.upload', ['slug' => $school->slug, 'type' => 'none', 'is_main' => false]') }}"
+                action="{{ route('manage.academic.edit.image', ['slug' => $school->slug, 'type' => 'none', 'is_main' => false]) }}"
                 class="mt-6 space-y-6" enctype="multipart/form-data">
                 @csrf
 

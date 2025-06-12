@@ -7,6 +7,11 @@ use App\Interface\FileUploadInterface;
 use App\Models\Faculty;
 use App\Models\School;
 use Illuminate\Support\Facades\Response;
+use App\Constant\FileStorageConstants;
+use App\Constant\FileUploadCategory;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
+use App\Exceptions\BusinessValidationException;
 
 class SchoolService implements SchoolInterface, FileUploadInterface
 {
@@ -68,6 +73,7 @@ class SchoolService implements SchoolInterface, FileUploadInterface
 
         $directory      = FileUploadCategory::SCHOOL. "/". $school->slug;
 
+        $file           = $request->file('image');
         $extension      = $file->getClientOriginalExtension();
 
         $fileName       =   time() . '_' . uniqid() . '.' . $extension;
