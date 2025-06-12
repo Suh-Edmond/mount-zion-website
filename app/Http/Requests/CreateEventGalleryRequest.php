@@ -22,9 +22,9 @@ class CreateEventGalleryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'event_id'   => ['required', 'exists:events,id'],
-            'file_path'  => ['required', 'image'],
-            'is_main'    => ['required', 'boolean']
+            // 'event_id'   => ['required', 'exists:events,id'],
+            // 'file'  => ['required', 'image'],
+            // 'is_main'    => ['required', 'boolean']
         ];
     }
 }

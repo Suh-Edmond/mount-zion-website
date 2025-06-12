@@ -57,9 +57,9 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('academics/programs-listing/create', [ProgramController::class, 'createProgram'])->name('manage.academics.programs.create');
     Route::post('academics/programs-listing/store', [ProgramController::class, 'storeProgram'])->name('manage.academics.programs.store');
     Route::delete('academics/programs-listing/delete', [ProgramController::class, 'deleteProgram'])->name('manage.academics.programs.delete');
-    Route::delete('academics/programs-listing/store/edit-upload-image', [ProgramController::class, 'editUploadProgramImage'])->name('manage.academics.programs.edit-upload-image');
+    Route::post('academics/programs-listing/store/edit-upload-image', [ProgramController::class, 'editUploadProgramImage'])->name('manage.academics.programs.edit-upload-image');
     Route::put('academics/programs-listing/update', [ProgramController::class, 'editProgram'])->name('manage.academics.programs.edit');
-    Route::get('admission', [SchoolController::class, 'getSchools'])->name('manage.admission');
+    Route::get('admission', [SchoolController::class, 'index'])->name('manage.admission');
     Route::get('admission/years', [AdmissionYearController::class, 'index'])->name('manage.admission.years');
     Route::post('admission/years/store', [AdmissionYearController::class, 'createAdmissionYear'])->name('manage.admission.years.create');
     Route::delete('admission/years/remove', [AdmissionYearController::class, 'removeAdmissionYear'])->name('manage.admission.years.remove');
@@ -73,6 +73,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('events-management', [EventController::class, 'fetchEvents'])->name('manage.events');
     Route::get('events-management/information', [EventController::class, 'showEventInformation'])->name('manage.events.show');
     Route::get('events-management/create', [EventController::class, 'createEvent'])->name('manage.events.create');
+    Route::post('events-management/save', [EventController::class, 'storeEvent'])->name('manage.events.store');
     Route::put('/events-management/update', [EventController::class, 'updateEvent'])->name('manage.events.update');
     Route::get('events-management/detail/speakers', [EventSpeakerController::class, 'listSpeakers'])->name('manage.events.speakers.list');
     Route::get('events-management/detail/speakers/information', [EventSpeakerController::class, 'showSpeaker'])->name('manage.events.speakers.show');
@@ -86,7 +87,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::delete('events-managment/detail/sections/remove', [EventSectionController::class, 'deleteEventSection'])->name('manage.events.section.delete');
     Route::get('events-managment/detail/gallery/list', [EventGalleryController::class, 'index'])->name('manage.events.gallery.list');
     Route::post('events-managment/detail/gallery/add', [EventGalleryController::class, 'store'])->name('manage.events.gallery.create');
-    Route::put('events-managment/detail/gallery/update', [EventGalleryController::class, 'update'])->name('manage.events.gallery.update');
+    Route::post('events-managment/detail/gallery/update', [EventGalleryController::class, 'update'])->name('manage.events.gallery.update');
     Route::delete('events-managment/detail/gallery/remove', [EventGalleryController::class, 'delete'])->name('manage.events.gallery.delete');
 
     Route::post('upload-documents', [EventGalleryController::class, 'uploadDocument'])->name('manage.documents.upload');

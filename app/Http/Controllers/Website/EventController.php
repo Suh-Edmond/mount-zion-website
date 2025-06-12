@@ -33,9 +33,15 @@ class EventController extends Controller
             $events->load('speakers');
         }
 
-        // Add the first gallery image to each event
         $events = $events->map(function ($event) {
-            $event->poster_url = $event->eventGallery->first() ? $event->eventGallery->first()->file_path : null;
+            // First check for a main gallery item
+            $mainGalleryItem = $event->eventGallery->firstWhere('is_main', true);
+            
+            // If there's a main gallery item, use it, otherwise use the first one
+            $event->poster_url = $mainGalleryItem 
+            ? $mainGalleryItem->file_path 
+            : ($event->eventGallery->first() ? $event->eventGallery->first()->file_path : null);
+            
             return $event;
         });
 
@@ -51,7 +57,14 @@ class EventController extends Controller
             $event->load('eventGallery');
         }
 
-        $event->poster_url = $event->eventGallery->first() ? $event->eventGallery->first()->file_path : null;
+         // First check for a main gallery item
+         $mainGalleryItem = $event->eventGallery->firstWhere('is_main', true);
+            
+         // If there's a main gallery item, use it, otherwise use the first one
+         $event->poster_url = $mainGalleryItem 
+         ? $mainGalleryItem->file_path 
+         : ($event->eventGallery->first() ? $event->eventGallery->first()->file_path : null);
+
         return view('pages.guest.main-website.event.detail', [
             'event'=> $event
         ]);
@@ -79,14 +92,21 @@ class EventController extends Controller
         return view('pages.management.events.show')->with($data);
     }
 
-    public function createEvent(CreateOrUpdateEventRequest $request)
+    public function createEvent(Request $request)
     {
         $data = [
             'title' => 'Create Event',
             'caption'   => 'Provide the information below to create an event'
         ];
 
-        return view('pages.manage.events.create')->with($data);
+        return view('pages.management.events.create')->with($data);
+    }
+
+    public function storeEvent(CreateOrUpdateEventRequest $request)
+    {
+        $this->eventManagementService->createEvent($request);
+
+        return redirect()->route('manage.events')->with(['status' => 'Event Created Successfully']);
     }
 
     public function updateEvent(CreateOrUpdateEventRequest $request)

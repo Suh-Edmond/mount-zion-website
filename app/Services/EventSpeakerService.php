@@ -6,6 +6,12 @@ use App\Interface\EventSpeakerInterface;
 use App\Interface\FileUploadInterface;
 use App\Models\Event;
 use App\Models\Speaker;
+use App\Constant\FileStorageConstants;
+use App\Constant\FileUploadCategory;
+use App\Exceptions\BusinessValidationException;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Redirect;
 
 class EventSpeakerService  implements EventSpeakerInterface, FileUploadInterface
 {
@@ -55,6 +61,8 @@ class EventSpeakerService  implements EventSpeakerInterface, FileUploadInterface
         $speaker         = Speaker::where('slug', $request['slug'])->firstOrFail();
 
         $directory      = FileUploadCategory::SPEAKER. "/". $speaker->event->slug . "/". $speaker->slug;
+
+        $file           = $request->file('image');
 
         $extension      = $file->getClientOriginalExtension();
 

@@ -8,6 +8,12 @@ use App\Interface\FileUploadInterface;
 use App\Models\Program;
 use App\Models\School;
 use Illuminate\Validation\Rule;
+use App\Constant\FileUploadCategory;
+use App\Constant\FileStorageConstants;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Redirect;
+use App\Exceptions\BusinessValidationException;
 
 class ProgramService implements ProgramInterface, FileUploadInterface
 {
@@ -104,6 +110,10 @@ class ProgramService implements ProgramInterface, FileUploadInterface
 
         $directory      = FileUploadCategory::PROGRAM. "/". $program->school->slug . "/". $program->slug;
 
+        $file           = $request->file('image');
+        if (!$file) {
+            throw new BusinessValidationException('Image file is required', 400);
+        }
         $extension      = $file->getClientOriginalExtension();
 
         $fileName       =   time() . '_' . uniqid() . '.' . $extension;

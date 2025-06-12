@@ -78,7 +78,7 @@
                             :value="old('facebook')" required autocomplete="facebook" />
                     </div>
 
-                    <div class="w-full">
+                    <!-- <div class="w-full">
                         <x-input-label for="picture" :value="__('Upload Picture')" />
                         <input name="picture" value="{{old('picture', $speaker->picture ?? '')}}" required
                             class="block p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
@@ -86,7 +86,7 @@
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG or JPEG
                             (MAX. 1Mb).</p>
                         <x-input-error class="mt-2" :messages="$errors->get('picture')" />
-                    </div>
+                    </div> -->
 
 
                     <div class="flex flex-row justify-between">

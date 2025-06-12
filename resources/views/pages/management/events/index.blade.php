@@ -8,7 +8,7 @@
                 </h2>
             </div>
 
-            <a href="{{route('manage.events.create', ['slug' => ''])}}">
+            <a href="{{route('manage.events.create')}}">
                 <x-primary-button>{{ __('Add Event') }}</x-primary-button>
             </a>
         </div>

@@ -165,14 +165,23 @@
                 <div class="row g-5">
                     @foreach ($event->eventGallery as $image)
                     <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery">
-                            <a href="{{asset($image->file_path)}}" class="single-gallery__item">
-                                <img src="{{asset($image->file_path)}}" alt="gallery">
-                                <div class="single-gallery__icon">
-                                    <i class="fa-light fa-circle-plus"></i>
-                                </div>
-                            </a>
-                        </div>
+                        @if(empty($image->video_url))
+                            <div class="single-gallery">
+                                <a href="{{asset($image->file_path)}}" class="single-gallery__item">
+                                    <img src="{{asset($image->file_path)}}" alt="gallery">
+                                    <div class="single-gallery__icon">
+                                        <i class="fa-light fa-circle-plus"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        @else
+                            <div class="rts-video-section" style="height: 100%;">
+                                <a href="{{$image->video_url}}" class="rts-video-section-player popup-video video-btn">
+                                    <i class="fa-sharp fa-solid fa-play"></i>
+                                </a>
+                                <img src="{{asset($image->file_path)}}" alt="video-bg">
+                            </div>
+                        @endif
                     </div>
                     @endforeach
                 </div>

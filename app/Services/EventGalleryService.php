@@ -6,6 +6,9 @@ use App\Interface\EventGalleryInterface;
 use App\Interface\FileUploadInterface;
 use App\Models\Event;
 use App\Models\EventGallery;
+use App\Constant\FileStorageConstants;
+use App\Constant\FileUploadCategory;
+use App\Exceptions\BusinessValidationException;
 
 class EventGalleryService implements EventGalleryInterface, FileUploadInterface
 {
@@ -23,20 +26,23 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
     public function addToGallery($request)
     {
         $evt = Event::where('slug', $request['slug'])->firstOrFail();
-        EventGallery::create([
+        $item = EventGallery::create([
             'event_id'   => $evt->id,
             'file_path'  => '',
-            'is_main'    => $request['is_main']
+            'video_url' => $request['video_url'],
+            'is_main'    => $request->boolean('is_main')
         ]);
+
+        $this->uploadFile($request, $item->slug);
     }
 
     public function updateFromGallery($request)
     {
         $evtGallery = EventGallery::where('slug', $request['slug'])->firstOrFail();
         $evtGallery->update([
-            'file_path' => '',
-            'is_main'   => $request['is_main']
+            'video_url' => $request['video_url']
         ]);
+        $this->uploadFile($request, $evtGallery->slug);
     }
 
     public function deleteFromGallery($request)
@@ -45,12 +51,14 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
         return $evtGallery->delete();
     }
 
-    public function uploadFile($request)
+    public function uploadFile($request, $slug=null)
     {
-        $gallery         = EventGallery::where('slug', $request['slug'])->firstOrFail();
+        $computedSlug = $slug ?? $request['slug'];
+        $gallery         = EventGallery::where('slug', $computedSlug)->firstOrFail();
 
         $directory      = FileUploadCategory::GALLERY. "/". $gallery->slug;
 
+        $file           = $request->file('image');
         $extension      = $file->getClientOriginalExtension();
 
         $fileName       =   time() . '_' . uniqid() . '.' . $extension;
@@ -64,7 +72,7 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
 
              $filePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
 
-             $this->saveFile($filePath, $gallery, $request['is_main']);
+             $this->saveFile($filePath, $gallery, $request->boolean('is_main'));
 
         }catch (\Exception $exception){
             throw new BusinessValidationException($exception->getMessage(), 400);
@@ -103,7 +111,7 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
 
     private function saveFile($path, $gallery, $is_main)
     {
-        $speaker->update([
+        $gallery->update([
             'file_path'  => $path,
             'is_main'    => $is_main
         ]);
