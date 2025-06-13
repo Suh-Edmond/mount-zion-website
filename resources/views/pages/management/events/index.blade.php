@@ -23,8 +23,8 @@
             <div class="rounded overflow-hidden shadow-lg flex flex-col">
                 <a href="{{route('manage.events.show', ['slug'=> $event->slug])}}"></a>
                 <div class="relative"><a href="{{route('manage.events.show', ['slug'=> $event->slug])}}">
-                        <img class="w-full" :src="{{asset($event->getMainImage($event))}}" alt="Blog Image"
-                            height="50px">
+                        <img class="w-full" src="{{asset($event->getMainImage($event))}}" alt="Blog Image"
+                            style="height: 250px!important">
                         <div
                             class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
                         </div>
@@ -53,6 +53,13 @@
             </div>
             @endforeach
         </div>
+
+
+        @if(count($events) == 0)
+        <h3 class="text-lg font-medium text-gray-900 p-5 text-center my-5">
+            Oops! No events found
+        </h3>
+        @endif
     </div>
 
     <div class="max-w-7xl mx-auto  pb-3 flex justify-end">

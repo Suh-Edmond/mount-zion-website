@@ -47,7 +47,6 @@ class EventSpeakerController extends Controller
 
     public function storeSpeaker(CreateEventSpeakerRequest $request)
     {
-        
         $this->eventSpeakerService->createEventSpeaker($request);
 
         return redirect()->route('manage.events.speakers.list', ['slug' => $request['slug']])->with(['status' => 'Speaker save successfully']);

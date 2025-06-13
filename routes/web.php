@@ -76,6 +76,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('events-management/create', [EventController::class, 'createEvent'])->name('manage.events.create');
     Route::post('events-management/save', [EventController::class, 'storeEvent'])->name('manage.events.store');
     Route::put('/events-management/update', [EventController::class, 'updateEvent'])->name('manage.events.update');
+    Route::delete('/events-management/delete', [EventController::class, 'deleteEvent'])->name('manage.events.delete');
     Route::get('events-management/detail/speakers', [EventSpeakerController::class, 'listSpeakers'])->name('manage.events.speakers.list');
     Route::get('events-management/detail/speakers/information', [EventSpeakerController::class, 'showSpeaker'])->name('manage.events.speakers.show');
     Route::get('events-management/detail/speakers/create', [EventSpeakerController::class, 'createSpeaker'])->name('manage.events.speakers.create');
@@ -85,6 +86,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::post('events-management/detail/speakers/picture/update', [EventSpeakerController::class, 'updateSpeakerPicture'])->name('manage.events.speakers.update-picture');
     Route::get('events-managment/detail/sections/list', [EventSectionController::class, 'listEventSections'])->name('manage.events.sections.list');
     Route::post('events-managment/detail/sections/add', [EventSectionController::class, 'addEventSection'])->name('manage.events.sections.create');
+    Route::put('events-managment/detail/sections/update', [EventSectionController::class, 'updateEventSection'])->name('manage.events.sections.update');
     Route::delete('events-managment/detail/sections/remove', [EventSectionController::class, 'deleteEventSection'])->name('manage.events.section.delete');
     Route::get('events-managment/detail/gallery/list', [EventGalleryController::class, 'index'])->name('manage.events.gallery.list');
     Route::post('events-managment/detail/gallery/add', [EventGalleryController::class, 'store'])->name('manage.events.gallery.create');

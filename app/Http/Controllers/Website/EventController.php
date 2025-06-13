@@ -61,9 +61,7 @@ class EventController extends Controller
          $mainGalleryItem = $event->eventGallery->firstWhere('is_main', true);
             
          // If there's a main gallery item, use it, otherwise use the first one
-         $event->poster_url = $mainGalleryItem 
-         ? $mainGalleryItem->file_path 
-         : ($event->eventGallery->first() ? $event->eventGallery->first()->file_path : null);
+         $event->poster_url = $mainGalleryItem ? $mainGalleryItem->file_path : ($event->eventGallery->first() ? $event->eventGallery->first()->file_path : null);
 
         return view('pages.guest.main-website.event.detail', [
             'event'=> $event
@@ -114,5 +112,12 @@ class EventController extends Controller
         $this->eventManagementService->updateEvent($request);
 
         return redirect()->back()->with(['status' => 'Event Information Updated Successfully']);
+    }
+
+    public function deleteEvent(Request $request)
+    {
+        $this->eventManagementService->deleteEvent($request);
+
+        return redirect()->route('manage.events')->with(['status' => 'Event deleted Successfully']);
     }
 }

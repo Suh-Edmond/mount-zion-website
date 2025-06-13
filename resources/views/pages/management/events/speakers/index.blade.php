@@ -44,7 +44,7 @@
                 <div class="relative">
                     <a href="#">
                         <img class="w-25 rounded" src="{{asset($speaker->picture)}}" alt="Blog Image"
-                            style="width: 300px !important; height:250px !important;">
+                            style="width: 300px !important; height:250px !important;border-radius: 50%;">
                         <div
                             class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-white-900 opacity-25">
                         </div>

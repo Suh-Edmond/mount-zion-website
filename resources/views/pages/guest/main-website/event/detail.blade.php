@@ -2,7 +2,8 @@
 
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
-    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url('{{asset($event->poster_url)}}');">
+    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg"
+        style="background-image: url('{{asset($event->poster_url)}}');">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -34,14 +35,14 @@
                             <div class="event-details__content--text">
                                 <div class="rts-section">
                                     <h4 class="rts-section-title">About The Event</h4>
-                                    <p class="description">{{$event->about}}</p>
+                                    <p class="description">{!! $event->about !!}</p>
                                 </div>
                             </div>
                             <div class="event-details__content--feature">
                                 @foreach ($event->eventSections as $section)
                                 <div class="single-feature">
                                     <p class="feature-heading">{{$section->title}}:</p>
-                                    <p class="feature-description">{{$section->body}}</p>
+                                    <p class="feature-description">{!! $section->body !!}</p>
                                 </div>
                                 @endforeach
                             </div>
@@ -56,15 +57,18 @@
                             <div class="single-info">
 
                                 <div class="info-repeat">
-                                    <div class="left-side"><span><i class="fa-regular fa-calendar-week"></i></span> Date:</div>
+                                    <div class="left-side"><span><i class="fa-regular fa-calendar-week"></i></span>
+                                        Date:</div>
                                     <div class="right-side">
-                                        <span class="desc price">{{ date('F j, Y', strtotime($event->event_date)) }}</span>
+                                        <span class="desc price">{{ date('F j, Y', strtotime($event->event_date))
+                                            }}</span>
                                     </div>
                                 </div>
 
 
                                 <div class="info-repeat">
-                                    <div class="left-side"><span><i class="fa-light fa-money-check-dollar"></i></span> Time:</div>
+                                    <div class="left-side"><span><i class="fa-light fa-money-check-dollar"></i></span>
+                                        Time:</div>
                                     <div class="right-side">
                                         <span class="desc">{{ date('g:i A', strtotime($event->event_time)) }}</span>
                                     </div>
@@ -95,7 +99,8 @@
                                     <div class="info-repeat">
                                         <div class="left-side bold">Phone Number:</div>
                                         <div class="right-side">
-                                            <span class="desc"><a href="{{'callto:'.$event->phone}}">{{$event->phone}}</a></span>
+                                            <span class="desc"><a
+                                                    href="{{'callto:'.$event->phone}}">{{$event->phone}}</a></span>
                                         </div>
                                     </div>
                                     <!-- single repeat item -->
@@ -134,7 +139,8 @@
                     <div class="event-speaker">
                         <div class="event-speaker__details">
                             <div class="speaker-thumb">
-                                <img src="{{asset($speaker->picture)}}" alt="speaker-thumb">
+                                <img src="{{asset($speaker->picture)}}" alt="speaker-thumb"
+                                    style="height: 200px !important">
                                 <div class="speaker-social-link">
                                 </div>
                             </div>
@@ -165,22 +171,23 @@
                 <div class="row g-5">
                     @foreach ($event->eventGallery as $image)
                     <div class="col-lg-4 col-md-6">
-                        @if(empty($image->video_url))
-                            <div class="single-gallery">
-                                <a href="{{asset($image->file_path)}}" class="single-gallery__item">
-                                    <img src="{{asset($image->file_path)}}" alt="gallery">
-                                    <div class="single-gallery__icon">
-                                        <i class="fa-light fa-circle-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
+                        @if(!isset($image->video_url))
+                        <div class="single-gallery">
+                            <a href="{{asset($image->file_path)}}" class="single-gallery__item"
+                                style="height: 50% !important">
+                                <img src="{{asset($image->file_path)}}" alt="gallery" style="width: 100% !important;">
+                                <div class="single-gallery__icon">
+                                    <i class="fa-light fa-circle-plus"></i>
+                                </div>
+                            </a>
+                        </div>
                         @else
-                            <div class="rts-video-section" style="height: 100%;">
-                                <a href="{{$image->video_url}}" class="rts-video-section-player popup-video video-btn">
-                                    <i class="fa-sharp fa-solid fa-play"></i>
-                                </a>
-                                <img src="{{asset($image->file_path)}}" alt="video-bg">
-                            </div>
+                        <div class="rts-video-section" style="height: 50% !important">
+                            <a href="{{$image->video_url}}" class="rts-video-section-player popup-video video-btn">
+                                <i class="fa-sharp fa-solid fa-play"></i>
+                            </a>
+                            <img src="{{asset($image->file_path)}}" alt="video-bg" style="width: 100% !important;">
+                        </div>
                         @endif
                     </div>
                     @endforeach

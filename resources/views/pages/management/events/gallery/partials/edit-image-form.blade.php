@@ -7,23 +7,14 @@
                 </h5>
             </div>
 
-<<<<<<< HEAD
             <form method="post"
-                action="{{route('manage.documents.upload', ['slug' => $value->slug, 'type' => 'none', 'is_main' => false, 'file_type'=>'GALLERY'])}}"
-=======
-            <form method="post" action="{{route('manage.events.gallery.update', ['slug' => $value->slug, 'type' => 'none', 'is_main' => false]) }}"
->>>>>>> 1ed509cc4fb274cc6fc19a057d7db4352efe833c
+                action="{{route('manage.events.gallery.update', ['slug' => $value->slug, 'type' => 'none', 'is_main' => false]) }}"
                 class="mt-6 space-y-6" enctype="multipart/form-data">
                 @csrf
 
                 <div class="w-full">
-<<<<<<< HEAD
-                    <x-input-label for="image" :value="__('Upload Image')" />
-                    <input name="image" value="{{old('image', $value->file_path ?? '')}}" required
-=======
                     <x-input-label for="picture" :value="__('Upload Picture')" />
-                    <input name="image" value="{{old('picture', $speaker->picture ?? '')}}" required
->>>>>>> 1ed509cc4fb274cc6fc19a057d7db4352efe833c
+                    <input name="image" value="{{old('picture', $value->picture ?? '')}}" required
                         class="block p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="file_input_help" id="file_input" type="file" accept="image/*">
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG or JPEG
@@ -34,7 +25,7 @@
                 <div class="w-full">
                     <x-input-label for="video_url" :value="__('Video Url')" />
                     <x-text-input id="video_url" name="video_url" type="text" class="mt-1 block w-full"
-                        :value="old('video_url')" />
+                        value="{{$value->video_url}}" />
                     <small class="mt-1 text-sm text-gray-500 dark:text-gray-300">
                         If this picture is a video thumbnail, provide the youtube video URL here.
                     </small>

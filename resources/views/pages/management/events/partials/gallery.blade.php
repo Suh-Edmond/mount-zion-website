@@ -3,7 +3,7 @@
         <div class="flex justify-between">
             <header class="flex flex-row ">
                 <h2 class="text-lg font-medium text-gray-900">
-                    {{ __('Gallery') }}
+                    {{ __('Event Gallery') }}
                 </h2>
             </header>
 
@@ -24,6 +24,13 @@
                         <div
                             class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
                         </div>
+                        @if($image->is_main)
+                        <div>
+                            <div for="picture" class="text-xs text-white p-1 font-bold bg-red-500 ">
+                                Main
+                                Picture</div>
+                        </div>
+                        @endif
                     </a>
                 </div>
             </div>

@@ -28,12 +28,15 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
 
     public function addToGallery($request)
     {
-        //todo: ensure only one main gallery image exist
+         
         $evt = Event::where('slug', $request['slug'])->firstOrFail();
+        
+        $hasMainImage = $this->checkEventGalleryMainImage($evt);
+
         $gallery = EventGallery::create([
             'event_id'   => $evt->id,
             'file_path'  => '',
-            'is_main'    => true,
+            'is_main'    => isset($hasMainImage) ? false : true,
             'video_url' => $request['video_url'],
         ]);
 
@@ -66,7 +69,7 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
     {
         $gallery = EventGallery::where('slug', $request['slug'])->firstOrFail();
 
-        $directory      = FileUploadCategory::SPEAKER. "/" . $gallery->event->slug . "/". $gallery->slug;
+        $directory      = FileUploadCategory::GALLERY. "/" . $gallery->event->slug . "/". $gallery->slug;
 
         $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory. "/" .$gallery->file_path;
 
@@ -83,7 +86,7 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
     {
         $gallery         = EventGallery::where('slug', $request['slug'])->firstOrFail();
 
-        $directory       =  FileUploadCategory::SPEAKER. "/". $gallery->event->slug . "/". $gallery->slug;
+        $directory       =  FileUploadCategory::GALLERY. "/". $gallery->event->slug . "/". $gallery->slug;
 
         $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory. "/". $gallery->file_path;
 
@@ -107,7 +110,7 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
 
     private function upload($gallery, $request)
     {
-        $directory      = FileUploadCategory::SPEAKER. "/". $gallery->event->slug . "/". $gallery->slug;
+        $directory      = FileUploadCategory::GALLERY. "/". $gallery->event->slug . "/". $gallery->slug;
 
         $file            = $request->file('image');
 
