@@ -13,6 +13,6 @@ class FileUploadController extends Controller
 
         $uploadService->uploadFile($request);
 
-        return redirect()->back()->with(['status' => 'File uploaded successfully']);
+        return back()->with(['status' => 'File uploaded successfully']);
     }
 }

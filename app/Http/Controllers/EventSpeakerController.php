@@ -65,7 +65,7 @@ class EventSpeakerController extends Controller
     {
         $this->eventSpeakerService->deleteSpeaker($request);
 
-         return back()->with(['status' => 'Speaker deleted successfully']);
+        return back()->with(['status' => 'Speaker deleted successfully']);
     }
 
     public function updateSpeakerPicture(){

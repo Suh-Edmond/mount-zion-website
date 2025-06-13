@@ -19,7 +19,8 @@
             @foreach($event->eventGallery->take(3) as $key => $image)
             <div class="rounded overflow-hidden shadow-lg flex flex-col my-3">
                 <div class="relative"><a href="#">
-                        <img class="w-full rounded" src="{{asset($image->file_path)}}" alt="Blog Image" height="50px">
+                        <img class="w-full rounded" src="{{asset($image->file_path)}}" alt="Blog Image"
+                            style="width: 100% !important; height:250px !important;">
                         <div
                             class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
                         </div>
