@@ -2,11 +2,16 @@
 
 namespace App\Services;
 
+use App\Constant\FileStorageConstants;
+use App\Constant\FileUploadCategory;
 use App\Constant\ProgramType;
 use App\Interface\ProgramInterface;
 use App\Interface\FileUploadInterface;
 use App\Models\Program;
 use App\Models\School;
+use Exception;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class ProgramService implements ProgramInterface, FileUploadInterface
@@ -62,7 +67,7 @@ class ProgramService implements ProgramInterface, FileUploadInterface
     {
         $data = $this->validateRequest($request);
         $school  = School::where('slug', $data['school_slug'])->firstOrFail();
-        Program::create([
+        $program = Program::create([
             'name'      => $data['name'],
             'about'     => $data['about'],
             'tag'       => $data['tag'],
@@ -70,6 +75,8 @@ class ProgramService implements ProgramInterface, FileUploadInterface
             'image_path' => '',
             'school_id'  => $school->id
         ]);
+
+        $this->upload($program, $request);
     }
 
     public function showProgram($request)
@@ -101,27 +108,7 @@ class ProgramService implements ProgramInterface, FileUploadInterface
     public function uploadFile($request)
     {
         $program         = Program::where('slug', $request['slug'])->firstOrFail();
-
-        $directory      = FileUploadCategory::PROGRAM. "/". $program->school->slug . "/". $program->slug;
-
-        $extension      = $file->getClientOriginalExtension();
-
-        $fileName       =   time() . '_' . uniqid() . '.' . $extension;
-
-         try {
-            $request->validate([
-                'image' => 'required|image|mimes:jpg,jpeg,png|max:2048'
-            ]);
-
-             $request->file('image')->storeAs(FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory, $fileName, 'public');
-
-             $filePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
-
-             $this->saveFile($filePath, $program);
-
-        }catch (\Exception $exception){
-            throw new BusinessValidationException($exception->getMessage(), 400);
-        }
+        $this->upload($program, $request);
     }
 
     private function saveFile($path, $program)
@@ -137,15 +124,15 @@ class ProgramService implements ProgramInterface, FileUploadInterface
 
         $directory      = FileUploadCategory::PROGRAM. "/". $program->school->slug . "/". $program->slug;
 
-        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$fileName;
+        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$program->image_path;
 
         $path = public_path($uploadedFilePath);
 
         Storage::disk('public')->delete($path);
 
-        $image->delete();
-
-        return Redirect::back()->with(['status' => 'Image remove successfully']);
+        $program->update([
+            'image_path' => ''
+        ]);
     }
 
     public function getFile($request)
@@ -154,11 +141,11 @@ class ProgramService implements ProgramInterface, FileUploadInterface
 
         $directory       =  FileUploadCategory::PROGRAM. "/". $program->school->slug . "/". $program->slug;
 
-        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
+        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$program->image_path;
 
         $headers = array('Content-Type: application/pdf');
 
-        return Response::download($uploadedFilePath, $fileName, $headers);
+        return Response::download($uploadedFilePath, $program->image_path, $headers);
     }
 
 
@@ -169,7 +156,7 @@ class ProgramService implements ProgramInterface, FileUploadInterface
             'about'     => 'required|string|min:100|max:5000',
             'tag'       => ['required',  Rule::in([ProgramType::HND, ProgramType::BACHELOR, ProgramType::SPECIAL_CARE]) ],
             'duration'  => ['required', 'min:1', 'max:5'],
-            'image_path' => 'required|image|mimes:jpg,jpeg,png',
+            'image'     => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'school_slug'  => ['required', 'string']
         ]);
     }
@@ -184,5 +171,30 @@ class ProgramService implements ProgramInterface, FileUploadInterface
             'duration'  => ['required', 'min:1', 'max:5'],
             'slug'      => ['required', 'string']
         ]);
+    }
+
+    private function upload($program, $request)
+    {
+        $directory      = FileUploadCategory::PROGRAM. "/". $program->school->slug . "/". $program->slug;
+        $file           = $request['image'];
+
+        $extension      = $file->getClientOriginalExtension();
+
+        $fileName       =   time() . '_' . uniqid() . '.' . $extension;
+
+         try {
+            $request->validate([
+                'image' => 'required|image|mimes:jpg,jpeg,png|max:2048'
+            ]);
+
+             $request->file('image')->storeAs(FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY."/".$directory, $fileName, 'public');
+
+             $filePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
+
+             $this->saveFile($filePath, $program);
+
+        }catch (\Exception $exception){
+            throw new Exception($exception->getMessage(), 400);
+        }
     }
 }

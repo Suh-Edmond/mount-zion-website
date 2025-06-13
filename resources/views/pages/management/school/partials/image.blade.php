@@ -1,12 +1,14 @@
 <section>
     <div>
-        <div class="flex justify-between">
+        <div>
             <div class="bg-white shadow-sm sm:rounded-lg cursor-pointer mb-4">
-                <img src="{{asset($school->image_path)}}" alt="Faculty Image">
+                <img src="{{asset($school->image_path)}}" alt="Faculty Image"
+                    style="width: 250px !important; height:250px !important;">
             </div>
+            <x-secondary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'upload_image_modal')">
+                <i class="fa fa-pencil text-blue-800 cursor-pointer"></i>
+            </x-secondary-button>
 
-            <x-primary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'upload_image_modal')">
-                <i class="fa fa-pencil text-blue-800 cursor-pointer"></i></x-primary-button>
         </div>
 
         <div class="flex justify-between">

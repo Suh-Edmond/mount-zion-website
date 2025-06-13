@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventGalleryController;
 use App\Http\Controllers\EventSectionController;
 use App\Http\Controllers\EventSpeakerController;
+use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SchoolController;
@@ -88,7 +89,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::put('events-managment/detail/gallery/update', [EventGalleryController::class, 'update'])->name('manage.events.gallery.update');
     Route::delete('events-managment/detail/gallery/remove', [EventGalleryController::class, 'delete'])->name('manage.events.gallery.delete');
 
-    Route::post('upload-documents', [EventGalleryController::class, 'uploadDocument'])->name('manage.documents.upload');
+    Route::post('upload-documents', [FileUploadController::class, 'uploadDocument'])->name('manage.documents.upload');
 });
 
 Route::middleware('auth')->group(function () {

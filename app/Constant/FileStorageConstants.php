@@ -1,7 +1,7 @@
 <?php
-namespace App\Constants;
+namespace App\Constant;
 
-class FileStorageConstants {
+enum FileStorageConstants {
 
     public const FILE_STORAGE_BASE_DIRECTORY = "uploads";
 

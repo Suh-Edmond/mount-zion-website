@@ -8,12 +8,12 @@
             </div>
 
             <form method="post"
-                action="{{ route('manage.documents.upload', ['slug' => $school->slug, 'type' => 'none', 'is_main' => false]') }}"
+                action="{{route('manage.documents.upload', ['slug' => $school->slug, 'type' => 'none', 'is_main' => false, 'file_type'=>'SCHOOL'])}}"
                 class="mt-6 space-y-6" enctype="multipart/form-data">
                 @csrf
 
                 <div class="w-full">
-                    <x-input-label for="image"   :value="__('Upload School Image')"  />
+                    <x-input-label for="image" :value="__('Upload School Image')" />
                     <input name="image" value="{{old('image')}}" required
                         class="block p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="file_input_help" id="file_input" type="file">
