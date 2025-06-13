@@ -68,4 +68,12 @@ class SchoolController extends Controller
 
         return redirect()->back()->with(['status' => 'School updated successfully']);
     }
+
+    //update school image
+    public function updateSchoolImage(Request $request)
+    {
+        $this->schoolService->uploadFile($request);
+
+        return redirect()->back()->with(['status' => 'School image updated successfully']);
+    }
 }

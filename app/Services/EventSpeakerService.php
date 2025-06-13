@@ -9,7 +9,6 @@ use App\Interface\FileUploadInterface;
 use App\Models\Event;
 use App\Models\Speaker;
 use Exception;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 

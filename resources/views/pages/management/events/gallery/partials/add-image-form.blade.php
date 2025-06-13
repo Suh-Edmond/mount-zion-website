@@ -7,16 +7,25 @@
                 </h5>
             </div>
 
+<<<<<<< HEAD
             <form method="post"
                 action="{{route('manage.events.gallery.create', ['slug' => $event->slug, 'type' => 'none', 'file_type'=>'GALLERY'])}}"
+=======
+            <form method="post" action="{{ route('manage.events.gallery.create', ['slug' => $event->slug, 'type' => 'none']) }}"
+>>>>>>> 1ed509cc4fb274cc6fc19a057d7db4352efe833c
                 class="mt-6 space-y-6" enctype="multipart/form-data">
                 @csrf
 
                 <div class="w-full">
+<<<<<<< HEAD
                     <x-input-label for="image" :value="__('Upload Image')" />
                     <input name="image" value="{{old('file_path')}}" required
+=======
+                    <x-input-label for="picture" :value="__('Upload Picture')" />
+                    <input name="image" value="{{old('picture', $speaker->picture ?? '')}}" required
+>>>>>>> 1ed509cc4fb274cc6fc19a057d7db4352efe833c
                         class="block p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        aria-describedby="file_input_help" id="file_input" type="file">
+                        aria-describedby="file_input_help" id="file_input" type="file" accept="image/*">
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG or JPEG
                         (MAX. 1Mb).</p>
                     <x-input-error class="mt-2" :messages="$errors->get('image')" />
@@ -25,11 +34,27 @@
                 @if(!$hasMainImage)
                 <div class="my-4 flex space-x-2">
                     <x-input-label for="is_main" :value="__('Main Picture: ')" required />
+<<<<<<< HEAD
                     <input id="is_main" name="is_main" type="checkbox" class="mt-1" required autocomplete="is_main" />
+=======
+                    <input id="is_main" name="is_main" type="checkbox" class="mt-1" :value="1" required
+                        autocomplete="is_main" />
+>>>>>>> 1ed509cc4fb274cc6fc19a057d7db4352efe833c
                 </div>
                 <small class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">You can only have a
                     single main picture per event</small>
                 @endif
+
+
+                <div class="w-full">
+                    <x-input-label for="video_url" :value="__('Video Url')" />
+                    <x-text-input id="video_url" name="video_url" type="text" class="mt-1 block w-full"
+                        :value="old('video_url')" />
+                    <small class="mt-1 text-sm text-gray-500 dark:text-gray-300">
+                        If this picture is a video thumbnail, provide the youtube video URL here.
+                    </small>
+                </div>
+
                 <div class="mt-6 flex justify-end space-x-3">
                     <x-secondary-button x-on:click="$dispatch('close')">
                         {{ __('Cancel') }}

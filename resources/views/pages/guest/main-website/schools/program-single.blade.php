@@ -34,7 +34,7 @@
                     <div class="col-lg-8">
                         <div class="program-description-area" id="curriculum">
                             <div class="program-big-thumb">
-                                <img src="/{{$program->image_path}}" alt="program">
+                                <img src="{{ asset($program->image_path) }}" alt="program">
                             </div>
                             <div class="program-about">
                                 <h4 class="title">About The Program</h4>
@@ -65,18 +65,18 @@
                                 <p>{{$program->school->address}}</p>
                                 <div class="contact-info">
                                     <h5>Contact:</h5>
-                                    <a :href="mailto:{{$program->school->email}}">{{$program->school->email}}</a>
+                                    <a :href="'mailto:{{$program->school->email}}'">{{$program->school->email}}</a>
                                     <a href="callto:+237">{{$program->school->telephone}}</a>
                                 </div>
                                 <div class="social-info">
-                                    <h5>Social Info:</h5>
+                                    <!-- <h5>Social Info:</h5>
                                     <div class="social-info-link">
                                         <a href="#"><i class="fa-brands fa-facebook"></i></a>
                                         <a href="#"><i class="fa-brands fa-instagram"></i></a>
                                         <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                                         <a href="#"><i class="fa-brands fa-pinterest"></i></a>
                                         <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>

@@ -8,7 +8,11 @@
             </div>
 
             <form method="post"
+<<<<<<< HEAD
                 action="{{route('manage.documents.upload', ['slug' => $program->slug, 'type' => 'none', 'is_main' => false, 'file_type'=>'PROGRAM'])}}"
+=======
+                action="{{ route('manage.academics.programs.edit-upload-image', ['slug' => $program->slug, 'type' => 'none', 'is_main' => false]) }}"
+>>>>>>> 1ed509cc4fb274cc6fc19a057d7db4352efe833c
                 class="mt-6 space-y-6" enctype="multipart/form-data">
                 @csrf
 
@@ -16,7 +20,7 @@
                     <x-input-label for="image" :value="__('Upload Program Image')" />
                     <input name="image" value="{{old('image')}}" required
                         class="block p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        aria-describedby="file_input_help" id="file_input" type="file">
+                        aria-describedby="file_input_help" id="file_input" type="file" accept="image/*">
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG or JPEG
                         (MAX. 1Mb).</p>
                     <x-input-error class="mt-2" :messages="$errors->get('image')" />

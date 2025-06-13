@@ -33,7 +33,8 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
         $gallery = EventGallery::create([
             'event_id'   => $evt->id,
             'file_path'  => '',
-            'is_main'    => true
+            'is_main'    => true,
+            'video_url' => $request['video_url'],
         ]);
 
         $this->upload($gallery, $request);
@@ -43,9 +44,9 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
     {
         $evtGallery = EventGallery::where('slug', $request['slug'])->firstOrFail();
         $evtGallery->update([
-            'file_path' => '',
-            'is_main'   => $request['is_main']
+            'video_url' => $request['video_url']
         ]);
+        $this->uploadFile($request, $evtGallery->slug);
     }
 
     public function deleteFromGallery($request)
@@ -54,7 +55,7 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
         return $evtGallery->delete();
     }
 
-    public function uploadFile($request)
+    public function uploadFile($request, $slug=null)
     {
         $gallery = EventGallery::where('slug', $request['slug'])->firstOrFail();
 
@@ -93,6 +94,7 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
 
     private function saveFile($path, $gallery, $is_main)
     {
+
         $gallery->update([
             'file_path'  => $path,
         ]);

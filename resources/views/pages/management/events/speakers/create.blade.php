@@ -78,15 +78,26 @@
                             :value="old('facebook')" required autocomplete="facebook" />
                     </div>
 
+<<<<<<< HEAD
                     <div class="w-full">
                         <x-input-label for="image" :value="__('Upload Picture')" />
                         <input id="image" name="image" value="{{old('')}}" required
+=======
+                    <!-- <div class="w-full">
+                        <x-input-label for="picture" :value="__('Upload Picture')" />
+                        <input name="picture" value="{{old('picture', $speaker->picture ?? '')}}" required
+>>>>>>> 1ed509cc4fb274cc6fc19a057d7db4352efe833c
                             class="block p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                             aria-describedby="file_input_help" id="file_input" type="file">
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG or JPEG
                             (MAX. 1Mb).</p>
+<<<<<<< HEAD
                         <x-input-error class="mt-2" :messages="$errors->get('image')" />
                     </div>
+=======
+                        <x-input-error class="mt-2" :messages="$errors->get('picture')" />
+                    </div> -->
+>>>>>>> 1ed509cc4fb274cc6fc19a057d7db4352efe833c
 
 
                     <div class="flex flex-row justify-between">

@@ -2,17 +2,17 @@
 
 namespace App\Services;
 
-use App\Constant\FileStorageConstants;
-use App\Constant\FileUploadCategory;
+ 
 
 use App\Interface\SchoolInterface;
 use App\Interface\FileUploadInterface;
-use App\Models\Faculty;
 use App\Models\School;
 use Exception;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
+use App\Constant\FileStorageConstants;
+use App\Constant\FileUploadCategory;
 
 class SchoolService implements SchoolInterface, FileUploadInterface
 {
@@ -75,6 +75,7 @@ class SchoolService implements SchoolInterface, FileUploadInterface
         $directory      = FileUploadCategory::SCHOOL. "/". $school->slug;
         $file           =         $request->file('image');
 
+        $file           = $request->file('image');
         $extension      = $file->getClientOriginalExtension();
 
         $fileName       =   time() . '_' . uniqid() . '.' . $extension;
