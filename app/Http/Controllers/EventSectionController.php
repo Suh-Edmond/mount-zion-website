@@ -38,6 +38,13 @@ class EventSectionController extends Controller
         return back()->with(['status' => 'Section save successfully']);
     }
 
+    public function updateEventSection(CreateEventSectionRequest $request)
+    {
+        $this->eventSectionService->updateEventSection($request);
+         
+        return back()->with(['status' => 'Section save successfully']);
+    }
+
 
     public function deleteEventSection(Request $request)
     {

@@ -47,7 +47,6 @@ class EventSpeakerController extends Controller
 
     public function storeSpeaker(CreateEventSpeakerRequest $request)
     {
-        
         $this->eventSpeakerService->createEventSpeaker($request);
 
         return redirect()->route('manage.events.speakers.list', ['slug' => $request['slug']])->with(['status' => 'Speaker save successfully']);
@@ -65,10 +64,12 @@ class EventSpeakerController extends Controller
     {
         $this->eventSpeakerService->deleteSpeaker($request);
 
-         return back()->with(['status' => 'Speaker deleted successfully']);
+        return back()->with(['status' => 'Speaker deleted successfully']);
     }
 
-    public function updateSpeakerPicture(){
+    public function updateSpeakerPicture(Request $request){
+        $this->eventSpeakerService->uploadFile($request);
 
+        return back()->with(['status' => 'Speaker picture updated successfully']);
     }
 }

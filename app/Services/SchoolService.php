@@ -2,11 +2,17 @@
 
 namespace App\Services;
 
+ 
+
 use App\Interface\SchoolInterface;
 use App\Interface\FileUploadInterface;
-use App\Models\Faculty;
 use App\Models\School;
+use Exception;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
+use App\Constant\FileStorageConstants;
+use App\Constant\FileUploadCategory;
 
 class SchoolService implements SchoolInterface, FileUploadInterface
 {
@@ -67,7 +73,9 @@ class SchoolService implements SchoolInterface, FileUploadInterface
         $school         = School::where('slug', $request['slug'])->firstOrFail();
 
         $directory      = FileUploadCategory::SCHOOL. "/". $school->slug;
+        $file           =         $request->file('image');
 
+        $file           = $request->file('image');
         $extension      = $file->getClientOriginalExtension();
 
         $fileName       =   time() . '_' . uniqid() . '.' . $extension;
@@ -77,14 +85,14 @@ class SchoolService implements SchoolInterface, FileUploadInterface
                 'image' => 'required|image|mimes:jpg,jpeg,png|max:2048'
             ]);
 
-             $request->file('image')->storeAs(FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory, $fileName, 'public');
+             $request->file('image')->storeAs(FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY."/".$directory, $fileName, 'public');
 
              $filePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
 
              $this->saveFile($filePath, $school);
 
         }catch (\Exception $exception){
-            throw new BusinessValidationException($exception->getMessage(), 400);
+            throw new Exception($exception->getMessage(), 400);
         }
     }
 
@@ -94,13 +102,15 @@ class SchoolService implements SchoolInterface, FileUploadInterface
 
         $directory      = FileUploadCategory::SCHOOL. "/". $school->slug;
 
-        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$fileName;
+        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$school->image_path;
 
         $path = public_path($uploadedFilePath);
 
         Storage::disk('public')->delete($path);
 
-        $image->delete();
+        $school->update([
+            'image_path' => ''
+        ]);
 
         return Redirect::back()->with(['status' => 'Image remove successfully']);
     }
@@ -111,11 +121,11 @@ class SchoolService implements SchoolInterface, FileUploadInterface
 
         $directory      = FileUploadCategory::SCHOOL. "/". $school->slug;
 
-        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
+        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$school->image_path;
 
         $headers = array('Content-Type: application/pdf');
 
-        return Response::download($uploadedFilePath, $fileName, $headers);
+        return Response::download($uploadedFilePath, $school->image_path, $headers);
     }
 
     private function saveFile($path, $school)

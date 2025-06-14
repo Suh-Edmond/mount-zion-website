@@ -15,7 +15,8 @@ class EventGallery extends Model
     protected $fillable = [
         'event_id',
         'file_path',
-        'is_main'
+        'is_main',
+        'video_url'
     ];
 
     public function event()
