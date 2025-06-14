@@ -2,18 +2,35 @@
 
 namespace App\Services;
 
+use App\Constant\FileStorageConstants;
+use App\Constant\FileUploadCategory;
 use App\Constant\UserType;
+use App\Exceptions\BusinessValidationException;
 use App\Interface\AdmissionApplicantInterface;
 use App\Mail\AdmissionMail;
 use App\Models\Admission;
+use App\Models\AdmissionDocument;
 use App\Models\AdmissionYear;
 use App\Models\Program;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class AdmissionApplicantService implements AdmissionApplicantInterface
 {
+    private AdmissionDocumentService $admissionDocumentService;
+
+    public function __construct(AdmissionDocumentService $admissionDocumentService)
+    {
+        $this->admissionDocumentService = $admissionDocumentService;
+    }
+
+
+
     public function getApplicants($request)
     {
         $school_filter = $request['school_filter'];
@@ -75,7 +92,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
     public function createApplicant($request)
     {
-
+        // $this->validate($request);
         $admissionYear = AdmissionYear::findOrFail($request['admission_year_id']);
         $program = Program::findOrFail($request['program_id']);
         $applicant = User::where('email', $request['email'])->first();
@@ -99,12 +116,17 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         $hasApplied = Admission::where('user_id', $applicant['id'])
                      ->where('program_id', $program['id'])
                      ->where('admission_year_id', $admissionYear['id'])->first();
+        
         if (!isset($hasApplied)){
-            Admission::create([
+             
+            $createdAdmission = Admission::create([
                 'user_id'           => $applicant['id'],
                 'admission_year_id' => $admissionYear['id'],
                 'program_id'        => $program['id']
             ]);
+
+            
+            $this->uploadAdmissionDocument($request, $createdAdmission);
 
             $this->sendAdmissionEmails($applicant, $program);
         }
@@ -133,5 +155,115 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         }
 
         return true;
+    }
+
+    public function uploadAdmissionDocument($request, $admission)
+    {
+        
+        if(isset($request['id_card'])){
+           
+            $this->uploadFile($request, $admission, FileUploadCategory::ID_CARD, 'id_card');
+        }
+
+        if(isset($request['gce_cert'])){
+            
+            $this->uploadFile($request, $admission, FileUploadCategory::GCE_CERT, 'gce_cert');
+        }
+
+        if(isset($request["hnd_cert"])){
+            
+            $this->uploadFile($request, $admission, FileUploadCategory::HND_CERT, 'hnd_cert');
+        }
+    }
+
+    public function downloadAdmissionDocument($request)
+    {
+        $this->getFile($request);
+    }
+
+
+    public function uploadFile($request, $admission, $type, $file_input_name)
+    {
+
+        $directory        = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug. "/". $type;
+
+        $file            = $request->file($file_input_name);
+
+        $extension        = $file->getClientOriginalExtension();
+
+        $fileName         =   time() . '_' . uniqid() . '.' . $extension;
+
+         try {
+            $request->file($file_input_name)->storeAs(FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory, $fileName, 'public');
+
+            $filePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory . "/" . $fileName;
+
+            $this->saveFile($filePath, $admission, $type);
+
+        }catch (\Exception $exception){
+            throw new BusinessValidationException($exception->getMessage(), 400);
+        }
+    }
+
+    public function deleteFile($request)
+    {
+        $admission = Admission::where('slug', $request['slug'])->firstOrFail();
+
+        $document = AdmissionDocument::where('doc_slug', $request['slug'])->firstOrFail();
+
+        $directory      = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug. "/". $request['type'];
+
+        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$document->file_path;
+
+        $path = public_path($uploadedFilePath);
+
+        Storage::disk('public')->delete($path);
+
+        $document->delete();
+
+        return Redirect::back()->with(['status' => 'Image remove successfully']);
+    }
+
+    public function getFile($request)
+    {
+        $admission         = Admission::where('slug', $request['slug'])->firstOrFail();
+
+        $document = AdmissionDocument::where('doc_slug', $request['slug'])->firstOrFail();
+
+        $directory         = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug ."/". $request['type'];
+
+        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$document->file_path;
+
+        $headers = array('Content-Type: application/pdf');
+
+        return Response::download($uploadedFilePath, $document->file_path, $headers);
+    }
+
+    private function saveFile($path, $admission, $type)
+    {
+        AdmissionDocument::create([
+            'admission_id' => $admission->id,
+            'file_path'    => $path,
+            'category'     => $type
+        ]);
+    }
+    
+    private function validate($request)
+    {
+        $request->validate([
+            'last_name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'telephone' => ['required', 'string'],
+            'region'   =>  ['required', 'string'],
+            'address' => ['required', 'string'],
+            'admission_year_id' => ['required', Rule::exists('admission_years', 'id')],
+            'program_id' => ['required', Rule::exists('programs', 'id')],
+            'school_id' => ['required', Rule::exists('schools', 'id')],
+            'has_agreed' => 'required',
+            'id_card' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048',
+            'hnd_cert' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048',
+            'gce_cert' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048'
+        ]);
     }
 }

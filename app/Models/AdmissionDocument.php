@@ -22,4 +22,12 @@ class AdmissionDocument extends Model
     {
         return $this->belongsTo(Admission::class);
     }
+
+    public function splitDocumentName($doc) 
+    {
+        $explode = explode("/", $doc);
+        $eles = count($explode);
+
+        return $explode[$eles - 1];
+    }
 }
