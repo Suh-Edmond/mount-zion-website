@@ -69,6 +69,9 @@ class ProgramController extends Controller
 
     public function editUploadProgramImage(Request $request)
     {
+        $this->programService->uploadFile($request);
+
+        return Redirect::route('manage.academics.programs.show', ['slug' => $request['slug']])->with('status', 'Program image updated successfully');   
     }
 
     public function editProgram(Request $request)

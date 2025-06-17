@@ -42,7 +42,8 @@
             <div class="rounded overflow-hidden shadow-lg flex flex-col my-3">
                 <div class="relative">
                     <a href="#">
-                        <img class="w-25 rounded" src="{{asset($value->file_path)}}" alt="Blog Image" height="60px">
+                        <img class="w-25 rounded" src="{{asset($value->file_path)}}" alt="Blog Image"
+                            style="width: 100% !important; height:250px !important;">
                         <div
                             class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-white-900 opacity-25">
                         </div>

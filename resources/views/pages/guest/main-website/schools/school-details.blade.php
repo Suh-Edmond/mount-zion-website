@@ -68,7 +68,7 @@
                     </div>
 
                     <div class="rts-load-more-btn ">
-                        <a href="#" class="rts-theme-btn primary lh-100">Load More</a>
+                        <!-- <a href="#" class="rts-theme-btn primary lh-100">Load More</a> -->
                     </div>
                 </div>
             </div>

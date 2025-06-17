@@ -10,7 +10,8 @@
             </h4>
 
             <div class="m-2">
-                <img class="w-25 rounded" src="{{asset($value->file_path)}}" alt="Blog Image" height="20px">
+                <img class="w-25 rounded" src="{{asset($value->file_path)}}" alt="Blog Image"
+                    style="width: 250px !important; height:250px !important">
             </div>
 
 

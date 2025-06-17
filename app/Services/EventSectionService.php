@@ -30,6 +30,18 @@ class EventSectionService implements EventSectionInterface {
         return EventSection::where('slug', $request['slug'])->firstOrFail();
     }
 
+
+    public function updateEventSection($request) 
+    {
+         
+        $section = EventSection::where('slug', $request['slug'])->firstOrFail();
+        
+        $section->update([
+            'title'        => $request['title'],
+            'body'         => $request['body']
+        ]);
+    }
+
     public function deleteEventSection($request)
     {
         $section = $this->showEventSection($request);

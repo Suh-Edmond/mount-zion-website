@@ -48,8 +48,8 @@ class Event extends Model
 
     public function getMainImage($event)
     {
-        $mainImage = $event->eventGallery()->where('is_main', true)->first();
-         
-        return $mainImage->file_path ?? "";
+        $mainGalleryItem = $event->eventGallery->firstWhere('is_main', true);
+            
+        return $mainGalleryItem ? $mainGalleryItem->file_path : ($event->eventGallery->first() ? $event->eventGallery->first()->file_path : null);
     }
 }

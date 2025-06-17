@@ -86,7 +86,8 @@ class EventManagementService implements EventManagementInterface
 
     public function deleteEvent($request)
     {
-        // TODO: Implement deleteEvent() method.
+        $event = $this->showEventInformation($request);
+        $event->delete();
     }
 
 

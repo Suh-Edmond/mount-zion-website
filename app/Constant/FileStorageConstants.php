@@ -1,9 +1,9 @@
 <?php
-namespace App\Constants;
+namespace App\Constant;
 
-class FileStorageConstants {
+enum FileStorageConstants {
 
-    public const FILE_STORAGE_BASE_DIRECTORY = "uploads";
+    public const FILE_STORAGE_BASE_DIRECTORY = "uploads/";
 
     public const FETCH_FILE_BASE_DIRECTORY = "/storage/uploads/";
 }

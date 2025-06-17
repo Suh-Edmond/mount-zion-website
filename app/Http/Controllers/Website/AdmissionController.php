@@ -77,12 +77,11 @@ class AdmissionController extends Controller
         return view('pages.management.admission.applicants.show')->with($data);
     }
 
-    public function addApplicant(AdmissionApplicantionRequest  $request)
+    public function addApplicant(Request $request)
     {
-
         $this->admissionApplicantService->createApplicant($request);
 
-        return response()->json(['status' => 'Applicant submitted successfully']);
+        return redirect()->back()->with(['status' => 'Applicant submitted successfully']);
     }
 
     public function deleteApplication(Request $request)

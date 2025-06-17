@@ -43,7 +43,8 @@
             <div class="rounded overflow-hidden shadow-lg flex flex-col">
                 <a href="{{route('manage.academics.programs.show', ['slug'=> $program->slug])}}"></a>
                 <div class="relative"><a href="{{route('manage.academics.programs.show', ['slug'=> $program->slug])}}">
-                        <img class="w-full" src="{{asset($program->image_path)}}" alt="Blog Image" height="50px">
+                        <img class="w-full" src="{{asset($program->image_path)}}" alt="Blog Image"
+                            style="height: 250px !important">
                         <div
                             class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
                         </div>
