@@ -61,9 +61,9 @@ class AdmissionYearService implements AdmissionYearInterface
         return AdmissionYear::orderBy('year', 'desc')->get();
     }
 
-    public function getCurrentAdmissionSession()
+    public function getCurrentAdmissionSessions()
     {
-        return AdmissionYear::where('status', true)->firstOrFail();
+        return AdmissionYear::where('status', true)->orderBy('created_at', 'DESC')->get();
     }
 
     public function updateAdmissionYear($request)
@@ -74,7 +74,8 @@ class AdmissionYearService implements AdmissionYearInterface
 
     public function getAdmissionSessionByYear($request)
     {
-        $current_year = $this->getCurrentAdmissionSession();
+        //TODO: chec its usage
+        $current_year = $this->getCurrentAdmissionSessions();
         return AdmissionYear::where('year', $current_year->year)->orderBy('created_at', 'DESC')->get();
     }
 }

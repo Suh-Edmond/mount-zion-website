@@ -77,14 +77,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>{{$admissionSession->name}}</td>
-                                                <td>{{$admissionSession->year}}</td>
-                                                <td>{{$admissionSession->start_date}}</td>
-                                                <td>{{$admissionSession->end_date}}</td>
-                                                <td style="{{$admissionSession->status ? 'color:green':'color:red'}} ">
-                                                    {{$admissionSession->status ? 'ACTIVE': 'IN_ACTIVE'}}</td>
+                                            @foreach (admissionSessions as $session)
+                                                <tr>
+                                                <td>{{$session->name}}</td>
+                                                <td>{{$session->year}}</td>
+                                                <td>{{$session->start_date}}</td>
+                                                <td>{{$session->end_date}}</td>
+                                                <td style="{{$session->status ? 'color:green':'color:red'}} ">
+                                                    {{$session->status ? 'ACTIVE': 'IN_ACTIVE'}}</td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
