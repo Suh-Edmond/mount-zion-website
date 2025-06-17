@@ -22,7 +22,7 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        $this->setApplicationSessionStatus();
+        //set the active state of the admission session upon entry to the admission's page
         $events = Event::orderBy('created_at', 'desc')->take(3)->get(); // will need to have a criteria to get these events
         $data = [
             'events' => $events,
