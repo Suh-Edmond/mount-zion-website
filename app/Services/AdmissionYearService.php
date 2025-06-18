@@ -31,7 +31,7 @@ class AdmissionYearService implements AdmissionYearInterface
             }
         }
         if(isset($school_id)){
-            $admissionYears = $admissionYear->whereHas('program', function($query) use ($school_id){
+            $admissionYears = $admissionYears->whereHas('program', function($query) use ($school_id){
                 $query->where('school_id', $school_id);
             });
         }
