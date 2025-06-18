@@ -60,16 +60,6 @@
                                                         class="fa-light fa-arrow-right"></i></span>Tuition fee</a></li>
                                         <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Duration:
                                                 {{$program->duration}} years</a></li>
-                                        <li><a><span><i class="fa-light fa-arrow-right"></i></span>
-                                                Session:
-                                                <span>
-                                                    {{\Carbon\Carbon::parse($program->getCurrentAdmissionSession($program)->start_date
-                                                    ?? '')->format('M d')}}</span>-
-                                                <span>
-                                                    {{\Carbon\Carbon::parse($program->getCurrentAdmissionSession($program)->end_date
-                                                    ?? '')->format('M d, Y')}}</span>
-                                            </a>
-                                        </li>
                                         <li><a><span><i class="fa-light fa-arrow-right"></i></span>Admission
                                                 Status:
                                                 @if($program->getCurrentAdmissionSession($program)->status ?? false)
@@ -77,6 +67,16 @@
                                                 @else
                                                 <span style="color: red">Admission Closed</span>
                                                 @endif
+                                            </a>
+                                        </li>
+                                        <li><a><span><i class="fa-light fa-arrow-right"></i></span>
+                                                Duration:
+                                                <span>
+                                                    {{\Carbon\Carbon::parse($program->getCurrentAdmissionSession($program)->start_date
+                                                    ?? '')->format('M d')}}</span>-
+                                                <span>
+                                                    {{\Carbon\Carbon::parse($program->getCurrentAdmissionSession($program)->end_date
+                                                    ?? '')->format('M d, Y')}}</span>
                                             </a>
                                         </li>
                                         <li><a><span><i class="fa-light fa-arrow-right"></i></span>Tag:
