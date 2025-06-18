@@ -8,11 +8,7 @@
             </div>
 
             <form method="post"
-<<<<<<< HEAD
                 action="{{route('manage.documents.upload', ['slug' => $program->slug, 'type' => 'none', 'is_main' => false, 'file_type'=>'PROGRAM'])}}"
-=======
-                action="{{ route('manage.academics.programs.edit-upload-image', ['slug' => $program->slug, 'type' => 'none', 'is_main' => false]) }}"
->>>>>>> 1ed509cc4fb274cc6fc19a057d7db4352efe833c
                 class="mt-6 space-y-6" enctype="multipart/form-data">
                 @csrf
 

@@ -69,22 +69,24 @@
                                     <table class="table">
                                         <thead class="table-theme">
                                             <tr>
-                                                <td>Name</td>
-                                                <td>Year</td>
+                                                <td>Program</td>
                                                 <td>Start Date</td>
                                                 <td>End Date</td>
+                                                <td>Year</td>
                                                 <td>Status</td>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($admissionSessions as $session)
                                             <tr>
-                                                <td>{{$admissionSession->name}}</td>
-                                                <td>{{$admissionSession->year}}</td>
-                                                <td>{{$admissionSession->start_date}}</td>
-                                                <td>{{$admissionSession->end_date}}</td>
-                                                <td style="{{$admissionSession->status ? 'color:green':'color:red'}} ">
-                                                    {{$admissionSession->status ? 'ACTIVE': 'IN_ACTIVE'}}</td>
+                                                <td>{{$session->program->name}}</td>
+                                                <td>{{$session->start_date}}</td>
+                                                <td>{{$session->end_date}}</td>
+                                                <td>{{$session->year}}</td>
+                                                <td style="{{$session->status ? 'color:green':'color:red'}} ">
+                                                    {{$session->status ? 'ACTIVE': 'IN_ACTIVE'}}</td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -108,8 +110,7 @@
                     <div class="rts-ap-section">
                         <h4 class="rts-section-title mb--30">Application Details</h4>
                         <div class="rts-application-form">
-                            <form method="post"
-                                action="{{route('main.admission.applicant.store', ['admission_year_id' => $admissionSession->id])}}"
+                            <form method="post" action="{{route('main.admission.applicant.store')}}"
                                 enctype="multipart/form-data" id="application-form">
                                 @csrf
                                 <div class="single-form-part">
@@ -202,14 +203,13 @@
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="sub">GCE Advance Level Result <span
-                                                    style="color: red">*</span></label>
+                                            <label for="sub">GCE Advance Level Result</label>
                                             <input type="file" id="gce_cert" name="gce_cert">
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="sub">HND Result <span style="color: red">*</span></label>
+                                            <label for="sub">HND Result</label>
                                             <input type="file" id="hnd_cert" name="hnd_cert">
                                         </div>
                                     </div>
@@ -288,7 +288,7 @@
 
         $('#program_id').find('option').not(':first').remove();
 
-        var url = "{{route('main.schools.programs.fetch-all', ':id')}}";
+        var url = "{{route('main.schools.programs.fetch-active-programs', ':id')}}";
 
         url = url.replace(':id', school_id);
 
@@ -347,7 +347,7 @@
 
 
         $.ajax({
-            url: "{{route('main.admission.applicant.store', ['admission_year_id' => $admissionSession->id])}}",
+            url: "{{route('main.admission.applicant.store')}}",
             type: "POST",
             data: {
                 "first_name" : fname,

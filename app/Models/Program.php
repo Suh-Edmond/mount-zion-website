@@ -36,4 +36,15 @@ class Program extends Model
     {
         return strip_tags($desc);
     }
+
+    public function admissionYears()
+    {
+        return $this->hasMany(AdmissionYear::class);
+    }
+
+
+    public function getCurrentAdmissionSession($program)
+    {
+        return $program->admissionYears()->where('status', true)->first();
+    }
 }

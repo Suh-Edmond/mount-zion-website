@@ -92,10 +92,13 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
     public function createApplicant($request)
     {
-        // $this->validate($request);
-        $admissionYear = AdmissionYear::findOrFail($request['admission_year_id']);
+        
         $program = Program::findOrFail($request['program_id']);
+
+        $admissionYear = $program->admissionYears()->where('status', true)->first();
+
         $applicant = User::where('email', $request['email'])->first();
+        
         if($admissionYear->status == false){
             return response()->json(['message' => "Admission deadline has expired! Please wait for the nest admission session"]);
         }

@@ -6,7 +6,9 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <img src="{{asset('assets/images/logo/resized_logo.png')}}" alt="" width="70px" height="70px"
+                            class="block fill-current text-gray-800">
+                    </a>
                     </a>
                 </div>
 
@@ -46,7 +48,7 @@
 
                         <x-slot name="content">
                             <x-dropdown-link :href="route('manage.admission.years')">
-                                {{ __('Admission Year') }}
+                                {{ __('Admission Session') }}
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('manage.admission.applicants')">
                                 {{ __('Applicants') }}
