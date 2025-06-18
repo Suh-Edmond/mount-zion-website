@@ -48,7 +48,7 @@
 
                         <x-slot name="content">
                             <x-dropdown-link :href="route('manage.admission.years')">
-                                {{ __('Admission Year') }}
+                                {{ __('Admission Session') }}
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('manage.admission.applicants')">
                                 {{ __('Applicants') }}
