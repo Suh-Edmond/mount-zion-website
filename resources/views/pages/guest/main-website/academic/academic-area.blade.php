@@ -65,7 +65,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-cat-item">
                             <div class="cat-thumb">
-                                <img src="{{ asset($program->image_path) }}" alt="course-thumbnail">
+                                <img src="{{ asset($program->image_path) }}" alt="course-thumbnail"   style="height: 250px !important" >
                                 <a href="{{ route('main.schools.program.show', ['programSlug' => $program->slug, 'schoolSlug' => $program->school->slug]) }}" class="cat-link-btn">{{ $program->tag }}</a>
                             </div>
                             <div class="cat-meta">
