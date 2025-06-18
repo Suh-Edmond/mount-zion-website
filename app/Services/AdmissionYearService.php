@@ -30,7 +30,7 @@ class AdmissionYearService implements AdmissionYearInterface
                     break;
             }
         }
-        if(isset($school_id)){
+        if(isset($school_id) && $school_id === 'ALL'){
             $admissionYears = $admissionYears->whereHas('program', function($query) use ($school_id){
                 $query->where('school_id', $school_id);
             });
