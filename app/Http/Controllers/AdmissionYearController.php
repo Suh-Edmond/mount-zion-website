@@ -20,9 +20,10 @@ class AdmissionYearController extends Controller
     public function index(Request $request)
     {
         $years = $this->admissionYearService->getAdmissionYears($request);
-       
+        $schools = School::all();
         $data = [
             'admissionYears' => $years,
+            'schools'        => $schools
         ];
 
         return view('pages.management.admission.year.index')->with($data);
