@@ -12,6 +12,7 @@ class AdmissionYearService implements AdmissionYearInterface
     {
         $filter = $request['filter'];
         $sort = $request['sort'];
+        $school_id = $request['school_id'];
         $admissionYears = AdmissionYear::select('*');
         if (isset($filter) && $filter !== "ALL"){
             $admissionYears = $admissionYears->where('status', $filter);
@@ -28,6 +29,11 @@ class AdmissionYearService implements AdmissionYearInterface
                     $admissionYears->orderByDesc('created_at');
                     break;
             }
+        }
+        if(isset($school_id)){
+            $admissionYears = $admissionYear->whereHas('program', function($query) use ($school_id){
+                $query->where('school_id', $school_id);
+            });
         }
 
         return $admissionYears->paginate(10);

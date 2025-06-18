@@ -14,7 +14,18 @@
 
     <div class="pt-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="flex flex-row gap-3">
-
+            <div class="basis-1/4 flex-auto">
+                <x-input-label for="status" :value="__('Filter School')" />
+                <select id="school_id" name="school_id"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option selected>Choose school</option>
+                    @foreach($schools as $key => $school)
+                        <option value="{{$school->id}}">
+                            {{$school->name}}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
             <div class="basis-1/4 flex-auto">
                 <x-input-label for="status" :value="__('Filter Status')" />
                 <select id="status" name="status"
@@ -168,6 +179,19 @@
 
 
             searchParams.set('filter', e.target.value)
+
+            url.search = searchParams.toString();
+
+            location.href = url
+
+        })
+
+         $('#school_id').on('change', function (e){
+            let url = new URL(location.href);
+            let searchParams = new URLSearchParams(url.search);
+
+
+            searchParams.set('school_id', e.target.value)
 
             url.search = searchParams.toString();
 

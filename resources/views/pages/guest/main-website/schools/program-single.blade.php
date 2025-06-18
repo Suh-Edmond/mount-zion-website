@@ -64,7 +64,7 @@
                                                 Session:
                                                 <span>
                                                     {{\Carbon\Carbon::parse($program->getCurrentAdmissionSession($program)->start_date
-                                                    ?? '')->format('M d, Y')}}</span>-
+                                                    ?? '')->format('M d')}}</span>-
                                                 <span>
                                                     {{\Carbon\Carbon::parse($program->getCurrentAdmissionSession($program)->end_date
                                                     ?? '')->format('M d, Y')}}</span>
