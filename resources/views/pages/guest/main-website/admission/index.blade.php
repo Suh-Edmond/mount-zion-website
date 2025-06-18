@@ -63,34 +63,8 @@
                             </div>
                         </div>
                         <div class="application-deadline">
-                            <h4 class="rts-section-title">Application Deadlines</h4>
+                            <h4 class="rts-section-title">Application Policy</h4>
                             <div class="application-deadline__content">
-                                <div class="application-deadline__content--table">
-                                    <table class="table">
-                                        <thead class="table-theme">
-                                            <tr>
-                                                <td>Program</td>
-                                                <td>Start Date</td>
-                                                <td>End Date</td>
-                                                <td>Year</td>
-                                                <td>Status</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($admissionSessions as $session)
-                                            <tr>
-                                                <td>{{$session->program->name}}</td>
-                                                <td>{{$session->start_date}}</td>
-                                                <td>{{$session->end_date}}</td>
-                                                <td>{{$session->year}}</td>
-                                                <td style="{{$session->status ? 'color:green':'color:red'}} ">
-                                                    {{$session->status ? 'ACTIVE': 'IN_ACTIVE'}}</td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <h4 class="rts-section-title mt--45">Application Policy</h4>
                                 <p>
                                     Mount Zion Higher Institute for Nursing and Midwifery retains the right to review
                                     and make a final decision on any application, even if some required materials are
