@@ -42,7 +42,8 @@ Route::get('alumni', [AlumniController::class, 'index'])->name('main.alumni');
 Route::post('/admissions/add-applicant', [AdmissionController::class, 'addApplicant'])->name('main.admission.applicant.store');
 Route::get('academics/schools/{slug}', [AcademicController::class, 'school'])->name('main.schools.show');
 Route::get('academics/schools/{schoolSlug}/{programSlug}', [AcademicController::class, 'program'])->name('main.schools.program.show');
-Route::get('/academics/{id}/load-programs', [ProgramController::class, 'fetchProgramsBySchool'])->name('main.schools.programs.fetch-all');
+Route::get('/academics/{id}/load-active-programs', [ProgramController::class, 'fetchActiveProgramsBySchool'])->name('main.schools.programs.fetch-active-programs');
+ 
 
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -62,11 +63,13 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::put('academics/programs-listing/update', [ProgramController::class, 'editProgram'])->name('manage.academics.programs.edit');
     Route::get('admission', [SchoolController::class, 'index'])->name('manage.admission');
     Route::get('admission/years', [AdmissionYearController::class, 'index'])->name('manage.admission.years');
-    Route::post('admission/years/store', [AdmissionYearController::class, 'createAdmissionYear'])->name('manage.admission.years.create');
+    Route::get('admission/years/create', [AdmissionYearController::class, 'createAdmissionYear'])->name('manage.admission.years.create');
+    Route::post('admission/years/store', [AdmissionYearController::class, 'storeAdmissionYear'])->name('manage.admission.years.store');
     Route::delete('admission/years/remove', [AdmissionYearController::class, 'removeAdmissionYear'])->name('manage.admission.years.remove');
     Route::get('admission/year/applicants', [AdmissionController::class, 'getApplications'])->name('manage.admission.applicants');
     Route::get('admission/year/applicants/profile', [AdmissionController::class, 'viewApplication'])->name('manage.admission.applicants.show');
-    Route::put('admission/years/update', [AdmissionYearController::class, 'updateAdmissionYear'])->name('manage.admission.years.edit');
+    Route::get('admission/years/edit', [AdmissionYearController::class, 'editAdmissionYear'])->name('manage.admission.years.edit');
+    Route::put('admission/years/update', [AdmissionYearController::class, 'updateAdmissionYear'])->name('manage.admission.years.update');
     Route::delete('admission/year/applicants/profile/remove', [AdmissionController::class, 'deleteApplication'])->name('manage.admission.applicants.delete');
     Route::put('admission/year/applicants/profile/validate-application', [AdmissionController::class, 'validateApplication'])->name('manage.admission.applicant.validate-application');
     Route::get('admission/year/applicants/create-application', [AdmissionController::class, 'createApplication'])->name('manage.admission.applicant.create-application');
@@ -92,8 +95,8 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::post('events-managment/detail/gallery/add', [EventGalleryController::class, 'store'])->name('manage.events.gallery.create');
     Route::post('events-managment/detail/gallery/update', [EventGalleryController::class, 'update'])->name('manage.events.gallery.update');
     Route::delete('events-managment/detail/gallery/remove', [EventGalleryController::class, 'delete'])->name('manage.events.gallery.delete');
-
     Route::post('upload-documents', [FileUploadController::class, 'uploadDocument'])->name('manage.documents.upload');
+    Route::get('/academics/{id}/load-programs', [ProgramController::class, 'fetchProgramsBySchool'])->name('main.schools.programs.fetch-all');
 });
 
 Route::middleware('auth')->group(function () {

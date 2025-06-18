@@ -35,24 +35,23 @@ class AdmissionYearService implements AdmissionYearInterface
 
     public function removeAdmissionYear($request)
     {
-        $year =AdmissionYear::where('slug', $request['slug'])->firstOrFail();
+        $year = AdmissionYear::where('slug', $request['slug'])->firstOrFail();
         $year->delete();
     }
 
     public function createAdmissionYear($request)
     {
-        $exist = AdmissionYear::where('status', true)->first();
+        $exist = AdmissionYear::where('status', true)->where('program_id', $request['program_id'])->first();
         if(isset($exist)){
-            $exist->update([
-                'status' => false
-            ]);
+            return redirect()->back()->with(['status', ['Admission already exist for this program']]);
         }
         return AdmissionYear::create([
             'year' => $request['year'],
             'name'  => $request['name'],
             'status'   => true,
             'start_date' => $request['start_date'],
-            'end_date'   => $request['end_date']
+            'end_date'   => $request['end_date'],
+            'program_id' => $request['program_id']
         ]);
     }
 
@@ -69,7 +68,13 @@ class AdmissionYearService implements AdmissionYearInterface
     public function updateAdmissionYear($request)
     {
         $admissionYear = AdmissionYear::where('slug', $request['slug'])->firstOrFail();
-        $admissionYear->update($request->all());
+        $admissionYear->update([
+            'year' => $request['year'],
+            'name'  => $request['name'],
+            'start_date' => $request['start_date'],
+            'end_date'   => $request['end_date'],
+            'program_id' => $request['program_id']
+        ]);
     }
 
     public function getAdmissionSessionByYear($request)

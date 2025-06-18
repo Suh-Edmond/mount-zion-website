@@ -88,4 +88,11 @@ class ProgramController extends Controller
 
         return response()->json(['data' => $data]);
     }
+
+    public function fetchActiveProgramsBySchool($id) 
+    {
+        $data = $this->programService->getActiveProgramsForAdmission($id); 
+        
+        return response()->json(['data' => $data]);
+    }
 }

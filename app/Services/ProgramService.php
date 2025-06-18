@@ -149,6 +149,15 @@ class ProgramService implements ProgramInterface, FileUploadInterface
     }
 
 
+    public function getActiveProgramsForAdmission($id)
+    {
+        $school = School::findOrFail($id);
+        return  $school->programs()->whereHas('admissionYears', function($query){
+            $query->where('status', true);
+        })->get();
+    }
+
+
     private function validateRequest($request)
     {
         return $request->validate([

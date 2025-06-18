@@ -19,4 +19,6 @@ interface ProgramInterface
     public function getPrograms($school_id, $program_type);
 
     public function loadPrograms();
+
+    public function getActiveProgramsForAdmission($school_id);
 }

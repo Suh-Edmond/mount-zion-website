@@ -17,11 +17,17 @@ class AdmissionYear extends Model
         'year',
         'status',
         'start_date',
-        'end_date'
+        'end_date',
+        'program_id'
     ];
 
     public function admission()
     {
         return $this->hasMany(Admission::class);
+    }
+
+    public function program()
+    {
+        return $this->belongsTo(Program::class);
     }
 }

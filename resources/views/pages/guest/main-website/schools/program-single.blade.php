@@ -2,7 +2,8 @@
 
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
-    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg"  style="background-image: url('{{ asset($school->image_path) }}')">
+    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg"
+        style="background-image: url('{{ asset($school->image_path) }}')">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -52,10 +53,34 @@
                                 <h6 class="heading-title">Program Information</h6>
                                 <div class="program-menu">
                                     <ul class="list-unstyled">
-                                        <li><a href="{{route('main.admission').'#eligibility'}}"><span><i class="fa-light fa-arrow-right"></i></span>Admission Eligibility</a></li>
-                                        <li><a href="{{route('main.tuition-fee')}}"><span><i class="fa-light fa-arrow-right"></i></span>Tuition fee</a></li>
-                                        <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Duration: {{$program->duration}} years</a></li>
-                                        <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Tag: {{$program->tag}}</a></li>
+                                        <li><a href="{{route('main.admission').'#eligibility'}}"><span><i
+                                                        class="fa-light fa-arrow-right"></i></span>Admission
+                                                Eligibility</a></li>
+                                        <li><a href="{{route('main.tuition-fee')}}"><span><i
+                                                        class="fa-light fa-arrow-right"></i></span>Tuition fee</a></li>
+                                        <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Duration:
+                                                {{$program->duration}} years</a></li>
+                                        <li><a><span><i class="fa-light fa-arrow-right"></i></span>
+                                                Session:
+                                                <span>
+                                                    {{\Carbon\Carbon::parse($program->getCurrentAdmissionSession($program)->start_date
+                                                    ?? '')->format('M d, Y')}}</span>-
+                                                <span>
+                                                    {{\Carbon\Carbon::parse($program->getCurrentAdmissionSession($program)->end_date
+                                                    ?? '')->format('M d, Y')}}</span>
+                                            </a>
+                                        </li>
+                                        <li><a><span><i class="fa-light fa-arrow-right"></i></span>Admission
+                                                Status:
+                                                @if($program->getCurrentAdmissionSession($program)->status ?? false)
+                                                <span style="color: green">Admssion Open</span>
+                                                @else
+                                                <span style="color: red">Admission Closed</span>
+                                                @endif
+                                            </a>
+                                        </li>
+                                        <li><a><span><i class="fa-light fa-arrow-right"></i></span>Tag:
+                                                {{$program->tag}}</a></li>
                                     </ul>
                                 </div>
                             </div>
