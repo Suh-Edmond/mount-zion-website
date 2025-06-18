@@ -2,7 +2,7 @@
 
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
-    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/about/procession.jpg);">
+    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url(assets/images/about/institute/practice.png);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -29,7 +29,7 @@
                         <div class="col-lg-6 col-md-11">
                             <h4 class="rts-section-title mb--40">The history of Mount Zion Higher Institutes</h4>
                             <div class="rts-history-image">
-                                <img src="assets/images/about/classroom_2.jpg" alt="history">
+                                <img style="transform: rotateY(180deg)" src="assets/images/about/institute/classroom.png" alt="history">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-11">

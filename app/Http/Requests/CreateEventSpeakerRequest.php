@@ -24,8 +24,8 @@ class CreateEventSpeakerRequest extends FormRequest
         return [
             'name'   => 'required|string|max:255|min:5',
             'title'  => 'required|string|max:255|min:5',
-            'picture' => 'required|file',
-            'slug'      => 'required'
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'slug'      => 'required|string'
         ];
     }
 }

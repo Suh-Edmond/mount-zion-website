@@ -3,7 +3,7 @@
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
     <section class="rts-breadcrumb breadcrumb-height breadcumb-bg"
-        style="background-image: url(assets/images/banner/mount_zion_admission_main.jpeg);">
+        style="background-image: url(assets/images/elligibility/inside.png);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -29,9 +29,9 @@
                     <div class="admission-content-top">
                         <h4 class="rts-section-title">Requirements and Deadlines</h4>
 
-                        <div class="admission-big-thumb">
-                            <img src="assets/images/course/admission_image.jpeg" alt="admission"
-                                style="height:400px !important;width:150rem !important;">
+                        <div class="admission-big-thumb" style="max-height: 400px;">
+                            <img src="assets/images/elligibility/outside.png" alt="admission"
+                                style="height:400px !important;width:150rem !important; object-fit: cover;">
                         </div>
 
                         <div class="requirement-deadline">
@@ -63,32 +63,8 @@
                             </div>
                         </div>
                         <div class="application-deadline">
-                            <h4 class="rts-section-title">Application Deadlines</h4>
+                            <h4 class="rts-section-title">Application Policy</h4>
                             <div class="application-deadline__content">
-                                <div class="application-deadline__content--table">
-                                    <table class="table">
-                                        <thead class="table-theme">
-                                            <tr>
-                                                <td>Name</td>
-                                                <td>Year</td>
-                                                <td>Start Date</td>
-                                                <td>End Date</td>
-                                                <td>Status</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>{{$admissionSession->name}}</td>
-                                                <td>{{$admissionSession->year}}</td>
-                                                <td>{{$admissionSession->start_date}}</td>
-                                                <td>{{$admissionSession->end_date}}</td>
-                                                <td style="{{$admissionSession->status ? 'color:green':'color:red'}} ">
-                                                    {{$admissionSession->status ? 'ACTIVE': 'IN_ACTIVE'}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <h4 class="rts-section-title mt--45">Application Policy</h4>
                                 <p>
                                     Mount Zion Higher Institute for Nursing and Midwifery retains the right to review
                                     and make a final decision on any application, even if some required materials are
@@ -108,7 +84,9 @@
                     <div class="rts-ap-section">
                         <h4 class="rts-section-title mb--30">Application Details</h4>
                         <div class="rts-application-form">
-                            <form method="post" action="" id="application-form">
+                            <form method="post" action="{{route('main.admission.applicant.store')}}"
+                                enctype="multipart/form-data" id="application-form">
+                                @csrf
                                 <div class="single-form-part">
                                     <h5 class="form-title">Personal Information</h5>
                                     <p style="padding-bottom: 10px; font-size: medium">All fields with <span
@@ -193,8 +171,20 @@
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="sub">Application Files <span style="color: red">*</span></label>
-                                            <input type="file" id="file" name="files">
+                                            <label for="sub">ID Card/Passport <span style="color: red">*</span></label>
+                                            <input type="file" id="id_card" name="id_card">
+                                        </div>
+                                    </div>
+                                    <div class="single-input">
+                                        <div class="single-input-item">
+                                            <label for="sub">GCE Advance Level Result</label>
+                                            <input type="file" id="gce_cert" name="gce_cert">
+                                        </div>
+                                    </div>
+                                    <div class="single-input">
+                                        <div class="single-input-item">
+                                            <label for="sub">HND Result</label>
+                                            <input type="file" id="hnd_cert" name="hnd_cert">
                                         </div>
                                     </div>
                                 </div>
@@ -208,11 +198,11 @@
 
                                     <div class="d-flex align-items-center single-checkbox mt--20">
                                         <input type="checkbox" id="has_agreed" name="has_agreed" required value="true">
-                                        <label for="exampleCheck1">By submitting this form, you agree to the Mount Zion
+                                        <label for="has_agreed">By submitting this form, you agree to the Mount Zion
                                             University Privacy Notice</label>
                                     </div>
                                 </div>
-                                <button type="submit" class="rts-theme-btn primary with-arrow submit app_button">Submit
+                                <button type="submit" class="rts-theme-btn primary with-arrow  app_button">Submit
                                     Application
                                     <span><i class="fa-thin fa-arrow-right button_icon"></i></span>
                                 </button> <span class="success_msg fw-bold text-lg" style="display: none">Your
@@ -272,7 +262,7 @@
 
         $('#program_id').find('option').not(':first').remove();
 
-        var url = "{{route('main.schools.programs.fetch-all', ':id')}}";
+        var url = "{{route('main.schools.programs.fetch-active-programs', ':id')}}";
 
         url = url.replace(':id', school_id);
 
@@ -282,9 +272,9 @@
             data: {},
 
             success: function(data) {
-                let option = "";
+                let option = "<option value=''>Choose program</option>";
                 let yearslabel = "year(s)"
-                for (var i = 0; i < data.data.length; i++){
+                for (var i = 0; i < data.data.length; i++){ 
                     option += '<option value="'+data.data[i].id+'">'+data.data[i].name+ ' - '+ data.data[i].duration+ yearslabel +' </option>';
                 }
                 $('#program_id').html('');
@@ -295,7 +285,17 @@
             },
 
         });
+    });
+
+
+    $(document).on('change', '#program_id', function (e){
+        e.preventDefault();
+        let selectedProgram = ($(this).val());
+
+        console.log(JSON.parse(selectedProgram));
+        
     })
+
 
     $(document).on('click', '.submit', function(e){
         e.preventDefault();
@@ -311,6 +311,9 @@
         var pob = $("input[name=pob]").val();
         var program_id = $("select[name=program_id]").val();
         var school_id = $("select[name=school_id]").val();
+        var id_card = $("select[name=id_card]").val();
+        var gce_cert = $("select[name=gce_cert]").val();
+        var hnd_cert = $("select[name=hnd_cert]").val();
 
         $(".app_button").css("display", "none");
         $(".loader_button").css("display", "inline-block");
@@ -318,7 +321,7 @@
 
 
         $.ajax({
-            url: "{{route('main.admission.applicant.store', ['admission_year_id' => $admissionSession->id])}}",
+            url: "{{route('main.admission.applicant.store')}}",
             type: "POST",
             data: {
                 "first_name" : fname,
@@ -332,7 +335,10 @@
                 "dob":dob,
                 "pob": pob,
                 "school_id": school_id,
-                "program_id":program_id
+                "program_id":program_id,
+                "id_card": id_card,
+                "gce_cert":gce_cert,
+                "hnd_cert": hnd_cert
             },
             success: function(data){
                 $('#application-form').find(".print-error-msg").css("display", "none");

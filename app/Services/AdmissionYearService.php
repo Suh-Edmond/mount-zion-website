@@ -12,6 +12,7 @@ class AdmissionYearService implements AdmissionYearInterface
     {
         $filter = $request['filter'];
         $sort = $request['sort'];
+        $school_id = $request['school_id'];
         $admissionYears = AdmissionYear::select('*');
         if (isset($filter) && $filter !== "ALL"){
             $admissionYears = $admissionYears->where('status', $filter);
@@ -29,30 +30,34 @@ class AdmissionYearService implements AdmissionYearInterface
                     break;
             }
         }
+        if(isset($school_id) && $school_id === 'ALL'){
+            $admissionYears = $admissionYears->whereHas('program', function($query) use ($school_id){
+                $query->where('school_id', $school_id);
+            });
+        }
 
         return $admissionYears->paginate(10);
     }
 
     public function removeAdmissionYear($request)
     {
-        $year =AdmissionYear::where('slug', $request['slug'])->firstOrFail();
+        $year = AdmissionYear::where('slug', $request['slug'])->firstOrFail();
         $year->delete();
     }
 
     public function createAdmissionYear($request)
     {
-        $exist = AdmissionYear::where('status', true)->first();
+        $exist = AdmissionYear::where('status', true)->where('program_id', $request['program_id'])->first();
         if(isset($exist)){
-            $exist->update([
-                'status' => false
-            ]);
+            return redirect()->back()->with(['status', ['Admission already exist for this program']]);
         }
         return AdmissionYear::create([
             'year' => $request['year'],
             'name'  => $request['name'],
             'status'   => true,
             'start_date' => $request['start_date'],
-            'end_date'   => $request['end_date']
+            'end_date'   => $request['end_date'],
+            'program_id' => $request['program_id']
         ]);
     }
 
@@ -61,20 +66,27 @@ class AdmissionYearService implements AdmissionYearInterface
         return AdmissionYear::orderBy('year', 'desc')->get();
     }
 
-    public function getCurrentAdmissionSession()
+    public function getCurrentAdmissionSessions()
     {
-        return AdmissionYear::where('status', true)->firstOrFail();
+        return AdmissionYear::where('status', true)->orderBy('created_at', 'DESC')->get();
     }
 
     public function updateAdmissionYear($request)
     {
         $admissionYear = AdmissionYear::where('slug', $request['slug'])->firstOrFail();
-        $admissionYear->update($request->all());
+        $admissionYear->update([
+            'year' => $request['year'],
+            'name'  => $request['name'],
+            'start_date' => $request['start_date'],
+            'end_date'   => $request['end_date'],
+            'program_id' => $request['program_id']
+        ]);
     }
 
     public function getAdmissionSessionByYear($request)
     {
-        $current_year = $this->getCurrentAdmissionSession();
+        //TODO: chec its usage
+        $current_year = $this->getCurrentAdmissionSessions();
         return AdmissionYear::where('year', $current_year->year)->orderBy('created_at', 'DESC')->get();
     }
 }

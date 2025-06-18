@@ -2,19 +2,32 @@
 
 namespace App\Services;
 
-class AdmissionDocumentService implements AdmissionDocumentInterface, FileUploadInterface  {
-    public function uploadAdmissionDocument($request)
+use App\Constant\FileStorageConstants;
+use App\Constant\FileUploadCategory;
+use App\Exceptions\BusinessValidationException;
+use App\Interface\AdmissionDocumentInterface;
+use App\Models\Admission;
+use App\Models\AdmissionDocument;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
+
+class AdmissionDocumentService implements AdmissionDocumentInterface  {
+    public function uploadAdmissionDocument($request, $admission)
     {
-        if(isset($request('id_card')) && $request['id_card'] === FileUploadCategory::ID_CARD){
-            $this->uploadFile($request);
+        if(isset($request['id_card'])){
+           
+            $this->uploadFile($request, $admission, FileUploadCategory::ID_CARD, 'id_card');
         }
 
-        if(isset($request['gce_cert']) && $request['id_card'] === FileUploadCategory::GCE_CERT){
-            $this->uploadFile($request);
+        if(isset($request['gce_cert'])){
+            
+            $this->uploadFile($request, $admission, FileUploadCategory::GCE_CERT, 'gce_cert');
         }
 
-        if(isset($request["hnd_cert"]) && $request['id_card'] === FileUploadCategory::HND_CERT){
-            $this->uploadFile($request);
+        if(isset($request["hnd_cert"])){
+            
+            $this->uploadFile($request, $admission, FileUploadCategory::HND_CERT, 'hnd_cert');
         }
     }
 
@@ -23,26 +36,24 @@ class AdmissionDocumentService implements AdmissionDocumentInterface, FileUpload
         $this->getFile($request);
     }
 
-    public function uploadFile($request)
-    {
-        $admission         = Admission::where('slug', $request['slug'])->firstOrFail();
 
-        $directory        = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug "/". $request['type'];
+    public function uploadFile($request, $admission, $type, $file_input_name)
+    {
+
+        $directory        = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug. "/". $type;
+
+        $file            = $request->file($file_input_name);
 
         $extension        = $file->getClientOriginalExtension();
 
         $fileName         =   time() . '_' . uniqid() . '.' . $extension;
 
          try {
-            $request->validate([
-                'image' => 'required|image|mimes:jpg,jpeg,png|max:2048'
-            ]);
+            $request->file($file_input_name)->storeAs(FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory, $fileName, 'public');
 
-             $request->file('image')->storeAs(FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory, $fileName, 'public');
+            $filePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory . "/" . $fileName;
 
-             $filePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory . "/" . $fileName;
-
-             $this->saveFile($filePath, $admission, $request['type']);
+            $this->saveFile($filePath, $admission, $type);
 
         }catch (\Exception $exception){
             throw new BusinessValidationException($exception->getMessage(), 400);
@@ -53,15 +64,17 @@ class AdmissionDocumentService implements AdmissionDocumentInterface, FileUpload
     {
         $admission = Admission::where('slug', $request['slug'])->firstOrFail();
 
-        $directory      = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug "/". $request['type'];
+        $document = AdmissionDocument::where('doc_slug', $request['slug'])->firstOrFail();
 
-        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$fileName;
+        $directory      = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug. "/". $request['type'];
+
+        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$document->file_path;
 
         $path = public_path($uploadedFilePath);
 
         Storage::disk('public')->delete($path);
 
-        $image->delete();
+        $document->delete();
 
         return Redirect::back()->with(['status' => 'Image remove successfully']);
     }
@@ -70,13 +83,15 @@ class AdmissionDocumentService implements AdmissionDocumentInterface, FileUpload
     {
         $admission         = Admission::where('slug', $request['slug'])->firstOrFail();
 
-        $directory         = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug "/". $request['type'];
+        $document = AdmissionDocument::where('doc_slug', $request['slug'])->firstOrFail();
 
-        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$fileName;
+        $directory         = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug ."/". $request['type'];
+
+        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$document->file_path;
 
         $headers = array('Content-Type: application/pdf');
 
-        return Response::download($uploadedFilePath, $fileName, $headers);
+        return Response::download($uploadedFilePath, $document->file_path, $headers);
     }
 
     private function saveFile($path, $admission, $type)

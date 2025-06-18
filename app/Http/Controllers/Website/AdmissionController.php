@@ -34,14 +34,14 @@ class AdmissionController extends Controller
         $genders = $this->getGenders();
         $regions = $this->getRegions();
         $schools = $this->schoolService->index($request)->get();
-        $admissionSession = $this->admissionYearService->getCurrentAdmissionSession();
+        $admissionSession = $this->admissionYearService->getCurrentAdmissionSessions();
 
         $data = [
             'genders' => $genders,
             'regions' => $regions,
             'schools' => $schools,
-            'admissionSession' => $admissionSession,
-            'application_deadline_expired' => $this->checkIfApplicationDeadlineHadExpire($admissionSession->end_date),
+            'admissionSessions' => $admissionSession,
+            // 'application_deadline_expired' => $this->checkIfApplicationDeadlineHadExpire($admissionSession->end_date),
         ];
 
         return view('pages.guest.main-website.admission.index')->with($data);
@@ -52,7 +52,7 @@ class AdmissionController extends Controller
         $years = $this->admissionYearService->listYears();
         $applicants = $this->admissionApplicantService->getApplicants($request);
         $schools = $this->schoolService->getSchools($request);
-        $admissionSessions = $this->admissionYearService->getAdmissionSessionByYear($request);
+        $admissionSessions = $this->admissionYearService->getCurrentAdmissionSessions($request);
 
         $data = [
             'years' => $years,
@@ -77,12 +77,11 @@ class AdmissionController extends Controller
         return view('pages.management.admission.applicants.show')->with($data);
     }
 
-    public function addApplicant(AdmissionApplicantionRequest  $request)
+    public function addApplicant(Request $request)
     {
-
         $this->admissionApplicantService->createApplicant($request);
 
-        return response()->json(['status' => 'Applicant submitted successfully']);
+        return redirect()->back()->with(['status' => 'Applicant submitted successfully']);
     }
 
     public function deleteApplication(Request $request)
@@ -105,7 +104,7 @@ class AdmissionController extends Controller
         $genders = $this->getGenders();
         $regions = $this->getRegions();
         $programs = $this->programService->loadPrograms();
-        $admissionSession = $this->admissionYearService->getCurrentAdmissionSession();
+        $admissionSession = $this->admissionYearService->getCurrentAdmissionSessions();
         $schools = $this->schoolService->index($request)->get();
 
         $data = [

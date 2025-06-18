@@ -33,7 +33,10 @@ class AdmissionApplicantionRequest extends FormRequest
             'admission_year_id' => ['required', Rule::exists('admission_years', 'id')],
             'program_id' => ['required', Rule::exists('programs', 'id')],
             'school_id' => ['required', Rule::exists('schools', 'id')],
-            'has_agreed' => 'required|boolean'
+            'has_agreed' => 'required',
+            'id_card' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048',
+            'hnd_cert' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048',
+            'gce_cert' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048'
         ];
     }
 }

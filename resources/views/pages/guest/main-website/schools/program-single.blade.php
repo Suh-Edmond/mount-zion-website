@@ -2,7 +2,8 @@
 
 <x-guest-layout>
     <!-- BREADCRUMB AREA -->
-    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg"  style="background-image: url('{{ asset($school->image_path) }}')">
+    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg"
+        style="background-image: url('{{ asset($school->image_path) }}')">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -34,7 +35,7 @@
                     <div class="col-lg-8">
                         <div class="program-description-area" id="curriculum">
                             <div class="program-big-thumb">
-                                <img src="/{{$program->image_path}}" alt="program">
+                                <img src="{{ asset($program->image_path) }}" alt="program">
                             </div>
                             <div class="program-about">
                                 <h4 class="title">About The Program</h4>
@@ -52,10 +53,34 @@
                                 <h6 class="heading-title">Program Information</h6>
                                 <div class="program-menu">
                                     <ul class="list-unstyled">
-                                        <li><a href="{{route('main.admission').'#eligibility'}}"><span><i class="fa-light fa-arrow-right"></i></span>Admission Eligibility</a></li>
-                                        <li><a href="{{route('main.tuition-fee')}}"><span><i class="fa-light fa-arrow-right"></i></span>Tuition fee</a></li>
-                                        <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Duration: {{$program->duration}} years</a></li>
-                                        <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Tag: {{$program->tag}}</a></li>
+                                        <li><a href="{{route('main.admission').'#eligibility'}}"><span><i
+                                                        class="fa-light fa-arrow-right"></i></span>Admission
+                                                Eligibility</a></li>
+                                        <li><a href="{{route('main.tuition-fee')}}"><span><i
+                                                        class="fa-light fa-arrow-right"></i></span>Tuition fee</a></li>
+                                        <li><a href="#"><span><i class="fa-light fa-arrow-right"></i></span>Duration:
+                                                {{$program->duration}} years</a></li>
+                                        <li><a><span><i class="fa-light fa-arrow-right"></i></span>
+                                                Session:
+                                                <span>
+                                                    {{\Carbon\Carbon::parse($program->getCurrentAdmissionSession($program)->start_date
+                                                    ?? '')->format('M d')}}</span>-
+                                                <span>
+                                                    {{\Carbon\Carbon::parse($program->getCurrentAdmissionSession($program)->end_date
+                                                    ?? '')->format('M d, Y')}}</span>
+                                            </a>
+                                        </li>
+                                        <li><a><span><i class="fa-light fa-arrow-right"></i></span>Admission
+                                                Status:
+                                                @if($program->getCurrentAdmissionSession($program)->status ?? false)
+                                                <span style="color: green">Admssion Open</span>
+                                                @else
+                                                <span style="color: red">Admission Closed</span>
+                                                @endif
+                                            </a>
+                                        </li>
+                                        <li><a><span><i class="fa-light fa-arrow-right"></i></span>Tag:
+                                                {{$program->tag}}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -65,18 +90,18 @@
                                 <p>{{$program->school->address}}</p>
                                 <div class="contact-info">
                                     <h5>Contact:</h5>
-                                    <a :href="mailto:{{$program->school->email}}">{{$program->school->email}}</a>
+                                    <a :href="'mailto:{{$program->school->email}}'">{{$program->school->email}}</a>
                                     <a href="callto:+237">{{$program->school->telephone}}</a>
                                 </div>
                                 <div class="social-info">
-                                    <h5>Social Info:</h5>
+                                    <!-- <h5>Social Info:</h5>
                                     <div class="social-info-link">
                                         <a href="#"><i class="fa-brands fa-facebook"></i></a>
                                         <a href="#"><i class="fa-brands fa-instagram"></i></a>
                                         <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                                         <a href="#"><i class="fa-brands fa-pinterest"></i></a>
                                         <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
