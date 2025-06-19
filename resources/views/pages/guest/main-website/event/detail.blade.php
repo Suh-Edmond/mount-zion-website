@@ -182,11 +182,11 @@
                             </a>
                         </div>
                         @else
-                        <div class="rts-video-section" style="height: 50% !important">
+                        <div class="rts-video-section" style="height: 100% !important; min-height: 200px;">
                             <a href="{{$image->video_url}}" class="rts-video-section-player popup-video video-btn">
                                 <i class="fa-sharp fa-solid fa-play"></i>
                             </a>
-                            <img src="{{asset($image->file_path)}}" alt="video-bg" style="width: 100% !important;">
+                            <img src="{{asset($image->file_path)}}" alt="video-bg" style="width: 100% !important; height: 100%;">
                         </div>
                         @endif
                     </div>
