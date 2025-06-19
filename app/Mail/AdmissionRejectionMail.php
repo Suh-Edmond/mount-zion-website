@@ -1,4 +1,4 @@
-<?php /** @noinspection ALL */
+<?php
 
 namespace App\Mail;
 
@@ -9,11 +9,10 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class AdmissionMail extends Mailable
+class AdmissionRejectionMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $data;
-
     /**
      * Create a new message instance.
      */
@@ -28,7 +27,7 @@ class AdmissionMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Application Received and Under Review - '.$this->data['name']. ' - '.$this->data['program'].' ',
+            subject: 'Admission Decision',
         );
     }
 
@@ -38,8 +37,8 @@ class AdmissionMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'mail.admission-mail',
-            with: [
+            markdown: 'mail.admission-rejection-mail',
+            with:[
                 'data' => $this->data
             ]
         );

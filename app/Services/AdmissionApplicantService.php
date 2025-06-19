@@ -2,17 +2,21 @@
 
 namespace App\Services;
 
+use App\Constant\AdmissionStatus;
 use App\Constant\FileStorageConstants;
 use App\Constant\FileUploadCategory;
 use App\Constant\UserType;
 use App\Exceptions\BusinessValidationException;
 use App\Interface\AdmissionApplicantInterface;
+use App\Mail\AdmissionAcceptanceMail;
 use App\Mail\AdmissionMail;
+use App\Mail\AdmissionRejectionMail;
 use App\Models\Admission;
 use App\Models\AdmissionDocument;
 use App\Models\AdmissionYear;
 use App\Models\Program;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
@@ -141,14 +145,74 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         $application->update([
             'applicant_status' => $request['applicant_status']
         ]);
+
+        if(AdmissionStatus::ADMITTED === $application->applicant_status){
+            $this->sendAcceptanceAdmissionEmails($application);
+        }
+        if(AdmissionStatus::REJECTED === $application->applicant_status){
+            $this->sendRejectionEmails($application);
+        }
+    }
+
+    private function sendAcceptanceAdmissionEmails($application){
+        $emailData = [
+            'name'          => $application->user->name,
+            'email'         => $application->user->email,
+            'program'       => $application->program->name,
+            'school'        => $application->program->school->name,
+            'school_email'  => $application->program->school->email,
+            'school_telephone' => $application->program->school->telephone,
+            'website'          => env('APP_URL'),
+            'director_name'    => env('DIRECTOR_BDA_NAME'),
+            'director_position' => env('POSITION'),
+            'acceptance_date'   => Carbon::now()->addWeeks(3),
+            'session'           => $application->program->getCurrentAdmissionSession($application->program)
+        ];
+        try {
+            Mail::to($application->user->email)->send(new AdmissionAcceptanceMail($emailData));
+
+        }catch (\Exception $e){
+            return  response()->json(['message' => 'Could not sent email notification mail to student', 'code' => 'FAILED']);
+        }
+
+        return true;
+    }
+
+    private function sendRejectionEmails($application){
+        $emailData = [
+            'name'          => $application->user->name,
+            'email'         => $application->user->email,
+            'program'       => $application->program->name,
+            'school'        => $application->program->school->name,
+            'school_email'  => $application->program->school->email,
+            'school_telephone' => $application->program->school->telephone,
+            'website'          => env('APP_URL'),
+            'director_name'    => env('DIRECTOR_BDA_NAME'),
+            'director_position' => env('POSITION'),
+            'session'           => $application->program->getCurrentAdmissionSession($application->program)
+        ];
+        try {
+            Mail::to($application->user->email)->send(new AdmissionRejectionMail($emailData));
+
+        }catch (\Exception $e){
+            return  response()->json(['message' => 'Could not sent email notification mail to student', 'code' => 'FAILED']);
+        }
+
+        return true;
     }
 
     private function sendAdmissionEmails($applicant, $program){
         $emailData = [
-            'program_image' => '',
             'name'          => $applicant->name,
             'email'         => $applicant->email,
             'program_title' => $program->name,
+            'date'          => Carbon::now()->addMonths(1),
+            'school'        => $program->school->name,
+            'school_email'  => $program->school->email,
+            'school_telephone' => $program->school->telephone,
+            'website'          => env('APP_URL'),
+            'director_name'    => env('DIRECTOR_BDA_NAME'),
+            'director_position' => env('POSITION'),
         ];
         try {
             Mail::to($applicant->email)->send(new AdmissionMail($emailData));

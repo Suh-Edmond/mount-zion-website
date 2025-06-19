@@ -1,17 +1,25 @@
 <x-mail::message>
+    Dear {{$data['name']}},
 
-    ### Hi {{ $data['name'] }}!
+    Thank you for your application to the {{$data['program_title']}} program at {{$data['school']}}. We have received
+    all the
+    necessary documents and your application is now under review by our admissions committee.
 
-    Congratulations!
+    We understand that you are eager to hear about the outcome of your application. We will notify you of our decision
+    by the end {{\Carbon\Carbon::parse($data['date'])->format('M Y')}}.
 
-    We have successfully received you application for "{{$data['program_title']}}" program at Mount Zion Higher Institute
-    Out admission team will carefully review your file and return to you if you meet the program requirements for admission
+    In the meantime, if you have any questions, please don't hesitate to contact us at <a class="dn_btn font-bold"
+        href="mailto:{{$data['school_email']}}">{{$data['school_email']}}</a> or
+    <a class="dn_btn font-bold" href="tel:{{$data['school_telephone']}}">{{$data['school_telephone']}}</a>.
 
-    If you have any questions or concerns, feel free to contact support at   support@mountzion
+    We appreciate your interest in {{$data['school']}} and wish you the best during the application process.
 
 
-
-
-    Best regards,
-    Mount Zion Team.
+    Sincerely,
+    {{$data['director_name']}}
+    {{$data['director_position']}}
+    {{$data['school']}}
+    {{$data['school_email']}}
+    {{ $data['school_telephone'] }}
+    {{ $data['website'] }}
 </x-mail::message>
