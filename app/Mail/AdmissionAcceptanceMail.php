@@ -12,13 +12,14 @@ use Illuminate\Queue\SerializesModels;
 class AdmissionAcceptanceMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $data;
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
+    }
     }
 
     /**
@@ -27,7 +28,7 @@ class AdmissionAcceptanceMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Admission Acceptance Mail',
+            subject: 'Acceptance of Offer -'. $this->data['program']->name,
         );
     }
 
@@ -38,6 +39,9 @@ class AdmissionAcceptanceMail extends Mailable
     {
         return new Content(
             markdown: 'mail.admission-acceptance-mail',
+            with: [
+                'data' => $this->data
+            ]
         );
     }
 

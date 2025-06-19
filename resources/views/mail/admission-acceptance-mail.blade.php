@@ -1,12 +1,13 @@
 <x-mail::message>
-# Introduction
+### Hi {{ $data['name'] }}!
 
-The body of your message.
+TThis email is to formally accept the offer of admission to the {{$data['program']->name}} program at [{{$data['program']->school->name}}] for the [Semester/Year] intake. I am very excited about the opportunity to join your esteemed institution.
 
-<x-mail::button :url="''">
-Button Text
-</x-mail::button>
+Thank you for this offer. I have reviewed the acceptance package and I am looking forward to beginning my studies.
 
-Thanks,<br>
+
+
+Best regards,
+Mount Zion Team,<br>
 {{ config('app.name') }}
 </x-mail::message>
