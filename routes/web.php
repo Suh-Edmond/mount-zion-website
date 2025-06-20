@@ -97,6 +97,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::delete('events-managment/detail/gallery/remove', [EventGalleryController::class, 'delete'])->name('manage.events.gallery.delete');
     Route::post('upload-documents', [FileUploadController::class, 'uploadDocument'])->name('manage.documents.upload');
     Route::get('/academics/{id}/load-programs', [ProgramController::class, 'fetchProgramsBySchool'])->name('main.schools.programs.fetch-all');
+    Route::get('/academics/programs', [ProgramController::class, 'fetchPrograms'])->name('manage-academics-program');
 });
 
 Route::middleware('auth')->group(function () {

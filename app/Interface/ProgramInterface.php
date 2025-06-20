@@ -21,4 +21,6 @@ interface ProgramInterface
     public function loadPrograms();
 
     public function getActiveProgramsForAdmission($school_id);
+
+    public function filterPrograms($request);
 }

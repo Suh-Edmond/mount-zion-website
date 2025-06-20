@@ -10,8 +10,8 @@
     {{\Carbon\Carbon::parse($data['acceptance_date'])->format('MM Y')}}.
 
     If you have any questions or need further assistance, feel free to contact us at 
-    [{{$data['school_email']}}]({{$data['school_email']}}) or
-    [{{$data['school_telephone']}}]({{$data['school_telephone']}}).
+    Email: [ {{$data['school_email']}} ] ( {{$data['school_email']}} ),
+    Tel: [{{$data['school_telephone']}}]({{$data['school_telephone']}}).
 
     Congratulations on this achievement! We look forward to welcoming you to {{$data['school']}}.
 
