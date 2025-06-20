@@ -145,11 +145,12 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         $application->update([
             'applicant_status' => $request['applicant_status']
         ]);
-
-        if(AdmissionStatus::ADMITTED === $application->applicant_status){
+        $application->refresh();
+        // dd(AdmissionStatus::ADMITTED == $application->applicant_status);
+        if(AdmissionStatus::ADMITTED == $application->applicant_status){
             $this->sendAcceptanceAdmissionEmails($application);
         }
-        if(AdmissionStatus::REJECTED === $application->applicant_status){
+        if(AdmissionStatus::REJECTED == $application->applicant_status){
             $this->sendRejectionEmails($application);
         }
     }
@@ -172,13 +173,14 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
             Mail::to($application->user->email)->send(new AdmissionAcceptanceMail($emailData));
 
         }catch (\Exception $e){
-            return  response()->json(['message' => 'Could not sent email notification mail to student', 'code' => 'FAILED']);
+          throw new \Exception($e->getMessage());
         }
 
         return true;
     }
 
     private function sendRejectionEmails($application){
+        $session = $application->program->getCurrentAdmissionSession($application->program);
         $emailData = [
             'name'          => $application->user->name,
             'email'         => $application->user->email,
@@ -189,13 +191,14 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
             'website'          => env('APP_URL'),
             'director_name'    => env('DIRECTOR_BDA_NAME'),
             'director_position' => env('POSITION'),
-            'session'           => $application->program->getCurrentAdmissionSession($application->program)
+            'session'           => $session,
+            'start_date'        => $session->start_date ?? ''
         ];
         try {
             Mail::to($application->user->email)->send(new AdmissionRejectionMail($emailData));
 
         }catch (\Exception $e){
-            return  response()->json(['message' => 'Could not sent email notification mail to student', 'code' => 'FAILED']);
+            throw new \Exception($e->getMessage());
         }
 
         return true;

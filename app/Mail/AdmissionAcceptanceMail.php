@@ -27,7 +27,7 @@ class AdmissionAcceptanceMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: `Offer of Admission to - [`. $this->data->program . `]` .`in`. `[` .$this->data->school. `]`,
+            subject: 'Admission Decision',
         );
     }
 
