@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div class="breadcrumb-content">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="..">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('main.programs')}}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">program details</li>
                         </ul>
                         <h2 class="section-title">{{$program->name}}</h2>
@@ -62,14 +62,16 @@
                                                 {{$program->duration}} years</a></li>
                                         <li><a><span><i class="fa-light fa-arrow-right"></i></span>Admission
                                                 Status:
-                                                @if($program->getCurrentAdmissionSession($program)->status ?? false)
+                                                @if(!empty($program->getCurrentAdmissionSession($program)) && $program->getCurrentAdmissionSession($program)->status)
                                                 <span style="color: green">Admssion Open</span>
                                                 @else
                                                 <span style="color: red">Admission Closed</span>
                                                 @endif
                                             </a>
                                         </li>
-                                        <li><a><span><i class="fa-light fa-arrow-right"></i></span>
+                                        <li>
+                                            @if(!empty($program->getCurrentAdmissionSession($program)))
+                                            <a><span><i class="fa-light fa-arrow-right"></i></span>
                                                 Duration:
                                                 <span>
                                                     {{\Carbon\Carbon::parse($program->getCurrentAdmissionSession($program)->start_date
@@ -78,6 +80,17 @@
                                                     {{\Carbon\Carbon::parse($program->getCurrentAdmissionSession($program)->end_date
                                                     ?? '')->format('M d, Y')}}</span>
                                             </a>
+                                            @else
+                                            <a><span><i class="fa-light fa-arrow-right"></i></span>
+                                                Duration:
+                                                <span>
+                                                    {{\Carbon\Carbon::parse($program->getLatedInactiveAdmissionSession($program)->start_date
+                                                    ?? '')->format('M d')}}</span>-
+                                                <span>
+                                                    {{\Carbon\Carbon::parse($program->getLatedInactiveAdmissionSession($program)->end_date
+                                                    ?? '')->format('M d, Y')}}</span>
+                                            </a>
+                                            @endif
                                         </li>
                                         <li><a><span><i class="fa-light fa-arrow-right"></i></span>Tag:
                                                 {{$program->tag}}</a></li>

@@ -43,25 +43,25 @@
                         <x-input-label for="name" :value="__('Name')" />
                         <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name')"
                             required autocomplete="name" />
-                        <x-input-error class="mt-2" :messages="$errors->get('name')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('name')" />
                     </div>
 
                     <div class="my-5">
                         <x-input-label for="year" :value="__('Year')" />
-                        <input type="number" id="year" value="{{old('year')}}" required name="year" min="2020"
-                            max="2050"
+                        <input type="number" id="year" value="{{old('year')}}" required name="year" min="2023"
+                            max="2090"
                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500 focus:border-blue-500 p-2">
 
-                        <x-input-error class="mt-2" :messages="$errors->slotCreation->get('year')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('year')" />
                     </div>
 
                     <div class="my-5">
                         <x-input-label for="year" :value="__('Start Date')" />
                         <input type="date" id="start_date" value="{{old('start_date')}}" required name="start_date"
-                            min="2020" max="2050"
+                            min="2023" max="2090"
                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500 focus:border-blue-500 p-2">
 
-                        <x-input-error class="mt-2" :messages="$errors->slotCreation->get('start_date')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('start_date')" />
                     </div>
 
                     <div class="my-5">
@@ -70,7 +70,7 @@
                             max="2050"
                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500 focus:border-blue-500 p-2">
 
-                        <x-input-error class="mt-2" :messages="$errors->slotCreation->get('end_date')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('end_date')" />
                     </div>
 
                     <div class="my-5">
@@ -80,12 +80,12 @@
                             <option selected>Select school</option>
                             @foreach($schools as $key => $school)
                             <option value="{{$school->id}}"
-                                class="{{ old('school_id') == $school->id ? 'aria-selected': '' }}">
+                                class="{{ old('school_id') == $school->id ? 'selected': '' }}">
                                 {{$school->name}}
                             </option>
                             @endforeach
                         </select>
-                        <x-input-error class="mt-2" :messages="$errors->get('school_id')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('school_id')" />
                     </div>
 
                     <div class="my-5">
@@ -94,7 +94,7 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Select program</option>
                         </select>
-                        <x-input-error class="mt-2" :messages="$errors->get('program_id')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('program_id')" />
                     </div>
 
 

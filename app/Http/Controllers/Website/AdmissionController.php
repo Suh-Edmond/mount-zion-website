@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdmissionApplicantionRequest;
+use App\Models\AdmissionYear;
 use App\Services\AdmissionApplicantService;
 use App\Services\AdmissionYearService;
 use App\Services\ProgramService;
@@ -28,6 +29,8 @@ class AdmissionController extends Controller
         $this->admissionApplicantService = $admissionApplicantService;
         $this->programService = $programService;
         $this->schoolService = $schoolService;
+
+        
     }
     public function index(Request $request)
     {
@@ -35,13 +38,12 @@ class AdmissionController extends Controller
         $regions = $this->getRegions();
         $schools = $this->schoolService->index($request)->get();
         $admissionSession = $this->admissionYearService->getCurrentAdmissionSessions();
-
+         
         $data = [
             'genders' => $genders,
             'regions' => $regions,
             'schools' => $schools,
             'admissionSessions' => $admissionSession,
-            // 'application_deadline_expired' => $this->checkIfApplicationDeadlineHadExpire($admissionSession->end_date),
         ];
 
         return view('pages.guest.main-website.admission.index')->with($data);
@@ -77,11 +79,11 @@ class AdmissionController extends Controller
         return view('pages.management.admission.applicants.show')->with($data);
     }
 
-    public function addApplicant(Request $request)
+    public function addApplicant(AdmissionApplicantionRequest $request)
     {
         $this->admissionApplicantService->createApplicant($request);
 
-        return redirect()->back()->with(['status' => 'Applicant submitted successfully']);
+        return redirect()->back()->with(['status' => 'Applicant submitted successfully! Please check you email address for your confirmation email']);
     }
 
     public function deleteApplication(Request $request)

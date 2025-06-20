@@ -49,7 +49,9 @@ class AdmissionYearService implements AdmissionYearInterface
     {
         $exist = AdmissionYear::where('status', true)->where('program_id', $request['program_id'])->first();
         if(isset($exist)){
-            return redirect()->back()->with(['status', ['Admission already exist for this program']]);
+            $exist->update([
+                'status'  => false
+            ]);
         }
         return AdmissionYear::create([
             'year' => $request['year'],
@@ -79,7 +81,8 @@ class AdmissionYearService implements AdmissionYearInterface
             'name'  => $request['name'],
             'start_date' => $request['start_date'],
             'end_date'   => $request['end_date'],
-            'program_id' => $request['program_id']
+            'program_id' => $request['program_id'],
+            'status'     => $request['status']
         ]);
     }
 

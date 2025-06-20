@@ -47,4 +47,9 @@ class Program extends Model
     {
         return $program->admissionYears()->where('status', true)->first();
     }
+
+    public function getLatedInactiveAdmissionSession($program)
+    {
+        return $program->admissionYears()->where('status', false)->orderBy('created_at', 'desc')->first();
+    }
 }

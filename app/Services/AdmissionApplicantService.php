@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class AdmissionApplicantService implements AdmissionApplicantInterface
@@ -96,15 +97,15 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
     public function createApplicant($request)
     {
-        
+           
         $program = Program::findOrFail($request['program_id']);
 
         $admissionYear = $program->admissionYears()->where('status', true)->first();
 
         $applicant = User::where('email', $request['email'])->first();
         
-        if($admissionYear->status == false){
-            return response()->json(['message' => "Admission deadline has expired! Please wait for the nest admission session"]);
+        if(!$admissionYear->status){
+            return redirect()->back()->with(['error' => "Admission deadline has expired! Please wait for the next admission session"]);
         }
         if(!isset($applicant)){
             $applicant = User::create([
@@ -146,7 +147,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
             'applicant_status' => $request['applicant_status']
         ]);
         $application->refresh();
-        // dd(AdmissionStatus::ADMITTED == $application->applicant_status);
+         
         if(AdmissionStatus::ADMITTED == $application->applicant_status){
             $this->sendAcceptanceAdmissionEmails($application);
         }
@@ -221,7 +222,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
             Mail::to($applicant->email)->send(new AdmissionMail($emailData));
 
         }catch (\Exception $e){
-            return  response()->json(['message' => 'Could not sent email notification mail to student', 'code' => 'FAILED']);
+            return new \Exception($e->getMessage());
         }
 
         return true;
@@ -318,22 +319,5 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         ]);
     }
     
-    private function validate($request)
-    {
-        $request->validate([
-            'last_name' => ['required', 'string', 'max:255'],
-            'first_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'telephone' => ['required', 'string'],
-            'region'   =>  ['required', 'string'],
-            'address' => ['required', 'string'],
-            'admission_year_id' => ['required', Rule::exists('admission_years', 'id')],
-            'program_id' => ['required', Rule::exists('programs', 'id')],
-            'school_id' => ['required', Rule::exists('schools', 'id')],
-            'has_agreed' => 'required',
-            'id_card' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048',
-            'hnd_cert' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048',
-            'gce_cert' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048'
-        ]);
-    }
+
 }
