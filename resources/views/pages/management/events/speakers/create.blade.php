@@ -39,6 +39,7 @@
 
                     <p class="mt-1 text-sm text-gray-600">
                         {{ __("Provide Information to add event speaker.") }}
+                         
                     </p>
                 </div>
 
@@ -47,14 +48,14 @@
                     @csrf
 
                     <div class="grow my-4">
-                        <x-input-label for="name" :value="__('Name')" />
+                        <label for="name"  >Name <span style="color: red">*</span></label>
                         <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name')"
-                            required autocomplete="name" />
+                            required autocomplete="name" /> 
                         <x-input-error class="mt-2" :messages="$errors->first('name')" />
                     </div>
 
                     <div class="grow my-4">
-                        <x-input-label for="title" :value="__('Title')" />
+                        <label for="title">Title  <span style="color: red">*</span></label>
                         <x-text-input id="title" name="title" type="text" class="mt-1 block w-full"
                             :value="old('title')" required autocomplete="title" />
                         <x-input-error class="mt-2" :messages="$errors->first('title')" />
@@ -79,7 +80,7 @@
                     </div>
 
                     <div class="w-full">
-                        <x-input-label for="image" :value="__('Upload Picture')" />
+                        <label for="image" >Upload Picture   <span style="color: red">*</span></label>
                         <input name="image" value="{{old('picture', $speaker->picture ?? '')}}" required
                             class="block p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                             aria-describedby="file_input_help" id="file_input" type="file">

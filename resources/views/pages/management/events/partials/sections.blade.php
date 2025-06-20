@@ -5,7 +5,7 @@
                 <h2 class="text-lg font-medium text-gray-900">
                     {{ __('Event Sections') }}
                 </h2>
-                <x-auth-session-status :status="session('status')" x-data="{ show: true }" x-show="show"
+                <x-auth-session-status :status="session('status') && session('status') != 'Event Information Updated Successfully'" x-data="{ show: true }" x-show="show"
                     x-init="setTimeout(() => show = false, 2000)" class="ml-4 pt-2">
                 </x-auth-session-status>
             </header>

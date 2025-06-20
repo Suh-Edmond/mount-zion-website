@@ -18,16 +18,16 @@
                 @method('PUT')
 
                 <div class="grow my-4">
-                    <x-input-label for="name" :value="__('Name')" />
+                    <label for="name" >Name <span style="color: red">*</span></label>
                     <x-text-input id="name" name="name" type="text" class="mt-1 block w-full"
-                        value="{{old('name', $speaker->name)}}" required autocomplete="name" />
+                        value="{{old('name', $speaker->name)}}" required autocomplete="name" /> 
                     <x-input-error class="mt-2" :messages="$errors->first('name')" />
                 </div>
 
                 <div class="grow my-4">
-                    <x-input-label for="title" :value="__('Title')" />
+                    <label for="title" >Title <span style="color: red">*</span></label>
                     <x-text-input id="title" name="title" type="text" class="mt-1 block w-full"
-                        value="{{old('title', $speaker->title)}}" required autocomplete="title" />
+                        value="{{old('title', $speaker->title)}}" required autocomplete="title" /> 
                     <x-input-error class="mt-2" :messages="$errors->first('title')" />
                 </div>
 

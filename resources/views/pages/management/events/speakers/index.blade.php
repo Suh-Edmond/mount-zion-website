@@ -62,8 +62,9 @@
                             class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-1">
                             <i class="fa fa-trash text-red-600 cursor-pointer mr-6 "></i></a>
                     </div>
-                    <a href="#" x-data="" x-on:click.prevent="$dispatch('open-modal', 'edit-speaker{{$speaker->id}}')"
+                    <a href="#" x-data="" x-on:click.prevent="$dispatch('open-modal', 'edit-speaker{{$speaker->id}}')" data-toggle="tooltip"
                         class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{$speaker->name}}</a><br>
+                         
                     <a href="#" x-data="" x-on:click.prevent="$dispatch('open-modal', 'edit-speaker{{$speaker->id}}')"
                         class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{$speaker->title}}</a>
                 </div>
