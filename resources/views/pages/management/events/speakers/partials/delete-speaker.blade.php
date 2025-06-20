@@ -1,4 +1,4 @@
-<x-modal name="remove-speaker{{$speaker->id}}" :show="$errors->userDeletion->isNotEmpty()" focusable x-data="">
+<x-modal name="remove-speaker{{$speaker->id}}" :show="$errors->isNotEmpty()" focusable x-data="">
     <div class="p-5">
         <form method="post"
             action="{{ route('manage.events.speakers.delete', ['slug' => $speaker->slug, 'event_slug' => $speaker->event->slug]) }}">

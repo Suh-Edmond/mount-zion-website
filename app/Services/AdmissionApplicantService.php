@@ -230,7 +230,8 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
     public function uploadAdmissionDocument($request, $admission)
     {
-        
+     
+         
         if(isset($request['id_card'])){
            
             $this->uploadFile($request, $admission, FileUploadCategory::ID_CARD, 'id_card');

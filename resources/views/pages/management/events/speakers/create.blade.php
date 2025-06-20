@@ -50,32 +50,32 @@
                         <x-input-label for="name" :value="__('Name')" />
                         <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name')"
                             required autocomplete="name" />
-                        <x-input-error class="mt-2" :messages="$errors->get('name')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('name')" />
                     </div>
 
                     <div class="grow my-4">
                         <x-input-label for="title" :value="__('Title')" />
                         <x-text-input id="title" name="title" type="text" class="mt-1 block w-full"
                             :value="old('title')" required autocomplete="title" />
-                        <x-input-error class="mt-2" :messages="$errors->get('title')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('title')" />
                     </div>
 
                     <div class="grow my-4">
                         <x-input-label for="linkedln" :value="__('Linkedln Link')" />
                         <x-text-input id="linkedln" name="linkedln" type="text" class="mt-1 block w-full"
-                            :value="old('linkedln')" required autocomplete="linkedln" />
+                            :value="old('linkedln')"  autocomplete="linkedln" />
                     </div>
 
                     <div class="grow my-4">
                         <x-input-label for="skype" :value="__('Skype ID')" />
                         <x-text-input id="skype" name="skype" type="text" class="mt-1 block w-full"
-                            :value="old('skype')" required autocomplete="skype" />
+                            :value="old('skype')"  autocomplete="skype" />
                     </div>
 
                     <div class="grow my-4">
                         <x-input-label for="facebook" :value="__('Facebook Link')" />
                         <x-text-input id="facebook" name="facebook" type="text" class="mt-1 block w-full"
-                            :value="old('facebook')" required autocomplete="facebook" />
+                            :value="old('facebook')"  autocomplete="facebook" />
                     </div>
 
                     <div class="w-full">
@@ -85,7 +85,7 @@
                             aria-describedby="file_input_help" id="file_input" type="file">
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG or JPEG
                             (MAX. 1Mb).</p>
-                        <x-input-error class="mt-2" :messages="$errors->get('picture')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('picture')" />
                     </div>
 
 

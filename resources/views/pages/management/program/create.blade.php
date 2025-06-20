@@ -44,14 +44,14 @@
                         <x-input-label for="name" :value="__('Name')" />
                         <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name')"
                             required autocomplete="name" />
-                        <x-input-error class="mt-2" :messages="$errors->get('name')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('name')" />
                     </div>
 
                     <div class="grow my-4">
                         <x-input-label for="duration" :value="__('Duration (In years)')" />
-                        <x-text-input id="duration" name="duration" type="number" class="mt-1 block w-full"
+                        <x-text-input id="duration" name="duration" type="number" class="mt-1 block w-full" min="1" max="5"
                             :value="old('duration') ?? 1" required autocomplete="duration" />
-                        <x-input-error class="mt-2" :messages="$errors->get('duration')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('duration')" />
                     </div>
                     <div class="grow my-4">
                         <x-input-label for="tag" :value="__('Program Type')" />
@@ -63,7 +63,7 @@
                             </option>
                             @endforeach
                         </select>
-                        <x-input-error class="mt-2" :messages="$errors->get('tag')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('tag')" />
                     </div>
 
                     <div class="w-full">
@@ -73,14 +73,14 @@
                             aria-describedby="file_input_help" id="file_input" type="file">
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG or JPEG
                             (MAX. 1Mb).</p>
-                        <x-input-error class="mt-2" :messages="$errors->get('image')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('image')" />
                     </div>
 
                     <div class="my-4">
                         <x-input-label for="about" :value="__('About')" />
                         <textarea id="about" name="about" rows="4"
                             class=" about block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{old('about')}} </textarea>
-                        <x-input-error class="mt-2" :messages="$errors->get('about')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('about')" />
                     </div>
                     <div class="flex flex-row justify-between">
                         <div class="flex items-center gap-4">

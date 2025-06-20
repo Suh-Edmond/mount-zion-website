@@ -1,4 +1,4 @@
-<x-modal name="edit-program-image" :show="$errors->slotCreation->isNotEmpty()" focusable x-data="edit-program-image">
+<x-modal name="edit-program-image" :show="$errors->isNotEmpty()" focusable x-data="edit-program-image">
     <div class="w-full">
         <form method="post" action="{{ route('manage.academics.programs.edit-upload-image', ['slug' => $program->slug ?? ""]) }}" class="mt-6 space-y-6 w-full"  enctype="multipart/form-data">
             @csrf

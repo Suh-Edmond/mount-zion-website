@@ -1,4 +1,4 @@
-<x-modal name="set-applicant-status" :show="$errors->userDeletion->isNotEmpty()" focusable>
+<x-modal name="set-applicant-status" :show="$errors->isNotEmpty()" focusable>
     <div class="p-5">
         <form method="post" action="{{ route('manage.admission.applicant.validate-application', ['slug' => $applicant->slug]) }}">
             @csrf

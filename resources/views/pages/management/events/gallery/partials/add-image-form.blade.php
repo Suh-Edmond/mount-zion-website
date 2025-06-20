@@ -1,4 +1,4 @@
-<x-modal name="add_image_modal" :show="$errors->slotCreation->isNotEmpty()" focusable x-data="">
+<x-modal name="add_image_modal" :show="$errors->isNotEmpty()" focusable x-data="">
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div>
@@ -19,7 +19,7 @@
                         aria-describedby="file_input_help" id="file_input" type="file" accept="image/*">
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG or JPEG
                         (MAX. 1Mb).</p>
-                    <x-input-error class="mt-2" :messages="$errors->get('image')" />
+                    <x-input-error class="mt-2" :messages="$errors->first('image')" />
                 </div>
 
                 @if(!$hasMainImage)

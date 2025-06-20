@@ -32,38 +32,41 @@
                         {{__('Add Applicant')}}
                     </h2>
 
-                    <h6 class="font-medium text-md text-gray-800 leading-tight py-2">
-                        Admission Session : {{date('F-Y', strtotime($admissionSession->start_date))}} - {{date('F-Y', strtotime($admissionSession->end_date))}}
-                    </h6>
 
-                    <form method="POST" action="{{route('manage.admission.applicant.store-application', ['admission_year_id' => $admissionSession->id])}}" class="pt-4">
+                    <form method="POST" action="{{route('manage.admission.applicant.store-application', ['admission_year_id' => ''])}}" class="pt-4">
                         @csrf
                         <div class="mt-5">
                             <x-input-label for="fname" :value="__('First Name')" />
                             <x-text-input name="first_name" id="first_name"  class="block mt-1 w-full" type="text" :value="old('first_name')" required autofocus autocomplete="first_name" />
-                            <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
+                            <x-input-error :messages="$errors->first('first_name')" class="mt-2" />
                         </div>
                         <div class="mt-5">
                             <x-input-label for="last_name" :value="__('Last Name')" />
                             <x-text-input name="last_name"  id="last_name" class="block mt-1 w-full" type="text" :value="old('last_name')" required autofocus autocomplete="last_name" />
-                            <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
+                            <x-input-error :messages="$errors->first('last_name')" class="mt-2" />
                         </div>
 
                         <!-- Email Address -->
                         <div class="mt-5">
                             <x-input-label for="email" :value="__('Email')" />
                             <x-text-input name="email" class="block mt-1 w-full" type="email"  :value="old('email')" required autocomplete="email" />
-                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            <x-input-error :messages="$errors->first('email')" class="mt-2" />
                         </div>
                         <div class="mt-5">
                             <x-input-label for="telephone" :value="__('Telephone')" />
                             <x-text-input name="telephone" class="block mt-1 w-full" type="text" :value="old('telephone')" required autocomplete="telephone" />
-                            <x-input-error :messages="$errors->get('telephone')" class="mt-2" />
+                            <x-input-error :messages="$errors->first('telephone')" class="mt-2" />
                         </div>
                         <div class="mt-5">
-                            <x-input-label for="address" :value="__('Address')" />
-                            <x-text-input name="address" class="block mt-1 w-full" type="text"  :value="old('address')" required autocomplete="address" />
-                            <x-input-error :messages="$errors->get('address')" class="mt-2" />
+                            <x-input-label for="dob" :value="__('Date of birth')" />
+                            <x-text-input name="dob" class="block mt-1 w-full" type="date"  :value="old('pob')" required autocomplete="dob" />
+                            <x-input-error :messages="$errors->first('dob')" class="mt-2" />
+                        </div>
+
+                        <div class="mt-5">
+                            <x-input-label for="pob" :value="__('Address')" />
+                            <x-text-input name="pob" class="block mt-1 w-full" type="text"  :value="old('pob')" required autocomplete="pob" />
+                            <x-input-error :messages="$errors->first('pob')" class="mt-2" />
                         </div>
 
                         <div class="mt-5">
@@ -74,7 +77,7 @@
                                     <option value="{{$gender}} {{old('gender') == $gender ? 'selected' : ''}}">{{$gender}}</option>
                                 @endforeach
                             </select>
-                            <x-input-error :messages="$errors->get('region')" class="mt-2" />
+                            <x-input-error :messages="$errors->first('gender')" class="mt-2" />
                         </div>
                         <div class="mt-5">
                             <x-input-label for="region" :value="__('Region')" />
@@ -84,7 +87,7 @@
                                     <option value="{{$value}} {{old('region') === $value ? 'selected' : ''}}">{{$value}}</option>
                                 @endforeach
                             </select>
-                            <x-input-error :messages="$errors->get('region')" class="mt-2" />
+                            <x-input-error :messages="$errors->first('region')" class="mt-2" />
                         </div>
 
                         <div class="mt-5 w-full mb-4">
@@ -105,6 +108,27 @@
                                 <option selected>Choose Program</option>
                             </select>
                             <x-input-error :messages="$errors->get('program_id')" class="mt-2" />
+                        </div>
+
+                        <div class="mt-5 w-full mb-4">
+                            <x-input-label for="id_card" :value="__('ID or Passport')" />
+                            <x-text-input name="id_card" class="block mt-1 w-full" type="file"  :value="old('id_card')" required autocomplete="id_card" accept="image/png, image/jpg, image/jpeg, application/pdf"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                            <x-input-error :messages="$errors->first('id_card')" class="mt-2" />
+                        </div>
+
+                        <div class="mt-5 w-full mb-4">
+                            <x-input-label for="gce_cert" :value="__('GCE Certificate')" />
+                            <x-text-input name="gce_cert" class="block mt-1 w-full" type="file"  :value="old('gce_cert')" required   accept="image/png, image/jpg, image/jpeg, application/pdf" 
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                            <x-input-error :messages="$errors->first('gce_cert')" class="mt-2" />
+                        </div>
+
+                        <div class="mt-5 w-full mb-4">
+                            <x-input-label for="hnd_cert" :value="__('HND Certificate')" />
+                            <x-text-input name="hnd_cert" class="block mt-1 w-full" type="file"  :value="old('hnd_cert')" required autocomplete="hnd_cert" accept="image/png, image/jpg, image/jpeg, application/pdf" 
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                            <x-input-error :messages="$errors->first('hnd_cert')" class="mt-2" />
                         </div>
 
                         <div class="d-flex align-items-center single-checkbox mt--20 hidden">
@@ -136,13 +160,13 @@
         }
     });
 
-    $(document).on('change', '#school_id', function (e){
+   $(document).on('change', '#school_id', function (e){
         e.preventDefault();
         var school_id = ($(this).val());
 
-        // $('#program_id').find('option').not(':first').remove();
+        $('#program_id').find('option').not(':first').remove();
 
-        var url = "{{route('main.schools.programs.fetch-all', ':id')}}";
+        var url = "{{route('main.schools.programs.fetch-active-programs', ':id')}}";
 
         url = url.replace(':id', school_id);
 
@@ -152,9 +176,9 @@
             data: {},
 
             success: function(data) {
-                let option = "";
+                let option = "<option value=''>Choose program</option>";
                 let yearslabel = "year(s)"
-                for (var i = 0; i < data.data.length; i++){
+                for (var i = 0; i < data.data.length; i++){ 
                     option += '<option value="'+data.data[i].id+'">'+data.data[i].name+ ' - '+ data.data[i].duration+ yearslabel +' </option>';
                 }
                 $('#program_id').html('');
@@ -165,5 +189,5 @@
             },
 
         });
-    })
+    });
 </script>

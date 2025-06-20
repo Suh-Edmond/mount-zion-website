@@ -27,6 +27,12 @@
     </x-slot>
 
 
+     <div class="flex justify-center mt-5">
+        <x-auth-session-status :status="session('status')" x-data="{ show: true }" x-show="show"
+            x-init="setTimeout(() => show = false, 3000)" class="pt-1 pl-5">
+        </x-auth-session-status>
+    </div>
+
     <div class="max-w-7xl mx-auto bg-white shadow-sm sm:rounded-lg py-5 px-5 mt-4 ">
         <div class=" py-4 my-5 ">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">

@@ -367,75 +367,8 @@
     });
 
 
-    $(document).on('change', '#program_id', function (e){
-        e.preventDefault();
-        let selectedProgram = ($(this).val());
-
-        console.log(JSON.parse(selectedProgram));
-        
-    })
+    
 
 
-    $(document).on('click', '.submit', function(e){
-        e.preventDefault();
-
-        var fname = $("input[name=first_name]").val();
-        var lname = $("input[name=last_name]").val();
-        var telephone = $("input[name=telephone]").val();
-        var email = $("input[name=email]").val();
-        var region = $("select[name=region]").val();
-        var gender = $("input[name=gender]").val();
-        var has_agreed = $("input[name=has_agreed]").val();
-        var dob = $("input[name=dob]").val();
-        var pob = $("input[name=pob]").val();
-        var program_id = $("select[name=program_id]").val();
-        var school_id = $("select[name=school_id]").val();
-        var id_card = $("select[name=id_card]").val();
-        var gce_cert = $("select[name=gce_cert]").val();
-        var hnd_cert = $("select[name=hnd_cert]").val();
-
-        $(".app_button").css("display", "none");
-        $(".loader_button").css("display", "inline-block");
-        $(".application_spinner").css('display', 'inline-block')
-
-
-        $.ajax({
-            url: "{{route('main.admission.applicant.store')}}",
-            type: "POST",
-            data: {
-                "first_name" : fname,
-                "last_name": lname,
-                "telephone": telephone,
-                "email": email,
-                "region" :region,
-                "gender": gender,
-                "has_agreed":has_agreed,
-                "address":"address",
-                "dob":dob,
-                "pob": pob,
-                "school_id": school_id,
-                "program_id":program_id,
-                "id_card": id_card,
-                "gce_cert":gce_cert,
-                "hnd_cert": hnd_cert
-            },
-            success: function(data){
-                $('#application-form').find(".print-error-msg").css("display", "none");
-                $(".app_button").css("display", "inline-block");
-                $(".loader_button").css("display", "none");
-                $(".success_msg").css("display", "inline-block")
-                $(".application_spinner").css('display', 'none')
-            },
-            error: function(response){
-                $(".app_button").css("display", "inline-block");
-                $(".loader_button").css("display", "none");
-
-                $('#application-form').find(".print-error-msg").find("ul").html('');
-                $('#application-form').find(".print-error-msg").css('display','block');
-                $.each( response.responseJSON.errors, function( key, value ) {
-                    $('#application-form').find(".print-error-msg").find("ul").append('<li>'+value+'</li>');
-                });
-            },
-        });
-    });
+    
 </script>
