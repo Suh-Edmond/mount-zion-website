@@ -63,7 +63,7 @@
                                         <li><a><span><i class="fa-light fa-arrow-right"></i></span>Admission
                                                 Status:
                                                 @if(!empty($program->getCurrentAdmissionSession($program)) && $program->getCurrentAdmissionSession($program)->status)
-                                                <span style="color: green">Admssion Open</span>
+                                                <span style="color: green">Admission Open</span>
                                                 @else
                                                 <span style="color: red">Admission Closed</span>
                                                 @endif
