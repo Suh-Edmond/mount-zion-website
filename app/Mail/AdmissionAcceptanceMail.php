@@ -20,6 +20,7 @@ class AdmissionAcceptanceMail extends Mailable
     {
         $this->data = $data;
     }
+    }
 
     /**
      * Get the message envelope.
@@ -38,6 +39,7 @@ class AdmissionAcceptanceMail extends Mailable
     {
         return new Content(
             markdown: 'mail.admission-acceptance-mail',
+ 
             with:[
                 'data'   => $this->data
             ]

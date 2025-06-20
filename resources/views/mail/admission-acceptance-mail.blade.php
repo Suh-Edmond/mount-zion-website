@@ -24,3 +24,4 @@
     {{ $data['school_telephone'] }}
     {{ $data['website'] }}
 </x-mail::message>
+

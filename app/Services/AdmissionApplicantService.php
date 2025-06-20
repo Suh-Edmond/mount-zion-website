@@ -10,7 +10,11 @@ use App\Exceptions\BusinessValidationException;
 use App\Interface\AdmissionApplicantInterface;
 use App\Mail\AdmissionAcceptanceMail;
 use App\Mail\AdmissionMail;
+ 
 use App\Mail\AdmissionRejectionMail;
+ 
+use App\Mail\AdmissionAcceptanceMail;
+ 
 use App\Models\Admission;
 use App\Models\AdmissionDocument;
 use App\Models\AdmissionYear;
@@ -146,6 +150,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         $application->update([
             'applicant_status' => $request['applicant_status']
         ]);
+ 
         $application->refresh();
          
         if(AdmissionStatus::ADMITTED == $application->applicant_status){
@@ -201,8 +206,6 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         }catch (\Exception $e){
             throw new \Exception($e->getMessage());
         }
-
-        return true;
     }
 
     private function sendAdmissionEmails($applicant, $program){
@@ -227,6 +230,24 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
         return true;
     }
+
+    private function sendAdmissionDecisionEmails($application){
+        $emailData = [
+            'program_image'            => '',
+            'name'                     => $application->user->name,
+            'email'                    => $application->user->email,
+            'program_title'            => $application->program->name,
+            'application_status'       => $application->application_status
+        ];
+        try {
+            Mail::to($applicant->email)->send(new AdmissionAcceptanceMail($emailData));
+        }catch (\Exception $e){
+            return  response()->json(['message' => 'Could not sent email notification mail to student', 'code' => 'FAILED']);
+        }
+
+        return true;
+    }
+
 
     public function uploadAdmissionDocument($request, $admission)
     {
