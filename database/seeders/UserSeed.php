@@ -33,15 +33,15 @@ class UserSeed extends Seeder
         // }
 
         User::create([
-            'name'   => "testuser",
-            'email'  => "testuser@gmail.com",
-            'password' => Hash::make('testuser'),
+            'name'   => "Peace Atem",
+            'email'  => "peaceatem@gmail.com",
+            'password' => Hash::make('admin'),
             'telephone' => $generator->phoneNumber,
-            'region'   => $generator->randomElement(['Northwest', 'Southwest']),
-            'address'  => "Buea",
+            'region'   => "North West",
+            'address'  => "Germany",
             'dob'      => Carbon::now(),
             'pob'      => "Buea",
-            'gender'   => Gender::MALE,
+            'gender'   => Gender::FEMALE,
             'user_type' => UserType::STAFF
         ]);
 
