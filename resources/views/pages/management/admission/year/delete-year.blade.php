@@ -1,4 +1,4 @@
-<x-modal name="confirm-deletion{{$value->id}}" :show="$errors->userDeletion->isNotEmpty()" focusable>
+<x-modal name="confirm-deletion{{$value->id}}" :show="$errors->isNotEmpty()" focusable>
     <div class="p-5">
         <form method="post" action="{{ route('manage.admission.years.remove', ['slug' => $value->slug]) }}">
             @csrf

@@ -1,4 +1,4 @@
-<x-modal name="remove_image{{$value->id}}" :show="$errors->userDeletion->isNotEmpty()" focusable x-data="">
+<x-modal name="remove_image{{$value->id}}" :show="$errors->isNotEmpty()" focusable x-data="">
     <div class="p-5">
         <form method="post"
             action="{{ route('manage.events.gallery.delete', ['slug' => $value->slug, 'event_slug' => $value->event->slug]) }}">

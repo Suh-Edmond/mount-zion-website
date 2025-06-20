@@ -14,7 +14,7 @@
         x-on:click.prevent="$dispatch('open-modal', 'confirm-blog-deletion')"
     >{{ __('Delete School') }}</x-danger-button>
 
-    <x-modal name="confirm-blog-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
+    <x-modal name="confirm-blog-deletion" :show="$errors->isNotEmpty()" focusable>
         <form method="post" action="{{ route('manage.academics.destroy', ['slug' => $school->slug]) }}" class="p-6">
             @csrf
             @method('delete')

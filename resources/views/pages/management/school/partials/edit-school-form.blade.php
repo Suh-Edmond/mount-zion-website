@@ -1,4 +1,4 @@
-<x-modal name="edit-school" :show="$errors->slotCreation->isNotEmpty()" focusable x-data="edit-school">
+<x-modal name="edit-school" :show="$errors->isNotEmpty()" focusable x-data="edit-school">
     <form method="post" action="{{ route('manage.academic.edit', ['slug' => $school->slug]) }}" class="p-6" >
         @csrf
         @method('put')
@@ -23,28 +23,28 @@
             <x-input-label for="email" :value="__('Email')"/>
             <x-text-input id="email" name="email" type="text" class="mt-1 block w-full"
                           :value="old('email', $school->email)" required autocomplete="email"/>
-            <x-input-error class="mt-2" :messages="$errors->slotCreation->get('email')"/>
+            <x-input-error class="mt-2" :messages="$errors->first('email')"/>
         </div>
 
         <div class="my-4">
             <x-input-label for="telephone" :value="__('Telephone')"/>
             <x-text-input id="telephone" name="telephone" type="text" class="mt-1 block w-full"
                           :value="old('telephone', $school->telephone)" required autocomplete="telephone"/>
-            <x-input-error class="mt-2" :messages="$errors->slotCreation->get('telephone')"/>
+            <x-input-error class="mt-2" :messages="$errors->first('telephone')"/>
         </div>
 
         <div class="my-4">
             <x-input-label for="address" :value="__('Address')"/>
             <x-text-input id="address" name="address" type="text" class="mt-1 block w-full"
                           :value="old('address', $school->address)" required autocomplete="address"/>
-            <x-input-error class="mt-2" :messages="$errors->slotCreation->get('address')"/>
+            <x-input-error class="mt-2" :messages="$errors->first('address')"/>
         </div>
 
         <div class="my-4">
             <x-input-label for="region" :value="__('Region')"/>
             <x-text-input id="region" name="region" type="text" class="mt-1 block w-full"
                           :value="old('region', $school->region)" required autocomplete="region"/>
-            <x-input-error class="mt-2" :messages="$errors->slotCreation->get('region')"/>
+            <x-input-error class="mt-2" :messages="$errors->first('region')"/>
         </div>
 
 

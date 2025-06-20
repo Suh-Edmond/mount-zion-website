@@ -1,4 +1,4 @@
-@section('title', "Create Admission Year")
+@section('title', "Update Admission Year")
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between">
@@ -73,6 +73,23 @@
                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500 focus:border-blue-500 p-2">
 
                         <x-input-error class="mt-2" :messages="$errors->slotCreation->get('end_date')" />
+                    </div>
+
+                    <div class="my-5">
+                        <x-input-label for="status" :value="__('Status')" />
+                        <select id="status" name="status"
+                            class="disabled bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                             
+                            <option value="1" {{$currentSession->status == true ? 'selected' : ''}}>
+                                Active
+                            </option>
+    
+                            <option  value="0" {{$currentSession->status == false ? 'selected' : ''}}>
+                                In Active
+                            </option>
+                             
+                        </select>
+                        <x-input-error class="mt-2" :messages="$errors->get('school_id')" />
                     </div>
 
                     @if (!empty($currentSession->program))

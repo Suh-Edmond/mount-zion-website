@@ -22,14 +22,14 @@ class CreateOrUpdateEventRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'about'       => 'required|string|max:500',
+            'about'       => 'required|string|max:1000',
             'title'       => 'required|string|max:255|min:10',
             'location'    => 'required|string|max:255',
             'venue'       => 'required|string|max:255',
             'phone'       => 'required|string|max:255',
             'email'       => 'required|email|max:255',
             'website'     => 'string',
-            'event_time'    => 'required|date_format:H:i:s',
+            'event_time'    => 'required',
             'event_date'    => 'required|date'
         ];
     }

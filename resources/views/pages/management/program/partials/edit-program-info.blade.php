@@ -1,4 +1,4 @@
-<x-modal name="edit-program" :show="$errors->slotCreation->isNotEmpty()" focusable x-data="edit-program">
+<x-modal name="edit-program" :show="$errors->isNotEmpty()" focusable x-data="edit-program">
     <form method="post" action="{{ route('manage.academics.programs.edit', ['slug' => $program->slug]) }}" class="p-6" >
         @csrf
         @method('put')
@@ -16,14 +16,14 @@
             <x-input-label for="name" :value="__('Name')"/>
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full"
                           :value="old('name', $program->name)" required autocomplete="name"/>
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            <x-input-error class="mt-2" :messages="$errors->first('name')" />
         </div>
 
         <div class="my-4">
             <x-input-label for="duration" :value="__('Duration')"/>
             <x-text-input id="duration" name="duration" type="text" class="mt-1 block w-full"
                           :value="old('duration', $program->duration)" required autocomplete="duration"/>
-            <x-input-error class="mt-2" :messages="$errors->slotCreation->get('duration')"/>
+            <x-input-error class="mt-2" :messages="$errors->first('duration')"/>
         </div>
 
         <div class="my-4">
@@ -34,7 +34,7 @@
                     <option value="{{$tag}}" {{ $program->tag === $tag ? 'selected' : '' }}>{{$tag}}</option>
                 @endforeach
             </select>
-            <x-input-error class="mt-2" :messages="$errors->get('tag')"/>
+            <x-input-error class="mt-2" :messages="$errors->first('tag')"/>
         </div>
 
 
@@ -42,7 +42,7 @@
             <x-input-label for="about" :value="__('About')" />
             <textarea id="about" name="about" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >{{old('about', $program->about)}}</textarea>
 
-            <x-input-error class="mt-2" :messages="$errors->get('about')" />
+            <x-input-error class="mt-2" :messages="$errors->first('about')" />
         </div>
 
         <div class="mt-6 flex justify-end">

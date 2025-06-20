@@ -18,37 +18,37 @@
                 @method('PUT')
 
                 <div class="grow my-4">
-                    <x-input-label for="name" :value="__('Name')" />
+                    <label for="name" >Name <span style="color: red">*</span></label>
                     <x-text-input id="name" name="name" type="text" class="mt-1 block w-full"
-                        value="{{old('name', $speaker->name)}}" required autocomplete="name" />
-                    <x-input-error class="mt-2" :messages="$errors->get('name')" />
+                        value="{{old('name', $speaker->name)}}" required autocomplete="name" /> 
+                    <x-input-error class="mt-2" :messages="$errors->first('name')" />
                 </div>
 
                 <div class="grow my-4">
-                    <x-input-label for="title" :value="__('Title')" />
+                    <label for="title" >Title <span style="color: red">*</span></label>
                     <x-text-input id="title" name="title" type="text" class="mt-1 block w-full"
-                        value="{{old('title', $speaker->title)}}" required autocomplete="title" />
-                    <x-input-error class="mt-2" :messages="$errors->get('title')" />
+                        value="{{old('title', $speaker->title)}}" required autocomplete="title" /> 
+                    <x-input-error class="mt-2" :messages="$errors->first('title')" />
                 </div>
 
                 <div class="grow my-4">
                     <x-input-label for="linkedln" :value="__('Linkedln Link')" />
                     <x-text-input id="linkedln" name="linkedln" type="text" class="mt-1 block w-full"
-                        value="{{$speaker->getLinkedlnLink($speaker->social_media_handles)}}" required
+                        value="{{$speaker->getLinkedlnLink($speaker->social_media_handles)}}"
                         autocomplete="linkedln" />
                 </div>
 
                 <div class="grow my-4">
                     <x-input-label for="skype" :value="__('Skype ID')" />
                     <x-text-input id="skype" name="skype" type="text" class="mt-1 block w-full"
-                        value="{{$speaker->getFacebookLink($speaker->social_media_handles)}}" required
+                        value="{{$speaker->getFacebookLink($speaker->social_media_handles)}}"
                         autocomplete="skype" />
                 </div>
 
                 <div class="grow my-4">
                     <x-input-label for="facebook" :value="__('Facebook Link')" />
                     <x-text-input id="facebook" name="facebook" type="text" class="mt-1 block w-full"
-                        value="{{$speaker->getSkypeLink($speaker->social_media_handles)}}" required
+                        value="{{$speaker->getSkypeLink($speaker->social_media_handles)}}"
                         autocomplete="facebook" />
                 </div>
 

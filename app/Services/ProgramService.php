@@ -157,6 +157,31 @@ class ProgramService implements ProgramInterface, FileUploadInterface
         })->get();
     }
 
+    public function filterPrograms($request)
+    {
+        $programs = Program::select("*");
+        if(isset($request['school_id']) && $request['school_id'] !== "ALL"){
+            $programs = $programs->where('school_id', $request['school_id']);
+        }
+         if(isset($sort)){
+            switch ($sort) {
+                case 'DATE_DESC':
+                    $programs->orderBy('created_at');
+                    break;
+                case 'NAME':
+                    $programs->orderBy('name');
+                    break;
+                default:
+                    $programs->orderByDesc('created_at');
+                    break;
+            }
+        }
+
+
+        return $programs->orderBy('name', 'desc')->paginate(10);
+    }
+
+
 
     private function validateRequest($request)
     {

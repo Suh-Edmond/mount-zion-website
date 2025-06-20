@@ -5,8 +5,8 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{__('Applicant Management')}}
             </h2>
-            <x-primary-button><a href="{{route('manage.admission.applicant.create-application')}}">{{ __('Add
-                    Applicant') }} </a></x-primary-button>
+            {{-- <x-primary-button><a href="{{route('manage.admission.applicant.create-application')}}">{{ __('Add
+                    Applicant') }} </a></x-primary-button> --}}
         </div>
     </x-slot>
 

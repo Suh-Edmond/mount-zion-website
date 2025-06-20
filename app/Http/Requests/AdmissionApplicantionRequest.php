@@ -29,14 +29,13 @@ class AdmissionApplicantionRequest extends FormRequest
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'telephone' => ['required', 'string'],
             'region'   =>  ['required', 'string'],
-            'address' => ['required', 'string'],
-            'admission_year_id' => ['required', Rule::exists('admission_years', 'id')],
+            'pob' => ['required', 'string', 'max:255'],
             'program_id' => ['required', Rule::exists('programs', 'id')],
             'school_id' => ['required', Rule::exists('schools', 'id')],
             'has_agreed' => 'required',
-            'id_card' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048',
-            'hnd_cert' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048',
-            'gce_cert' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048'
+            'id_card' => 'required|max:2048',
+            'hnd_cert' => 'max:2048',
+            'gce_cert' => 'max:2048'
         ];
     }
 }

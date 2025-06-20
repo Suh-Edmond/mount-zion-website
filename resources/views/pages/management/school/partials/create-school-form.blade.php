@@ -7,26 +7,26 @@
                 <x-input-label for="name" :value="__('Name')" />
                 <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name')" required
                     autocomplete="name" />
-                <x-input-error class="mt-2" :messages="$errors->get('name')" />
+                <x-input-error class="mt-2" :messages="$errors->first('name')" />
             </div>
 
             <div class="grow my-4">
                 <x-input-label for="email" :value="__('Email')" />
                 <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email')"
                     required autocomplete="email" />
-                <x-input-error class="mt-2" :messages="$errors->get('email')" />
+                <x-input-error class="mt-2" :messages="$errors->first('email')" />
             </div>
             <div class="grow my-4">
                 <x-input-label for="telephone" :value="__('Telephone')" />
                 <x-text-input id="telephone" name="telephone" type="text" class="mt-1 block w-full"
                     :value="old('telephone')" required autocomplete="telephone" />
-                <x-input-error class="mt-2" :messages="$errors->get('telephone')" />
+                <x-input-error class="mt-2" :messages="$errors->first('telephone')" />
             </div>
             <div class="grow my-4">
                 <x-input-label for="address" :value="__('Address')" />
                 <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address')"
                     required autocomplete="address" />
-                <x-input-error class="mt-2" :messages="$errors->get('address')" />
+                <x-input-error class="mt-2" :messages="$errors->first('address')" />
             </div>
             <div class="grow my-4">
                 <x-input-label for="region" :value="__('Region')" />
@@ -39,7 +39,7 @@
                     </option>
                     @endforeach
                 </select>
-                <x-input-error class="mt-2" :messages="$errors->get('region')" />
+                <x-input-error class="mt-2" :messages="$errors->first('region')" />
             </div>
 
             <div class="flex flex-row justify-between">

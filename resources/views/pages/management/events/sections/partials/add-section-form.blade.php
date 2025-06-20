@@ -1,4 +1,4 @@
-<x-modal name="add-event-section" :show="$errors->slotCreation->isNotEmpty()" focusable x-data="add-event-section">
+<x-modal name="add-event-section" :show="$errors->isNotEmpty()" focusable x-data="add-event-section">
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div>
@@ -19,13 +19,13 @@
                     <x-input-label for="title" :value="__('Title')" />
                     <x-text-input id="title" name="title" type="text" class="mt-1 block w-full" value="{{old('title')}}"
                         required autocomplete="title" />
-                    <x-input-error class="mt-2" :messages="$errors->get('title')" />
+                    <x-input-error class="mt-2" :messages="$errors->first('title')" />
                 </div>
 
                 <x-input-label for="body" value="Body" />
                 <textarea id="body" name="body" rows="4"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{old('body')}}</textarea>
-                <x-input-error class="mt-2" :messages="$errors->get('body')" />
+                <x-input-error class="mt-2" :messages="$errors->first('body')" />
 
 
                 <div class="mt-6 flex justify-end space-x-3">

@@ -95,4 +95,17 @@ class ProgramController extends Controller
         
         return response()->json(['data' => $data]);
     }
+
+    public function fetchPrograms(Request $request)
+    {
+        $programs = $this->programService->filterPrograms($request);
+        $schools = School::all();
+
+        $data = [
+            'programs'   => $programs,
+            'schools'    => $schools
+        ];
+
+        return view('pages.management.program.list')->with($data);
+    }
 }

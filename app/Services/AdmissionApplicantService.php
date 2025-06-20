@@ -2,23 +2,31 @@
 
 namespace App\Services;
 
+use App\Constant\AdmissionStatus;
 use App\Constant\FileStorageConstants;
 use App\Constant\FileUploadCategory;
 use App\Constant\UserType;
 use App\Exceptions\BusinessValidationException;
 use App\Interface\AdmissionApplicantInterface;
-use App\Mail\AdmissionMail;
 use App\Mail\AdmissionAcceptanceMail;
+use App\Mail\AdmissionMail;
+ 
+use App\Mail\AdmissionRejectionMail;
+ 
+use App\Mail\AdmissionAcceptanceMail;
+ 
 use App\Models\Admission;
 use App\Models\AdmissionDocument;
 use App\Models\AdmissionYear;
 use App\Models\Program;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class AdmissionApplicantService implements AdmissionApplicantInterface
@@ -93,15 +101,15 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
     public function createApplicant($request)
     {
-        
+           
         $program = Program::findOrFail($request['program_id']);
 
         $admissionYear = $program->admissionYears()->where('status', true)->first();
 
         $applicant = User::where('email', $request['email'])->first();
         
-        if($admissionYear->status == false){
-            return response()->json(['message' => "Admission deadline has expired! Please wait for the nest admission session"]);
+        if(!$admissionYear->status){
+            return redirect()->back()->with(['error' => "Admission deadline has expired! Please wait for the next admission session"]);
         }
         if(!isset($applicant)){
             $applicant = User::create([
@@ -142,22 +150,82 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         $application->update([
             'applicant_status' => $request['applicant_status']
         ]);
+ 
+        $application->refresh();
+         
+        if(AdmissionStatus::ADMITTED == $application->applicant_status){
+            $this->sendAcceptanceAdmissionEmails($application);
+        }
+        if(AdmissionStatus::REJECTED == $application->applicant_status){
+            $this->sendRejectionEmails($application);
+        }
+    }
 
-        $this->sendAdmissionDecisionEmails($application);
+    private function sendAcceptanceAdmissionEmails($application){
+        $emailData = [
+            'name'          => $application->user->name,
+            'email'         => $application->user->email,
+            'program'       => $application->program->name,
+            'school'        => $application->program->school->name,
+            'school_email'  => $application->program->school->email,
+            'school_telephone' => $application->program->school->telephone,
+            'website'          => env('APP_URL'),
+            'director_name'    => env('DIRECTOR_BDA_NAME'),
+            'director_position' => env('POSITION'),
+            'acceptance_date'   => Carbon::now()->addWeeks(3),
+            'session'           => $application->program->getCurrentAdmissionSession($application->program)
+        ];
+        try {
+            Mail::to($application->user->email)->send(new AdmissionAcceptanceMail($emailData));
+
+        }catch (\Exception $e){
+          throw new \Exception($e->getMessage());
+        }
+
+        return true;
+    }
+
+    private function sendRejectionEmails($application){
+        $session = $application->program->getCurrentAdmissionSession($application->program);
+        $emailData = [
+            'name'          => $application->user->name,
+            'email'         => $application->user->email,
+            'program'       => $application->program->name,
+            'school'        => $application->program->school->name,
+            'school_email'  => $application->program->school->email,
+            'school_telephone' => $application->program->school->telephone,
+            'website'          => env('APP_URL'),
+            'director_name'    => env('DIRECTOR_BDA_NAME'),
+            'director_position' => env('POSITION'),
+            'session'           => $session,
+            'start_date'        => $session->start_date ?? ''
+        ];
+        try {
+            Mail::to($application->user->email)->send(new AdmissionRejectionMail($emailData));
+
+        }catch (\Exception $e){
+            throw new \Exception($e->getMessage());
+        }
     }
 
     private function sendAdmissionEmails($applicant, $program){
         $emailData = [
-            'program_image' => '',
             'name'          => $applicant->name,
             'email'         => $applicant->email,
             'program_title' => $program->name,
+            'date'          => Carbon::now()->addMonths(1),
+            'school'        => $program->school->name,
+            'school_email'  => $program->school->email,
+            'school_telephone' => $program->school->telephone,
+            'website'          => env('APP_URL'),
+            'director_name'    => env('DIRECTOR_BDA_NAME'),
+            'director_position' => env('POSITION'),
         ];
         try {
             Mail::to($applicant->email)->send(new AdmissionMail($emailData));
 
         }catch (\Exception $e){
-            return  response()->json(['message' => 'Could not sent email notification mail to student', 'code' => 'FAILED']);
+            return new \Exception($e->getMessage());
         }
 
         return true;
@@ -183,7 +251,8 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
     public function uploadAdmissionDocument($request, $admission)
     {
-        
+     
+         
         if(isset($request['id_card'])){
            
             $this->uploadFile($request, $admission, FileUploadCategory::ID_CARD, 'id_card');
@@ -272,22 +341,5 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         ]);
     }
     
-    private function validate($request)
-    {
-        $request->validate([
-            'last_name' => ['required', 'string', 'max:255'],
-            'first_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'telephone' => ['required', 'string'],
-            'region'   =>  ['required', 'string'],
-            'address' => ['required', 'string'],
-            'admission_year_id' => ['required', Rule::exists('admission_years', 'id')],
-            'program_id' => ['required', Rule::exists('programs', 'id')],
-            'school_id' => ['required', Rule::exists('schools', 'id')],
-            'has_agreed' => 'required',
-            'id_card' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048',
-            'hnd_cert' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048',
-            'gce_cert' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048'
-        ]);
-    }
+
 }

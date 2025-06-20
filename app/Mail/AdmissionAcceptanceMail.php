@@ -28,7 +28,7 @@ class AdmissionAcceptanceMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Acceptance of Offer -'. $this->data['program']->name,
+            subject: 'Admission Decision',
         );
     }
 
@@ -39,8 +39,9 @@ class AdmissionAcceptanceMail extends Mailable
     {
         return new Content(
             markdown: 'mail.admission-acceptance-mail',
-            with: [
-                'data' => $this->data
+ 
+            with:[
+                'data'   => $this->data
             ]
         );
     }

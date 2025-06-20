@@ -83,6 +83,16 @@
                 <div class="col-lg-12">
                     <div class="rts-ap-section">
                         <h4 class="rts-section-title mb--30">Application Details</h4>
+                        @if(session('status'))
+                        <div class="alert alert-success">
+                            {!! session('status') !!}
+                        </div>
+                        @endif
+                        @if(session('error'))
+                        <div class="alert alert-error">
+                            {!! session('error') !!}
+                        </div>
+                        @endif
                         <div class="rts-application-form">
                             <form method="post" action="{{route('main.admission.applicant.store')}}"
                                 enctype="multipart/form-data" id="application-form">
@@ -92,43 +102,70 @@
                                     <p style="padding-bottom: 10px; font-size: medium">All fields with <span
                                             style="color: red">*</span> are required</p>
 
-                                    <div class="alert alert-danger print-error-msg" style="display:none">
-                                        <ul></ul>
-                                    </div>
-
-
                                     <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="first_name">First Name <span style="color: red">*</span></label>
                                             <input type="text" id="first_name" name="first_name"
-                                                placeholder="First name" required>
+                                                placeholder="First name" required value="{{old('first_name')}}">
+                                            @if($errors->any())
+                                            <small class="text-red" style="color: red">
+                                                {{$errors->first('first_name')}}
+                                            </small>
+                                            @endif
                                         </div>
                                         <div class="single-input-item">
                                             <label for="last_name">Last Name <span style="color: red">*</span></label>
                                             <input type="text" id="last_name" name="last_name" placeholder="Last name"
-                                                required>
+                                                value="{{old('last_name')}}" required>
+                                            @if($errors->any())
+                                            <small class="text-red" style="color: red">
+                                                {{$errors->first('last_name')}}
+                                            </small>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="email2">Email <span style="color: red">*</span></label>
                                             <input type="email" id="email" name="email" placeholder="Enter your mail"
-                                                required>
+                                                value="{{old('email')}}" required>
+                                            @if($errors->any())
+                                            <small class="text-red" style="color: red">
+                                                {{$errors->first('email')}}
+                                            </small>
+                                            @endif
                                         </div>
                                         <div class="single-input-item">
                                             <label for="phone">Phone Number <span style="color: red">*</span></label>
                                             <input type="tel" id="telephone" name="telephone"
-                                                placeholder="Enter Phone Number" required>
+                                                value="{{old('telephone')}}" placeholder="Enter Phone Number" required>
+                                            @if($errors->any())
+                                            <small class="text-red" style="color: red">
+                                                {{$errors->first('telephone')}}
+                                            </small>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="dob">Date of Birth <span style="color: red">*</span></label>
-                                            <input type="date" id="dob" name="dob" placeholder="dd/mm/yy" required>
+                                            <input type="date" id="dob" name="dob" placeholder="dd/mm/yy" required
+                                                value="{{old('dob')}}">
+                                            @if($errors->any())
+                                            <small class="text-red" style="color: red">
+                                                {{$errors->first('dob')}}
+                                            </small>
+                                            @endif
                                         </div>
                                         <div class="single-input-item">
                                             <label for="pob">Place of Birth <span style="color: red">*</span></label>
-                                            <input type="text" id="pob" name="pob" placeholder="Buea" required>
+                                            <input type="text" id="pob" name="pob" placeholder="Buea" required
+                                                value="{{old('pob')}}">
+                                            @if($errors->any())
+                                            <small class="text-red" style="color: red">
+                                                {{$errors->first('pob')}}
+                                            </small>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="single-input">
@@ -136,29 +173,47 @@
                                             <label for="gender">Gender <span style="color: red">*</span></label>
                                             <select name="gender" id="gender" required>
                                                 @foreach($genders as $key => $gender)
-                                                <option value="{{$gender}}">{{$gender}}</option>
+                                                <option value="{{$gender}}" {{old('gender')==$gender ? 'selected' : ''
+                                                    }}>{{$gender}}</option>
                                                 @endforeach
                                             </select>
+                                            @if($errors->any())
+                                            <small class="text-red" style="color: red">
+                                                {{$errors->first('gender')}}
+                                            </small>
+                                            @endif
                                         </div>
                                         <div class="single-input-item">
                                             <label for="region">Select your Region <span
                                                     style="color: red">*</span></label>
                                             <select name="region" id="region" placeholder="Region of origin" required>
                                                 @foreach($regions as $key => $value)
-                                                <option value="{{$value}}">{{$value}}</option>
+                                                <option value="{{$value}}" {{old('region')==$value ? 'selected' : '' }}>
+                                                    {{$value}}</option>
                                                 @endforeach
                                             </select>
+                                            @if($errors->any())
+                                            <small class="text-red" style="color: red">
+                                                {{$errors->first('region')}}
+                                            </small>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="school_id">School <span style="color: red">*</span></label>
                                             <select id="school_id" name="school_id" required>
-                                                <option value="#">Choose school</option>
+                                                <option value="">Choose school</option>
                                                 @foreach($schools as $key => $school)
-                                                <option value="{{$school->id}}">{{$school->name}}</option>
+                                                <option value="{{$school->id}}" {{old('schoold_id')==$school->id ?
+                                                    'selected': ''}}>{{$school->name}}</option>
                                                 @endforeach
                                             </select>
+                                            @if($errors->any())
+                                            <small class="text-red" style="color: red">
+                                                {{$errors->first('school_id')}}
+                                            </small>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="single-input">
@@ -167,24 +222,47 @@
                                             <select id="program_id" name="program_id" required>
                                                 <option value="#">Choose program</option>
                                             </select>
+                                            @if($errors->any())
+                                            <small class="text-red" style="color: red">
+                                                {{$errors->first('program_id')}}
+                                            </small>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="sub">ID Card/Passport <span style="color: red">*</span></label>
-                                            <input type="file" id="id_card" name="id_card">
+                                            <input type="file" id="id_card" name="id_card" required
+                                                accept="image/png, image/jpg, image/jpeg, application/pdf">
+                                            @if($errors->any())
+                                            <small class="text-red" style="color: red">
+                                                {{$errors->first('id_card')}}
+                                            </small>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="sub">GCE Advance Level Result</label>
-                                            <input type="file" id="gce_cert" name="gce_cert">
+                                            <input type="file" id="gce_cert" name="gce_cert"
+                                                accept="image/png, image/jpg, image/jpeg, application/pdf">
+                                            @if($errors->any())
+                                            <small class="text-red" style="color: red">
+                                                {{$errors->first('gce_cert')}}
+                                            </small>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="sub">HND Result</label>
-                                            <input type="file" id="hnd_cert" name="hnd_cert">
+                                            <input type="file" id="hnd_cert" name="hnd_cert"
+                                                accept="image/png, image/jpg, image/jpeg, application/pdf">
+                                            @if($errors->any())
+                                            <small class="text-red" style="color: red">
+                                                {{$errors->first('hnd_cert')}}
+                                            </small>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -197,20 +275,21 @@
                                     </p>
 
                                     <div class="d-flex align-items-center single-checkbox mt--20">
-                                        <input type="checkbox" id="has_agreed" name="has_agreed" required value="true">
+                                        <input type="checkbox" id="has_agreed" name="has_agreed" value="true">
                                         <label for="has_agreed">By submitting this form, you agree to the Mount Zion
                                             University Privacy Notice</label>
                                     </div>
+                                    @if($errors->any())
+                                    <small class="text-red" style="color: red">
+                                        {{$errors->first('has_agreed')}}
+                                    </small>
+                                    @endif
                                 </div>
                                 <button type="submit" class="rts-theme-btn primary with-arrow  app_button">Submit
                                     Application
                                     <span><i class="fa-thin fa-arrow-right button_icon"></i></span>
-                                </button> <span class="success_msg fw-bold text-lg" style="display: none">Your
-                                    application was submitted successfully. A copy was sent to your email address</span>
-                                <button type="submit" class="rts-theme-btn primary with-arrow submit loader_button"
-                                    style="display: none">
-                                    Submitting... <span class="application_spinner"></span>
-                                </button>
+                                </button> 
+                                 
                             </form>
 
                         </div>
@@ -288,75 +367,8 @@
     });
 
 
-    $(document).on('change', '#program_id', function (e){
-        e.preventDefault();
-        let selectedProgram = ($(this).val());
-
-        console.log(JSON.parse(selectedProgram));
-        
-    })
+    
 
 
-    $(document).on('click', '.submit', function(e){
-        e.preventDefault();
-
-        var fname = $("input[name=first_name]").val();
-        var lname = $("input[name=last_name]").val();
-        var telephone = $("input[name=telephone]").val();
-        var email = $("input[name=email]").val();
-        var region = $("select[name=region]").val();
-        var gender = $("input[name=gender]").val();
-        var has_agreed = $("input[name=has_agreed]").val();
-        var dob = $("input[name=dob]").val();
-        var pob = $("input[name=pob]").val();
-        var program_id = $("select[name=program_id]").val();
-        var school_id = $("select[name=school_id]").val();
-        var id_card = $("select[name=id_card]").val();
-        var gce_cert = $("select[name=gce_cert]").val();
-        var hnd_cert = $("select[name=hnd_cert]").val();
-
-        $(".app_button").css("display", "none");
-        $(".loader_button").css("display", "inline-block");
-        $(".application_spinner").css('display', 'inline-block')
-
-
-        $.ajax({
-            url: "{{route('main.admission.applicant.store')}}",
-            type: "POST",
-            data: {
-                "first_name" : fname,
-                "last_name": lname,
-                "telephone": telephone,
-                "email": email,
-                "region" :region,
-                "gender": gender,
-                "has_agreed":has_agreed,
-                "address":"address",
-                "dob":dob,
-                "pob": pob,
-                "school_id": school_id,
-                "program_id":program_id,
-                "id_card": id_card,
-                "gce_cert":gce_cert,
-                "hnd_cert": hnd_cert
-            },
-            success: function(data){
-                $('#application-form').find(".print-error-msg").css("display", "none");
-                $(".app_button").css("display", "inline-block");
-                $(".loader_button").css("display", "none");
-                $(".success_msg").css("display", "inline-block")
-                $(".application_spinner").css('display', 'none')
-            },
-            error: function(response){
-                $(".app_button").css("display", "inline-block");
-                $(".loader_button").css("display", "none");
-
-                $('#application-form').find(".print-error-msg").find("ul").html('');
-                $('#application-form').find(".print-error-msg").css('display','block');
-                $.each( response.responseJSON.errors, function( key, value ) {
-                    $('#application-form').find(".print-error-msg").find("ul").append('<li>'+value+'</li>');
-                });
-            },
-        });
-    });
+    
 </script>
