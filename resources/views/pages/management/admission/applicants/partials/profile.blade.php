@@ -22,7 +22,7 @@
 
     <div class="my-4 flex space-x-3">
         <span><i class="fa fa-home cursor-pointer  "></i></span><x-input-label for="name" :value="__('Address : ')"   style="font-size:medium"/>
-        <x-input-label for="name" class="font-semibold t text-gray-900" value="{{$applicant->user->address}}" style="font-size: medium"/>
+        <x-input-label for="name" class="font-semibold t text-gray-900" value="{{$applicant->user->pob}}" style="font-size: medium"/>
     </div>
 
     <div class="my-4 flex space-x-3">

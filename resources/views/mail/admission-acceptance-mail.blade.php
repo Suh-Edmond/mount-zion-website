@@ -7,7 +7,7 @@
 
     Please checkout our website [ {{$data['website']}} ] ( {{$data['website']}} ) 
     for details regarding enrollment, tuition, and important deadlines. We encourage you to confirm your acceptance by
-    {{\Carbon\Carbon::parse($data['acceptance_date'])->format('MM Y')}}.
+    {{\Carbon\Carbon::parse($data['acceptance_date'])->format('M Y')}}.
 
     If you have any questions or need further assistance, feel free to contact us at 
     Email: [ {{$data['school_email']}} ] ( {{$data['school_email']}} ),
