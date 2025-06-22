@@ -22,6 +22,27 @@
     <!-- university event list -->
     <div class="rts-event rts-section-padding">
         <div class="container">
+            <div class="row">
+                <div class="rts-section mb-4">
+                    <h3 class="rts-section-title">Our Events</h3>
+                </div>
+            </div>
+            <!-- academic top -->
+            <div class="search-filter mb--40">
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 single-input">
+                        <div class="single-input-item">
+                            <input type="text" id="searchInput" name="searchInput" style="border:1px solid grey;padding:12px;" placeholder="Search event by name...">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2">
+                         <button type="button" class="rts-theme-btn primary with-arrow  search_event">Search
+                                    <span><i class="fa-thin fa-search button_icon"></i></span>
+                        </button> 
+                    </div>
+                </div>
+            </div>
             <div class="row justify-content-sm-center justify-content-md-start g-5">
                 @foreach($events as $event)
                 <!-- single event item -->
@@ -59,3 +80,5 @@
     </div>
     <!-- university event list end -->
 </x-guest-layout>
+
+<script src="{{asset('assets/js/program-filter.js')}}"></script>

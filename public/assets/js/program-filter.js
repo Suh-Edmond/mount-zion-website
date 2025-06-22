@@ -20,4 +20,22 @@ $(document).ready(function() {
 
     $schoolFilter.on('change', updatePrograms);
     $programTypeFilter.on('change', updatePrograms);
+
+
+
+    $('.search_event').on('click', function (e){
+            let url = new URL(location.href);
+            let searchParams = new URLSearchParams(url.search);
+
+            var $searchInput = $("#searchInput");
+
+            searchParams.set('filter', $searchInput.val())
+
+            url.search = searchParams.toString();
+
+            location.href = url
+
+    })
+
 });
+

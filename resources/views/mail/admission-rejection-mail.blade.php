@@ -11,8 +11,9 @@
     We encourage you to continue pursuing your academic goals and consider reapplying in the future. Thank you once
     again for your interest in {{$data['school']}}, and we wish you all the best in your future endeavors.
 
-    Sincerely,
 
+
+    Sincerely,
 
     {{$data['director_name']}}
     {{$data['director_position']}}

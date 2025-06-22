@@ -12,7 +12,7 @@ class EventManagementService implements EventManagementInterface
     {
         $sort = $request['sort'];
         $events = Event::select("*");
-
+         
         if(isset($sort)){
             switch ($sort) {
                 case 'DATE_DESC':
@@ -25,6 +25,12 @@ class EventManagementService implements EventManagementInterface
                     $events->orderByDesc('created_at');
                     break;
             }
+        }
+        if(isset($request['filter'])){
+            $events = $events->where('title', 'LIKE', '%'.$request['filter'].'%')
+                            ->orWhere('about', 'LIKE', '%'.$request['filter'].'%')
+                            ->orWhere('location', 'LIKE', '%'.$request['filter'].'%')
+                            ->orWhere('venue', 'LIKE', '%'.$request['filter'].'%');
         }
 
         return $events->orderBy('created_at', 'DESC')->paginate(10);
