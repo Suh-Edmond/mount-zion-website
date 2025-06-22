@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="admission-content-top">
-                        <h4 class="rts-section-title">Requirements and Deadlines</h4>
+                        <h4 class="rts-section-title">Requirements and Application</h4>
 
                         <div class="admission-big-thumb" style="max-height: 400px;">
                             <img src="assets/images/elligibility/outside.png" alt="admission"

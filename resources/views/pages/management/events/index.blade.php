@@ -62,7 +62,7 @@
         @endif
     </div>
 
-    <div class="max-w-7xl mx-auto  pb-3 flex justify-end">
+    <div class="max-w-7xl mx-auto  pb-3 flex justify-start">
         @if(($events->count() > 0))
         <div class="py-5 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="m-5 p-5 flex justify-end">

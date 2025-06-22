@@ -28,7 +28,7 @@ class AdmissionMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Application Received and Under Review - '.$this->data['name']. ' - '.$this->data['program'].' ',
+            subject: 'Application Received and Under Review',
         );
     }
 
