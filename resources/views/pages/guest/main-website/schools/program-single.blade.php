@@ -40,7 +40,7 @@
                             <div class="program-about">
                                 <h4 class="title">About The Program</h4>
                                 <div>
-                                    {{$program->about}}
+                                    {!!$program->about!!}
                                 </div>
                             </div>
                         </div>

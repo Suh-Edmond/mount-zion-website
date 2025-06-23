@@ -26,12 +26,12 @@
 
     <div class="my-4 flex space-x-3">
         <i class="fa fa-user fa-xs "></i><x-input-label for="name" style="font-size:medium" :value="__('Admission Year : ')" />
-        <x-input-label for="name" class="font-semibold text-gray-900" value="{{$applicant->admissionYear->name}}" style="font-size: medium" />
+        <x-input-label for="name" class="font-semibold text-gray-900" value="{{$applicant->admissionYear->name ?? ''}}" style="font-size: medium" />
     </div>
 
     <div class="my-4 flex space-x-3">
         <i class="fa fa-calendar fa-xs "></i><x-input-label for="name" :value="__('Admission Session : ')"   style="font-size:medium"/>
-        <x-input-label for="name" class="font-semibold text-gray-900" value="{{date('F-Y', strtotime($applicant->admissionYear->start_date))}} - {{date('F-Y', strtotime($applicant->admissionYear->end_date))}}" style="font-size: medium"/>
+        <x-input-label for="name" class="font-semibold text-gray-900" value="{{date('F-Y', strtotime($applicant->admissionYear->start_date ?? ''))}} - {{date('F-Y', strtotime($applicant->admissionYear->end_date ?? ''))}}" style="font-size: medium"/>
     </div>
 
     <div class="my-4 flex space-x-3">
