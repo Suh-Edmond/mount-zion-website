@@ -7,11 +7,7 @@
 
         <title>@yield('title', 'Mount Zion Higher Insstitute') </title>
 
-        <!-- Fonts -->
-{{--        <link rel="preconnect" href="https://fonts.bunny.net">--}}
-{{--        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />--}}
-        
-    @include('meta::manager', [
+        @include('meta::manager', [
            'title'         => 'Mount Zion Clinic, Mount Zion Higher Institutes, Bamenda, Buea',
            'description'   => "Mount Zion Clinic is a leading medical facility in Bamenda, Cameroon, committed to delivering compassionate, high-quality, and affordable healthcare to over 300,000 residents in the region. Since our founding in September 1992, we have grown into a trusted institution known for integrity, professionalism, and holistic care.",
            'geo_region'    => 'Vicky Street (Near Guarantee Express) Bamenda, Cameroon, Cameroon, Street One, Great Soppo Buea - Cameroon',
@@ -20,7 +16,7 @@
            'image'         => asset('images/resized_logo.png'),
            'site_name'     => 'Mount Zion'
 
-       ])
+        ])
 
         <!-- Scripts -->
 
