@@ -74,7 +74,7 @@
                 </div>
                 <!-- single event item end -->
                 @endforeach
-                @if(count($events) <= 1)
+                @if(count($events) == 0)
                  <div class="row justify-content-sm-center justify-content-md-start g-5">
                     Oops! No events found.
                  </div>

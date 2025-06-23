@@ -30,7 +30,7 @@
                     <div class="event-details">
                         <div class="event-details__content">
                             <div class="event-details__content--thumb">
-                                <img src="{{asset($event->poster_url)}}" alt="event details">
+                                <img src="{{asset($event->poster_url)}}" alt="event details" style="height: 300px !important;">
                             </div>
                             <div class="event-details__content--text">
                                 <div class="rts-section">
@@ -182,7 +182,7 @@
                             </a>
                         </div>
                         @else
-                        <div class="rts-video-section" style="height: 100% !important; min-height: 200px;">
+                        <div class="rts-video-section" style="height: 100% !important; min-height: 150px;">
                             <a href="{{$image->video_url}}" class="rts-video-section-player popup-video video-btn">
                                 <i class="fa-sharp fa-solid fa-play"></i>
                             </a>
