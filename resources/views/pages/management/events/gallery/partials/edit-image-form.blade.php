@@ -3,7 +3,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div>
                 <h5 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{__('Edit Image')}}
+                    {{__('Edit Image Video')}}
                 </h5>
             </div>
 
@@ -12,9 +12,9 @@
                 class="mt-6 space-y-6" enctype="multipart/form-data">
                 @csrf
 
-                <div class="w-full">
+                <div class="w-full hidden">
                     <x-input-label for="picture" :value="__('Upload Picture')" />
-                    <input name="image" value="{{old('picture', $value->picture ?? '')}}" required
+                    <input name="image" value="{{$value->file_path}}" 
                         class="block p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="file_input_help" id="file_input" type="file" accept="image/*">
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG or JPEG

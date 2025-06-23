@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Website;
 
+use App\Constant\ApplicationResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdmissionApplicantionRequest;
 use App\Models\AdmissionYear;
@@ -81,9 +82,17 @@ class AdmissionController extends Controller
 
     public function addApplicant(AdmissionApplicantionRequest $request)
     {
-        $this->admissionApplicantService->createApplicant($request);
-
-        return redirect()->back()->with(['status' => 'Applicant submitted successfully! Please check you email address for your confirmation email']);
+        $res = $this->admissionApplicantService->createApplicant($request);
+         
+        if(isset($res) && $res[0] === ApplicationResponse::APPLIED){
+            return back()->with(['error' => "Applicant has already applied for this program ". $res[1]]);
+        }
+        if(isset($res) && $res === ApplicationResponse::INVALID_ADMISSION_SESSION){
+            return back()->with(['error' => "Admission deadline has expired! Please wait for the next admission session"]);
+        }
+        else {
+            return redirect()->back()->with(['status' => 'Applicant submitted successfully! Please check you email address for your confirmation email']);
+        }
     }
 
     public function deleteApplication(Request $request)

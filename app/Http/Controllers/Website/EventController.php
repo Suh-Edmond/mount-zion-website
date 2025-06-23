@@ -111,7 +111,7 @@ class EventController extends Controller
     {
         $this->eventManagementService->updateEvent($request);
 
-        return redirect()->back()->with(['status' => 'Event Information Updated Successfully']);
+        return back()->with(['status' => 'Event Information Updated Successfully']);
     }
 
     public function deleteEvent(Request $request)

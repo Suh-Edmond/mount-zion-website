@@ -39,10 +39,10 @@ class EventGalleryController extends Controller
 
     public function update(CreateEventGalleryRequest $request)
     {
-       
+      
         $this->eventGalleryService->updateFromGallery($request);
 
-        return back()->with(['status' => 'Image saved to gallery successfully']);
+        return back()->with(['status' => 'Image video to saved successfully']);
     }
 
 

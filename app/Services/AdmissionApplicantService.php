@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Constant\AdmissionStatus;
+use App\Constant\ApplicationResponse;
 use App\Constant\FileStorageConstants;
 use App\Constant\FileUploadCategory;
 use App\Constant\UserType;
@@ -44,7 +45,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         $sort           = $request['sort'];
 
         $admissions =  Admission::select('*');
-        if(isset($school_filter)){
+        if(isset($school_filter) && $school_filter !== "ALL"){
             $admissions = $admissions->whereHas('program', function ($query) use ($school_filter){
                 $query->where('school_id', $school_filter);
             });
@@ -104,9 +105,13 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
         $applicant = User::where('email', $request['email'])->first();
         
-        if(!$admissionYear->status){
-            return redirect()->back()->with(['error' => "Admission deadline has expired! Please wait for the next admission session"]);
+         
+        if($admissionYear->status == 0){
+            $currentSession = $admissionYear->start_date . " ".  $admissionYear->end_date;
+            return [ApplicationResponse::INVALID_ADMISSION_SESSION, $currentSession];
         }
+
+         
         if(!isset($applicant)){
             $applicant = User::create([
                 'name'              => $request['first_name'].' '.$request['last_name'],
@@ -121,6 +126,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
                 'user_type'         => UserType::APPLICANT
             ]);
         }
+
         $hasApplied = Admission::where('user_id', $applicant['id'])
                      ->where('program_id', $program['id'])
                      ->where('admission_year_id', $admissionYear['id'])->first();
@@ -138,7 +144,8 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
             $this->sendAdmissionEmails($applicant, $program);
         }else {
-            return redirect()->back()->with(['error' => "Applicant has already applied for this program"]);
+            
+            return [ApplicationResponse::APPLIED, $program->name];
         }
     }
 
@@ -228,24 +235,6 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
         return true;
     }
-
-    private function sendAdmissionDecisionEmails($application){
-        $emailData = [
-            'program_image'            => '',
-            'name'                     => $application->user->name,
-            'email'                    => $application->user->email,
-            'program_title'            => $application->program->name,
-            'application_status'       => $application->application_status
-        ];
-        try {
-            Mail::to($applicant->email)->send(new AdmissionAcceptanceMail($emailData));
-        }catch (\Exception $e){
-            return  response()->json(['message' => 'Could not sent email notification mail to student', 'code' => 'FAILED']);
-        }
-
-        return true;
-    }
-
 
     public function uploadAdmissionDocument($request, $admission)
     {

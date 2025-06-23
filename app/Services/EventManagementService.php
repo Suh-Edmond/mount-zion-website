@@ -67,7 +67,8 @@ class EventManagementService implements EventManagementInterface
             'event_time'    => $request['event_time'],
             'event_date'    => $request['event_date']
         ]);
-        $event->refresh();
+        
+        return $event->refresh();
     }
 
     public function showEventInformation($request)

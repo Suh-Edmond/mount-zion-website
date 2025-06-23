@@ -46,10 +46,11 @@ class EventGalleryService implements EventGalleryInterface, FileUploadInterface
     public function updateFromGallery($request)
     {
         $evtGallery = EventGallery::where('slug', $request['slug'])->firstOrFail();
+         
         $evtGallery->update([
             'video_url' => $request['video_url']
         ]);
-        $this->uploadFile($request, $evtGallery->slug);
+        
     }
 
     public function deleteFromGallery($request)

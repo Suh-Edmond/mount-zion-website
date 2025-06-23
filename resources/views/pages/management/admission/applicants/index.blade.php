@@ -21,6 +21,7 @@
                     @foreach($schools as $school)
                     <option value="{{$school->id}}">{{$school->name}}</option>
                     @endforeach
+                    <option value="ALL">ALL</option>
                 </select>
             </div>
             <div class="basis-1/4 flex-auto">
