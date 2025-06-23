@@ -30,7 +30,7 @@
                     <div class="event-details">
                         <div class="event-details__content">
                             <div class="event-details__content--thumb">
-                                <img src="{{asset($event->poster_url)}}" alt="event details" style="height: 300px !important;">
+                                <img src="{{asset($event->poster_url)}}" alt="event details" style="height: 500px !important;">
                             </div>
                             <div class="event-details__content--text">
                                 <div class="rts-section">
