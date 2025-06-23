@@ -76,7 +76,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
             }
         }
 
-        return $admissions->orderBy('created_at', 'DESC')->paginate(10);
+        return $admissions->orderBy('created_at', 'DESC')->paginate(20);
     }
 
     public function showApplicant($request)

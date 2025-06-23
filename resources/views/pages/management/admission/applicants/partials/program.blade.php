@@ -44,4 +44,10 @@
             <x-input-label for="name" class="font-semibold text-red-600" value="{{$applicant->applicant_status}}" style="font-size: medium"/>
         @endif
     </div>
+
+      <div class="my-4 flex space-x-3">
+        <i class="fa fa-calendar cursor-pointer  "></i><x-input-label for="name" :value="__('Application Date : ')"  style="font-size:medium" />
+        <x-input-label for="name" class="font-semibold text-gray-900" value="{{\Carbon\Carbon::parse($applicant->created_at)->format('M d, Y')}}" style="font-size: medium" />
+    </div>
+
 </section>
