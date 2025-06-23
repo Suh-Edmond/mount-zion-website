@@ -145,7 +145,7 @@
                                 </div>
                             </div>
                             <div class="speaker-meta">
-                                <h5 class="speaker__name"><a href="faculty-details.html">{{$speaker->name}}</a></h5>
+                                <h5 class="speaker__name"><a href="{{$speaker->getLinkedlnLink($speaker->social_media_handles)}}">{{$speaker->name}}</a></h5>
                                 <span class="designation">{{$speaker->title}}</span>
                             </div>
                         </div>
