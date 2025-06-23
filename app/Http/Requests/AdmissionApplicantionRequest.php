@@ -26,7 +26,7 @@ class AdmissionApplicantionRequest extends FormRequest
         return [
             'last_name' => ['required', 'string', 'max:255', 'min:3'],
             'first_name' => ['required', 'string', 'max:255', 'min:3'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
             'telephone' => ['required', 'string'],
             'region'   =>  ['required', 'string'],
             'pob' => ['required', 'string', 'max:255'],
