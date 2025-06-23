@@ -50,7 +50,7 @@
                     <div class="single-event">
                         <div class="event single-event__content">
                             <div class="event__thumb">
-                                <img src="{{asset($event->poster_url)}}" alt="event thumbnail">
+                                <img src="{{asset($event->poster_url)}}" alt="event thumbnail" style="height: 200px important;">
                             </div>
                             <div class="event__meta">
                                 <div class="event__meta--da">
