@@ -18,7 +18,7 @@
 <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
     <div>
         <a href="/login" class="flex justify-center">
-            <img src="img/company/mtmkay_logo.png" alt=""  width="20%" height="20%" ></a>
+            <img src="{{ asset('images/resized_logo.png') }}" alt=""  width="20%" height="20%" ></a>
         </a>
     </div>
 

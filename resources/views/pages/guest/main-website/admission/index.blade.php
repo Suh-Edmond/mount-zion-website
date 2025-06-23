@@ -89,7 +89,7 @@
                         </div>
                         @endif
                         @if(session('error'))
-                        <div class="alert alert-error">
+                        <div class="alert alert-danger">
                             {!! session('error') !!}
                         </div>
                         @endif
@@ -159,7 +159,7 @@
                                         </div>
                                         <div class="single-input-item">
                                             <label for="pob">Place of Birth <span style="color: red">*</span></label>
-                                            <input type="text" id="pob" name="pob" placeholder="Buea" required
+                                            <input type="text" id="pob" name="pob" placeholder="Enter place of birth" required
                                                 value="{{old('pob')}}">
                                             @if($errors->any())
                                             <small class="text-red" style="color: red">

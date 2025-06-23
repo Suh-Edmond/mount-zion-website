@@ -29,8 +29,8 @@
                         <x-input-label for="about" :value="__('About')"/>
                     </h2>
                 </div>
-                <p class="font-bold">
-                    {{ $program->stripDescriptionTags($program->about) }}
+                <p>
+                    {!! $program->about !!}
                 </p>
             </div>
         </div>

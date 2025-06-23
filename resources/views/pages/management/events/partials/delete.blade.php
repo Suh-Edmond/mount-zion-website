@@ -9,10 +9,10 @@
         </p>
     </header>
 
-    <x-danger-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-blog-deletion')">{{ __('Delete
+    <x-danger-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-event-deletion')">{{ __('Delete
         Event') }}</x-danger-button>
 
-    <x-modal name="confirm-blog-deletion" :show="$errors->isNotEmpty()" focusable>
+    <x-modal name="confirm-event-deletion" :show="$errors->isNotEmpty()" focusable>
         <form method="post" action="{{ route('manage.events.delete', ['slug' => $event->slug]) }}" class="p-6">
             @csrf
             @method('delete')
