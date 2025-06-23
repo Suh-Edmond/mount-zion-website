@@ -10,6 +10,17 @@
         <!-- Fonts -->
 {{--        <link rel="preconnect" href="https://fonts.bunny.net">--}}
 {{--        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />--}}
+        
+    @include('meta::manager', [
+           'title'         => 'Mount Zion Clinic, Mount Zion Higher Institutes, Bamenda, Buea',
+           'description'   => "Mount Zion Clinic is a leading medical facility in Bamenda, Cameroon, committed to delivering compassionate, high-quality, and affordable healthcare to over 300,000 residents in the region. Since our founding in September 1992, we have grown into a trusted institution known for integrity, professionalism, and holistic care.",
+           'geo_region'    => 'Vicky Street (Near Guarantee Express) Bamenda, Cameroon, Cameroon, Street One, Great Soppo Buea - Cameroon',
+           'keywords'      => 'Clinic, Higher Institutes, HND. Bachelors, Nursing, Special Care Nursing Programs, Paediatrics, and Minor Surgeries, Obstetrics and Gynaecology, Health Care Assistant, Community health outreach, Midwifery, Outpatient consultations, Antenatal and maternity care, In-patient care with 20-bed unit, Outpatient consultations, Laboratory services, Lukes, We Care for the Whole Man: Body, Soul, and Spirit, Director of Luke Society Cameroon, Dr. Paul, Medical Missions to Tingo Okwala, Okwala',
+           'type'          => 'website',
+           'image'         => asset('images/resized_logo.png'),
+           'site_name'     => 'Mount Zion'
+
+       ])
 
         <!-- Scripts -->
 
