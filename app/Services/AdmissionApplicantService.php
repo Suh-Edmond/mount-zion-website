@@ -136,7 +136,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
             
             $this->uploadAdmissionDocument($request, $createdAdmission);
 
-            $this->sendAdmissionEmails($applicant, $program);
+            // $this->sendAdmissionEmails($applicant, $program);
         }else {
             return redirect()->back()->with(['error' => "Applicant has already applied for this program"]);
         }
