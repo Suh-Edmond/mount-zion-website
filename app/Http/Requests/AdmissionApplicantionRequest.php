@@ -27,16 +27,16 @@ class AdmissionApplicantionRequest extends FormRequest
             'last_name' => ['required', 'string', 'max:255', 'min:3'],
             'first_name' => ['required', 'string', 'max:255', 'min:3'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
-            'telephone' => ['required', 'string'],
+            'telephone' => ['required', 'regex:/^\+?[1-9]\d{1,14}$/'],
             'region'   =>  ['required', 'string'],
             'pob' => ['required', 'string', 'max:255'],
             'dob' => ['required', 'date'],
             'program_id' => ['required', Rule::exists('programs', 'id')],
             'school_id' => ['required', Rule::exists('schools', 'id')],
             'has_agreed' => ['required'],
-            'id_card' => 'required|max:4096',
-            'hnd_cert' => 'max:4096',
-            'hnd_cert' => 'max:4096'
+            'id_card' => 'required|max:3072',
+            'hnd_cert' => 'max:3072',
+            'hnd_cert' => 'max:3072'
         ];
     }
 

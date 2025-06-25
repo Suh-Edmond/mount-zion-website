@@ -52,16 +52,13 @@ class AdmissionController extends Controller
 
     public function getApplications(Request $request)
     {
-        $years = $this->admissionYearService->listYears();
+         
         $applicants = $this->admissionApplicantService->getApplicants($request);
         $schools = $this->schoolService->getSchools($request);
-        $admissionSessions = $this->admissionYearService->getCurrentAdmissionSessions($request);
-
+    
         $data = [
-            'years' => $years,
             'applicants' => $applicants,
             'schools'    => $schools,
-            'admissionSessions' => $admissionSessions
         ];
 
         return view('pages.management.admission.applicants.index')->with($data);
@@ -85,10 +82,16 @@ class AdmissionController extends Controller
         $res = $this->admissionApplicantService->createApplicant($request);
          
         if(isset($res) && $res[0] === ApplicationResponse::APPLIED){
-            return back()->with(['error' => "Applicant has already applied for this program ". $res[1]]);
+            return back()->with(['error' => "Applicant has already applied for this program ". $res[1]])->withInput();
         }
-        if(isset($res) && $res === ApplicationResponse::INVALID_ADMISSION_SESSION){
-            return back()->with(['error' => "Admission deadline has expired! Please wait for the next admission session"]);
+        if(isset($res) && $res[0] === ApplicationResponse::INVALID_ADMISSION_SESSION){
+            return back()->with(['error' => "Admission deadline has expired! Please wait for the next admission session"])->withInput();
+        }
+        if(isset($res) && $res[0] === ApplicationResponse::GCE_RESULT_REQUIRED){
+            return back()->with(['error' => ApplicationResponse::GCE_RESULT_REQUIRED])->withInput();
+        }
+        if(isset($res) && $res[0] === ApplicationResponse::HND_RESULT_REQUIRED){
+            return back()->with(['error' => ApplicationResponse::HND_RESULT_REQUIRED])->withInput();
         }
         else {
             return redirect()->back()->with(['status' => 'Applicant submitted successfully! Please check you email address for your confirmation email']);

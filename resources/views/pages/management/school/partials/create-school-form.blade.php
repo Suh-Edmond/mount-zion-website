@@ -1,6 +1,6 @@
 <div class="max-w-full">
     <section>
-        <form method="post" action="{{ route('manage.academics.store') }}" class="mt-6 space-y-6">
+        <form method="post" action="{{ route('manage.academics.store') }}" class="mt-6 space-y-6" id="website-forms">
             @csrf
 
             <div class="grow my-4">

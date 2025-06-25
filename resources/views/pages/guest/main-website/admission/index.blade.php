@@ -95,12 +95,12 @@
                         @endif
                         <div class="rts-application-form">
                             <form method="post" action="{{route('main.admission.applicant.store')}}"
-                                enctype="multipart/form-data" id="application-form">
+                                enctype="multipart/form-data" id="website-forms">
                                 @csrf
                                 <div class="single-form-part">
                                     <h5 class="form-title">Personal Information</h5>
                                     <p style="padding-bottom: 10px; font-size: medium">All fields with <span
-                                            style="color: red">*</span> are required</p>
+                                            style="color: red">*</span> are mandatory</p>
 
                                     <div class="single-input">
                                         <div class="single-input-item">
@@ -127,7 +127,7 @@
                                     <div class="single-input">
                                         <div class="single-input-item">
                                             <label for="email2">Email <span style="color: red">*</span></label>
-                                            <input type="email" id="email" name="email" placeholder="Enter your mail"
+                                            <input type="email" id="email" name="email" placeholder="Email"
                                                 value="{{old('email')}}" required>
                                             @if($errors->any())
                                             <small class="text-red" style="color: red">
@@ -138,7 +138,8 @@
                                         <div class="single-input-item">
                                             <label for="phone">Phone Number <span style="color: red">*</span></label>
                                             <input type="tel" id="telephone" name="telephone"
-                                                value="{{old('telephone')}}" placeholder="Enter Phone Number" required>
+                                                value="{{old('telephone')}}" placeholder="Phone Number" required>
+                                            <small>E.g: +237670123456</small>
                                             @if($errors->any())
                                             <small class="text-red" style="color: red">
                                                 {{$errors->first('telephone')}}
@@ -159,7 +160,7 @@
                                         </div>
                                         <div class="single-input-item">
                                             <label for="pob">Place of Birth <span style="color: red">*</span></label>
-                                            <input type="text" id="pob" name="pob" placeholder="Enter place of birth" required
+                                            <input type="text" id="pob" name="pob" placeholder="Place of birth" required
                                                 value="{{old('pob')}}">
                                             @if($errors->any())
                                             <small class="text-red" style="color: red">
@@ -199,13 +200,19 @@
                                             @endif
                                         </div>
                                     </div>
+                                </div>
+                                <div class="single-form-part">
+                                    <h5 class="form-title">Program Information</h5>
+                                    <p style="padding-bottom: 10px; font-size: medium">Please review your program
+                                        specific requirements and provide all mandatory information</p>
+
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="school_id">School <span style="color: red">*</span></label>
+                                            <label for="school_id">School </label>
                                             <select id="school_id" name="school_id" required>
                                                 <option value="">Choose school</option>
                                                 @foreach($schools as $key => $school)
-                                                <option value="{{$school->id}}" {{old('schoold_id')==$school->id ?
+                                                <option value="{{$school->id}}" {{old('school_id')==$school->id ?
                                                     'selected': ''}}>{{$school->name}}</option>
                                                 @endforeach
                                             </select>
@@ -218,7 +225,7 @@
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="program_id">Program <span style="color: red">*</span></label>
+                                            <label for="program_id">Program </label>
                                             <select id="program_id" name="program_id" required>
                                                 <option value="#">Choose program</option>
                                             </select>
@@ -231,9 +238,11 @@
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="sub">ID Card/Passport <span style="color: red">*</span></label>
+                                            <label for="sub">ID Card/Passport </label>
                                             <input type="file" id="id_card" name="id_card" required
                                                 accept="image/png, image/jpg, image/jpeg, application/pdf">
+                                            <small>PNG, JPG, JPEG, or PDF
+                                                (MAX. 2Mb).</small>
                                             @if($errors->any())
                                             <small class="text-red" style="color: red">
                                                 {{$errors->first('id_card')}}
@@ -246,6 +255,8 @@
                                             <label for="sub">GCE Advance Level Result</label>
                                             <input type="file" id="gce_cert" name="gce_cert"
                                                 accept="image/png, image/jpg, image/jpeg, application/pdf">
+                                            <small>PNG, JPG, JPEG, or PDF
+                                                (MAX. 2Mb).</small>
                                             @if($errors->any())
                                             <small class="text-red" style="color: red">
                                                 {{$errors->first('gce_cert')}}
@@ -258,6 +269,8 @@
                                             <label for="sub">HND Result</label>
                                             <input type="file" id="hnd_cert" name="hnd_cert"
                                                 accept="image/png, image/jpg, image/jpeg, application/pdf">
+                                            <small>PNG, JPG, JPEG, or PDF
+                                                (MAX. 2Mb).</small>
                                             @if($errors->any())
                                             <small class="text-red" style="color: red">
                                                 {{$errors->first('hnd_cert')}}
@@ -288,8 +301,8 @@
                                 <button type="submit" class="rts-theme-btn primary with-arrow  app_button">Submit
                                     Application
                                     <span><i class="fa-thin fa-arrow-right button_icon"></i></span>
-                                </button> 
-                                 
+                                </button>
+
                             </form>
 
                         </div>
@@ -352,9 +365,9 @@
 
             success: function(data) {
                 let option = "<option value=''>Choose program</option>";
-                let yearslabel = "year(s)"
+                 
                 for (var i = 0; i < data.data.length; i++){ 
-                    option += '<option value="'+data.data[i].id+'">'+data.data[i].name+ ' - '+ data.data[i].duration+ yearslabel +' </option>';
+                    option += '<option value="'+data.data[i].id+'">'+data.data[i].name+ ' - '+ data.data[i].tag +' </option>';
                 }
                 $('#program_id').html('');
                 $('#program_id').html(option);
@@ -364,11 +377,5 @@
             },
 
         });
-    });
-
-
-    
-
-
-    
+    });    
 </script>

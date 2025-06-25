@@ -9,7 +9,7 @@
 
             <form method="post"
                 action="{{route('manage.documents.upload', ['slug' => $school->slug, 'type' => 'none', 'is_main' => false, 'file_type'=>'SCHOOL'])}}"
-                class="mt-6 space-y-6" enctype="multipart/form-data">
+                class="mt-6 space-y-6" enctype="multipart/form-data" id="website-forms">
                 @csrf
 
                 <div class="w-full">

@@ -1,5 +1,5 @@
 <x-modal name="edit-school" :show="$errors->isNotEmpty()" focusable x-data="edit-school">
-    <form method="post" action="{{ route('manage.academic.edit', ['slug' => $school->slug]) }}" class="p-6" >
+    <form method="post" action="{{ route('manage.academic.edit', ['slug' => $school->slug]) }}" class="p-6" id="website-forms">
         @csrf
         @method('put')
 
