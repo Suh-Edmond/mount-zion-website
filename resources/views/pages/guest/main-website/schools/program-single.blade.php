@@ -92,7 +92,7 @@
                                             </a>
                                             @endif
                                         </li>
-                                        <li><a><span><i class="fa-light fa-arrow-right"></i></span>Tag:
+                                        <li><a><span><i class="fa-light fa-arrow-right"></i></span>Type:
                                                 {{$program->tag}}</a></li>
                                     </ul>
                                 </div>

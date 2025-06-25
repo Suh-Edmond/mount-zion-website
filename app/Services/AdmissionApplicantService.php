@@ -1,4 +1,6 @@
-<?php /** @noinspection ALL */
+<?php
+
+/** @noinspection ALL */
 
 namespace App\Services;
 
@@ -6,6 +8,7 @@ use App\Constant\AdmissionStatus;
 use App\Constant\ApplicationResponse;
 use App\Constant\FileStorageConstants;
 use App\Constant\FileUploadCategory;
+use App\Constant\ProgramType;
 use App\Constant\UserType;
 use App\Exceptions\BusinessValidationException;
 use App\Interface\AdmissionApplicantInterface;
@@ -14,17 +17,14 @@ use App\Mail\AdmissionMail;
 use App\Mail\AdmissionRejectionMail;
 use App\Models\Admission;
 use App\Models\AdmissionDocument;
-use App\Models\AdmissionYear;
 use App\Models\Program;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
+
 
 class AdmissionApplicantService implements AdmissionApplicantInterface
 {
@@ -45,28 +45,28 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         $sort           = $request['sort'];
 
         $admissions =  Admission::select('*');
-        if(isset($school_filter) && $school_filter !== "ALL"){
-            $admissions = $admissions->whereHas('program', function ($query) use ($school_filter){
+        if (isset($school_filter) && $school_filter !== "ALL") {
+            $admissions = $admissions->whereHas('program', function ($query) use ($school_filter) {
                 $query->where('school_id', $school_filter);
             });
         }
-        if(isset($year_filter)){
-            $admissions = $admissions->whereHas('admissionYear', function ($query) use ($year_filter){
+        if (isset($year_filter)) {
+            $admissions = $admissions->whereHas('admissionYear', function ($query) use ($year_filter) {
                 $query->where('year', $year_filter);
             });
         }
-        if (isset($session_filter)){
-            $admissions = $admissions->whereHas('admissionYear', function ($query) use ($session_filter){
+        if (isset($session_filter)) {
+            $admissions = $admissions->whereHas('admissionYear', function ($query) use ($session_filter) {
                 $query->where('slug', $session_filter);
             });
         }
-        if (isset($sort)){
+        if (isset($sort)) {
             switch ($sort) {
                 case 'DATE_DESC':
                     $admissions->orderBy('created_at');
                     break;
                 case 'NAME':
-                    $admissions = $admissions->whereHas('user', function ($query) use ($sort){
+                    $admissions = $admissions->whereHas('user', function ($query) use ($sort) {
                         $query->orderBy('name');
                     });
                     break;
@@ -98,23 +98,27 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
     public function createApplicant($request)
     {
-           
+
         $program = Program::findOrFail($request['program_id']);
+
+        $validation = $this->validateApplicationFiles($request, $program);
+
+        return [$validation[0], $validation[1]];
 
         $admissionYear = $program->admissionYears()->where('status', true)->first();
 
         $applicant = User::where('email', $request['email'])->first();
-        
-         
-        if($admissionYear->status == 0){
-            $currentSession = $admissionYear->start_date . " ".  $admissionYear->end_date;
+
+
+        if ($admissionYear->status == 0) {
+            $currentSession = $admissionYear->start_date . " " .  $admissionYear->end_date;
             return [ApplicationResponse::INVALID_ADMISSION_SESSION, $currentSession];
         }
 
-         
-        if(!isset($applicant)){
+
+        if (!isset($applicant)) {
             $applicant = User::create([
-                'name'              => $request['first_name'].' '.$request['last_name'],
+                'name'              => $request['first_name'] . ' ' . $request['last_name'],
                 'email'             => $request->email,
                 'password'          => '',
                 'telephone'         => $request['telephone'],
@@ -128,23 +132,23 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         }
 
         $hasApplied = Admission::where('user_id', $applicant['id'])
-                     ->where('program_id', $program['id'])
-                     ->where('admission_year_id', $admissionYear['id'])->first();
-        
-        if (!isset($hasApplied)){
-             
+            ->where('program_id', $program['id'])
+            ->where('admission_year_id', $admissionYear['id'])->first();
+
+        if (!isset($hasApplied)) {
+
             $createdAdmission = Admission::create([
                 'user_id'           => $applicant['id'],
                 'admission_year_id' => $admissionYear['id'],
                 'program_id'        => $program['id']
             ]);
 
-            
+
             $this->uploadAdmissionDocument($request, $createdAdmission);
 
             // $this->sendAdmissionEmails($applicant, $program);
-        }else {
-            
+        } else {
+
             return [ApplicationResponse::APPLIED, $program->name];
         }
     }
@@ -155,18 +159,19 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         $application->update([
             'applicant_status' => $request['applicant_status']
         ]);
- 
+
         $application->refresh();
-         
-        if(AdmissionStatus::ADMITTED == $application->applicant_status){
+
+        if (AdmissionStatus::ADMITTED == $application->applicant_status) {
             $this->sendAcceptanceAdmissionEmails($application);
         }
-        if(AdmissionStatus::REJECTED == $application->applicant_status){
+        if (AdmissionStatus::REJECTED == $application->applicant_status) {
             $this->sendRejectionEmails($application);
         }
     }
 
-    private function sendAcceptanceAdmissionEmails($application){
+    private function sendAcceptanceAdmissionEmails($application)
+    {
         $emailData = [
             'name'          => $application->user->name,
             'email'         => $application->user->email,
@@ -182,15 +187,15 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         ];
         try {
             Mail::to($application->user->email)->send(new AdmissionAcceptanceMail($emailData));
-
-        }catch (\Exception $e){
-          throw new \Exception($e->getMessage());
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
 
         return true;
     }
 
-    private function sendRejectionEmails($application){
+    private function sendRejectionEmails($application)
+    {
         $session = $application->program->getCurrentAdmissionSession($application->program);
         $emailData = [
             'name'          => $application->user->name,
@@ -207,13 +212,13 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         ];
         try {
             Mail::to($application->user->email)->send(new AdmissionRejectionMail($emailData));
-
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             throw new \Exception($e->getMessage());
         }
     }
 
-    private function sendAdmissionEmails($applicant, $program){
+    private function sendAdmissionEmails($applicant, $program)
+    {
         $emailData = [
             'name'          => $applicant->name,
             'email'         => $applicant->email,
@@ -228,8 +233,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         ];
         try {
             Mail::to($applicant->email)->send(new AdmissionMail($emailData));
-
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             return new \Exception($e->getMessage());
         }
 
@@ -238,20 +242,20 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
     public function uploadAdmissionDocument($request, $admission)
     {
-     
-         
-        if(isset($request['id_card'])){
-           
+
+
+        if (isset($request['id_card'])) {
+
             $this->uploadFile($request, $admission, FileUploadCategory::ID_CARD, 'id_card');
         }
 
-        if(isset($request['gce_cert'])){
-            
+        if (isset($request['gce_cert'])) {
+
             $this->uploadFile($request, $admission, FileUploadCategory::GCE_CERT, 'gce_cert');
         }
 
-        if(isset($request["hnd_cert"])){
-            
+        if (isset($request["hnd_cert"])) {
+
             $this->uploadFile($request, $admission, FileUploadCategory::HND_CERT, 'hnd_cert');
         }
     }
@@ -265,7 +269,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
     public function uploadFile($request, $admission, $type, $file_input_name)
     {
 
-        $directory        = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug. "/". $type;
+        $directory        = FileUploadCategory::ADMISSION . "/" . $admission->slug . "/" . $admission->program->slug . "/" . $type;
 
         $file            = $request->file($file_input_name);
 
@@ -273,14 +277,13 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
         $fileName         =   time() . '_' . uniqid() . '.' . $extension;
 
-         try {
-            $request->file($file_input_name)->storeAs(FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory, $fileName, 'public');
+        try {
+            $request->file($file_input_name)->storeAs(FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY . $directory, $fileName, 'public');
 
-            $filePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory . "/" . $fileName;
+            $filePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY . $directory . "/" . $fileName;
 
             $this->saveFile($filePath, $admission, $type);
-
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             throw new BusinessValidationException($exception->getMessage(), 400);
         }
     }
@@ -291,9 +294,9 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
         $document = AdmissionDocument::where('doc_slug', $request['slug'])->firstOrFail();
 
-        $directory      = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug. "/". $request['type'];
+        $directory      = FileUploadCategory::ADMISSION . "/" . $admission->slug . "/" . $admission->program->slug . "/" . $request['type'];
 
-        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY.$directory."/".$document->file_path;
+        $uploadedFilePath = FileStorageConstants::FILE_STORAGE_BASE_DIRECTORY . $directory . "/" . $document->file_path;
 
         $path = public_path($uploadedFilePath);
 
@@ -310,9 +313,9 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
         $document = AdmissionDocument::where('doc_slug', $request['slug'])->firstOrFail();
 
-        $directory         = FileUploadCategory::ADMISSION. "/". $admission->slug . "/". $admission->program->slug ."/". $request['type'];
+        $directory         = FileUploadCategory::ADMISSION . "/" . $admission->slug . "/" . $admission->program->slug . "/" . $request['type'];
 
-        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY.$directory."/".$document->file_path;
+        $uploadedFilePath = FileStorageConstants::FETCH_FILE_BASE_DIRECTORY . $directory . "/" . $document->file_path;
 
         $headers = array('Content-Type: application/pdf');
 
@@ -327,6 +330,23 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
             'category'     => $type
         ]);
     }
-    
 
+
+    private function validateApplicationFiles($request, $program)
+    {
+
+        if ($program->tag === ProgramType::BACHELOR) {
+            if (!isset($request['gce_cert'])) {
+                return [ApplicationResponse::GCE_RESULT_REQUIRED, $program->name];
+            }
+            if (!isset($request['hnd_cert'])) {
+                return [ApplicationResponse::HND_RESULT_REQUIRED, $program->name];
+            }
+        }
+        if ($program->tag === ProgramType::HND) {
+            if (!isset($request['gce_cert'])) {
+                return [ApplicationResponse::GCE_RESULT_REQUIRED, $program->name];
+            }
+        }
+    }
 }
