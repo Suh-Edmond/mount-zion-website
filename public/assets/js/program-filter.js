@@ -24,6 +24,7 @@ $(document).ready(function() {
 
 
     $('.search_event').on('click', function (e){
+        
             let url = new URL(location.href);
             let searchParams = new URLSearchParams(url.search);
 

@@ -11,51 +11,52 @@
     </x-slot>
 
     <div class="pt-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="flex flex-row gap-3">
+        <form accept="{{route('manage.admission.applicants')}}" method="GET">
+            <div class="flex flex-row gap-3">
 
-            <div class="basis-1/4 flex-auto">
-                <x-input-label for="category" :value="__('Filter School')" />
-                <select id="school"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option selected>Choose a school</option>
-                    @foreach($schools as $school)
-                    <option value="{{$school->id}}">{{$school->name}}</option>
-                    @endforeach
-                    <option value="ALL">ALL</option>
-                </select>
+                <div class="basis-1/4 flex-auto">
+                    <x-input-label for="category" :value="__('School')" />
+                    <select id="school" name="school_id" 
+                        class="ajax_select_filter bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected>Choose a school</option>
+                        @foreach($schools as $school)
+                        <option value="{{$school->id}}">{{$school->name}}</option>
+                        @endforeach
+                        <option value="ALL">ALL</option>
+                    </select>
+                </div>
+                <div class="basis-1/4 flex-auto">
+                    <x-input-label for="program_id" :value="__('Program')" />
+                    <select id="program_id" name="program_id"  
+                        class="ajax_select_filter bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected value="">Choose a program</option>
+                    </select>
+                </div>
+                <div class="basis-1/4 flex-auto">
+                    <x-input-label for="session_id" :value="__('Session')" />
+                    <select id="session_id" name="session_id"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected value="">Choose a session</option>
+                    </select>
+                </div>
+                <div class="basis-1/4 flex-auto">
+                    <x-input-label for="sort" :value="__('Sort')" />
+                    <select id="sort" name="sort"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected value="">Choose sort</option>
+                        <option value="DATE_DESC">Newest First</option>
+                        <option value="DATE_ASC">Oldest First</option>
+                        <option value="NAME">Name</option>
+                    </select>
+                </div>
+                <div class="basis-1/4 flex-auto">
+                    <x-primary-button class="mt-5">
+                        {{ __('Filter') }}
+                    </x-primary-button>
+                </div>
+
             </div>
-            <div class="basis-1/4 flex-auto">
-                <x-input-label for="year" :value="__('Filter Year')" />
-                <select id="year"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option selected>Choose a year</option>
-                    @foreach($years as $value)
-                    <option value="{{$value->year}}">{{$value->year}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="basis-1/4 flex-auto">
-                <x-input-label for="session" :value="__('Filter Session')" />
-                <select id="session"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option selected>Choose a session</option>
-                    @foreach($admissionSessions as $session)
-                    <option value="{{$session->slug}}">{{date('F-Y', strtotime($session->start_date))}} - {{date('F-Y',
-                        strtotime($session->end_date))}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="basis-1/4 flex-auto">
-                <x-input-label for="sort" :value="__('Sort')" />
-                <select id="sort" name="sort" onchange="sortBlogBy()"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option selected>Choose sort</option>
-                    <option value="DATE_DESC">Newest First</option>
-                    <option value="DATE_ASC">Oldest First</option>
-                    <option value="NAME">Name</option>
-                </select>
-            </div>
-        </div>
+        </form>
     </div>
     <div class="flex justify-center mt-5">
         <x-auth-session-status :status="session('status')" x-data="{ show: true }" x-show="show"
@@ -169,73 +170,4 @@
 
 </x-app-layout>
 
-<script>
-    $(document).ready(function() {
-
-        $('#school').on('change', function (e){
-            let url = new URL(location.href);
-            let searchParams = new URLSearchParams(url.search);
-
-
-            searchParams.set('school_filter', e.target.value)
-
-            url.search = searchParams.toString();
-
-            location.href = url
-
-        })
-
-        $('#year').on('change', function (e){
-            let url = new URL(location.href);
-            let searchParams = new URLSearchParams(url.search);
-
-
-            searchParams.set('year_filter', e.target.value)
-
-            url.search = searchParams.toString();
-
-            location.href = url
-
-        })
-
-        $('#session').on('change', function (e){
-            let url = new URL(location.href);
-            let searchParams = new URLSearchParams(url.search);
-
-
-            searchParams.set('session_filter', e.target.value)
-
-            url.search = searchParams.toString();
-
-            location.href = url
-
-        })
-
-        $('#sort').on('change', function (e){
-            let url = new URL(location.href);
-            let searchParams = new URLSearchParams(url.search);
-
-
-            searchParams.set('sort', e.target.value)
-
-            url.search = searchParams.toString();
-
-            location.href = url
-
-        })
-
-        $('#goBack').on('click', function (e){
-            history.back();
-        })
-
-
-    })
-</script>
-
-
-
-
-
-
-
-<?php
+<script src="{{ asset('assets/js/application-filter.js') }}"></script>

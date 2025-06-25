@@ -95,7 +95,7 @@
                         @endif
                         <div class="rts-application-form">
                             <form method="post" action="{{route('main.admission.applicant.store')}}"
-                                enctype="multipart/form-data" id="application-form">
+                                enctype="multipart/form-data" id="website-forms">
                                 @csrf
                                 <div class="single-form-part">
                                     <h5 class="form-title">Personal Information</h5>
@@ -377,11 +377,5 @@
             },
 
         });
-    });
-
-
-    
-
-
-    
+    });    
 </script>

@@ -98,6 +98,8 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::post('upload-documents', [FileUploadController::class, 'uploadDocument'])->name('manage.documents.upload');
     Route::get('/academics/{id}/load-programs', [ProgramController::class, 'fetchProgramsBySchool'])->name('main.schools.programs.fetch-all');
     Route::get('/academics/programs', [ProgramController::class, 'fetchPrograms'])->name('manage-academics-program');
+    Route::get('/academics/programs/{slug}/admission-session', [AdmissionYearController::class, 'fetchProgramAdmissionSession'])->name('main.schools.programs.fetch-admission-session');
+
 });
 
 Route::middleware('auth')->group(function () {

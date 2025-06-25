@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Interface\AdmissionYearInterface;
 use App\Models\AdmissionYear;
+use App\Models\Program;
 
 class AdmissionYearService implements AdmissionYearInterface
 {
@@ -65,7 +66,7 @@ class AdmissionYearService implements AdmissionYearInterface
 
     public function listYears()
     {
-        return AdmissionYear::orderBy('year', 'desc')->get();
+        return AdmissionYear::orderBy('year', 'desc')->distinct()->get();
     }
 
     public function getCurrentAdmissionSessions()
@@ -91,5 +92,13 @@ class AdmissionYearService implements AdmissionYearInterface
         //TODO: chec its usage
         $current_year = $this->getCurrentAdmissionSessions();
         return AdmissionYear::where('year', $current_year->year)->orderBy('created_at', 'DESC')->get();
+    }
+
+
+    public function getProgramAdmissionSession($program_slug)
+    {
+        $program = Program::where('slug', $program_slug)->firstOrFail();
+        
+        return $program->admissionYears()->where('status', true)->get();
     }
 }

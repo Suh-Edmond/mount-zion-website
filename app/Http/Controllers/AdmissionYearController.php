@@ -73,4 +73,13 @@ class AdmissionYearController extends Controller
         return redirect()->back()->with(['status' => 'Admission session deleted successfully']);
     }
 
+
+    public function fetchProgramAdmissionSession($slug)
+    {
+
+        $data = $this->admissionYearService->getProgramAdmissionSession($slug);
+
+        return response()->json(['data' => $data]);
+    }
+
 }

@@ -52,16 +52,13 @@ class AdmissionController extends Controller
 
     public function getApplications(Request $request)
     {
-        $years = $this->admissionYearService->listYears();
+         
         $applicants = $this->admissionApplicantService->getApplicants($request);
         $schools = $this->schoolService->getSchools($request);
-        $admissionSessions = $this->admissionYearService->getCurrentAdmissionSessions($request);
-
+    
         $data = [
-            'years' => $years,
             'applicants' => $applicants,
             'schools'    => $schools,
-            'admissionSessions' => $admissionSessions
         ];
 
         return view('pages.management.admission.applicants.index')->with($data);

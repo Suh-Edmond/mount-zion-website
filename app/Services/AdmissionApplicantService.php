@@ -39,23 +39,25 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
     public function getApplicants($request)
     {
-        $school_filter = $request['school_filter'];
-        $session_filter = $request['session_filter'];
-        $year_filter    = $request['year_filter'];
+         
+        $school_filter = $request['school_id'];
+        $program_filter = $request['program_id'];
+        $session_filter    = $request['session_id'];
         $sort           = $request['sort'];
-
+         
         $admissions =  Admission::select('*');
         if (isset($school_filter) && $school_filter !== "ALL") {
+             
             $admissions = $admissions->whereHas('program', function ($query) use ($school_filter) {
                 $query->where('school_id', $school_filter);
             });
         }
-        if (isset($year_filter)) {
-            $admissions = $admissions->whereHas('admissionYear', function ($query) use ($year_filter) {
-                $query->where('year', $year_filter);
+        if (isset($program_filter) && $program_filter !== "ALL") {
+            $admissions = $admissions->whereHas('program', function ($query) use ($program_filter) {
+                $query->where('slug', $program_filter);
             });
         }
-        if (isset($session_filter)) {
+        if (isset($session_filter) && $session_filter !== "ALL") {
             $admissions = $admissions->whereHas('admissionYear', function ($query) use ($session_filter) {
                 $query->where('slug', $session_filter);
             });
@@ -103,7 +105,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
         $validation = $this->validateApplicationFiles($request, $program);
 
-        return [$validation[0], $validation[1]];
+        return [$validation[0] ?? '', $validation[1] ?? ''];
 
         $admissionYear = $program->admissionYears()->where('status', true)->first();
 
