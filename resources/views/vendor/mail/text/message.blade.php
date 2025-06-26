@@ -20,7 +20,7 @@
 
     {{-- Footer --}}
     <x-slot:footer>
-        <x-mail::footer>
+        <x-mail::footer :url="config('app.url')">
             © {{ date('Y') }} {{ config('app.name') }}. @lang('All rights reserved.')
         </x-mail::footer>
     </x-slot:footer>
