@@ -104,13 +104,15 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
         $program = Program::findOrFail($request['program_id']);
 
         $validation = $this->validateApplicationFiles($request, $program);
-
-        return [$validation[0] ?? '', $validation[1] ?? ''];
+         
+        if(isset($validation)){
+           return [$validation[0], $validation[1]];
+        }
+        
 
         $admissionYear = $program->admissionYears()->where('status', true)->first();
 
         $applicant = User::where('email', $request['email'])->first();
-
 
         if ($admissionYear->status == 0) {
             $currentSession = $admissionYear->start_date . " " .  $admissionYear->end_date;
@@ -148,7 +150,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
             $this->uploadAdmissionDocument($request, $createdAdmission);
 
-            // $this->sendAdmissionEmails($applicant, $program);
+            $this->sendAdmissionEmails($applicant, $program);
         } else {
 
             return [ApplicationResponse::APPLIED, $program->name];

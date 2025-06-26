@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Schema::table('admission_years', function(Blueprint $table){
-        //    $table->foreignId('program_id')->constrained()->nullable();
-        // });
+        Schema::table('admissions', function(Blueprint $table){
+            $table->dropColumn('admission_session');
+        });
     }
 
     /**
