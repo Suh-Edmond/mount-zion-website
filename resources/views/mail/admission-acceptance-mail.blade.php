@@ -4,7 +4,7 @@
     We are pleased to inform you that you have been offered admission to {{$data['school']}} for the
     {{$data['program']}}. Your application impressed our admissions committee, and we believe you will be a valuable addition to our academic community.
 
-    Please checkout our website  {{$data['website']}} 
+    Please checkout our website  [{{$data['website']}}]({{$data['website']}}) 
     for details regarding enrollment, tuition, and important deadlines. We encourage you to confirm your acceptance by
     {{\Carbon\Carbon::parse($data['acceptance_date'])->format('M Y')}}.
 
@@ -21,6 +21,5 @@
     {{$data['school']}}
     {{$data['school_email']}}
     {{ $data['school_telephone'] }}
-    {{ $data['website'] }}
 </x-mail::message>
 

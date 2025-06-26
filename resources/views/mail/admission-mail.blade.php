@@ -18,5 +18,4 @@
     {{$data['school']}}
     {{$data['school_email']}}
     {{ $data['school_telephone'] }}
-    {{ $data['website'] }}
 </x-mail::message>
