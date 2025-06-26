@@ -150,7 +150,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
             $this->uploadAdmissionDocument($request, $createdAdmission);
 
-            // $this->sendAdmissionEmails($applicant, $program);
+            $this->sendAdmissionEmails($applicant, $program);
         } else {
 
             return [ApplicationResponse::APPLIED, $program->name];
