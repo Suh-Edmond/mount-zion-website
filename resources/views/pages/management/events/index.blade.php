@@ -66,43 +66,7 @@
         @if(($events->count() > 0))
         <div class="py-5 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="m-5 p-5 flex justify-end">
-                <nav aria-label="Page navigation example">
-                    <ul class="flex items-center -space-x-px h-10 text-base">
-                        <li class="{{$events->currentPage() == 1 ? 'page-item disabled':'page-item'}}">
-                            <a href="{{route('manage.events', ['page' =>$events->currentPage() - 1])}}"
-                                class="{{$events->currentPage() == 1? 'cursor-not-allowed flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white':'flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
-                                <span class="sr-only">Previous</span>
-                                <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M5 1 1 5l4 4" />
-                                </svg>
-                            </a>
-                        </li>
-                        @for($i = 1; $i <= $events->lastPage(); $i++)
-                            <li>
-                                <a href="{{route('manage.events', ['page' => $i])}}"
-                                    class="{{$events->currentPage() == $i ?'flex items-center justify-center px-4 h-10 leading-tight text-white bg-blue-800 border border-blue-800 hover:bg-blue-800 hover:text-white dark:bg-blue-800 dark:border-blue-800 dark:text-white dark:hover:bg-blue-800 dark:hover:text-white' : 'flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
-                                    {{$i}}
-                                </a>
-                            </li>
-                            @endfor
-
-                            <li
-                                class="{{$events->currentPage() == $events->lastPage() ? 'page-item disabled': 'page-item'}}">
-                                <a href="{{route('manage.events', ['page' =>$events->currentPage() + 1])}}"
-                                    class="{{$events->currentPage() == $events->lastPage() ? 'cursor-not-allowed flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
-:'flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
-                                    <span class="sr-only">Next</span>
-                                    <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 9 4-4-4-4" />
-                                    </svg>
-                                </a>
-                            </li>
-                    </ul>
-                </nav>
+                 {{$events->links()}}
             </div>
         </div>
         @endif

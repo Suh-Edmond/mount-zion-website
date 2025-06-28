@@ -1,4 +1,4 @@
-<x-modal name="edit-speaker{{$speaker->id}}" :show="$errors->slotCreation->isNotEmpty()" focusable x-data="">
+<x-modal name="edit-speaker{{$speaker->id}}" :show="$errors->isNotEmpty()" focusable x-data="">
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div>
