@@ -33,7 +33,7 @@ class EventManagementService implements EventManagementInterface
                             ->orWhere('venue', 'LIKE', '%'.$request['filter'].'%');
         }
 
-        return $events->orderBy('created_at', 'DESC')->paginate(10);
+        return $events->orderBy('created_at', 'DESC');
     }
 
     public function createEvent($request)

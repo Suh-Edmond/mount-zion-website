@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Constant\ProgramType;
+use App\Http\Requests\CreateProgramRequest;
+use App\Http\Requests\UpdateProgramRequest;
 use App\Models\Program;
 use App\Models\School;
 use App\Services\ProgramService;
@@ -54,7 +56,7 @@ class ProgramController extends Controller
         return view('pages.management.program.create')->with($data);
     }
 
-    public function storeProgram(Request $request)
+    public function storeProgram(CreateProgramRequest $request)
     {
         $this->programService->storeProgram($request);
         return Redirect::route('manage.academics.programs.list', ['slug' => $request['school_slug']])->with('status', 'Program save successfully');
@@ -74,8 +76,9 @@ class ProgramController extends Controller
         return Redirect::route('manage.academics.programs.show', ['slug' => $request['slug']])->with('status', 'Program image updated successfully');   
     }
 
-    public function editProgram(Request $request)
+    public function editProgram(UpdateProgramRequest $request)
     {
+         
         $this->programService->updateProgram($request);
 
         return Redirect::route('manage.academics.programs.show', ['slug' => $request['slug']])->with('status', 'Program information updated successfully');

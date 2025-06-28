@@ -94,6 +94,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
     public function deleteApplicant($request)
     {
+         
         $applicant = Admission::where('slug', $request['slug'])->firstOrFail();
         $applicant->delete();
     }
@@ -184,10 +185,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
             'school_email'  => $application->program->school->email,
             'school_telephone' => $application->program->school->telephone,
             'website'          => env('APP_URL'),
-            'director_name'    => env('DIRECTOR_BDA_NAME'),
-            'director_position' => env('POSITION'),
-            'acceptance_date'   => Carbon::now()->addWeeks(3),
-            'session'           => $application->program->getCurrentAdmissionSession($application->program)
+            'app_email'         => env('MAIL_FROM_ADDRESS'),
         ];
         try {
             Mail::to($application->user->email)->send(new AdmissionAcceptanceMail($emailData));
@@ -206,12 +204,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
             'email'         => $application->user->email,
             'program'       => $application->program->name,
             'school'        => $application->program->school->name,
-            'school_email'  => $application->program->school->email,
-            'school_telephone' => $application->program->school->telephone,
             'website'          => env('APP_URL'),
-            'director_name'    => env('DIRECTOR_BDA_NAME'),
-            'director_position' => env('POSITION'),
-            'session'           => $session,
             'start_date'        => $session->start_date ?? ''
         ];
         try {
@@ -232,8 +225,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
             'school_email'  => $program->school->email,
             'school_telephone' => $program->school->telephone,
             'website'          => env('APP_URL'),
-            'director_name'    => env('DIRECTOR_BDA_NAME'),
-            'director_position' => env('POSITION'),
+            'app_email'         => env('MAIL_FROM_ADDRESS'),
         ];
         try {
             Mail::to($applicant->email)->send(new AdmissionMail($emailData));

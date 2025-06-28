@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateOrUpdateEventRequest;
 use App\Services\EventManagementService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class EventController extends Controller
 {
@@ -19,7 +20,7 @@ class EventController extends Controller
 
     public function index(Request $request)
     {
-        $events = $this->eventManagementService->fetchEvents($request);
+        $events = $this->eventManagementService->fetchEvents($request)->get();
 
         if (!$events->first()?->relationLoaded('eventGallery')) {
             $events->load('eventGallery');
@@ -70,7 +71,7 @@ class EventController extends Controller
 
     public function fetchEvents(Request $request)
     {
-        $data = $this->eventManagementService->fetchEvents($request);
+        $data = $this->eventManagementService->fetchEvents($request)->paginate(10);
 
         $data = [
             'events' => $data
@@ -111,7 +112,7 @@ class EventController extends Controller
     {
         $this->eventManagementService->updateEvent($request);
 
-        return back()->with(['status' => 'Event Information Updated Successfully']);
+        return Redirect::route('manage.events.show', ['slug' => $request['slug']])->with('status', 'Event Information Updated Successfully');   
     }
 
     public function deleteEvent(Request $request)

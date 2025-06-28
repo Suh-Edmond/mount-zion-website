@@ -49,6 +49,5 @@
         <i class="fa fa-home cursor-pointer  "></i><x-input-label for="name" :value="__('Place of birth : ')"  style="font-size:medium" />
         <x-input-label for="name" class="font-semibold text-gray-900" value="{{$applicant->user->pob}}" style="font-size: medium" />
     </div>
-
      
 </section>

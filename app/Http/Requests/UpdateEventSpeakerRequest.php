@@ -25,7 +25,10 @@ class UpdateEventSpeakerRequest extends FormRequest
             'name'   => 'required|string|max:255|min:5',
             'title'  => 'required|string|max:255|min:5',
             'slug'      => 'required',
-            'event_slug'     => 'required'
+            'event_slug'     => 'required',
+            'linkedln'  => 'string|url',
+            'skype'    => 'string|url',
+            'facebook'  => 'string'
         ];
     }
 }

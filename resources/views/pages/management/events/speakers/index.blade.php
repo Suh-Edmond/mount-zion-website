@@ -52,21 +52,27 @@
                 </div>
                 <div class="px-6 py-4 mb-auto text-center">
                     <div class="flex justify-start">
-                        <a href="#" x-data=""
-                            x-on:click.prevent="$dispatch('open-modal', 'edit-speaker-picture{{$speaker->id}}')"
-                            class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-1">
-                            <i class="fa fa-pencil text-blue-600 cursor-pointer mr-6 "></i></a>
-
-                        <a href="#" x-data=""
-                            x-on:click.prevent="$dispatch('open-modal', 'remove-speaker{{$speaker->id}}')"
-                            class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-1">
-                            <i class="fa fa-trash text-red-600 cursor-pointer mr-6 "></i></a>
+                        <x-secondary-button x-data="edit-event-section"
+                            x-on:click.prevent="$dispatch('open-modal', 'edit-speaker-picture{{$speaker->id}}')">
+                            <i class="fa fa-pencil text-blue-800 cursor-pointer" style="font-size: medium"></i>
+                        </x-secondary-button>
+                         <x-secondary-button x-data="" class="ml-3"
+                            x-on:click.prevent="$dispatch('open-modal', 'remove-speaker{{$speaker->id}}')">
+                            <i class="fa fa-trash text-red-600 cursor-pointer"></i>
+                        </x-secondary-button>
                     </div>
-                    <a href="#" x-data="" x-on:click.prevent="$dispatch('open-modal', 'edit-speaker{{$speaker->id}}')" data-toggle="tooltip"
+                    <div class="pt-5 mt-5">
+                        <a href="#"  
+                        data-toggle="tooltip"
                         class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{$speaker->name}}</a><br>
-                         
-                    <a href="#" x-data="" x-on:click.prevent="$dispatch('open-modal', 'edit-speaker{{$speaker->id}}')"
-                        class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{$speaker->title}}</a>
+
+                    <a href="#"  
+                        class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{$speaker->title}}</a><br>
+                    
+                        <x-secondary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'edit-speaker{{$speaker->id}}')">
+                            <i class="fa fa-pencil text-blue-800 cursor-pointer" style="font-size: medium"></i>Edit Speaker
+                        </x-secondary-button>
+                    </div>
                 </div>
             </div>
             @include('pages.management.events.speakers.partials.delete-speaker')

@@ -1,23 +1,25 @@
 <x-mail::message>
     ### Dear {{$data['name']}},
 
-    Thank you for your application to the **{{$data['program_title']}}** program at **{{$data['school']}}**. We have received
-    all the necessary documents and your application is now under review by our admissions committee.
+    Thank you for your application to the {{$data['program_title']}} program at {{$data['school']}}.
 
-    We understand that you are eager to hear about the outcome of your application. We will notify you of our decision by the {{\Carbon\Carbon::parse($data['date'])->format('j F Y')}}.
+    We are pleased to confirn that we have received all submitted documents, and your application is currently under
+    review by our Admissions Committee.
 
-    In the meantime, if you have any questions, please don't hesitate to contact us at {{$data['school_email']}} or {{$data['school_telephone']}}.
+    We understand your anticipation and appreciate your patience during this process.
 
-    We appreciate your interest in {{$data['school']}} and wish you the best during the application process.
+    Should you have any questions or require further assistance in the meantime, please feel free to contact us via
+    email at {{$data['app_email']}} or {{$data['school_email']}} or reach us by phone at {{ $data['school_telephone']
+    }}.
+
+    Thank your once again for your interest in {{$data['school']}}. We wish you all the best as we proceed with your
+    application.
 
 
-    
-    Sincerely,
+    Warm regards,
 
+    Admissions Office
 
-    {{$data['director_name']}}
-    {{$data['director_position']}}
     {{$data['school']}}
-    {{$data['school_email']}}
-    {{ $data['school_telephone'] }}
+
 </x-mail::message>

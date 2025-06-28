@@ -1,28 +1,29 @@
 <x-mail::message>
     ### Dear {{$data['name']}},
 
-    We are pleased to inform you that you have been offered admission to **{{$data['school']}}** for the
-    **{{$data['program']}}**. Your application impressed our admissions committee, and we believe you will be a valuable addition to our academic community.
+    We are pleased to inform you that you have been offered admissions to the {{$data['program']}} program at
+    {{$data['school']}}.
 
-    Please checkout our website  [{{$data['website']}}]({{$data['website']}}) 
-    for details regarding enrollment, tuition, and important deadlines. We encourage you to confirm your acceptance by
-    {{\Carbon\Carbon::parse($data['acceptance_date'])->format('M Y')}}.
+    Your application was reviewed by our Admissions Committee, and we believe you will make a valuable member of our
+    academic community.
 
-    If you have any questions or need further assistance, feel free to contact us at 
-    Email: {{$data['school_email']}}
-    Tel: {{$data['school_telephone']}}
+    For detailed information regarding tuition fees, and important deadlines, please visit our website at
+    {{$data['website']}}.
 
-    
-    Congratulations on this achievement! We look forward to welcoming you to {{$data['school']}}.
+    We kindly ask that you confirm your acceptance of this offer within four (04) working days, either by replying to
+    this email or by visiting our campus in Buea or Bamenda.
+
+    If you have any questions or need further assistance, feel free to contact us at {{$data['app_email']}} or
+    {{$data['school_email']}} or by phone at {{ $data['school_telephone'] }}.
+
+    Congratulations on your admission! We look forward to welcoming you to {{ $data['school'] }} and supporting you on
+    your academic journey.
 
 
+    Warm regards,
 
-    Cheers,
+    Admissions Office
 
-    {{$data['director_name']}}
-    {{$data['director_position']}}
     {{$data['school']}}
-    {{$data['school_email']}}
-    {{ $data['school_telephone'] }}
-</x-mail::message>
 
+</x-mail::message>
