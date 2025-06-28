@@ -25,7 +25,10 @@ class CreateEventSpeakerRequest extends FormRequest
             'name'   => 'required|string|max:255|min:5',
             'title'  => 'required|string|max:255|min:5',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-            'slug'      => 'required|string'
+            'slug'      => 'required|string',
+            'linkedln'  => 'string',
+            'skype'    => 'string',
+            'facebook'  => 'string'
         ];
     }
 }
