@@ -79,6 +79,7 @@
                     Oops! No events found.
                  </div>
                 @endif
+                 
             </div>
         </div>
     </div>

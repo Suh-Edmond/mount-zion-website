@@ -20,7 +20,7 @@ class EventController extends Controller
 
     public function index(Request $request)
     {
-        $events = $this->eventManagementService->fetchEvents($request);
+        $events = $this->eventManagementService->fetchEvents($request)->get();
 
         if (!$events->first()?->relationLoaded('eventGallery')) {
             $events->load('eventGallery');
@@ -71,7 +71,7 @@ class EventController extends Controller
 
     public function fetchEvents(Request $request)
     {
-        $data = $this->eventManagementService->fetchEvents($request);
+        $data = $this->eventManagementService->fetchEvents($request)->paginate(10);
 
         $data = [
             'events' => $data

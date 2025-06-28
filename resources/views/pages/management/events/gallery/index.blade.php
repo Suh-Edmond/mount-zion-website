@@ -51,14 +51,16 @@
                 </div>
                 <div class="px-6 py-4 mb-auto flex justify-between">
                     <div class="flex justify-start">
-                        <a href="#" x-data=""
-                            x-on:click.prevent="$dispatch('open-modal', 'edit_image_modal{{$value->id}}')"
-                            class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-1">
-                            <i class="fa fa-pencil text-blue-600 cursor-pointer mr-6 "></i></a>
 
-                        <a href="#" x-data="" x-on:click.prevent="$dispatch('open-modal', 'remove_image{{$value->id}}')"
-                            class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-1">
-                            <i class="fa fa-trash text-red-600 cursor-pointer mr-6 "></i></a>
+                        <x-secondary-button x-data=""
+                            x-on:click.prevent="$dispatch('open-modal', 'edit_image_modal{{$value->id}}')">
+                            <i class="fa fa-pencil text-blue-600 cursor-pointer "></i>
+                        </x-secondary-button>
+
+                        <x-secondary-button  class="ml-3" x-data=""
+                            x-on:click.prevent="$dispatch('open-modal', 'remove_image{{$value->id}}')">
+                            <i class="fa fa-trash text-red-600 cursor-pointer "></i>
+                        </x-secondary-button>
                     </div>
                     @if($value->is_main)
                     <div>
