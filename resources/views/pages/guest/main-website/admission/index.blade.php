@@ -229,6 +229,7 @@
                                             <select id="program_id" name="program_id" required>
                                                 <option value="#">Choose program</option>
                                             </select>
+                                             
                                             @if($errors->any())
                                             <small class="text-red" style="color: red">
                                                 {{$errors->first('program_id')}}

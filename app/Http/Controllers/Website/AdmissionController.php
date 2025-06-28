@@ -102,7 +102,7 @@ class AdmissionController extends Controller
     {
         $this->admissionApplicantService->deleteApplicant($request);
 
-        return redirect()->back()->with(['status' => 'Applicant removed successfully']);
+        return redirect()->route('manage.admission.applicants')->with(['status' => 'Application removed successfully']);
     }
 
     public function validateApplication(Request $request)

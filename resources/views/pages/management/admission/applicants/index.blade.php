@@ -81,7 +81,9 @@
                             @foreach($applicants as $key => $value)
                             <tr class="hover:bg-gray-100 focus:bg-gray-300 active:bg-gray-400" tabindex="0">
                                 <td class="border text-center py-4">{{$key+1}}</td>
-                                <td class="border px-4 py-4 text-center">{{$value->user->name}}</td>
+                                <td class="border px-4 py-4 text-center">
+                                    <a href="{{route('manage.admission.applicants.show', ['slug' => $value->slug])}}">{{$value->user->name}}</a>
+                                </td>
                                 <td class="border px-4 py-4 text-center">{{$value->program->name}}</td>
                                 @if($value->applicant_status === \App\Constant\AdmissionStatus::UNDER_REVIEW)
                                 <td class="border px-4 py-4 text-center text-sky-500">
@@ -103,16 +105,10 @@
                                                 <span><i class="fa fa-user   cursor-pointer mr-5 "></i>{{ __('Profile')
                                                     }}</span>
                                             </x-dropdown-link>
-                                            <x-dropdown-link class="text-red-600"
-                                                x-on:click.prevent="$dispatch('open-modal', 'confirm-applicant-deletion{{$value->id}}')">
-                                                <span><i class="fa fa-trash text-red-600 cursor-pointer mr-6 "></i>{{
-                                                    __('Remove') }}</span>
-                                            </x-dropdown-link>
                                         </x-slot>
                                     </x-dropdown>
                                 </td>
                             </tr>
-                            @include('pages.management.admission.applicants.partials.delete-applicant')
                             @endforeach
                         </tbody>
                     </table>

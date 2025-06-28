@@ -20,9 +20,9 @@
                     class="ajax_select_filter bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected>Choose school</option>
                     @foreach($schools as $key => $school)
-                        <option value="{{$school->id}}">
-                            {{$school->name}}
-                        </option>
+                    <option value="{{$school->id}}">
+                        {{$school->name}}
+                    </option>
                     @endforeach
                     <option value="ALL">ALL</option>
                 </select>
@@ -61,14 +61,22 @@
                     <table class=" bg-white border-collapse w-full">
                         <thead>
                             <tr>
-                                <th class="  text-white border text-center px-1 py-2" style="background-color: #16056b">S/N</th>
-                                <th class=" text-white border text-center px-4 py-2" style="background-color: #16056b">Name</th>
-                                <th class="text-white border text-center px-4 py-2" style="background-color: #16056b">Year</th>
-                                <th class=" text-white border text-center px-4 py-2" style="background-color: #16056b">Program</th>
-                                <th class="text-white border text-center px-4 py-2" style="background-color: #16056b">Start Date</th>
-                                <th class=" text-white border text-center px-4 py-2" style="background-color: #16056b">End Date</th>
-                                <th class="text-white border text-center px-4 py-2" style="background-color: #16056b">Status</th>
-                                <th class="text-white border text-center  py-2" style="background-color: #16056b">Action</th>
+                                <th class="  text-white border text-center px-1 py-2" style="background-color: #16056b">
+                                    S/N</th>
+                                <th class=" text-white border text-center px-4 py-2" style="background-color: #16056b">
+                                    Name</th>
+                                <th class="text-white border text-center px-4 py-2" style="background-color: #16056b">
+                                    Year</th>
+                                <th class=" text-white border text-center px-4 py-2" style="background-color: #16056b">
+                                    Program</th>
+                                <th class="text-white border text-center px-4 py-2" style="background-color: #16056b">
+                                    Start Date</th>
+                                <th class=" text-white border text-center px-4 py-2" style="background-color: #16056b">
+                                    End Date</th>
+                                <th class="text-white border text-center px-4 py-2" style="background-color: #16056b">
+                                    Status</th>
+                                <th class="text-white border text-center  py-2" style="background-color: #16056b">Action
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -87,28 +95,15 @@
                                 @else
                                 <td class="border px-4 py-4 text-yellow-600 text-center w-20">Inactive</td>
                                 @endif
-                                <td class="border  py-4 text-center cursor-pointer">
-                                    <x-dropdown align="right" width="48" style="z-index: 5">
-                                        <x-slot name="trigger">
-                                            <span><i class="fa fa-bars"></i></span>
-                                        </x-slot>
-                                        <x-slot name="content">
-                                            <x-dropdown-link class="text-blue-600"
-                                                href="{{route('manage.admission.years.edit', ['slug' => $value->slug])}}">
-                                                <span>
-                                                    <i class="fa fa-pencil   text-blue-800 mr-5 cursor-pointer mr-6 ">
-                                                    </i>
-                                                    {{
-                                                    __('Edit') }}
-                                                </span>
-                                            </x-dropdown-link>
-                                            <x-dropdown-link class="text-red-600"
-                                                x-on:click.prevent="$dispatch('open-modal', 'confirm-deletion{{$value->id}}')">
-                                                <span><i class="fa fa-trash text-red-600 cursor-pointer mr-6 "></i>{{
-                                                    __('Remove') }}</span>
-                                            </x-dropdown-link>
-                                        </x-slot>
-                                    </x-dropdown>
+                                <td class="border  py-4 text-center cursor-pointer flex p-3 space-x-md">
+                                    <a href="{{route('manage.admission.years.edit', ['slug' => $value->slug])}}">
+                                        <i class="fa fa-pencil text-blue-800 cursor-pointer"></i>
+                                    </a>
+                                   
+
+                                    <i class="fa fa-trash text-red-800 cursor-pointer pl-5" x-data=""
+                                        x-on:click.prevent="$dispatch('open-modal', 'confirm-deletion{{$value->id}}')"></i>
+
                                 </td>
                             </tr>
                             @include('pages.management.admission.year.delete-year')

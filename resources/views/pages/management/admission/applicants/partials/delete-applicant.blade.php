@@ -1,6 +1,6 @@
-<x-modal name="confirm-applicant-deletion{{$value->id}}" :show="$errors->isNotEmpty()" focusable>
+<x-modal name="delete-applicant-modal" :show="$errors->isNotEmpty()" focusable>
     <div class="p-5">
-        <form method="post" action="{{ route('manage.admission.applicants.delete', ['slug' => $value->slug]) }}">
+        <form method="post" action="{{ route('manage.admission.applicants.delete', ['slug' => $applicant->slug]) }}">
             @csrf
             @method('delete')
 
@@ -8,13 +8,13 @@
                 {{ __('Are you sure you want to delete this applicant?') }}
             </h2>
             <h2 class="text-lg font-medium text-gray-900 my-2">
-                Name : {{ $value->user->name }}
+                Name : {{ $applicant->user->name }}
             </h2>
             <h2 class="text-lg font-medium text-gray-900 my-2">
-                Email : {{ $value->user->email }}
+                Email : {{ $applicant->user->email }}
             </h2>
             <h2 class="text-lg font-medium text-gray-900 my-2">
-                Applied Program : {{ $value->program->name }}
+                Applied Program : {{ $applicant->program->name }}
             </h2>
 
 

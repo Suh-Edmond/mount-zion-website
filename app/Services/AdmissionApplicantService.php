@@ -94,6 +94,7 @@ class AdmissionApplicantService implements AdmissionApplicantInterface
 
     public function deleteApplicant($request)
     {
+         
         $applicant = Admission::where('slug', $request['slug'])->firstOrFail();
         $applicant->delete();
     }

@@ -20,9 +20,10 @@
                 </a>
             </div>
 
-            <a href="#" x-data="add-event-section" x-on:click.prevent="$dispatch('open-modal', 'add-event-section')">
-                <x-primary-button>{{ __('Add Event Section') }}</x-primary-button>
-            </a>
+            <x-primary-button x-data="add-event-section"
+                x-on:click.prevent="$dispatch('open-modal', 'add-event-section')">{{ __('Add Event Section') }}
+            </x-primary-button>
+
         </div>
     </x-slot>
 
@@ -47,7 +48,7 @@
                         x-on:click.prevent="$dispatch('open-modal', 'edit_event_section{{$section->id ?? ''}}')">
                         <i class="fa fa-pencil text-blue-800 cursor-pointer" style="font-size: medium"></i>
                     </x-secondary-button>
-                    <x-secondary-button x-data="" 
+                    <x-secondary-button x-data=""
                         x-on:click.prevent="$dispatch('open-modal', 'delete_section{{$section->id ?? ''}}')">
                         <i class="fa fa-trash text-red-700 cursor-pointer" style="font-size: medium"></i>
                     </x-secondary-button>

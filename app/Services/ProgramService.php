@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Constant\FileStorageConstants;
 use App\Constant\FileUploadCategory;
-use App\Constant\ProgramType;
+ 
 use App\Interface\ProgramInterface;
 use App\Interface\FileUploadInterface;
 use App\Models\Program;
@@ -12,7 +12,7 @@ use App\Models\School;
 use Exception;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\Rule;
+ 
 
 class ProgramService implements ProgramInterface, FileUploadInterface
 {
@@ -65,13 +65,13 @@ class ProgramService implements ProgramInterface, FileUploadInterface
 
     public function storeProgram($request)
     {
-        $data = $this->validateRequest($request);
-        $school  = School::where('slug', $data['school_slug'])->firstOrFail();
+         
+        $school  = School::where('slug', $request['school_slug'])->firstOrFail();
         $program = Program::create([
-            'name'      => $data['name'],
-            'about'     => $data['about'],
-            'tag'       => $data['tag'],
-            'duration'  => $data['duration'],
+            'name'      => $request['name'],
+            'about'     => $request['about'],
+            'tag'       => $request['tag'],
+            'duration'  => $request['duration'],
             'image_path' => '',
             'school_id'  => $school->id
         ]);
@@ -93,10 +93,10 @@ class ProgramService implements ProgramInterface, FileUploadInterface
 
     public function updateProgram($request)
     {
-        $data = $this->validateUpdateRequest($request);
+         
         $program = Program::where('slug', $request['slug'])->firstOrFail();
 
-        return $program->update($data);
+        return $program->update($request->all());
     }
 
 
@@ -179,32 +179,6 @@ class ProgramService implements ProgramInterface, FileUploadInterface
 
 
         return $programs->orderBy('name', 'desc')->paginate(10);
-    }
-
-
-
-    private function validateRequest($request)
-    {
-        return $request->validate([
-            'name'      => 'required|string|min:5|max:255',
-            'about'     => 'required|string|min:100|max:5000',
-            'tag'       => ['required',  Rule::in([ProgramType::HND, ProgramType::BACHELOR, ProgramType::SPECIAL_CARE]) ],
-            'duration'  => ['required', 'min:1', 'max:5'],
-            'image'     => 'required|image|mimes:jpg,jpeg,png|max:2048',
-            'school_slug'  => ['required', 'string']
-        ]);
-    }
-
-
-    private function validateUpdateRequest($request)
-    {
-        return $request->validate([
-            'name'      => 'required|string|min:5|max:255',
-            'about'     => 'required|string|min:100|max:5000',
-            'tag'       => ['required',  Rule::in([ProgramType::HND, ProgramType::BACHELOR, ProgramType::SPECIAL_CARE]) ],
-            'duration'  => ['required', 'min:1', 'max:5'],
-            'slug'      => ['required', 'string']
-        ]);
     }
 
     private function upload($program, $request)

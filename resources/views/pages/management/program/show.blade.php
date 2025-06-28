@@ -33,6 +33,12 @@
         </div>
     </x-slot>
 
+    <div class="flex justify-center mt-5">
+        <x-auth-session-status :status="session('status')" x-data="{ show: true }" x-show="show"
+            x-init="setTimeout(() => show = false, 3000)" class="pt-1 pl-5">
+        </x-auth-session-status>
+    </div>
+
     <div class="py-3">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="flex flex-row gap-3">

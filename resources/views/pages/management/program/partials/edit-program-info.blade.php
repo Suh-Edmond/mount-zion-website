@@ -21,7 +21,7 @@
 
         <div class="my-4">
             <x-input-label for="duration" :value="__('Duration')"/>
-            <x-text-input id="duration" name="duration" type="text" class="mt-1 block w-full"
+            <x-text-input id="duration" name="duration" type="number" class="mt-1 block w-full" min="1" max="5"
                           :value="old('duration', $program->duration)" required autocomplete="duration"/>
             <x-input-error class="mt-2" :messages="$errors->first('duration')"/>
         </div>

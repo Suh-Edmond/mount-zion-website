@@ -13,22 +13,25 @@
                     </button>
                 </a>
             </div>
-            @if($applicant->applicant_status === \App\Constant\AdmissionStatus::UNDER_REVIEW)
-                <x-primary-button x-data=""
-                                  x-on:click.prevent="$dispatch('open-modal', 'set-applicant-status')"
-                >{{ __('Validate Applicant') }}</x-primary-button>
-            @endif
+            <div>
+                @if($applicant->applicant_status === \App\Constant\AdmissionStatus::UNDER_REVIEW)
+                <x-primary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'set-applicant-status')">{{
+                    __('Validate Applicant') }}</x-primary-button>
+                @endif
+                <x-danger-button x-data=""  x-on:click.prevent="$dispatch('open-modal', 'delete-applicant-modal')">{{
+                    __('Delete Applicant') }}</x-danger-button>
+            </div>
         </div>
     </x-slot>
 
     <div class="flex justify-center mt-5">
-        <x-auth-session-status :status="session('status')" x-data="{ show: true }"
-                               x-show="show"
-                               x-init="setTimeout(() => show = false, 3000)" class="pt-1 pl-5">
+        <x-auth-session-status :status="session('status')" x-data="{ show: true }" x-show="show"
+            x-init="setTimeout(() => show = false, 3000)" class="pt-1 pl-5">
         </x-auth-session-status>
     </div>
 
     @include('pages.management.admission.applicants.partials.validate-applicant')
+    @include('pages.management.admission.applicants.partials.delete-applicant')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
@@ -50,4 +53,6 @@
             </div>
         </div>
     </div>
+
+
 </x-app-layout>
