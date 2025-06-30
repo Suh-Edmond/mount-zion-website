@@ -151,7 +151,7 @@
                                         <div class="single-input-item">
                                             <label for="dob">Date of Birth <span style="color: red">*</span></label>
                                             <input type="date" id="dob" name="dob" placeholder="dd/mm/yy" required
-                                                value="{{old('dob')}}">
+                                                value="{{old('dob')}}" max="{{date('Y-m-d', strtotime('-12 years'))}}">
                                             @if($errors->any())
                                             <small class="text-red" style="color: red">
                                                 {{$errors->first('dob')}}
