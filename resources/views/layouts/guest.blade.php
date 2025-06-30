@@ -46,7 +46,7 @@
     <!-- custom style css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('assets/css/loader.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/application-loader.css') }}">
 </head>
 
 <body class="page">
@@ -90,7 +90,7 @@
     <!-- main Js -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
-    <script src="{{ asset('assets/js/loader.js') }}"></script>
+    <script src="{{ asset('assets/js/application-loader.js') }}"></script>
 </body>
 
 </html>
