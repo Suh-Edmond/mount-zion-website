@@ -52,8 +52,8 @@
 <body class="page">
     @include('components.header')
     <main>
-        <div id="app-loader" style="display:none;">
-            <div class="app-spinner"></div>
+        <div id="apploader" style="display:none;">
+            <div class="appspinner"></div>
         </div>
         {{ $slot }}
 
