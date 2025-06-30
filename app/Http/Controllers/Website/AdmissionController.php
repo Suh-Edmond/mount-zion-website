@@ -94,7 +94,7 @@ class AdmissionController extends Controller
             return back()->with(['error' => ApplicationResponse::HND_RESULT_REQUIRED])->withInput();
         }
         else {
-            return redirect()->back()->with(['status' => 'Applicant submitted successfully! An application email has been sent your email address']);
+            return redirect()->back()->with(['success' => 'You Application was Submitted Successfully! Check your email for details']);
         }
     }
 

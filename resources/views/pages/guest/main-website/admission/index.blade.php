@@ -83,9 +83,9 @@
                 <div class="col-lg-12">
                     <div class="rts-ap-section">
                         <h4 class="rts-section-title mb--30">Application Details</h4>
-                        @if(session('status'))
+                        @if(session('success'))
                         <div class="alert alert-success">
-                            {!! session('status') !!}
+                            {!! session('success') !!}
                         </div>
                         @endif
                         @if(session('error'))
