@@ -30,17 +30,19 @@
             <!-- academic top -->
             <div class="search-filter mb--40">
                 <div class="row">
-                    <div class="col-lg-10 col-md-10 single-input">
+                    
+                     <div class="col-lg-10 col-md-10 single-input">
                         <div class="single-input-item">
                             <input type="text" id="searchInput" name="searchInput" style="border:1px solid grey;padding:12px;" placeholder="Search event by title,location...">
                         </div>
                     </div>
 
                     <div class="col-lg-2 col-md-2">
-                         <button type="button" class="rts-theme-btn primary with-arrow  search_event">Search
+                         <button type="button" class="rts-theme-btn primary with-arrow search_evt_btn">Search
                                     <span><i class="fa-thin fa-search button_icon"></i></span>
                         </button> 
                     </div>
+                    
                 </div>
             </div>
             <div class="row justify-content-sm-center justify-content-md-start g-5">

@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Show loader on all link clicks
-    // document.querySelectorAll('a').forEach(link => {
-    //     link.addEventListener('click', function() {
-    //         document.getElementById('apploader').style.display = 'flex';
-    //     });
-    // });
+    document.querySelectorAll('.search_evt_btn').forEach(button => {
+        button.addEventListener('click', function() {
+            document.getElementById('apploader').style.display = 'flex';
+        });
+    });
 
     // Show loader on all form submissions
     document.querySelectorAll('form').forEach(form => {
