@@ -46,14 +46,14 @@
     <!-- custom style css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('assets/css/loader.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/application-loader.css') }}">
 </head>
 
 <body class="page">
     @include('components.header')
     <main>
-        <div id="loader" style="display:none;">
-            <div class="spinner"></div>
+        <div id="apploader" style="display:none;">
+            <div class="apploader"></div>
         </div>
         {{ $slot }}
 
@@ -90,7 +90,7 @@
     <!-- main Js -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
-    <script src="{{ asset('assets/js/loader.js') }}"></script>
+    <script src="{{ asset('assets/js/application-loader.js') }}"></script>
 </body>
 
 </html>
