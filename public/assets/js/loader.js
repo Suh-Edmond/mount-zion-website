@@ -4,8 +4,8 @@ document.querySelectorAll('form').forEach(form => {
         });
 });
 
-document.querySelectorAll('.search_event').forEach(form => {
-        form.addEventListener('click', function() {
+document.querySelectorAll('.search_event').forEach(button => {
+        button.addEventListener('click', function() {
             document.getElementById('loader').style.display = 'flex';
         });
 });
