@@ -4,6 +4,12 @@ document.querySelectorAll('form').forEach(form => {
         });
 });
 
+document.querySelectorAll('.search_event').forEach(form => {
+        form.addEventListener('click', function() {
+            document.getElementById('loader').style.display = 'flex';
+        });
+});
+
 const xhrOpen = XMLHttpRequest.prototype.open;
 XMLHttpRequest.prototype.open = function () {
     this.addEventListener("loadstart", function () {
