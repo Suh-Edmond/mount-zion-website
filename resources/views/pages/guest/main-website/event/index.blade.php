@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-lg-10 col-md-10 single-input">
                         <div class="single-input-item">
-                            <input type="text" id="searchInput" name="searchInput" style="border:1px solid grey;padding:12px;" placeholder="Search event by title,location...">
+                            <input type="text" id="searchInput" class="search_event" name="searchInput" style="border:1px solid grey;padding:12px;" placeholder="Search event by title,location...">
                         </div>
                     </div>
 
