@@ -37,7 +37,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="category-filter">
                             <h6>School:</h6>
-                            <select class="school-select filter_select" name="cat-search" id="cat-filter">
+                            <select class="school-select filter_select ajax_select_filter" name="cat-search" id="cat-filter">
                                 <option value="">all</option>
                                 @foreach ($schools as $school)
                                 <option value="{{$school->slug}}">{{$school->name}}</option>
@@ -49,7 +49,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="category-filter">
                             <h6>Program Type:</h6>
-                            <select class="program-type-select filter_select" name="cat-search" id="cat-filter">
+                            <select class="program-type-select filter_select ajax_select_filter" name="cat-search" id="cat-filter">
                                 <option value="">all</option>
                                 @foreach ($programTypes as $programType)
                                 <option value="{{$programType}}">{{$programType}}</option>
