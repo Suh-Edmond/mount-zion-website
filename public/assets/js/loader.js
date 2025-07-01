@@ -1,6 +1,8 @@
-document.getElementById("form").onsubmit = function () {
-    document.getElementById("loader").style.display = "flex";
-};
+document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function() {
+            document.getElementById('loader').style.display = 'flex';
+        });
+});
 
 const xhrOpen = XMLHttpRequest.prototype.open;
 XMLHttpRequest.prototype.open = function () {
