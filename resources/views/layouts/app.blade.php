@@ -50,7 +50,7 @@
         <!-- jquery js -->
         <script src="{{ asset('assets/js/vendor/jquery.min.js') }}"></script>
 
-        <script src="{{ asset('assets/js/application-loader.js') }}"></script>
+        <script src="{{ asset('assets/js/loader.js') }}"></script>
         <script>
             tinymce.init({
                     selector: 'textarea',

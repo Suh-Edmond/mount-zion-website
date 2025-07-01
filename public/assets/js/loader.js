@@ -1,4 +1,4 @@
-document.getElementById("website-forms").onsubmit = function () {
+document.getElementById("form").onsubmit = function () {
     document.getElementById("loader").style.display = "flex";
 };
 
@@ -15,8 +15,16 @@ XMLHttpRequest.prototype.open = function () {
 
 
 // Show loader on select input change
-    document.querySelectorAll('.filter_select').forEach(select => {
+    document.querySelectorAll('.ajax_select_filter').forEach(select => {
         select.addEventListener('change', function() {
+            document.getElementById('loader').style.display = 'flex';
+        });
+    });
+
+
+    // Show loader on all link clicks
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
             document.getElementById('loader').style.display = 'flex';
         });
     });

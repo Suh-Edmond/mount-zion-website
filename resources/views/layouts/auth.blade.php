@@ -30,6 +30,6 @@
         {{ $slot }}
     </div>
 </div>
-<script src="{{ asset('assets/js/application-loader.js') }}"></script>
+<script src="{{ asset('assets/js/loader.js') }}"></script>
 </body>
 </html>
