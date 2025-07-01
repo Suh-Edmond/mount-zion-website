@@ -86,7 +86,7 @@
                             aria-describedby="file_input_help" id="file_input" type="file">
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG or JPEG
                             (MAX. 1Mb).</p>
-                        <x-input-error class="mt-2" :messages="$errors->first('picture')" />
+                        <x-input-error class="mt-2" :messages="$errors->first('image')" />
                     </div>
 
 
