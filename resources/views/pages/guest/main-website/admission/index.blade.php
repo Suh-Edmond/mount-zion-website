@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div class="breadcrumb-content">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('main.home')}}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('main.home') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Apply Admission</li>
                         </ul>
                         <h2 class="section-title">Apply to Mount Zion Higher Institutes</h2>
@@ -83,18 +83,18 @@
                 <div class="col-lg-12">
                     <div class="rts-ap-section">
                         <h4 class="rts-section-title mb--30">Application Details</h4>
-                        @if(session('success'))
-                        <div class="alert alert-success">
-                            {!! session('success') !!}
-                        </div>
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {!! session('success') !!}
+                            </div>
                         @endif
-                        @if(session('error'))
-                        <div class="alert alert-danger">
-                            {!! session('error') !!}
-                        </div>
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {!! session('error') !!}
+                            </div>
                         @endif
                         <div class="rts-application-form">
-                            <form method="post" action="{{route('main.admission.applicant.store')}}"
+                            <form method="post" action="{{ route('main.admission.applicant.store') }}"
                                 enctype="multipart/form-data" id="website-forms">
                                 @csrf
                                 <div class="single-form-part">
@@ -106,21 +106,21 @@
                                         <div class="single-input-item">
                                             <label for="first_name">First Name <span style="color: red">*</span></label>
                                             <input type="text" id="first_name" name="first_name"
-                                                placeholder="First name" required value="{{old('first_name')}}">
-                                            @if($errors->any())
-                                            <small class="text-red" style="color: red">
-                                                {{$errors->first('first_name')}}
-                                            </small>
+                                                placeholder="First name" required value="{{ old('first_name') }}">
+                                            @if ($errors->any())
+                                                <small class="text-red" style="color: red">
+                                                    {{ $errors->first('first_name') }}
+                                                </small>
                                             @endif
                                         </div>
                                         <div class="single-input-item">
                                             <label for="last_name">Last Name <span style="color: red">*</span></label>
-                                            <input type="text" id="last_name" name="last_name" placeholder="Last name"
-                                                value="{{old('last_name')}}" required>
-                                            @if($errors->any())
-                                            <small class="text-red" style="color: red">
-                                                {{$errors->first('last_name')}}
-                                            </small>
+                                            <input type="text" id="last_name" name="last_name"
+                                                placeholder="Last name" value="{{ old('last_name') }}" required>
+                                            @if ($errors->any())
+                                                <small class="text-red" style="color: red">
+                                                    {{ $errors->first('last_name') }}
+                                                </small>
                                             @endif
                                         </div>
                                     </div>
@@ -128,44 +128,47 @@
                                         <div class="single-input-item">
                                             <label for="email2">Email <span style="color: red">*</span></label>
                                             <input type="email" id="email" name="email" placeholder="Email"
-                                                value="{{old('email')}}" required>
-                                            @if($errors->any())
-                                            <small class="text-red" style="color: red">
-                                                {{$errors->first('email')}}
-                                            </small>
+                                                value="{{ old('email') }}" required>
+                                            @if ($errors->any())
+                                                <small class="text-red" style="color: red">
+                                                    {{ $errors->first('email') }}
+                                                </small>
                                             @endif
                                         </div>
                                         <div class="single-input-item">
                                             <label for="phone">Phone Number <span style="color: red">*</span></label>
                                             <input type="tel" id="telephone" name="telephone"
-                                                value="{{old('telephone')}}" placeholder="Phone Number" required>
+                                                value="{{ old('telephone') }}" placeholder="Phone Number" required>
                                             <small>E.g: +237670123456</small>
-                                            @if($errors->any())
-                                            <small class="text-red" style="color: red">
-                                                {{$errors->first('telephone')}}
-                                            </small>
+                                            @if ($errors->any())
+                                                <small class="text-red" style="color: red">
+                                                    {{ $errors->first('telephone') }}
+                                                </small>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="single-input">
                                         <div class="single-input-item">
-                                            <label for="dob">Date of Birth <span style="color: red">*</span></label>
-                                            <input type="date" id="dob" name="dob" placeholder="dd/mm/yy" required
-                                                value="{{old('dob')}}" max="{{date('Y-m-d', strtotime('-12 years'))}}">
-                                            @if($errors->any())
-                                            <small class="text-red" style="color: red">
-                                                {{$errors->first('dob')}}
-                                            </small>
+                                            <label for="dob">Date of Birth <span
+                                                    style="color: red">*</span></label>
+                                            <input type="date" id="dob" name="dob"
+                                                placeholder="dd/mm/yy" required value="{{ old('dob') }}"
+                                                max="{{ date('Y-m-d', strtotime('-12 years')) }}">
+                                            @if ($errors->any())
+                                                <small class="text-red" style="color: red">
+                                                    {{ $errors->first('dob') }}
+                                                </small>
                                             @endif
                                         </div>
                                         <div class="single-input-item">
-                                            <label for="pob">Place of Birth <span style="color: red">*</span></label>
-                                            <input type="text" id="pob" name="pob" placeholder="Place of birth" required
-                                                value="{{old('pob')}}">
-                                            @if($errors->any())
-                                            <small class="text-red" style="color: red">
-                                                {{$errors->first('pob')}}
-                                            </small>
+                                            <label for="pob">Place of Birth <span
+                                                    style="color: red">*</span></label>
+                                            <input type="text" id="pob" name="pob"
+                                                placeholder="Place of birth" required value="{{ old('pob') }}">
+                                            @if ($errors->any())
+                                                <small class="text-red" style="color: red">
+                                                    {{ $errors->first('pob') }}
+                                                </small>
                                             @endif
                                         </div>
                                     </div>
@@ -173,30 +176,33 @@
                                         <div class="single-input-item">
                                             <label for="gender">Gender <span style="color: red">*</span></label>
                                             <select name="gender" id="gender" required>
-                                                @foreach($genders as $key => $gender)
-                                                <option value="{{$gender}}" {{old('gender')==$gender ? 'selected' : ''
-                                                    }}>{{$gender}}</option>
+                                                @foreach ($genders as $key => $gender)
+                                                    <option value="{{ $gender }}"
+                                                        {{ old('gender') == $gender ? 'selected' : '' }}>
+                                                        {{ $gender }}</option>
                                                 @endforeach
                                             </select>
-                                            @if($errors->any())
-                                            <small class="text-red" style="color: red">
-                                                {{$errors->first('gender')}}
-                                            </small>
+                                            @if ($errors->any())
+                                                <small class="text-red" style="color: red">
+                                                    {{ $errors->first('gender') }}
+                                                </small>
                                             @endif
                                         </div>
                                         <div class="single-input-item">
                                             <label for="region">Select your Region <span
                                                     style="color: red">*</span></label>
-                                            <select name="region" id="region" placeholder="Region of origin" required>
-                                                @foreach($regions as $key => $value)
-                                                <option value="{{$value}}" {{old('region')==$value ? 'selected' : '' }}>
-                                                    {{$value}}</option>
+                                            <select name="region" id="region" placeholder="Region of origin"
+                                                required>
+                                                @foreach ($regions as $key => $value)
+                                                    <option value="{{ $value }}"
+                                                        {{ old('region') == $value ? 'selected' : '' }}>
+                                                        {{ $value }}</option>
                                                 @endforeach
                                             </select>
-                                            @if($errors->any())
-                                            <small class="text-red" style="color: red">
-                                                {{$errors->first('region')}}
-                                            </small>
+                                            @if ($errors->any())
+                                                <small class="text-red" style="color: red">
+                                                    {{ $errors->first('region') }}
+                                                </small>
                                             @endif
                                         </div>
                                     </div>
@@ -211,15 +217,16 @@
                                             <label for="school_id">School </label>
                                             <select id="school_id" name="school_id" required>
                                                 <option value="">Choose school</option>
-                                                @foreach($schools as $key => $school)
-                                                <option value="{{$school->id}}" {{old('school_id')==$school->id ?
-                                                    'selected': ''}}>{{$school->name}}</option>
+                                                @foreach ($schools as $key => $school)
+                                                    <option value="{{ $school->id }}"
+                                                        {{ old('school_id') == $school->id ? 'selected' : '' }}>
+                                                        {{ $school->name }}</option>
                                                 @endforeach
                                             </select>
-                                            @if($errors->any())
-                                            <small class="text-red" style="color: red">
-                                                {{$errors->first('school_id')}}
-                                            </small>
+                                            @if ($errors->any())
+                                                <small class="text-red" style="color: red">
+                                                    {{ $errors->first('school_id') }}
+                                                </small>
                                             @endif
                                         </div>
                                     </div>
@@ -229,11 +236,11 @@
                                             <select id="program_id" name="program_id" required>
                                                 <option value="#">Choose program</option>
                                             </select>
-                                             
-                                            @if($errors->any())
-                                            <small class="text-red" style="color: red">
-                                                {{$errors->first('program_id')}}
-                                            </small>
+
+                                            @if ($errors->any())
+                                                <small class="text-red" style="color: red">
+                                                    {{ $errors->first('program_id') }}
+                                                </small>
                                             @endif
                                         </div>
                                     </div>
@@ -244,10 +251,10 @@
                                                 accept="image/png, image/jpg, image/jpeg, application/pdf">
                                             <small>PNG, JPG, JPEG, or PDF
                                                 (MAX. 2Mb).</small>
-                                            @if($errors->any())
-                                            <small class="text-red" style="color: red">
-                                                {{$errors->first('id_card')}}
-                                            </small>
+                                            @if ($errors->any())
+                                                <small class="text-red" style="color: red">
+                                                    {{ $errors->first('id_card') }}
+                                                </small>
                                             @endif
                                         </div>
                                     </div>
@@ -258,10 +265,10 @@
                                                 accept="image/png, image/jpg, image/jpeg, application/pdf">
                                             <small>PNG, JPG, JPEG, or PDF
                                                 (MAX. 2Mb).</small>
-                                            @if($errors->any())
-                                            <small class="text-red" style="color: red">
-                                                {{$errors->first('gce_cert')}}
-                                            </small>
+                                            @if ($errors->any())
+                                                <small class="text-red" style="color: red">
+                                                    {{ $errors->first('gce_cert') }}
+                                                </small>
                                             @endif
                                         </div>
                                     </div>
@@ -272,10 +279,10 @@
                                                 accept="image/png, image/jpg, image/jpeg, application/pdf">
                                             <small>PNG, JPG, JPEG, or PDF
                                                 (MAX. 2Mb).</small>
-                                            @if($errors->any())
-                                            <small class="text-red" style="color: red">
-                                                {{$errors->first('hnd_cert')}}
-                                            </small>
+                                            @if ($errors->any())
+                                                <small class="text-red" style="color: red">
+                                                    {{ $errors->first('hnd_cert') }}
+                                                </small>
                                             @endif
                                         </div>
                                     </div>
@@ -293,10 +300,10 @@
                                         <label for="has_agreed">By submitting this form, you agree to the Mount Zion
                                             University Privacy Notice</label>
                                     </div>
-                                    @if($errors->any())
-                                    <small class="text-red" style="color: red">
-                                        {{$errors->first('has_agreed')}}
-                                    </small>
+                                    @if ($errors->any())
+                                        <small class="text-red" style="color: red">
+                                            {{ $errors->first('has_agreed') }}
+                                        </small>
                                     @endif
                                 </div>
                                 <button type="submit" class="rts-theme-btn primary with-arrow  app_button">Submit
@@ -349,13 +356,13 @@
         }
     });
 
-    $(document).on('change', '#school_id', function (e){
+    $(document).on('change', '#school_id', function(e) {
         e.preventDefault();
         var school_id = ($(this).val());
 
         $('#program_id').find('option').not(':first').remove();
 
-        var url = "{{route('main.schools.programs.fetch-active-programs', ':id')}}";
+        var url = "{{ route('main.schools.programs.fetch-active-programs', ':id') }}";
 
         url = url.replace(':id', school_id);
 
@@ -366,17 +373,17 @@
 
             success: function(data) {
                 let option = "<option value=''>Choose program</option>";
-                 
-                for (var i = 0; i < data.data.length; i++){ 
-                    option += '<option value="'+data.data[i].id+'">'+data.data[i].name+ ' - '+ data.data[i].tag +' </option>';
+
+                for (var i = 0; i < data.data.length; i++) {
+                    option += '<option value="' + data.data[i].id + '">' + data.data[i].name +
+                        ' - ' + data.data[i].tag + ' </option>';
                 }
                 $('#program_id').html('');
                 $('#program_id').html(option);
 
             },
-            error: function(data){
-            },
+            error: function(data) {},
 
         });
-    });    
+    });
 </script>
