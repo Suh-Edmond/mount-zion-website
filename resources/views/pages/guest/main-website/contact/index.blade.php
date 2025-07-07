@@ -102,12 +102,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt--30">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.2471976515058!2d10.1491805!3d5.960645700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105f17e741384fe1%3A0x1f6f0e68e9dd5589!2sMount%20Zion%20Clinic!5e0!3m2!1sen!2scm!4v1751889525027!5m2!1sen!2scm"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+                    @if ($contact->region == 'Northwest')
+                        <div class="mt--30">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.2471976515058!2d10.1491805!3d5.960645700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105f17e741384fe1%3A0x1f6f0e68e9dd5589!2sMount%20Zion%20Clinic!5e0!3m2!1sen!2scm!4v1751889525027!5m2!1sen!2scm"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    @else
+                        <div class="mt--30">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.3083893604244!2d9.248494999999998!3d4.159646099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1061330bb2f822cf%3A0xb07a0308b0b6d1e1!2sMount%20Zion%20Higher%20Institute%20Buea%20(MZHI)!5e0!3m2!1sen!2scm!4v1751899074313!5m2!1sen!2scm"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    @endif
                 </div>
             </div>
         </section>

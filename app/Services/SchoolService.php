@@ -44,6 +44,7 @@ class SchoolService implements SchoolInterface, FileUploadInterface
         ]);
     }
 
+    
     public function updateSchool($request)
     {
         $school = School::where('slug', $request['slug'])->firstOrFail();
@@ -65,7 +66,7 @@ class SchoolService implements SchoolInterface, FileUploadInterface
 
     public function getContactInfos($request)
     {
-        return School::select('email', 'telephone', 'address', 'name')->get();
+        return School::select('email', 'telephone', 'address', 'name', 'region')->get();
     }
 
     public function uploadFile($request)
