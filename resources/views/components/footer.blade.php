@@ -3,8 +3,8 @@
         <div class="row gy-5 gy-lg-0">
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="rts-footer-widget w-320">
-                    <a href="{{route('main.home')}}" class="d-block rts-footer-logo mb--40">
-                        <img style="width: 200px" src="{{asset('assets/images/logo/resized_logo.png')}}" alt="Unipix">
+                    <a href="{{ route('main.home') }}" class="d-block rts-footer-logo mb--40">
+                        <img style="width: 200px" src="{{ asset('assets/images/logo/resized_logo.png') }}" alt="Unipix">
                     </a>
                 </div>
             </div>
@@ -13,8 +13,8 @@
                     <h6 class="rt-semi">Our Campus</h6>
                     <div class="rts-footer-menu">
                         <ul>
-                            <li><a href="{{route('main.academic-area')}}">Academics</a></li>
-                            <li><a href="{{route('main.tuition-fee')}}">Tuition Fee</a></li>
+                            <li><a href="{{ route('main.academic-area') }}">Academics</a></li>
+                            <li><a href="{{ route('main.tuition-fee') }}">Tuition Fee</a></li>
                         </ul>
                     </div>
                 </div>
@@ -24,8 +24,8 @@
                     <h6 class="rt-semi">Our Clinic</h6>
                     <div class="rts-footer-menu">
                         <ul>
-                            <li><a href="{{route('main.clinic')}}">About</a></li>
-                            <li><a href="{{route('main.clinic').'#mount_zion_services'}}">Our Services</a></li>
+                            <li><a href="{{ route('main.clinic') }}">About</a></li>
+                            <li><a href="{{ route('main.clinic') . '#mount_zion_services' }}">Our Services</a></li>
                         </ul>
                     </div>
                 </div>
@@ -35,8 +35,8 @@
                     <h6 class="rt-semi">Contact</h6>
                     <div class="rts-footer-menu">
                         <ul>
-                            <li><a href="{{route('main.contact').'#branch_contact'}}">Bamenda Branch </a></li>
-                            <li><a href="{{route('main.contact').'#branch_contact'}}">Buea Branch</a></li>
+                            <li><a href="{{ route('main.contact') . '#branch_contact' }}">Bamenda Branch </a></li>
+                            <li><a href="{{ route('main.contact') . '#branch_contact' }}">Buea Branch</a></li>
                         </ul>
                     </div>
                 </div>
@@ -48,7 +48,10 @@
     <div class="container">
         <div class="row">
             <div class="rt-center">
-                <p class="--p-xs">Copyright &copy; <span id="year"></span> All Rights Reserved</p>
+                <p class="--p-xs">Copyright &copy; All Rights Reserved <span id="year"></span> | Designed with <i
+                        class="fa-solid fa-heart" style="color:red"></i> by <a class="designer"
+                        href="https://www.linkedin.com/in/suh-edmond-37aaa51aa" target="_blank"
+                        style="color:#737477">Suh Edmond</a></p>
             </div>
         </div>
     </div>
@@ -61,14 +64,14 @@
     <!-- inner menu area desktop start -->
     <div class="inner-main-wrapper-desk">
         <div class="thumbnail">
-            <img src="{{asset('assets/images/logo/logo.png')}}" alt="mount zion">
+            <img src="{{ asset('assets/images/logo/logo.png') }}" alt="mount zion">
         </div>
         <div class="inner-content">
             <!-- offcanvase banner -->
             <div class="offcanvase__banner mt--50">
                 <div class="offcanvase__banner--content">
-                    <img src="{{asset('assets/images/sidebar/graduation.jpg')}}" alt="appl now">
-                    <a href="{{route('main.admission')}}" class="rts-theme-btn">Apply Now</a>
+                    <img src="{{ asset('assets/images/sidebar/graduation.jpg') }}" alt="appl now">
+                    <a href="{{ route('main.admission') }}" class="rts-theme-btn">Apply Now</a>
                 </div>
             </div>
         </div>
@@ -79,38 +82,39 @@
             <ul class="mainmenu metismenu" id="mobile-menu-active">
 
                 <li>
-                    <a href="{{route('main.home')}}" class="main">Home</a>
+                    <a href="{{ route('main.home') }}" class="main">Home</a>
                 </li>
 
                 <li class="has-droupdown">
                     <a class="main">About Us</a>
                     <ul class="submenu mm-collapse">
-                        <li><a class="mobile-menu-link" href="{{route('main.home').'#mission'}}">Mission</a></li>
-                        <li><a class="mobile-menu-link" href="{{route('main.home').'#vision'}}">Vision</a></li>
-                        <li><a class="mobile-menu-link" href="{{route('main.clinic')}}">MZ Clinic</a></li>
-                        <li><a class="mobile-menu-link" href="{{route('main.about')}}">MZHI</a></li>
-                        <li><a class="mobile-menu-link" href="{{route('main.ceo')}}">Administrators</a></li>
+                        <li><a class="mobile-menu-link" href="{{ route('main.home') . '#mission' }}">Mission</a></li>
+                        <li><a class="mobile-menu-link" href="{{ route('main.home') . '#vision' }}">Vision</a></li>
+                        <li><a class="mobile-menu-link" href="{{ route('main.clinic') }}">MZ Clinic</a></li>
+                        <li><a class="mobile-menu-link" href="{{ route('main.about') }}">MZHI</a></li>
+                        <li><a class="mobile-menu-link" href="{{ route('main.ceo') }}">Administrators</a></li>
                     </ul>
                 </li>
 
                 <li class="has-droupdown">
                     <a class="main">Academics</a>
                     <ul class="submenu mm-collapse">
-                        <li><a class="mobile-menu-link" href="{{route('main.academic-area')}}">Programs</a></li>
-                        <li><a class="mobile-menu-link" href="{{route('main.admission')}}">Eligibility Criteria</a></li>
-                        <li><a class="mobile-menu-link" href="{{route('main.tuition-fee')}}">Tuition Fee</a></li>
-                        <li><a class="mobile-menu-link" href="{{route('main.staff')}}">MZHI Staff</a></li>
+                        <li><a class="mobile-menu-link" href="{{ route('main.academic-area') }}">Programs</a></li>
+                        <li><a class="mobile-menu-link" href="{{ route('main.admission') }}">Eligibility Criteria</a>
+                        </li>
+                        <li><a class="mobile-menu-link" href="{{ route('main.tuition-fee') }}">Tuition Fee</a></li>
+                        <li><a class="mobile-menu-link" href="{{ route('main.staff') }}">MZHI Staff</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="{{route('main.event')}}" class="main">Events</a>
+                    <a href="{{ route('main.event') }}" class="main">Events</a>
                 </li>
                 <li>
-                    <a href="{{route('main.donate')}}" class="main">Donate</a>
+                    <a href="{{ route('main.donate') }}" class="main">Donate</a>
                 </li>
                 <li>
-                    <a href="{{route('main.contact')}}" class="main">Contact</a>
+                    <a href="{{ route('main.contact') }}" class="main">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -123,7 +127,8 @@
     <div class="container">
         <div class="search-input-inner">
             <div class="input-div">
-                <input class="search-input autocomplete ui-autocomplete-input" type="text" placeholder="Search by keyword or #" autocomplete="off">
+                <input class="search-input autocomplete ui-autocomplete-input" type="text"
+                    placeholder="Search by keyword or #" autocomplete="off">
                 <button><i class="far fa-search"></i></button>
             </div>
         </div>
@@ -133,7 +138,9 @@
 <!-- rts backto top start -->
 <div class="progress-wrap">
     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+            style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+        </path>
     </svg>
 </div>
 <!-- rts back to top end -->
