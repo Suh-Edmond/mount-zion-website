@@ -25345,6 +25345,9 @@ body.index-sc h1, body.index-sc h2, body.index-sc h3, body.index-sc h4, body.ind
 .rts-footer-widget .rts-footer-menu ul li a:hover {
   color: var(--rt-primary-2);
 }
+.rt-center .designer:hover {
+  color: var(--rt-primary-2) !important;
+}
 .rts-footer-widget .rts-post-widget ul {
   margin: 0;
 }
