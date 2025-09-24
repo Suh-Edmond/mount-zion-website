@@ -6,6 +6,7 @@ use App\Http\Controllers\EventGalleryController;
 use App\Http\Controllers\EventSectionController;
 use App\Http\Controllers\EventSpeakerController;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SchoolController;
@@ -43,9 +44,9 @@ Route::post('/admissions/add-applicant', [AdmissionController::class, 'addApplic
 Route::get('academics/schools/{slug}', [AcademicController::class, 'school'])->name('main.schools.show');
 Route::get('academics/schools/{schoolSlug}/{programSlug}', [AcademicController::class, 'program'])->name('main.schools.program.show');
 Route::get('/academics/{id}/load-active-programs', [ProgramController::class, 'fetchActiveProgramsBySchool'])->name('main.schools.programs.fetch-active-programs');
- 
 
-Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
+
+Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('/academics', [SchoolController::class, 'index'])->name('manage.academics');
     Route::get('/academics-create', [SchoolController::class, 'createSchool'])->name('manage.academics.create');
@@ -99,7 +100,6 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('/academics/{id}/load-programs', [ProgramController::class, 'fetchProgramsBySchool'])->name('main.schools.programs.fetch-all');
     Route::get('/academics/programs', [ProgramController::class, 'fetchPrograms'])->name('manage-academics-program');
     Route::get('/academics/programs/{slug}/admission-session', [AdmissionYearController::class, 'fetchProgramAdmissionSession'])->name('main.schools.programs.fetch-admission-session');
-
 });
 
 Route::middleware('auth')->group(function () {
@@ -108,4 +108,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+
+
+require __DIR__ . '/auth.php';
