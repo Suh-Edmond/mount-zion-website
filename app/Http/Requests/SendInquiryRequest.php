@@ -25,7 +25,8 @@ class SendInquiryRequest extends FormRequest
             'name' => 'required|string|min:3|max:255',
             'email' => 'required|email',
             'phone' => 'required|regex:/^\+?[1-9]\d{1,14}$/',
-            'message' => 'required|max:1000'
+            'message' => 'required|max:1000',
+            'dateTime' => 'required',
         ];
     }
 }
