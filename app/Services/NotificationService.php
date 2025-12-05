@@ -13,7 +13,7 @@ class NotificationService
         try {
             Mail::to(env('INQUIRY_EMAIL_ADDRESS'))->send(new InquiryMail($request->all()));
         } catch (Exception $e) {
-            return response()->json(['msg' => "Could not send message"]);
+            return $e->getMessage();
         }
     }
 }
