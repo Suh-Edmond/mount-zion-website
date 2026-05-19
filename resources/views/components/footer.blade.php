@@ -50,7 +50,7 @@
             <div class="rt-center">
                 <p class="--p-xs">Copyright &copy; All Rights Reserved <span id="year"></span> | Designed with <i
                         class="fa-solid fa-heart" style="color:red"></i> by <a class="designer"
-                        href="https://www.linkedin.com/in/suh-edmond-37aaa51aa" target="_blank"
+                        href="https://www.linkedin.com/in/edmond-suh/" target="_blank"
                         style="color:#737477">Suh Edmond</a></p>
             </div>
         </div>
