@@ -108,7 +108,7 @@
                                         <div class="left-side bold">Web Site:</div>
                                         <div class="right-side">
                                             <span class="desc">
-                                                <a href="{{$event->website}}">{{$event->website}}</a>
+                                                <a href="{{ Str::startsWith($event->website, ['http://', 'https://'])?$event->website:'https://'.$event->website }}" target="_blank" rel="noopener noreferrer">{{$event->website}}</a>
                                             </span>
                                         </div>
                                     </div>

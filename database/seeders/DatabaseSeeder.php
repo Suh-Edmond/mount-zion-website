@@ -15,14 +15,14 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call(SchoolSeeder::class);
-        // $this->call(ProgramSeeder::class);
-        // $this->call(AdmissionYearSeeder::class);
+        $this->call(ProgramSeeder::class);
+        $this->call(AdmissionYearSeeder::class);
         $this->call(UserSeed::class);
-        // $this->call(AdmissionSeeder::class);
-        // $this->call(AdmissionDocumentSeeder::class);
-        // $this->call(EventSeeder::class);
-        // $this->call(SpeakerSeeder::class);
-        // $this->call(EventSectionSeeder::class);
-        // $this->call(EventGallerySeeder::class);
+        $this->call(AdmissionSeeder::class);
+        $this->call(AdmissionDocumentSeeder::class);
+        $this->call(EventSeeder::class);
+        $this->call(SpeakerSeeder::class);
+        $this->call(EventSectionSeeder::class);
+        $this->call(EventGallerySeeder::class);
     }
 }

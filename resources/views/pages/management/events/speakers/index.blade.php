@@ -1,14 +1,14 @@
-@section('title', "Event Management")
+@section('title', 'Event Management')
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between">
             <div class="flex justify-around">
-                <a href="{{route('manage.academics')}}">
+                <a href="{{ route('manage.academics') }}">
                     <button id="goBack" class="text-blue-800 text-sm">
                         {{ __('Event Management') }}<span><i class="fa fa-chevron-right px-5 fa-sm"></i></span>
                     </button>
                 </a>
-                <a href="{{route('manage.events.show', ['slug' => $event->slug])}}">
+                <a href="{{ route('manage.events.show', ['slug' => $event->slug]) }}">
                     <button id="goBack" class="text-blue-800 text-sm">
                         {{ $event->title }}<span><i class="fa fa-chevron-right px-5 fa-sm"></i></span>
                     </button>
@@ -20,7 +20,7 @@
                 </a>
             </div>
 
-            <a href="{{route('manage.events.speakers.create', ['slug' => $event->slug])}}">
+            <a href="{{ route('manage.events.speakers.create', ['slug' => $event->slug]) }}">
                 <x-primary-button>{{ __('Add Event Speaker') }}</x-primary-button>
             </a>
         </div>
@@ -33,51 +33,52 @@
                 <h2 class="text-lg font-medium text-gray-900">
                     {{ __('Event Speakers Management') }}
                 </h2>
-                <x-auth-session-status :status="session('status')" x-data="{ show: true }" x-show="show"
-                    x-init="setTimeout(() => show = false, 2000)" class="ml-4 pt-2">
+                <x-auth-session-status :status="session('status')" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 2000)"
+                    class="ml-4 pt-2">
                 </x-auth-session-status>
             </header>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-4">
-            @foreach($speakers as $key => $speaker)
-            <div class="rounded overflow-hidden shadow-sm flex flex-col my-3">
-                <div class="relative">
-                    <a href="#">
-                        <img class="w-25 rounded" src="{{asset($speaker->picture)}}" alt="Blog Image"
-                            style="width: 300px !important; height:250px !important;border-radius: 50%;">
-                        <div
-                            class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-white-900 opacity-25">
+            @foreach ($speakers as $key => $speaker)
+                <div class="rounded overflow-hidden shadow-sm flex flex-col my-3">
+                    <div class="relative">
+                        <a href="#">
+                            <img class="w-25 rounded" src="{{ asset($speaker->picture) }}" alt="Blog Image"
+                                style="width: 300px !important; height:250px !important;border-radius: 50%;">
+                            <div
+                                class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-white-900 opacity-25">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="px-6 py-4 mb-auto text-center">
+                        <div class="flex justify-start">
+                            <x-secondary-button x-data="edit - event - section"
+                                x-on:click.prevent="$dispatch('open-modal', 'edit-speaker-picture{{ $speaker->id }}')">
+                                <i class="fa fa-pencil text-blue-800 cursor-pointer" style="font-size: medium"></i>
+                            </x-secondary-button>
+                            <x-secondary-button x-data="" class="ml-3"
+                                x-on:click.prevent="$dispatch('open-modal', 'remove-speaker{{ $speaker->id }}')">
+                                <i class="fa fa-trash text-red-600 cursor-pointer"></i>
+                            </x-secondary-button>
                         </div>
-                    </a>
-                </div>
-                <div class="px-6 py-4 mb-auto text-center">
-                    <div class="flex justify-start">
-                        <x-secondary-button x-data="edit-event-section"
-                            x-on:click.prevent="$dispatch('open-modal', 'edit-speaker-picture{{$speaker->id}}')">
-                            <i class="fa fa-pencil text-blue-800 cursor-pointer" style="font-size: medium"></i>
-                        </x-secondary-button>
-                         <x-secondary-button x-data="" class="ml-3"
-                            x-on:click.prevent="$dispatch('open-modal', 'remove-speaker{{$speaker->id}}')">
-                            <i class="fa fa-trash text-red-600 cursor-pointer"></i>
-                        </x-secondary-button>
-                    </div>
-                    <div class="pt-5 mt-5">
-                        <a href="#"  
-                        data-toggle="tooltip"
-                        class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{$speaker->name}}</a><br>
+                        <div class="pt-5 mt-5">
+                            <a href="#" data-toggle="tooltip"
+                                class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{ $speaker->name }}</a><br>
 
-                    <a href="#"  
-                        class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{$speaker->title}}</a><br>
-                    
-                        <x-secondary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'edit-speaker{{$speaker->id}}')">
-                            <i class="fa fa-pencil text-blue-800 cursor-pointer" style="font-size: medium"></i>Edit Speaker
-                        </x-secondary-button>
+                            <a href="#"
+                                class="font-medium text-lg inline-block text-center hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{ $speaker->title }}</a><br>
+
+                            <x-secondary-button x-data=""
+                                x-on:click.prevent="$dispatch('open-modal', 'edit-speaker{{ $speaker->slug }}')">
+                                <i class="fa fa-pencil text-blue-800 cursor-pointer" style="font-size: medium"></i>Edit
+                                Speaker
+                            </x-secondary-button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @include('pages.management.events.speakers.partials.delete-speaker')
-            @include('pages.management.events.speakers.partials.edit-speaker-picture')
-            @include('pages.management.events.speakers.partials.edit-speaker')
+                @include('pages.management.events.speakers.partials.delete-speaker')
+                @include('pages.management.events.speakers.partials.edit-speaker-picture')
+                @include('pages.management.events.speakers.partials.edit-speaker')
             @endforeach
         </div>
     </div>
@@ -89,7 +90,7 @@
 
         // return urlObj.toString();
 
-        $('#status').on('change', function (e){
+        $('#status').on('change', function(e) {
             let url = new URL(location.href);
 
             let searchParams = new URLSearchParams(url.search);
@@ -104,7 +105,7 @@
 
         })
 
-        $('#tag').on('change', function (e){
+        $('#tag').on('change', function(e) {
             let url = new URL(location.href);
             let searchParams = new URLSearchParams(url.search);
             let parsedTag = JSON.parse(e.target.value);
@@ -119,7 +120,7 @@
 
         })
 
-        $('#category').on('change', function (e){
+        $('#category').on('change', function(e) {
             let url = new URL(location.href);
             let searchParams = new URLSearchParams(url.search);
             searchParams.delete('search_title');
@@ -132,7 +133,7 @@
 
         })
 
-        $('#sort').on('change', function (e){
+        $('#sort').on('change', function(e) {
             let url = new URL(location.href);
             let searchParams = new URLSearchParams(url.search);
             searchParams.delete('search_title');
