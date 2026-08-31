@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div class="breadcrumb-content">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('main.programs')}}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('main.programs')}}">Programs</a></li>
                             <li class="breadcrumb-item active" aria-current="page">program details</li>
                         </ul>
                         <h2 class="section-title">{{$program->name}}</h2>

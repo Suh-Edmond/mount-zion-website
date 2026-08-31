@@ -1,4 +1,4 @@
-<x-modal name="edit-speaker{{$speaker->id}}" :show="$errors->isNotEmpty()" focusable x-data="">
+<x-modal name="edit-speaker{{$speaker->slug}}" :show="$errors->isNotEmpty()" focusable x-data="">
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div>
@@ -20,14 +20,14 @@
                 <div class="grow my-4">
                     <label for="name" >Name <span style="color: red">*</span></label>
                     <x-text-input id="name" name="name" type="text" class="mt-1 block w-full"
-                        value="{{old('name', $speaker->name)}}" required autocomplete="name" /> 
+                        value="{{old('name', $speaker->name)}}" required autocomplete="name" />
                     <x-input-error class="mt-2" :messages="$errors->first('name')" />
                 </div>
 
                 <div class="grow my-4">
                     <label for="title" >Title <span style="color: red">*</span></label>
                     <x-text-input id="title" name="title" type="text" class="mt-1 block w-full"
-                        value="{{old('title', $speaker->title)}}" required autocomplete="title" /> 
+                        value="{{old('title', $speaker->title)}}" required autocomplete="title" />
                     <x-input-error class="mt-2" :messages="$errors->first('title')" />
                 </div>
 

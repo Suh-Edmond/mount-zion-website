@@ -11,7 +11,7 @@
                     <div class="breadcrumb-content">
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('main.home')}}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('main.home')}}">Academics</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('main.academic-area')}}">Academics</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Programs</li>
                         </ul>
                         <h2 class="section-title">Programs</h2>
