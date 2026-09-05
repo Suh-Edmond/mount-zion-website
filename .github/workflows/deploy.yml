@@ -47,7 +47,6 @@ jobs:
 
       - name: Dump Composer dependencies
 
-        run: composer install --no-dev --no-interaction --prefer-dist
         run: composer dump-autoload
 
       - name: Run migrations
@@ -56,10 +55,10 @@ jobs:
       - name: Generate application key
         run: php artisan key:generate
 
-      # - name: Seed the database
-      #   run: php artisan db:seed
+      - name: Seed the database
+        run: php artisan db:seed
 
-      - name: Generate symbolic links
+      - name: Generate symbolic link
         run: php artisan storage:link
 
       - name: Create deployment artifacts
