@@ -2,10 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Faculty;
+
 use App\Models\School;
-use Faker\Generator;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SchoolSeeder extends Seeder
@@ -13,7 +11,7 @@ class SchoolSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(Generator $generator): void
+    public function run(): void
     {
         School::create([
             'name'   => "Mount Zion Institute Bamenda",
