@@ -52,6 +52,15 @@ jobs:
       - name: Run migrations
         run: php artisan migrate
 
+      - name: Generate application key
+        run: php artisan key:generate
+
+      - name: Seed the database
+        run: php artisan db:seed
+
+      - name: Generate symbolic links
+        run: php artisan storage:link
+
       - name: Create deployment artifacts
 
         env:
