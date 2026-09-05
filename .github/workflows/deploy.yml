@@ -47,6 +47,7 @@ jobs:
 
       - name: Dump Composer dependencies
 
+        run: composer install --no-dev --no-interaction --prefer-dist
         run: composer dump-autoload
 
       - name: Run migrations
