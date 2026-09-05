@@ -52,9 +52,9 @@
 <body class="page">
     @include('components.header')
     <main>
-        {{-- <div id="apploader" style="display:none;">
+        <div id="apploader" style="display:none;">
             <div class="apploader"></div>
-        </div> --}}
+        </div>
         {{ $slot }}
 
     </main>
