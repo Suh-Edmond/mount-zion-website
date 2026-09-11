@@ -127,39 +127,41 @@
     <!-- event details end -->
     <!-- event speaker -->
     <div class="rts-event-speaker mt--40 rts-section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="rts-section">
-                    <h3 class="rts-section-title">Event Speakers</h3>
+        @if (!$event->speakers->isEmpty())
+            <div class="container">
+                <div class="row">
+                    <div class="rts-section">
+                        <h3 class="rts-section-title">Event Speakers</h3>
+                    </div>
                 </div>
-            </div>
-            <!-- event speaker list -->
-            <div class="row g-5">
-                @foreach ($event->speakers as $speaker)
-                    <!-- single speaker item -->
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="event-speaker">
-                            <div class="event-speaker__details">
-                                <div class="speaker-thumb">
-                                    <img src="{{ asset($speaker->picture) }}" alt="speaker-thumb"
-                                        style="height: 200px !important">
-                                    <div class="speaker-social-link">
+                <!-- event speaker list -->
+                <div class="row g-5">
+                    @foreach ($event->speakers as $speaker)
+                        <!-- single speaker item -->
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="event-speaker">
+                                <div class="event-speaker__details">
+                                    <div class="speaker-thumb">
+                                        <img src="{{ asset($speaker->picture) }}" alt="speaker-thumb"
+                                            style="height: 200px !important">
+                                        <div class="speaker-social-link">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="speaker-meta">
-                                    <h5 class="speaker__name"><a
-                                            href="{{ $speaker->getLinkedlnLink($speaker->social_media_handles) }}">{{ $speaker->name }}</a>
-                                    </h5>
-                                    <span class="designation">{{ $speaker->title }}</span>
+                                    <div class="speaker-meta">
+                                        <h5 class="speaker__name"><a
+                                                href="{{ $speaker->getLinkedlnLink($speaker->social_media_handles) }}">{{ $speaker->name }}</a>
+                                        </h5>
+                                        <span class="designation">{{ $speaker->title }}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- single speaker item end -->
-                @endforeach
+                        <!-- single speaker item end -->
+                    @endforeach
 
+                </div>
             </div>
-        </div>
+        @endif
     </div>
     <!-- event speaker end -->
 
