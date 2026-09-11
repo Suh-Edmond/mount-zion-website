@@ -10,11 +10,9 @@
         <label for="name" class="font-semibold text-gray-900" style="font-size: medium">
             {{str_replace('_', ' ', $document->category)}}:
         </label>
-        <a class="font-semibold text-blue-800 open_document" href="{{$document->file_path}}" target="_blank"
+        <a class="font-semibold text-blue-800 open_document no-loader" href="{{$document->file_path}}" target="_blank"
             style="font-size: medium">{{$document->splitDocumentName($document->file_path)}}</a>
 
     </div>
     @endforeach
-
-
 </section>
